@@ -1,0 +1,102 @@
+{
+  "name": "rizkicitra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My Personal Website, build with React, Next.js, MDX and Tailwind CSS",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 5000",
+    "cache-clean": "rm -rf ./.next",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "postinstall": "husky install",
+    "type-check": "tsc --noEmit",
+    "postbuild": "next-sitemap --config next-sitemap.js",
+    "format": "prettier -c \"./.prettierrc.js\" -w",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "@giscus/react": "^2.2.4",
+    "@headlessui/react": "^1.7.4",
+    "@supabase/supabase-js": "^2.0.5",
+    "@tailwindcss/typography": "^0.5.8",
+    "@vercel/og": "^0.0.21",
+    "axios": "^0.26.0",
+    "clsx": "^1.1.1",
+    "framer-motion": "^7.1.0",
+    "htmr": "^1.0.2",
+    "isomorphic-fetch": "^3.0.0",
+    "jotai": "^1.6.4",
+    "mdx-prism": "^0.3.4",
+    "next": "^13.0.5",
+    "next-mdx-remote": "^4.0.3",
+    "next-pwa": "^5.6.0",
+    "next-seo": "^5.1.0",
+    "next-themes": "^0.2.1",
+    "prism-themes": "^1.9.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.6.0",
+    "react-image-lightbox": "^5.1.4",
+    "slugify": "^1.6.5",
+    "tailwind-merge": "^1.2.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.1.1",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "autoprefixer": "^10.4.13",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.28.0",
+    "eslint-config-next": "^13.0.5",
+    "gray-matter": "^4.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^12.0.2",
+    "next-sitemap": "^2.5.1",
+    "postcss": "^8.4.19",
+    "prettier": "^2.4.1",
+    "prettier-plugin-tailwindcss": "^0.1.5",
+    "reading-time": "^1.5.0",
+    "rehype-slug": "^5.0.1",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizkimcitra/rizkicitra.git"
+  },
+  "author": "Rizki Maulana Citra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rizkimcitra/rizkicitra/issues"
+  },
+  "homepage": "https://github.com/rizkimcitra/rizkicitra#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,mdx,md,css}": [
+      "yarn format \"./src/**/*.{js,jsx,ts,tsx,mdx,md,css}\""
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.01%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      ">0.01%",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
