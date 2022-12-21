@@ -15,7 +15,7 @@ export const GiscusComment = memo(() => {
         theme={gcTheme}
         emitMetadata='0'
         inputPosition='top'
-        repo='harleydica/coba.taufikcrisnawan.dev'
+        repo='harleydica/cobacoba'
         repoId='R_kgDOGh4MEw'
         category='General'
         categoryId='DIC_kwDOGh4ME84CPxWe'
