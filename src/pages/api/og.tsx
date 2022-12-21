@@ -17,7 +17,7 @@ export default async function handler(req: NextRequest) {
       (
         <div tw='flex h-[600px] py-3 px-5 bg-gray-800 text-zinc-200'>
           <div tw='flex flex-col h-full w-full justify-between'>
-            <p tw='font-bold text-3xl text-blue-500'>https://rizkicitra.dev/blog</p>
+            <p tw='font-bold text-3xl text-blue-500'>https://coba.taufikcrisnawan.dev/blog</p>
             <p tw='font-extrabold text-6xl max-w-lg'>{title}</p>
             <div tw='flex items-center'>
               <img
@@ -27,10 +27,10 @@ export default async function handler(req: NextRequest) {
                 style={{
                   objectFit: 'cover'
                 }}
-                src='https://ik.imagekit.io/mlnzyx/attachment/rizkimcitra.webp'
-                alt='Rizki M Citra'
+                src='https://ik.imagekit.io/mlnzyx/attachment/harleydica.webp'
+                alt='Taufik Crisnawan S'
               />
-              <p tw='ml-2.5 font-bold text-4xl'>Rizki M Citra</p>
+              <p tw='ml-2.5 font-bold text-4xl'>Taufik Crisnawan S</p>
             </div>
           </div>
 

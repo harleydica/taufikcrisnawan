@@ -4,11 +4,11 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "author": "Rizki Maulana Citra",
-  "name": "rizkicitra.dev",
-  "app_name": "rizkicitra.dev",
-  "short_name": "Rizki Citra",
-  "description": "Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Rizki To Share His Knowledge And Experience.",
+  "author": "Taufik Crisnawan Santosa",
+  "name": "coba.taufikcrisnawan.dev",
+  "app_name": "coba.taufikcrisnawan.dev",
+  "short_name": "Taufik Crisnawan",
+  "description": "Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Taufik To Share His Knowledge And Experience.",
   "icons": [
     {
       "src": "/icon-192x192.png",

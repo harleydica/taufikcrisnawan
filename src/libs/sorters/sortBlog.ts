@@ -1,4 +1,4 @@
-import type { Blog } from 'rizkicitra'
+import type { Blog } from 'taufikcrisnawan'
 
 /**
  * It takes two blog posts and returns 1 if the first blog post is newer than the second, -1 if the

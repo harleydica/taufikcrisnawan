@@ -1,7 +1,7 @@
 import { toLowerCase } from '@/libs/string'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { Blog } from 'rizkicitra'
+import type { Blog } from 'taufikcrisnawan'
 
 export const useSearchBlog = (blogs: Blog[]) => {
   const [query, setQ] = useState('')

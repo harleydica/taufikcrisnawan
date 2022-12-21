@@ -5,7 +5,7 @@ import { numberToCompact } from '@/libs/intl'
 import { LabelBlog } from './LabelBlog'
 
 import { HiOutlineClock, HiOutlineEye } from 'react-icons/hi'
-import type { Blog } from 'rizkicitra'
+import type { Blog } from 'taufikcrisnawan'
 
 export const BlogItem: React.FunctionComponent<Blog> = (props) => {
   const urlPost = `/blog/${props.slug}`

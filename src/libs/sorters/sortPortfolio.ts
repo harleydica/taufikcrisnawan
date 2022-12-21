@@ -1,4 +1,4 @@
-import type { Portfolio } from 'rizkicitra'
+import type { Portfolio } from 'taufikcrisnawan'
 
 /**
  * A function to sort portfolios by latest update.

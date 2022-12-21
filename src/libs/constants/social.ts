@@ -5,15 +5,15 @@ const SOCIAL = [
   },
   {
     title: 'LinkedIn',
-    href: 'https://linkedin.com/in/rizkimcitra'
+    href: 'https://linkedin.com/in/harleydica'
   },
   {
     title: 'GitHub',
-    href: 'https://github.com/rizkimcitra'
+    href: 'https://github.com/harleydica'
   },
   {
     title: 'Telegram',
-    href: 'https://t.me/rizkimcitra'
+    href: 'https://t.me/harleydica'
   }
 ]
 

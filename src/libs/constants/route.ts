@@ -23,10 +23,6 @@ export const ADDT_ROUTE = [
     name: 'Tags'
   },
   {
-    path: '/snippet',
-    name: 'Snippet'
-  },
-  {
     path: '/resume',
     name: 'Resume'
   },

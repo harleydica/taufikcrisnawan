@@ -5,7 +5,7 @@ import { dateStringToISO } from '@/libs/intl'
 import { generateOgImage } from './ogImage'
 import { SITE_NAME, SITE_URL, TWITER_USERNAME } from './type'
 
-import type { Blog } from 'rizkicitra'
+import type { Blog } from 'taufikcrisnawan'
 
 export const getMetaPageBlog = (data: Blog): CustomSeoProps => ({
   title: data.title,

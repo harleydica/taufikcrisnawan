@@ -1,6 +1,6 @@
 import { UMAMI } from './instance'
 
-import type { PageView } from 'rizkicitra'
+import type { PageView } from 'taufikcrisnawan'
 
 type GetPageViews = {
   isError: boolean

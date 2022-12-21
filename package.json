@@ -68,14 +68,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rizkimcitra/rizkicitra.git"
+    "url": "git+https://github.com/harleydica/taufikcrisnawan.git"
   },
-  "author": "Rizki Maulana Citra",
+  "author": "Taufik Crisnawan Santosa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rizkimcitra/rizkicitra/issues"
+    "url": "https://github.com/harleydica/taufikcrisnawan/issues"
   },
-  "homepage": "https://github.com/rizkimcitra/rizkicitra#readme",
+  "homepage": "https://github.com/harleydica/taufikcrisnawan#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

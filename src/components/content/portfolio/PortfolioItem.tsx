@@ -4,7 +4,7 @@ import { UnstyledLink } from '@/UI/links'
 
 import { IconStack } from './IconStack'
 
-import type { Portfolio } from 'rizkicitra'
+import type { Portfolio } from 'taufikcrisnawan'
 
 export const PortfolioItem: React.FunctionComponent<Portfolio> = (props) => {
   const urlPortfolio = `/portfolio/${props.slug}`

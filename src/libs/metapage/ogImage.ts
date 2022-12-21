@@ -1,4 +1,4 @@
-import type { genOgImagePayload } from 'rizkicitra'
+import type { genOgImagePayload } from 'taufikcrisnawan'
 
 export const generateOgImage = (payload: genOgImagePayload) => {
   const hyperLogo = {

@@ -1,4 +1,4 @@
-declare module 'rizkicitra' {
+declare module 'taufikcrisnawan' {
   /** Type used for blog post or meta data for blog */
   export type Blog = {
     title: string
@@ -28,16 +28,6 @@ declare module 'rizkicitra' {
       github: string
       live: string
     }
-  }
-  /** Type used for snippet or meta data for snippet */
-  export type Snippet = {
-    title: string
-    summary: string
-    topic: string
-    created_at: string
-    slug: string
-    author: string
-    github_username: string
   }
   /** Payload for utils to generate og image, return value will be a string from https://og-image.vercel.app */
   export type genOgImagePayload = {

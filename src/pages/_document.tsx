@@ -16,18 +16,6 @@ export default class CustomDocument extends Document {
           <link rel='shortcut icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='manifest' href='/manifest.json' />
-          {process.env.NODE_ENV === 'production' && (
-            <Script
-              async
-              defer
-              strategy='afterInteractive'
-              data-do-not-track='true'
-              // please change to your data website id
-              data-website-id='6daf05f5-92d2-430f-9cdd-1801014260da'
-              // change to your hosted umami app
-              src='https://umami.rizkicitra.dev/umami.js'
-            />
-          )}
         </Head>
         <body>
           <Main />

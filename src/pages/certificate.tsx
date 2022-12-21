@@ -15,13 +15,13 @@ const meta = getMetaPage({
   title: 'Certificate',
   description:
     "A collection of certificates I've earned, most of them are from finishing a course, you might want to take a look, click the certificate to zoom in.",
-  keywords: ['certificate', 'certificates', 'rizkicitra.dev'],
+  keywords: ['certificate', 'certificates', 'coba.taufikcrisnawan.dev'],
   og_image: generateOgImage({
     title: 'Certificate',
     subTitle: "A collection of certificate I've earned",
     theme: 'dark'
   }),
-  og_image_alt: 'Certificate — rizkicitra.dev',
+  og_image_alt: 'Certificate — coba.taufikcrisnawan.dev',
   slug: '/certificate',
   type: 'website'
 })
