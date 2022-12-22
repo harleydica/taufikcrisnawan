@@ -67,21 +67,6 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
               <p>
                 I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
               </p>
-
-                <div>
-                <style jsx>
-                  {`
-                    blockquote {
-                      border-image: linear-gradient(to bottom, #3b82f6, #14b8a6) 1;
-                    }
-                  `}
-                </style>
-                <p className={twclsx('text-theme-700 dark:text-theme-200')}>
-                  خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-                  <br></br>
-                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain. ~ HR. Tirmidzi
-                </p>
-                </div>
             </div>
           </div>
         </section>
