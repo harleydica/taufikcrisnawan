@@ -10,7 +10,7 @@ import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
 
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
-import type { Blog, Portfolio } from 'taufikcrisnawan'
+import type { Blog, Portfolio } from 'rizkicitra'
 
 interface HomePageProps {
   blogs: Array<Blog>
@@ -22,8 +22,8 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
     title: 'Taufik Crisnawan Santosa',
     template: 'Student And Tech Enthusiast',
     description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
-    keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'taufikcrisnawan', 'Taufik Crisnawan', 'coba.taufikcrisnawan.dev'],
-    og_image: `https://ik.imagekit.io/taufik/profile.jpg`,
+    keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'Taufik Crisnawan S', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
+    og_image: `https://ik.imagekit.io/taufik/profile.webp`,
     og_image_alt: 'Taufik Crisnawan Santosa',
     slug: '/',
     type: 'website'
@@ -38,12 +38,12 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         <section className='flex flex-col'>
           <div className='relative flex h-14 md:h-16'>
             <ContentImage
-              src='https://ik.imagekit.io/taufik/profile.jpg'
+              src='https://ik.imagekit.io/taufik/profile.webp'
               alt='Taufik Crisnawan Santosa'
               width={128}
               height={128}
               className='rounded-full absolute left-1 bottom-0.5 border-4 cursor-pointer border-theme-50 dark:border-theme-900'
-              title="Taufik Crisnawan's Face"
+              title="Taufik Face"
               quality={100}
               priority
             />
@@ -66,6 +66,29 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
 
               <p>
                 I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
+              </p>
+
+              <p>
+                I am passionate about <strong>Frontend Development</strong> and enjoy working on the Web. I love
+                combining my technical knowledge and creativity to build engaging and user-friendly websites and
+                applications.
+              </p>
+
+              <p>
+                I&apos;m very interested with <strong>Frontend Architecture</strong>,{' '}
+                <strong>Frontend Accessibility</strong>, and <strong>User Experience</strong>, and also interested in
+                mobile development with Kotlin .
+              </p>
+
+              <p>
+                <strong>As a person</strong>, <strong>I am constantly striving to improve myself</strong> and{' '}
+                <strong>become a better person</strong>. I believe that <em>growth and personal development</em> are
+                important aspects of a <strong>fulfilling life</strong>.
+              </p>
+
+              <p>
+                On this website, I like to share my <strong>various thoughts</strong> about web development related
+                topics, general daily life and a place for <strong>showcasing my portfolio</strong>.
               </p>
             </div>
           </div>
