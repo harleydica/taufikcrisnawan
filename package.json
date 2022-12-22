@@ -68,14 +68,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobacoba.git"
+    "url": "git+https://github.com/harleydica/cobacoba.git"
   },
   "author": "Taufik Crisnawan Santosa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cobacoba/issues"
+    "url": "https://github.com/harleydica/cobacoba/issues"
   },
-  "homepage": "https://github.com/cobacoba#readme",
+  "homepage": "https://github.com/harleydica/cobacoba#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
