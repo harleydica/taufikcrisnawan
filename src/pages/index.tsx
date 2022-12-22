@@ -10,7 +10,7 @@ import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
 
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
-import type { Blog, Portfolio } from 'rizkicitra'
+import type { Blog, Portfolio } from 'taufikcrisnawan'
 
 interface HomePageProps {
   blogs: Array<Blog>
@@ -19,12 +19,12 @@ interface HomePageProps {
 
 const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
   const meta = getMetaPage({
-    title: 'Taufik Crisnawan Santosa',
-    template: 'Student And Tech Enthusiast',
-    description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
-    keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'Taufik Crisnawan S', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
-    og_image: `https://ik.imagekit.io/taufik/profile.webp`,
-    og_image_alt: 'Taufik Crisnawan Santosa',
+    title: 'Rizki Maulana Citra',
+    template: 'Student And Frontend Developer',
+    description: `Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Rizki To Share His Knowledge And Experience.`,
+    keywords: ['Rizki Maulana Citra', 'Rizki M Citra', 'Rizkicitra', 'Rizki Citra', 'rizkicitra.dev'],
+    og_image: `https://ik.imagekit.io/mlnzyx/attachment/tr:w-720,h-720,f-auto/rizkimcitra.webp`,
+    og_image_alt: 'Rizki Maulana Citra',
     slug: '/',
     type: 'website'
   })
@@ -38,12 +38,12 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         <section className='flex flex-col'>
           <div className='relative flex h-14 md:h-16'>
             <ContentImage
-              src='https://ik.imagekit.io/taufik/profile.webp'
-              alt='Taufik Crisnawan Santosa'
+              src='https://ik.imagekit.io/mlnzyx/attachment/tr:w-720,h-720,f-auto/rizkimcitra.webp'
+              alt='Rizki Maulana Citra'
               width={128}
               height={128}
               className='rounded-full absolute left-1 bottom-0.5 border-4 cursor-pointer border-theme-50 dark:border-theme-900'
-              title="Taufik Face"
+              title="Rizki Citra's Face"
               quality={100}
               priority
             />
@@ -51,21 +51,20 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           </div>
 
           <div className='mt-3 md:mt-6'>
-            <h1>Taufik Crisnawan Santosa</h1>
+            <h1>Rizki Maulana Citra</h1>
             <h2 className='max-w-max mb-7 text-transparent font-bold text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-primary-500 to-ternary-500 dark:text-transparent'>
-              Student &amp; Tech Enthusiast
+              Student &amp; Frontend Developer
             </h2>
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
               <p>
-                Hello👋, I'm Taufik Crisnawan Santosa, a student of SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication).
-                Interested in the world of Networking and a little like Programing which has become my hobby.
-                On the other hand, I also like to make a documentation about what I do, this is where I tell everything.
-                Welcome to my website where you can find my work, Certificate, blog and more 😄.
+                Hello👋, I&apos;m Rizki Maulana Citra, a guy who loves to code, music and coffee. Welcome to my personal
+                website, where you can find my portfolio, blog and more.
               </p>
 
               <p>
-                I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
+                As a <strong>self-taught developer</strong>, I started learning web development when I was in 12th grade
+                and have been gradually improving my skills over time.
               </p>
 
               <p>
