@@ -1,19 +1,23 @@
 const SOCIAL = [
   {
     title: 'Email',
-    href: 'mailto: rmaulana.citra@gmail.com?subject='
+    href: 'mailto: taufiklah87@gmail.com?subject='
   },
   {
     title: 'LinkedIn',
-    href: 'https://linkedin.com/in/harleydica'
+    href: 'https://linkedin.com/in/harleydica/'
   },
   {
     title: 'GitHub',
     href: 'https://github.com/harleydica'
   },
   {
-    title: 'Telegram',
-    href: 'https://t.me/harleydica'
+    title: 'Instagram',
+    href: 'https://instagram.com/taufikntz22'
+  },
+  {
+    title: 'WhatsApp',
+    href: 'https://wa.me/628985383531'
   }
 ]
 

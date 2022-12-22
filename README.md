@@ -1,6 +1,6 @@
 # <p align="center">coba.taufikcrisnawan.dev</p>
 
-<p align="center">Personal Website, Online Portfolio And Blog. An Online Space For Me To Share My Knowledge And Experience.</p>
+<p align="center">Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.</p>
 
 ### Built with
 
@@ -29,3 +29,9 @@
 ## Commiting
 
 This repo uses conventional commit, when commiting, please do `yarn commit` instead of `git commit -m`. There you will find each context to your current changes.
+
+## Big Thanks
+
+Muhammad Ichsan who has helped me guide the creation of my personal website.
+
+And also Rizki M Citra who has provided this personal website template, so I can use it

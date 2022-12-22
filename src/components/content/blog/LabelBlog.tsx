@@ -12,7 +12,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
   const type = toLowerCase(props.type)
 
   switch (type) {
-    case 'devlife':
+    case 'cisco':
       return (
         <span
           className={twclsx(
@@ -25,7 +25,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
         </span>
       )
 
-    case 'react':
+    case 'tutorial':
       return (
         <span
           className={twclsx(baseClass, 'text-sky-700 bg-sky-100 dark:text-sky-100 dark:bg-sky-900', props.className)}
@@ -34,7 +34,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
         </span>
       )
 
-    case 'nextjs':
+    case 'mikrotik':
       return (
         <span
           className={twclsx(

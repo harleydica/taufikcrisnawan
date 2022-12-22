@@ -7,7 +7,7 @@ export const HEADLINE = {
 }
 
 export const LINKS: typeof SOCIAL = [
-  ...SOCIAL.filter((s) => s.title !== 'Telegram'),
+  ...SOCIAL.filter((s) => s.title !== 'Instagram'),
   {
     href: 'https://coba.taufikcrisnawan.dev',
     title: 'Website'
@@ -19,46 +19,23 @@ export const LINKS: typeof SOCIAL = [
 ]
 
 export const SKILLS = [
-  `Knowledgeable in web standards and best practices, including HTML, CSS, and JavaScript. Also use TypeScript for type safety, and implement best practices to ensure the highest level of quality and reliability.`,
-  `Implement React Query to synchronize data between the server and client, ensuring that users have access to the latest information while maintaining optimal application performance."`,
-  `Proficient in frontend technologies, particularly within the React.js ecosystem, including React.js, and Next.js.`,
-  `Skilled in UI development, accessibility, user experience, and performance optimization.`,
-  `Able to adapt to new technologies and maintain best practices. Committed to delivering high-quality, user-centered, and scalable web applications.`,
-  `Familiar with design tools such as Figma.`
+  `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
 ]
 
 export const KEY_SKILLS = [
-  `As a professional, I am proficient in Continuous Integration & Continuous Deployment, and I am well-versed in the Design Thinking Process.`,
-  `I am also skilled in Critical Thinking & Problem Solving, and I am committed to creating accessible Frontend Applications.`,
-  `I am highly adaptable and thrive in team-oriented environments. I am also known for my creativity and ability to approach tasks and challenges with an innovative mindset.`
+  `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
 ]
 
 export const EXPERIENCE: Experience[] = [
   {
-    companyName: 'Skyshi Digital Indonesia',
-    role: 'Frontend Developer',
+    companyName: 'Company Name',
+    role: 'Role',
     period: {
       start: 'April, 2022',
       end: 'Present'
     },
     lists: [
-      `Responsible to build internal and external application, mostly external client from local to international with modern web app technology with React and Next.js`,
-      `Responsible to deliver fast and optimized application, write browser backward compatibility with babel, deliver responsive-friendly and cross browser application with autoprefixer and postcss.`,
-      `Develop and maintain features from low to high impact, make sure to deliver high user experience frontend application that passed web accessibility standard.`,
-      `Write clean and maintainable code with TypeScript.`
-    ]
-  },
-  {
-    companyName: 'Skyshi Digital Indonesia',
-    role: 'Frontend Developer Intern',
-    period: {
-      start: 'January, 2021',
-      end: 'March, 2022'
-    },
-    lists: [
-      `Responsible to develop specific features on internal project using React.js, Vue.js and Chakra UI.`,
-      `Deliver responsive-friendly and cross browser application with autoprefixer and postcss.`,
-      `Slicing design from figma to React component for CV template on <a href='https://gethired.id/cv-online'>gethired.id</a>.`
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
     ]
   }
 ]
@@ -75,27 +52,37 @@ type Education = Array<{
 
 export const EDUCATION: Education = [
   {
-    school: 'Computer and Informatics Management Academy of Serang',
+    school: 'Vocational High School of 2 Depok',
     period: {
-      start: 'September, 2021',
+      start: 'June, 2020',
       end: 'Present'
     },
-    paragraphs: ['Semester 3 of Informatics Management Student.', 'Current GPA: 3.50.']
+    paragraphs: ['Semester 5, Information Networking System and Aplication'],
+    list: {
+      title: 'Honorable Award:',
+      listItem: ['Student Competency and Expertise Test on building web app with PHP and MySQL.']
+    }
   },
   {
-    school: 'Vocational High School of 8 Pandeglang',
+    school: 'Junior High School of 5 Depok',
     period: {
-      start: 'July, 2018',
-      end: 'May, 2021'
+      start: 'September, 2017',
+      end: 'Mei, 2020'
     },
-    paragraphs: ['Choosing Software Engineering as my main major.', 'Graduated in May, 2021.']
+    paragraphs: ['Graduated in May, 2020.']
+  },
+  {
+    school: 'Primary School of 5 Depok',
+    period: {
+      start: 'April, 2011',
+      end: 'August, 2017'
+    },
+    paragraphs: ['Graduated in July, 2017.']
   }
 ]
 
 export const SUMMARY = [
-  `Experienced frontend developer with a strong background in modern web technologies, particularly within the React.js ecosystem. Skilled in UI development, accessibility, user experience, and performance optimization, with a focus on creating scalable, optimized, and user-friendly applications.`,
-  `Adept at working in agile environments and collaborating with teams to drive process efficiencies and deliver high-quality results. Committed to delivering exceptional user experiences and maximizing the impact of web applications.`,
-  `Continuously seeking to learn and explore new technologies and best practices, while also staying focused on meeting responsibilities and delivering results.`
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 ]
 
 export const LANGUAGES = [
