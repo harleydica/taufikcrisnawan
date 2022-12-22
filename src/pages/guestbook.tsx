@@ -28,7 +28,7 @@ const meta = getMetaPage({
     'Guestbook message',
     'Taufik Crisnawan Santosa',
     'Taufik Crisnawan Santosa',
-    'Guestbook Taufik Crisnawan S',
+    'Guestbook Taufik Crisnawan Santosa',
     'Guestbook Taufik Crisnawan Santosa'
   ],
   og_image: generateOgImage({

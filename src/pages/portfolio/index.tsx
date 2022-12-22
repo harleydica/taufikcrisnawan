@@ -25,7 +25,7 @@ const meta = getMetaPage({
   description: `A selection of my personal works. I've included samples to showcase my skills and experience. Take a look around and let me know what you think. I'm always open to feedback and opportunities to collaborate.`,
   keywords: [
     'Taufik Crisnawan Santosa portfolio',
-    'Taufik Crisnawan S portfolio',
+    'Taufik Crisnawan Santosa portfolio',
     'taufikcrisnawan porfolio',
     'Taufik Crisnawan portfolio',
     'coba.taufikcrisnawan.dev'

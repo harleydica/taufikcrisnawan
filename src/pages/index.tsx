@@ -22,7 +22,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
     title: 'Taufik Crisnawan Santosa',
     template: 'Student And Frontend Developer',
     description: `Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Taufik To Share His Knowledge And Experience.`,
-    keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan S', 'taufikcrisnawan', 'Taufik Crisnawan', 'coba.taufikcrisnawan.dev'],
+    keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'taufikcrisnawan', 'Taufik Crisnawan', 'coba.taufikcrisnawan.dev'],
     og_image: `https://ik.imagekit.io/mlnzyx/attachment/tr:w-720,h-720,f-auto/harleydica.webp`,
     og_image_alt: 'Taufik Crisnawan Santosa',
     slug: '/',
