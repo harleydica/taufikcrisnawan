@@ -7,6 +7,7 @@ import { GetContents, getContents } from '@/services'
 
 import { getMetaPage } from '@/libs/metapage'
 import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
+import { twclsx } from '@/libs/twclsx'
 
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
