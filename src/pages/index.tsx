@@ -82,7 +82,9 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
                 <p className={twclsx('text-theme-700 dark:text-theme-200')}>
                   خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
                   <br></br>
-                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain. ~ HR. Tirmidzi
+                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain. 
+                  <br></br>
+                  ~ HR. Tirmidzi
                 </p>
               </blockquote>
 

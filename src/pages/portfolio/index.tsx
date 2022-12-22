@@ -28,10 +28,10 @@ const meta = getMetaPage({
     'Taufik Crisnawan Santosa portfolio',
     'taufikcrisnawan porfolio',
     'Taufik Crisnawan portfolio',
-    'coba.taufikcrisnawan.dev'
+    'taufikcrisnawan.dev'
   ],
-  og_image: generateOgImage({ title: 'Portfolio - coba.taufikcrisnawan.dev', subTitle: 'Take a look at my personal portfolio' }),
-  og_image_alt: 'Portfolio — coba.taufikcrisnawan.dev',
+  og_image: generateOgImage({ title: 'Portfolio - taufikcrisnawan.dev', subTitle: 'Take a look at my personal portfolio' }),
+  og_image_alt: 'Portfolio — taufikcrisnawan.dev',
   slug: '/portfolio',
   type: 'website'
 })

@@ -36,7 +36,7 @@ const meta = getMetaPage({
     subTitle: "Leave whatever message you'd like on my website",
     theme: 'dark'
   }),
-  og_image_alt: 'Guestbook - coba.taufikcrisnawan.dev',
+  og_image_alt: 'Guestbook - taufikcrisnawan.dev',
   slug: '/guestbook',
   type: 'website'
 })

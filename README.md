@@ -1,4 +1,4 @@
-# <p align="center">coba.taufikcrisnawan.dev</p>
+# <p align="center">taufikcrisnawan.dev</p>
 
 <p align="center">Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.</p>
 

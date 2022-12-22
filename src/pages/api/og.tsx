@@ -17,7 +17,7 @@ export default async function handler(req: NextRequest) {
       (
         <div tw='flex h-[600px] py-3 px-5 bg-gray-800 text-zinc-200'>
           <div tw='flex flex-col h-full w-full justify-between'>
-            <p tw='font-bold text-3xl text-blue-500'>https://coba.taufikcrisnawan.dev/blog</p>
+            <p tw='font-bold text-3xl text-blue-500'>https://taufikcrisnawan.dev/blog</p>
             <p tw='font-extrabold text-6xl max-w-lg'>{title}</p>
             <div tw='flex items-center'>
               <img

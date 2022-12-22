@@ -15,10 +15,10 @@ export const GiscusComment = memo(() => {
         theme={gcTheme}
         emitMetadata='0'
         inputPosition='top'
-        repo='harleydica/cobacoba'
-        repoId='R_kgDOIp5zBA'
+        repo='harleydica/taufikcrisnawan'
+        repoId='R_kgDOH998PQ'
         category='General'
-        categoryId='DIC_kwDOIp5zBM4CTMbn'
+        categoryId='DIC_kwDOH998Pc4CTN2a'
         mapping='pathname'
         reactionsEnabled='0'
         loading='lazy'

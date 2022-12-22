@@ -27,12 +27,12 @@ type BlogPageProps = {
 const meta = getMetaPage({
   title: 'Blog',
   description: `You'll find a collection of my thoughts and musings on a variety of topics. I write about everything from current events to personal experiences, and I always strive to share my honest opinions. Keep in mind that my views are my own and do not necessarily reflect those of any other person or organization.`,
-  keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'taufikcrisnawan', 'Taufik Crisnawan', 'coba.taufikcrisnawan.dev'],
+  keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
   og_image: generateOgImage({
-    title: 'Blog - coba.taufikcrisnawan.dev',
+    title: 'Blog - taufikcrisnawan.dev',
     subTitle: 'Any thought I think interesting to share on my personal site'
   }),
-  og_image_alt: 'Blog — coba.taufikcrisnawan.dev',
+  og_image_alt: 'Blog — taufikcrisnawan.dev',
   slug: '/blog',
   type: 'website'
 })
@@ -45,7 +45,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
     if (typeof window === 'undefined' || !isProd) return
     ;(async () => {
       try {
-        await axios.get(`https://coba.taufikcrisnawan.dev/api/revalidate?slug=/blog&secret=${SECRET_KEY}`)
+        await axios.get(`https://taufikcrisnawan.dev/api/revalidate?slug=/blog&secret=${SECRET_KEY}`)
       } catch (err) {
         console.info('Could not revalidate')
       }
@@ -103,7 +103,7 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
       }
     }
 
-  const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://coba.taufikcrisnawan.dev'
+  const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
 
   const blogs: Blog[] = []
 

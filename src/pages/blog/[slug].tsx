@@ -44,7 +44,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       if (isDev) return
       ;(async () => {
         try {
-          const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://coba.taufikcrisnawan.dev'
+          const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
           const res = await axios.get<PageViewResponse>(baseURL + '/api/pageviews?slug=' + header.slug)
           const view = res.data.view ?? 0
           setPostViews(view)

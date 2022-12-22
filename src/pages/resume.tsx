@@ -19,8 +19,8 @@ const meta = getMetaPage({
   description:
     "Personal resume that I build on the web, I use my creativity to build my personal resume on the web instead on a regular 'paper'.",
   keywords: ['Taufik Crisnawan Santosa', 'resume', 'curriculum vitae', 'Taufik Crisnawan cv', 'Taufik Crisnawan Santosa resume'],
-  og_image: generateOgImage({ title: 'Resume - coba.taufikcrisnawan.dev', subTitle: 'Take a look at my resume' }),
-  og_image_alt: 'Resume — coba.taufikcrisnawan.dev',
+  og_image: generateOgImage({ title: 'Resume - taufikcrisnawan.dev', subTitle: 'Take a look at my resume' }),
+  og_image_alt: 'Resume — taufikcrisnawan.dev',
   slug: '/resume',
   type: 'website'
 })

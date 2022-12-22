@@ -9,11 +9,11 @@ export const HEADLINE = {
 export const LINKS: typeof SOCIAL = [
   ...SOCIAL.filter((s) => s.title !== 'Instagram'),
   {
-    href: 'https://coba.taufikcrisnawan.dev',
+    href: 'https://taufikcrisnawan.dev',
     title: 'Website'
   },
   {
-    href: 'https://coba.taufikcrisnawan.dev/blog',
+    href: 'https://taufikcrisnawan.dev/blog',
     title: 'Blog'
   }
 ]
