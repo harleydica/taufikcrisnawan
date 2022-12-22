@@ -20,10 +20,10 @@ interface HomePageProps {
 const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
   const meta = getMetaPage({
     title: 'Taufik Crisnawan Santosa',
-    template: 'Student And Frontend Developer',
-    description: `Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Taufik To Share His Knowledge And Experience.`,
+    template: 'Student And Tech Enthusiast',
+    description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
     keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'taufikcrisnawan', 'Taufik Crisnawan', 'coba.taufikcrisnawan.dev'],
-    og_image: `https://ik.imagekit.io/mlnzyx/attachment/tr:w-720,h-720,f-auto/harleydica.webp`,
+    og_image: `https://ik.imagekit.io/taufik/profile.jpg`,
     og_image_alt: 'Taufik Crisnawan Santosa',
     slug: '/',
     type: 'website'
@@ -38,7 +38,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         <section className='flex flex-col'>
           <div className='relative flex h-14 md:h-16'>
             <ContentImage
-              src='https://ik.imagekit.io/mlnzyx/attachment/tr:w-720,h-720,f-auto/harleydica.webp'
+              src='https://ik.imagekit.io/taufik/profile.jpg'
               alt='Taufik Crisnawan Santosa'
               width={128}
               height={128}
@@ -53,42 +53,36 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           <div className='mt-3 md:mt-6'>
             <h1>Taufik Crisnawan Santosa</h1>
             <h2 className='max-w-max mb-7 text-transparent font-bold text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-primary-500 to-ternary-500 dark:text-transparent'>
-              Student &amp; Frontend Developer
+              Student &amp; Tech Enthusiast
             </h2>
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
               <p>
-                Hello👋, I&apos;m Taufik Crisnawan Santosa, a guy who loves to code, music and coffee. Welcome to my personal
-                website, where you can find my portfolio, blog and more.
+                Hello👋, I'm Taufik Crisnawan Santosa, a student of SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication).
+                Interested in the world of Networking and a little like Programing which has become my hobby.
+                On the other hand, I also like to make a documentation about what I do, this is where I tell everything.
+                Welcome to my website where you can find my work, Certificate, blog and more 😄.
               </p>
 
               <p>
-                As a <strong>self-taught developer</strong>, I started learning web development when I was in 12th grade
-                and have been gradually improving my skills over time.
+                I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
               </p>
 
-              <p>
-                I am passionate about <strong>Frontend Development</strong> and enjoy working on the Web. I love
-                combining my technical knowledge and creativity to build engaging and user-friendly websites and
-                applications.
-              </p>
+              <blockquote>
+                <style jsx>
+                  {`
+                    blockquote {
+                      border-image: linear-gradient(to bottom, #3b82f6, #14b8a6) 1;
+                    }
+                  `}
+                </style>
+                <p className={twclsx('text-theme-700 dark:text-theme-200')}>
+                  خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
+                  <br></br>
+                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain. ~ HR. Tirmidzi
+                </p>
+              </blockquote>
 
-              <p>
-                I&apos;m very interested with <strong>Frontend Architecture</strong>,{' '}
-                <strong>Frontend Accessibility</strong>, and <strong>User Experience</strong>, and also interested in
-                mobile development with Kotlin .
-              </p>
-
-              <p>
-                <strong>As a person</strong>, <strong>I am constantly striving to improve myself</strong> and{' '}
-                <strong>become a better person</strong>. I believe that <em>growth and personal development</em> are
-                important aspects of a <strong>fulfilling life</strong>.
-              </p>
-
-              <p>
-                On this website, I like to share my <strong>various thoughts</strong> about web development related
-                topics, general daily life and a place for <strong>showcasing my portfolio</strong>.
-              </p>
             </div>
           </div>
         </section>
