@@ -23,7 +23,7 @@ export default class CustomDocument extends Document {
               strategy='afterInteractive'
               data-do-not-track='true'
               // please change to your data website id
-              data-website-id='71845928-5855-4e0c-8be2-5924c29e3d49'
+              data-website-id='ed4514ff-0629-43ad-bff0-5bba16e9f785'
               // change to your hosted umami app
               src='https://umami.taufikcrisnawan.dev/umami.js'
             />
