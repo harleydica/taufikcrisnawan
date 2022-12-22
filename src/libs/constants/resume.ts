@@ -60,7 +60,7 @@ export const EDUCATION: Education = [
     paragraphs: ['Semester 5, Information Networking System and Aplication'],
     list: {
       title: 'Honorable Award:',
-      listItem: ['Student Competency and Expertise Test on building web app with PHP and MySQL.']
+      listItem: ['Student Competency']
     }
   },
   {
@@ -72,7 +72,7 @@ export const EDUCATION: Education = [
     paragraphs: ['Graduated in May, 2020.']
   },
   {
-    school: 'Primary School of 5 Depok',
+    school: 'Primary School of Nogopuro',
     period: {
       start: 'April, 2011',
       end: 'August, 2017'
