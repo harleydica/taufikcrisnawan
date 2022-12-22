@@ -59,13 +59,18 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
               <p>
-                Hello👋, I&apos;m Taufik Crisnawan Santosa, a student at SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication). Welcome to my website where you can find my portfolio, Certificate, blog and more.
+                Hello👋, I&apos;m Taufik Crisnawan Santosa, a student at SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication).
               </p>
 
               <p>
                 Interested in the world of Technology and a little like Programing which has become my hobby, besides that I also like to make a documentation about what I do, this is where I tell everything. I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
               </p>
 
+              <p>
+                Welcome to my website where you can find my portfolio, Certificate, blog and more. Enjoy 😄
+              </p>
+
+              <br></br>
               <blockquote>
                 <style jsx>
                   {`
