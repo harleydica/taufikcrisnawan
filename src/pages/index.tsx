@@ -68,7 +68,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
                 I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
               </p>
 
-              <blockquote>
+                <div>
                 <style jsx>
                   {`
                     blockquote {
@@ -81,8 +81,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
                   <br></br>
                   Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain. ~ HR. Tirmidzi
                 </p>
-              </blockquote>
-
+                </div>
             </div>
           </div>
         </section>
