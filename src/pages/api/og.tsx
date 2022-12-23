@@ -27,7 +27,7 @@ export default async function handler(req: NextRequest) {
                 style={{
                   objectFit: 'cover'
                 }}
-                src='https://ik.imagekit.io/mlnzyx/attachment/harleydica.webp'
+                src='https://ik.imagekit.io/taufik/profile/IMG-20220928.webp'
                 alt='Taufik Crisnawan Santosa'
               />
               <p tw='ml-2.5 font-bold text-4xl'>Taufik Crisnawan Santosa</p>
@@ -35,7 +35,7 @@ export default async function handler(req: NextRequest) {
           </div>
 
           <img
-            src='https://ik.imagekit.io/mlnzyx/attachment/icon-192x192_OIe1oiGnQ.webp'
+            src='https://ik.imagekit.io/taufik/profile/icon-192x192.webp'
             alt='logo'
             width='128'
             height='128'
