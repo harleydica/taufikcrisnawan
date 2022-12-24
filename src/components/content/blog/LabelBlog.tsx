@@ -114,7 +114,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
         </span>
       )
 
-    case 'state management':
+    case 'VPN':
       return (
         <span
           className={twclsx(baseClass, 'text-rose-700 bg-rose-100 dark:text-rose-50 dark:bg-rose-800', props.className)}
