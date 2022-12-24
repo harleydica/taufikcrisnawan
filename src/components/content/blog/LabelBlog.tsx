@@ -25,7 +25,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
         </span>
       )
 
-    case 'network':
+    case 'mikrotik':
       return (
         <span
           className={twclsx(baseClass, 'text-sky-700 bg-sky-100 dark:text-sky-100 dark:bg-sky-900', props.className)}
