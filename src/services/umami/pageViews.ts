@@ -32,7 +32,7 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
 
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
-  const blogURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date.getTime()}&url=/blog/${slug}`
+  const articleURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date.getTime()}&url=/blog/${slug}`
   const blogURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date.getTime()}&url=/blog/${slug}`
 
   let responseArticle = {
@@ -51,7 +51,7 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
 
   /* Making two requests to the Umami API, one for the article and one for the blog, and then merges the
  data and returns it */
-  const res = await Promise.allSettled([UMAMI.get<PageView>(blogURL, config), UMAMI.get<PageView>(blogURL, config)])
+  const res = await Promise.allSettled([UMAMI.get<PageView>(blogURL, config), UMAMI.get<PageView>(articleURL, config)])
 
   /* Checking if the first request was successful, and if it was, it is assigning the data to the
   responseArticle variable. */
