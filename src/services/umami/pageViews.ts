@@ -50,8 +50,8 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
 
   /* Checking if the second request was successful, and if it was, it is assigning the data to the
     responseBlog variable. */
-  if (res[1].status === 'fulfilled') {
-    responseBlog = res[1].value.data
+  if (res[0].status === 'fulfilled') {
+    responseBlog = res[0].value.data
   }
 
   /* Taking the two objects, responseArticle and responseBlog, and putting them into an array, and then
