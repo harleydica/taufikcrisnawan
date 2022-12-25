@@ -110,7 +110,8 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
   const requests = response.map(async (r) => {
     const res = await axios.get<PageViewResponse>(baseURL + '/api/pageviews?slug=' + r.header.slug)
     const est_read = readingTime(r.content).text
-    const views = res.data.view ?? 0
+    const view = res.data.view
+    const views = view ?? 0
 
     return { ...r.header, views, est_read } as Blog
   })
