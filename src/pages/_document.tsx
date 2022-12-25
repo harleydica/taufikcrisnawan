@@ -29,14 +29,6 @@ export default class CustomDocument extends Document {
             />
 
           )}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS5DBWC0GB"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);{'}'}
-            gtag('js', new Date());
-
-            gtag('config', 'G-JS5DBWC0GB');
-          </script>
         </Head>
         <body>
           <Main />
