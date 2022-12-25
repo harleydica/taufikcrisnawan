@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const config = { headers: { Authorization: 'Bearer ' + token } };
 
-  const settles = await newFunction(firtsDeployedAppAtMs, end_date, slug, config);
+  const settles = await newFunction();
 
   settles.forEach((settle) => {
     if (settle.status === 'fulfilled') {
@@ -43,15 +43,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   });
 
   return res.status(200).json({ message: 'Retrieved succesfully', view });
-}
-async function newFunction(firtsDeployedAppAtMs: number, end_date: Date, slug: any, config: { headers: { Authorization: string; }; }) {
-  const articleURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/article/${slug.toString()}`;
-  const blogURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`;
 
-  const settles = await Promise.allSettled([
-    UMAMI.get<PageView>(articleURL, config),
-    UMAMI.get<PageView>(blogURL, config)
-  ]);
-  return settles;
-}
+  async function newFunction() {
+    const articleURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/article/${slug.toString()}`;
+    const blogURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`;
 
+    const settles = await Promise.allSettled([
+      UMAMI.get<PageView>(articleURL, config),
+      UMAMI.get<PageView>(blogURL, config)
+    ]);
+    return settles;
+  }
+}
