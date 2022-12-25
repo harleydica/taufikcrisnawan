@@ -28,7 +28,7 @@ Pertama, buka router/ONT ZTE F609 Indihome biasanya dengan default IP [192.168.1
 ![Login Page](https://ik.imagekit.io/taufik/port-forwarding/login-page.png 'Login Page')
 ![Tampilan Awal](https://ik.imagekit.io/taufik/port-forwarding/page.png 'Tampilan Awal')
 
-Setelah berhasil login, buka menu **Aplicatition => Port Forwarding**.
+Setelah berhasil login, buka menu **Application => Port Forwarding**.
 ![Menu Port Forwarding](https://ik.imagekit.io/taufik/port-forwarding/menu-port-forwarding.png 'Menu Port Forwarding')
 
 Sebagai contoh ketika ingin memforward port 80 (HTTP) ke IP 192.168.1.201 Webserver yang berada di jaringan lokal.
@@ -36,13 +36,14 @@ Sebagai contoh ketika ingin memforward port 80 (HTTP) ke IP 192.168.1.201 Webser
 
 Berikut yang perlu disini
 * Enable => Checklist untuk menghidupkan Port Forwarding
-* Name => Isikan nama apa saja suka elo
+* Name => Isikan nama apa saja bebas
 * Protocol => Protocol jaringan yang digunakan, karena ingin forward HTTP maka gunakan TCP 
 * WAN Start Port => Port awal yang dibuka
 * WAN End Port => Port akhir yang dibuka
 * LAN Host IP Address => IP Local yang ingin diforward
 * LAN Host Start Port => Port awal LAN yang dibuka
 * LAN Host End Port => Port akhir LAN yang dibuka
+
 Jika sudah klik **Add** untuk menyimpan port forwarding
 
 Wah kita sudah melakukan port forwarding pada perangkat router ZTE F609 (modem Indihome), setiap request port 80 (HTTP) dari internet ke IP Public router maka akan di forward ke IP Lokal 192.168.1.201 yang menggunakan protokol HTTP:80. TERIMAKASIH😉

@@ -29,13 +29,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const slug = req.query.slug
   const end_date = new Date()
-  const firtsDeployedAppAtMs = 1660000000000
+  const firtsDeployedAppAtMs = 1645722000000
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 
+  const articleURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/article/${slug.toString()}`
   const blogURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
   const settles = await Promise.allSettled([
+    UMAMI.get<PageView>(articleURL, config),
     UMAMI.get<PageView>(blogURL, config)
   ])
 
