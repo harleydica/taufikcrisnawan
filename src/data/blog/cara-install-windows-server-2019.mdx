@@ -1,0 +1,126 @@
+---
+title: 'Cara Install Windows Server 2019'
+summary: 'Cara Install Windows Server 2019, windows server operationg server yang dirancang Microsoft seperti windows 10. Mau tau caranya? Ikuti tutorial ini sampai selesai😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '12/27/2022'
+topics: ['operating system']
+keywords:
+  [
+    'windows server 2019',
+    'operating system',
+    'windows',
+    'windows server',
+    'os',
+    'microsoft'
+  ]
+related: []
+---
+
+Jaman teknologi sekarang tidak asing lagi dengan server, namun ada banyak operating system yang menyediakan berbagai layanan salah satunya **Windows Server**. Windows server adalah operating system yang dibuat oleh Microsoft dan digunakan untuk berbagai layanan dengan banyak pengguna dan memberikan control administration yang banyak pada penyimpanan data, menghosting website, management user, management pengguna applikasi, keamanan, dan otorisaasi, jaringan perusahaan dan masih banyak layanan lainnya.
+
+Kalau kalian pernah melihat atau mencoba Windows Server, pasti tampilannya hampir sama dengan Windows 10, yang membedakan dari keduanya yaitu jenis dan fiturnya. Salah satunya fitur khusus seperti **Active Directory** yang digunakan oleh administrator untuk mengelola user dan juga mengelola resource network agar bisa dimonitor secara menyeluruh.
+
+Disini kita akan menggunakan Windows Server 2019 yang dirilis pada 2 Oktober 2018. Sebelum lanjut ke tutorial instalasi Windows Server, terlebih dahulu untuk melakukan **bootable Windows Server 2019**, Jika tidak memiliki ISO file instalation, kalian bisa mendownload dan menjadikan bootable [Cara membuat bootable dengan rufus](http://taufikcrisnawan.dev)
+
+## Requirement Windows Server 2019
+
+Setelah menyiapkan bootable windows 2019, kalian diwajibkan untuk membaca requirement [requirement windows 2019](https://learn.microsoft.com/en-us/windows-server/get-started/hardware-requirements). Apabila tidak dapat memenuhi persayaratan dan ketentuan dari Windows Server kalian tidak disarankan menginstal Windows Server dengan baik.
+
+### 1.1 Processor
+
+Untuk menunjang kinerja processor kita tidak harus memperhatikan frequency clock yang besar, tetapi juga pada banyaknya core processor dan size cache processor. Berikut syarat minimal processor yang baik:
+- Processor 1,4 Ghz 64-bit 
+- Compatible dengan architecture x86
+- Mendukung NX dan DEP
+- Mendukung CMPXCHG16b, LAHF/SAHF, dan PrefetchW
+- Mendukung Terjemahan Alamat Tingkat Kedua (EPT atau NPT)
+
+### 1.2 RAM
+
+Untuk memenuhi kebutuhanr RAM (Random Access Memory) ikuti minimal syarat dibawah ini:
+- 512 MB (2 GB untuk Server dengan opsi penginstalan Desktop Experience)
+- Jenis ECC (Error Correcting Code) atau teknologi serupa, untuk penerapan host fisik
+
+### 1.3 Disk Space
+
+Windows Server juga mempunyai disk space yang sesuai spesifikasi **architecture PCI Express**. penyimpanan yang cocok minimal 32 GB.
+
+### 1.4 Network
+
+Network Adaptor yang digunakan
+- Adaptor ethernet minimal 100Mbps
+- Sesuai dengan spesifikasi architecture PCI Express
+
+### 1.5 Persyaratan Lainnya
+
+- Drive DVD (jika Anda ingin menginstal sistem operasi dari media DVD)
+- Sistem dan firmware berbasis UEFI 2.3.1c yang mendukung boot aman
+- Modul Platform Tepercaya
+- Perangkat grafis dan monitor dengan kemampuan Super VGA (1024 x 768) atau resolusi lebih tinggi
+- Keyboard dan mouse Microsoft (atau perangkat penunjuk lain yang kompatibel)
+- Akses internet
+
+## Tutorial Instalasi Windows Server 2019
+
+Setelah memahami dan mengikuti requirement windows server 2019, kalian bisa melakukan instalasi windows 2019.
+Sebenarnya instalasi windows server 2019 ini sama dengan instalasi windows 10 dengan flashdisk, tetapi untuk kalian yang takut salah melakukan instalasinya bisa membaca tutorialnya.
+
+### 2.1 Language Install
+
+Langkah pertama saat berhasil masuk bootable windows yaitu pada **Language to Install**, untuk ini kalian bisa menyesuaikan bahasa yang dipilih namun kami sarankan untuk memilih bahasa English (US), dan pada **Keyboard or input method** kalian pilih US (default). Selanjutnya bisa klik **Next**.
+![Language to install](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-awal.png 'Language to install')
+### 2.2 Klik **Install now**.
+![Install now](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-install-now.png 'Install now')
+
+### 2.3 OS Windows Server 2019
+
+Pilih operating system windows server 2019 yang ingin di install, lalu klik **Next**.
+![Select Operating System ](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-select-system.png 'Select Operating System')
+
+### 2.4 I accept the license terms 
+
+Setujui persyarataan license dan checklist centang **I accept the license terms**, lalu klik **Next**.
+![I accept the license terms](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-notices.png 'I accept the license terms')
+
+### 2.5 Klik Custom: Install Windows only (advanced)
+
+Jika kalian melakukan instalasi untuk pertama kalinya bisa memilih **Custom: Install Windows only (advanced)**.
+![Custom Install](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-pilih-installasi.png 'Custom Install')
+
+### 2.6 Menu Parition
+
+Pada menu partisi, pilih parisi untuk menginstall Windows server. Jika selesai memilih partisi klik **Next**.
+![Menu Partition](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-partisi.png 'Menu Partition')
+
+### 2.7 Loading instalation
+
+Status instalasi sedang berlangsung, harap tunggu sampai selesai jangan sampai device kalian mati agar tidak terjadi korup pada instalasinya. Jika sudah selesai system akan otomatis reboot dan segera mencabut flashdisk bootable-nya.
+![Loading Instalation](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-loading-install.png 'Loading Instalation')
+
+### 2.8 Membuat Paswword Administrator
+
+Setelah reboot dan selesai instalasi, kalian akan membuat password untuk **Administrator**, lalu klik **Finish**
+![Password Administrator](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-customize.png 'Password Administrator')
+
+### 2.9 Instalasi Selesai😉
+
+YEY kalian sudah melakukan instalaasi Windows Server 2019, untuk tampilan awal kalian bisa klick tombol **Ctrl + Alt + Del** secara bersamaan untuk masuk kedalam Administrator.
+![Finish Instalation](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-finish.png 'Finish Instalation')
+
+### 2.10 Dashboard
+
+Jika berhasil masuk sebagai administrator, maka akan masuk ke halaman utama dan akan terbuka tab new.
+![Dashboard](https://ik.imagekit.io/taufik/cara-install-windows-server-2019/tampilan-dashboard.png 'Dashboard')
+
+Demikian tutorial **Cara Install Windows Server 2019**, untuk kalian bisa share tutorial ini ke teman-teman agar dapat mengikuti tutorial ini dengan baik. Jika terjadi kendala bisa bertanya pada Discussions dengan login menggunakan GitHub.
+Terimakasih dan semoga bermanfaat😉
+
+
+
+
+
+
+
+
