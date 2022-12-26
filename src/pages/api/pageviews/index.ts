@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 
-  const blogURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
+  const blogURL = `/api/website/1/stats?start_at=1645722000000&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
   const settles = await Promise.allSettled([
     UMAMI.get<PageView>(blogURL, config)
