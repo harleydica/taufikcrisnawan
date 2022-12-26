@@ -17,7 +17,6 @@ export default class CustomDocument extends Document {
           <link rel='icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='manifest' href='/manifest.json' />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS5DBWC0GB"></script>
-
           {process.env.NODE_ENV === 'production' && (
             <Script
               async
@@ -27,14 +26,8 @@ export default class CustomDocument extends Document {
               // please change to your data website id
               data-website-id='ed4514ff-0629-43ad-bff0-5bba16e9f785'
               // change to your hosted umami app
-              src='https://umami.taufikcrisnawan.dev/umami.js' />
-              <Script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments)};{'}'}
-                gtag('js', new Date());
-                gtag('config', 'G-JS5DBWC0GB');
-              </Script>
-
+              src='https://umami.taufikcrisnawan.dev/umami.js'
+            />
           )}
         </Head>
         <body>
