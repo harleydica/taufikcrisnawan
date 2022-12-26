@@ -32,15 +32,8 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
 
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
-  const articleURL = `/api/website/1/stats?start_at=${1669827600000}&end_at=${end_date.getTime()}&url=/article/${slug}`
   const blogURL = `/api/website/1/stats?start_at=${1669827600000}&end_at=${end_date.getTime()}&url=/blog/${slug}`
 
-  let responseArticle = {
-    bounces: { change: 0, value: 0 },
-    pageviews: { change: 0, value: 0 },
-    totaltime: { change: 0, value: 0 },
-    unique: { change: 0, value: 0 }
-  } as PageView
 
   let responseBlog = {
     bounces: { change: 0, value: 0 },
@@ -51,23 +44,20 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
 
   /* Making two requests to the Umami API, one for the article and one for the blog, and then merges the
  data and returns it */
-  const res = await Promise.allSettled([UMAMI.get<PageView>(articleURL, config), UMAMI.get<PageView>(blogURL, config)])
+  const res = await Promise.allSettled([UMAMI.get<PageView>(blogURL, config)])
 
   /* Checking if the first request was successful, and if it was, it is assigning the data to the
   responseArticle variable. */
   if (res[0].status === 'fulfilled') {
-    responseArticle = res[0].value.data
+    responseBlog = res[0].value.data
   }
 
   /* Checking if the second request was successful, and if it was, it is assigning the data to the
     responseBlog variable. */
-  if (res[1].status === 'fulfilled') {
-    responseBlog = res[1].value.data
-  }
 
   /* Taking the two objects, responseArticle and responseBlog, and putting them into an array, and then
   using the Object.values() method to return an array of the values of the objects. */
-  const mergedResponseData = Object.values([responseArticle, responseBlog])
+  const mergedResponseData = Object.values([responseBlog])
 
   const data = reducePageViewsToNumber(mergedResponseData)
 
