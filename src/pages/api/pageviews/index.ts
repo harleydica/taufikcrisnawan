@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   // please change to your data website id
   const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
-  const firtsDeployedAppAtMs = 1645722000000
+  const firtsDeployedAppAtMs = 1671642000000
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 
