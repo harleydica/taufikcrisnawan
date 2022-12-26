@@ -1,43 +1,40 @@
-import { UMAMI, getToken } from '@/services'
+import { UMAMI, getToken } from '@/services';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { PageView, PageViewResponse } from 'taufikcrisnawan';
 
-import { NextApiRequest, NextApiResponse } from 'next'
-import type { PageView, PageViewResponse } from 'rizkicitra'
-
-let token: null | string | false = null
-
-const allowedMethod = ['GET']
+let token: null | string | false = null;
+const allowedMethod = ['GET'];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<PageViewResponse>) {
   if (req.method && !allowedMethod.includes(req.method)) {
-    return res.status(405).send({ message: 'Method not allowed.', view: null })
+    return res.status(405).send({ message: 'Method not allowed.', view: null });
   }
 
-  if (!req.query.slug) return res.status(400).send({ message: 'query parameter is required', view: null })
+  if (!req.query.slug)
+    return res.status(400).send({ message: 'query parameter is required', view: null });
 
   if (!token && token !== false) {
-    const newToken = await getToken()
+    const newToken = await getToken();
     if (!newToken) {
-      token = false
+      token = false;
     } else {
-      token = newToken
+      token = newToken;
     }
   }
 
-  if (token === false) return res.status(500).send({ message: 'Cannot get token', view: null })
+  if (token === false)
+    return res.status(500).send({ message: 'Cannot get token', view: null });
 
-  let view = 0
+  let view = 0;
 
   const slug = req.query.slug
   const end_date = new Date()
-  const firtsDeployedAppAtMs = 1669827600000
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 
-  const articleURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/article/${slug.toString()}`
-  const blogURL = `/api/website/1/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
+  const blogURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
   const settles = await Promise.allSettled([
-    UMAMI.get<PageView>(articleURL, config),
     UMAMI.get<PageView>(blogURL, config)
   ])
 
