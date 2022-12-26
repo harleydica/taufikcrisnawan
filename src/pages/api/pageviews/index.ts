@@ -29,10 +29,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const slug = req.query.slug
   const end_date = new Date()
+  // please change to your data website id
+  const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
+  // please change to your first deploy umami app
+  const firtsDeployedAppAtMs = 1645722000000
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 
-  const blogURL = `/api/websites/ed4514ff-0629-43ad-bff0-5bba16e9f785/stats?start_at=${1671642000000}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
+  const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
   const settles = await Promise.allSettled([
     UMAMI.get<PageView>(blogURL, config)
