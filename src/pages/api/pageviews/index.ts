@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const slug = req.query.slug
   const end_date = new Date()
-  const firtsDeployedAppAtMs = 1671506700000
+  const firtsDeployedAppAtMs = 1672048800000
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 

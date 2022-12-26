@@ -32,8 +32,8 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
 
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
-  const articleURL = `/api/website/1/stats?start_at=${1671506700000}&end_at=${end_date.getTime()}&url=/article/${slug}`
-  const blogURL = `/api/website/1/stats?start_at=${1671506700000}&end_at=${end_date.getTime()}&url=/blog/${slug}`
+  const articleURL = `/api/website/1/stats?start_at=${1672048800000}&end_at=${end_date.getTime()}&url=/article/${slug}`
+  const blogURL = `/api/website/1/stats?start_at=${1672048800000}&end_at=${end_date.getTime()}&url=/blog/${slug}`
 
   let responseArticle = {
     bounces: { change: 0, value: 0 },
