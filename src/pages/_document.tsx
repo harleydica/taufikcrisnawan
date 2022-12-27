@@ -16,7 +16,6 @@ export default class CustomDocument extends Document {
           <link rel='shortcut icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='manifest' href='/manifest.json' />
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301"crossorigin="anonymous"></script>
           {process.env.NODE_ENV === 'production' && (
             <Script
               async
@@ -28,6 +27,7 @@ export default class CustomDocument extends Document {
               // change to your hosted umami app
               src='https://umami.taufikcrisnawan.dev/umami.js'
             />
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301"crossorigin="anonymous"></script>
           )}
         </Head>
         <body>
