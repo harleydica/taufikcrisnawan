@@ -16,7 +16,6 @@ export default class CustomDocument extends Document {
           <link rel='shortcut icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='manifest' href='/manifest.json' />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS5DBWC0GB"></script>
           {process.env.NODE_ENV === 'production' && (
             <Script
               async
@@ -30,8 +29,12 @@ export default class CustomDocument extends Document {
               />
           )}
           {process.env.NODE_ENV === 'production' && (
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301"
-          crossOrigin="anonymous"></script>
+            <script
+              async
+              // please change to u data
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301"
+              crossOrigin="anonymous">
+            </script>
           )}
         </Head>
         <body>
