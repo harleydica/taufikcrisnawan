@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import withPwa from 'next-pwa'
-import runtimeCaching from 'next-pwa/cache'
+const withPwa = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
 
 /** @type {import('next').NextConfig} */
-export default withPwa({
+module.exports = withPwa({
   images: {
     domains: ['ik.imagekit.io', 'og-image.vercel.app', 'media3.giphy.com', 'media0.giphy.com']
   },
