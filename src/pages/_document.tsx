@@ -27,7 +27,7 @@ export default class CustomDocument extends Document {
               // change to your hosted umami app
               src='https://umami.taufikcrisnawan.dev/umami.js' 
               />
-          )},
+          )}
           {process.env.NODE_ENV === 'production' && (
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301"
           crossOrigin="anonymous"></script>
