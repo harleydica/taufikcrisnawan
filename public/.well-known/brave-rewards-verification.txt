@@ -1,0 +1,7 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: taufikcrisnawan.dev
+Token: a9e5315ee1bd7e9c901d4290ce64fb89459dc3ebebe0f3f490cb4f14fced4c82
+
+Domain: taufikcrisnawan.my.id
+Token: 
