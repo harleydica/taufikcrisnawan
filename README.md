@@ -17,6 +17,10 @@
   - Store post comments by using GitHub discussion
 - **Umami**
   - an open source, privacy-focused alternative to Google Analytics
+- **Google Analytics**
+  - Platform that collects data from my sites' to create reports that provide insights my sites'
+- **Google AdSense
+  - Google AdSense, can earn money from sites' content
 - **Supabase**
   - Auth
   - Store Guestbook
@@ -34,4 +38,4 @@ This repo uses conventional commit, when commiting, please do `yarn commit` inst
 
 Muhammad Ichsan who has helped me guide the creation of my personal website.
 
-And also Rizki M Citra who has provided this personal website template, so I can use it
+And Rizki M Citra who has provided this personal website template, so I can use it.
