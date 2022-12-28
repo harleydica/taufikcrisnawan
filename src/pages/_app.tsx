@@ -12,6 +12,8 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
+import React from 'react';
+import Script from 'next/script';
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'
@@ -31,6 +33,20 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <SkipToContent />
       <LazyMotion features={domAnimation}>
         <Header />
+        <Script
+        // Please change your google tag manager
+          src="https://www.googletagmanager.com/gtag/js?id=G-G-JS5DBWC0GB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-G-JS5DBWC0GB');
+        `}
+        </Script>
         <AnimatePresence initial={false} onExitComplete={onExitComplete} exitBeforeEnter>
           <m.div
             id='skip-content'
