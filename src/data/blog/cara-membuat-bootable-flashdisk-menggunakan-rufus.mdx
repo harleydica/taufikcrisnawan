@@ -1,0 +1,132 @@
+---
+title: 'Cara Membuat Bootable Flashdisk Menggunakan Rufus'
+summary: 'Pada artikel kali ini saya akan menjelaskan cara membuat bootable flashdisk menggunakan rufus. Mau tau caranya? Ikuti tutorial ini sampai selesai😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '12/29/2022'
+topics: ['operating system']
+keywords:
+  [
+    'bootable flashdisk',
+    'operating system',
+    'rufus',
+    'bootable',
+    'os',
+    'debian'
+  ]
+related: []
+---
+Apakah kalian pernah melakukan instalasi operating system? Mungkin bagi kalian yang sudah melakukannya tidak asing lagi dengan kata **Bootable**. Untuk kalian yang masih awam mari kita mencoba membuat **Bootable Flashdisk Menggunakan Rufus**.
+
+![Bootable Rufus](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-awal.png 'Bootable Rufus')
+
+
+Jadi apa sih bootable itu? Bootable adalah sebuah fasilitas atau layanan yang ada di **Operating System**, yang mana fasilitas tersebut diletakkan pada media penyimpanan, seperti Flashdisk, CD/DVD, atau penyimpanan lainya. Banyak orang meng-artikan bootable seperti flashdisk, namun nyatanya bootable itu media penyimpanan yang didalamnya terdapat sistem operasi. Tidak hanya menggunakan flashdisk sebagai bootable, kita juga bisa membuatnya dari semua media penyimpanan. Asalkan didalam penyimpanan tersebut terdapat operating system maka bisa disebut dengan bootable.
+
+Akan tetapi membuat bootable menggunakan flashdisk juga memiliki beberapa keuntungan, seperti kecepatan membaca dan menulis yang lebih cepat dalam instalasi operating system, bentuknya yang kecil memudahkan pengguna dan praktis untuk dibawa kemana-mana.
+
+Lalu apa sih fungsi dari bootable ini selain sebagai media instalasi. Tentunya bootable memiliki beberapa fungsi lain, yaitu:
+- Instalasi operating system
+- Pembersihan data 
+- Recovery data
+- Sebagai **troubleshooting** jika terjadi masalah pada hardware maupun software
+- Access Administration apabila mengalami hilang password dengan sebuah boot yang sesuai dengan operating system tertentu
+- Mengubah **Operating Enviroment**.
+
+Untuk membuat bootable sebenarnya ada banyak aplikasi software yang bisa kita gunakan, seperti Windows USB/DVD Tools, Rufus, Xboot, Win32 Disk Imager dan banyak lagi.
+
+Pada tutorial ini kita akan membuat bootable flashdisk menggunakan Rufus. Kenapa kita menggunakan Rufus? Karena Rufus memiliki berbagai fitur menarik, aplikasi Rufus dapat berkerja lebih cepat dari pada aplikasi sejenis lainnya, Rufus juga mendukung berbagai jenis bahasa, selain bahasa Inggris. Hal ini yang membuat saya terbantu dalam pembuatan bootable.
+
+Terdapat juga fitur **Low-Level Utility** yang bisa digunakan untuk melakukan format yang tidak berisiko terhadap media penyimpanan. Jadi aman saat kita melakukan formating pada media penyimpanan kalian. Rufus juga dapat dijalankan pada beberapa operating system seperti Windows dengan architecture 32-bit atau 63-bit, Ubuntu dekstop dan banyak lagi.
+
+Selain untuk membuat bootable, Rufus juga memiliki fungsi lain, yaitu:
+- Membuat bootable dari berbagai operating system
+- Untuk mengoperasikan sebuah komputer yang didalamnya tidak terdapat operating system
+- Menginstall ulang **BIOS** ataupung **Firmware DOS**
+- Mengformat media penyimpanan.
+
+## Cara Membuat Bootable Flashdisk Dengan Rufus
+
+Yang pertama tentunya kalian harus [mendownload aplikasi Rufus](https://rufus.ie/en/), jangan khawatir dengan software ini, hanya berukuran kurang lebih 1MB sangat kecil dan efisien.
+![Download Rufus](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-download.png 'Download Rufus')
+
+Setelah mendownload aplikasi Rufus, buka aplikasi Rufus hingga muncul tampilan seperti dibawah. Pastikan ada flashdisk yang tercantap, dan Rufus akan otomatis mendeteksinya.
+![Rufus](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-rufus.png 'Rufus')
+
+### Memilih Device
+
+tenentukan Flashdisk yang ingin dijadikan bootable flashdisk yang digunakan akan terformat otomatis, jika terdapat file penting harap backup terlebih dahulu agar tidak hilang saat proses pembuatan bootable.
+![Pilih Device](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-pilih-device.png 'Pilih Device')
+
+### Cari File ISO
+
+Selanjutnnya kita akan mencari file ISO dari operating system yang ingin kalian install. Caranya klik **SELECT** lalu akan muncul tab untuk mencari file ISO tersebut. Disini saya akan menggunakan operating system **Debian**, untuk kalian jika ingin menggunakan operating system lainnya bisa mengunjungi website resmi dari operating system dan mendownloadnya.
+![Select ISO](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-select-iso.png 'Select ISO')
+Pilih file ISO lalu klik **Open**
+![Cari File ISO](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-klik-iso.png 'Cari File ISO')
+
+### Partition Scheme
+
+Pada bagian ini yang sering terlewatkan, **Partition Scheme**. Pastikan hardisk kalian bertipe apa? MBR atau GPT, cara mengetahuinya bisa klik [cara cek hardisk bertipe GPT atau MBR](https://taufikcrisnawan.dev/cara-cek-hardisk-bertipe-gtp-atau-mbr).
+
+Setelah mengetahui tipe hardisk yang digunakan pilih Partition Scheme.
+![Partition Scheme](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-partition-scheme.png 'Partition Scheme')
+
+### Format Options
+
+Pada Format Options ini kalian bisa mengikuti default rekomendasi yang otomatis terpilih saat memasukan file ISO.
+![Format Options](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-format-options.png 'Format Options')
+
+### Klik Start untuk Memulai proses
+
+Jika sudah yakin dengan settingannya, kalian bisa klik **START**.
+![Click START](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-start.png 'Click START')
+
+Pada operating system tertentu akan muncul ISO Hybrid Image Detected, kalian bisa ikuti pilihan yang disarankan.
+![ISO Hybrid Image Detected](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-isohybrid.png 'ISO Hybrid Image Detected')
+
+Setelah klik START akan muncul peringatan, bahwa flashdisk yang dijadikan bootable akan terformat. Pastikan sudah terbackup apabila terdapat file penting didalamnya, jika sudah siap Klik **OK** untuk melanjutkan prosesnya.
+![Attention](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-attention.png 'Attention')
+
+### Proses Pembuatan Bootable Flashdisk
+
+Pada proses ini flashdisk jangan sampai tercabut agar tidak terjadi korup pada media penyimpanan, dan harus mengulangi prosesnya kembali.
+![Proses](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-status.png 'Proses')
+
+Jika **Status** menunjukkan **READY** berarti proses pembuatan bootable flashdisk sudah selesai. Mudah tidak? Tentu mudah hehe😉.
+![Finish Ready](https://ik.imagekit.io/taufik/cara-membuat-bootable-flashdisk-menggunakan-rufus/tampilan-ready.png 'Finish Ready')
+
+## Penjelasan Dari Opsi di Rufus
+
+Disini akan menjelaskan secara singkat terkait pilihan yang ada di Rufus, bagi kalian yang kurang paham opsi pilihan Rufus bisa melanjutkan penjelasan ini sampai selesai.
+
+### Device
+
+Pada menu device ini akan membaca flashdisk yang tertancap pada PC kalian. Rufus akan otomatis mendeteksinya dan masuk pada menu Device. Terdapat juga size dari ruang flashdisk tersebut akan terbaca.
+
+### Boot Selection
+
+Menu ini akan menunjukan file ISO yang berhasil dipilih melalui tombol **SELECT**. Jika file ISO berhasil dipilih maka akan tertulis keterangan dari file ISO tersebut.
+
+### Persistent Partition Size
+
+Persistent Partition Size digunakan jika ingin membuat OS portable di flashdisk (Live Operating System). Dengan itu flashdisk akan terbagi menjadi dua bagian, operating system dan ruang penyimpanan datanya. Jika ingin membuat bootable saja tidak perlu mengisi menu ini.
+
+### Partition Scheme
+
+Menu ini akan dibagi menjadi dua pilihan yaitu MBR dan GPT, ini adalah jenis partisi hardisk yang digunakan. dibawah ini akan menjelaskan secara singkat kedua jenis partisi.
+
+- **MBR** Master Boot Record, MBR merupakan system partisi lama/jadul. MBR sudah ada lama bersamaan dengan adanya **Legacy BIOS Firmware**.
+- **GPT** GUID Partition Table. GPT merupakan system partisi baru yang diciptakan untuk mengatasi kelemahan dari system partisi MBR.
+
+Untuk lebih jelasnya lagi bisa mengunjungi artikel [cara cek hardisk bertipe GPT atau MBR](https://taufikcrisnawan.dev/cara-cek-hardisk-bertipe-gtp-atau-mbr).
+
+### Target System
+
+Terdapat dua pilihan dimenu ini, BIOS dan UEFI. BIOS atau UEFI adalah sebuah jenis firmware yang ditanam pada chip ROM di PC.
+
+## Penutup
+
+Demikian cara membuat bootable flashdisk menggunakan Rufus dengan mudah, untuk kalian yang sudah mengikuti caranya bisa share blog ini keteman kalian. Semoga bermanfaat😉 BYEE!!
+
