@@ -34,8 +34,9 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <LazyMotion features={domAnimation}>
         <Header />
         <Script
+          async
         // Please change your google tag manager
-          src="https://www.googletagmanager.com/gtag/js?id=G-G-JS5DBWC0GB"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JS5DBWC0GB"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -44,7 +45,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-G-JS5DBWC0GB');
+          gtag('config', 'G-JS5DBWC0GB');
         `}
         </Script>
         <AnimatePresence initial={false} onExitComplete={onExitComplete} exitBeforeEnter>
