@@ -12,6 +12,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
+import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
 import Script from 'next/script';
 // import 'prism-themes/themes/prism-night-owl.css'
@@ -48,6 +49,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           gtag('config', 'G-JS5DBWC0GB');
         `}
         </Script>
+        <Analytics />
         <AnimatePresence initial={false} onExitComplete={onExitComplete} exitBeforeEnter>
           <m.div
             id='skip-content'
