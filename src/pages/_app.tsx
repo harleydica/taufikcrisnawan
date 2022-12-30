@@ -27,7 +27,9 @@ const v: Variants = withExit(variants)
  
 const tagManagerArgs = {
   gtmId: 'GTM-NKFXT3K',
-  dataLayerName: 'PageDataLayer'
+  dataLayerName: 'PageDataLayer',
+  auth: '5oQX4n-Sgndcgo-9TFemFg',
+  preview: 'env-4'
 }
 
 const onExitComplete = () => window.scrollTo(0, 0)
