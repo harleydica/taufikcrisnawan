@@ -32,8 +32,7 @@ export default class CustomDocument extends Document {
             <script
               async
               // please change to u data
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301"
-              crossOrigin="anonymous">
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9254295768355301">
             </script>
           )}
         </Head>

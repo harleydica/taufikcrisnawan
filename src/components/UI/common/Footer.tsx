@@ -5,6 +5,9 @@ import { twclsx } from '@/libs/twclsx'
 
 import { SocialHome } from './SocialHome'
 
+import React from 'react';
+import { Adsense } from '@ctrl/react-adsense';
+
 import { useRouter } from 'next/router'
 
 export const Footer: React.FunctionComponent = () => {
@@ -46,6 +49,13 @@ export const Footer: React.FunctionComponent = () => {
       <div className='mt-4 max-w-max'>
         <SocialHome />
       </div>
+      <Adsense
+        client="ca-pub-9254295768355301"
+        slot="5171394066"
+        style={{ display: 'block' }}
+        layout="in-article"
+        format="fluid"
+      />
     </footer>
   )
 }
