@@ -15,7 +15,7 @@ import type { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import TagManager from 'react-gtm-module';
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import  React from 'react';
+import  React, {useEffect} from 'react';
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'
@@ -26,14 +26,17 @@ import colors from 'tailwindcss/colors'
 const v: Variants = withExit(variants)
  
 const tagManagerArgs = {
-  gtmId: 'GTM-NKFXT3K'
+  gtmId: 'GTM-NKFXT3K',
+  dataLayerName: 'PageDataLayer'
 }
-TagManager.initialize(tagManagerArgs)
 
 const onExitComplete = () => window.scrollTo(0, 0)
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const { theme, mounted, systemTheme } = useTheme()
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs)
+    }, []);
 
   return (
     <ThemeProvider attribute='class' storageKey='theme' enableSystem>
