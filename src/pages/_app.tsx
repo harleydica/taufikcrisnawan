@@ -13,9 +13,8 @@ import type { Variants } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
-import TagManager from 'react-gtm-module';
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import  React, {useEffect} from 'react';
+import  React from 'react';
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'
@@ -24,21 +23,11 @@ import 'react-image-lightbox/style.css'
 import colors from 'tailwindcss/colors'
 
 const v: Variants = withExit(variants)
- 
-const tagManagerArgs = {
-  gtmId: 'GTM-NKFXT3K',
-  dataLayerName: 'PageDataLayer',
-  auth: '5oQX4n-Sgndcgo-9TFemFg',
-  preview: 'env-4'
-}
 
 const onExitComplete = () => window.scrollTo(0, 0)
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const { theme, mounted, systemTheme } = useTheme()
-  useEffect(() => {
-    TagManager.initialize(tagManagerArgs)
-    }, []);
 
   return (
     <ThemeProvider attribute='class' storageKey='theme' enableSystem>
