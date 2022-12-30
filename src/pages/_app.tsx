@@ -24,14 +24,16 @@ import 'react-image-lightbox/style.css'
 import colors from 'tailwindcss/colors'
 
 const v: Variants = withExit(variants)
+ 
+const tagManagerArgs = {
+  gtmId: 'GTM-NKFXT3K'
+}
+TagManager.initialize(tagManagerArgs)
 
 const onExitComplete = () => window.scrollTo(0, 0)
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const { theme, mounted, systemTheme } = useTheme()
-  useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-NKFXT3K' });
-  }, []);
 
   return (
     <ThemeProvider attribute='class' storageKey='theme' enableSystem>
