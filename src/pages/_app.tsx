@@ -15,7 +15,7 @@ import type { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
 import TagManager from 'react-gtm-module';
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import  React, { useEffect }  from 'react';
+import  React from 'react';
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'
