@@ -13,8 +13,9 @@ import type { Variants } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react';
-import React from 'react';
-import Script from 'next/script';
+import TagManager from 'react-gtm-module';
+import { GoogleAnalytics } from "nextjs-google-analytics";
+import  React, { useEffect }  from 'react';
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'
@@ -28,27 +29,16 @@ const onExitComplete = () => window.scrollTo(0, 0)
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const { theme, mounted, systemTheme } = useTheme()
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-NKFXT3KX' });
+  }, []);
 
   return (
     <ThemeProvider attribute='class' storageKey='theme' enableSystem>
       <SkipToContent />
       <LazyMotion features={domAnimation}>
         <Header />
-        <Script
-          async
-        // Please change your google tag manager
-          src="https://www.googletagmanager.com/gtag/js?id=G-JS5DBWC0GB"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-JS5DBWC0GB');
-        `}
-        </Script>
+        <GoogleAnalytics strategy="lazyOnload" />
         <Analytics />
         <AnimatePresence initial={false} onExitComplete={onExitComplete} exitBeforeEnter>
           <m.div
