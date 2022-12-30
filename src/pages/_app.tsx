@@ -30,7 +30,7 @@ const onExitComplete = () => window.scrollTo(0, 0)
 const App = ({ Component, pageProps, router }: AppProps) => {
   const { theme, mounted, systemTheme } = useTheme()
   useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-NKFXT3KX' });
+    TagManager.initialize({ gtmId: 'GTM-NKFXT3K' });
   }, []);
 
   return (
