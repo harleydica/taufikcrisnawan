@@ -13,6 +13,9 @@ import { getNewestBlog } from '@/libs/sorters'
 
 import { useTags } from '@/hooks'
 
+import React from 'react';
+import {Adsense} from '@ctrl/react-adsense';
+
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
 import type { Blog } from 'taufikcrisnawan'
@@ -67,13 +70,21 @@ const TagsPage: NextPage<TagsProps> = ({ tags, blogs }) => {
                 'py-2 px-4 rounded',
                 !selectedTags.includes(t) && 'motion-safe:active:scale-95 motion-safe:hover:scale-110',
                 !selectedTags.includes(t) &&
-                  selectedTags.length > 0 &&
-                  'bg-theme-500 text-white dark:bg-theme-200 dark:text-theme-900'
+                selectedTags.length > 0 &&
+                'bg-theme-500 text-white dark:bg-theme-200 dark:text-theme-900'
               )}
             />
           </UnstyledButton>
         ))}
       </section>
+
+      <Adsense
+        client="ca-pub-7640562161899788"
+        slot="1435576454"
+        style={{ display: 'block' }}
+        layout="in-article"
+        format="fluid"
+      />
 
       {selectedTags.length > 0 ? (
         <BlogList
