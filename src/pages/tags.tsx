@@ -14,7 +14,7 @@ import { getNewestBlog } from '@/libs/sorters'
 import { useTags } from '@/hooks'
 
 import React from 'react';
-import {Adsense} from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense';
 
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
@@ -78,14 +78,6 @@ const TagsPage: NextPage<TagsProps> = ({ tags, blogs }) => {
         ))}
       </section>
 
-      <Adsense
-        client="ca-pub-7640562161899788"
-        slot="1435576454"
-        style={{ display: 'block' }}
-        layout="in-article"
-        format="fluid"
-      />
-
       {selectedTags.length > 0 ? (
         <BlogList
           description="Based on the selected tags, I've found some possible results for your."
@@ -101,6 +93,13 @@ const TagsPage: NextPage<TagsProps> = ({ tags, blogs }) => {
           <p>Waiting for your command</p>
         </section>
       )}
+      <Adsense
+        client="ca-pub-7640562161899788"
+        slot="1435576454"
+        style={{ display: 'block' }}
+        layout="in-article"
+        format="fluid"
+      />
     </LayoutPage>
   )
 }
