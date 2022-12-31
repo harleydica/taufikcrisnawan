@@ -13,6 +13,9 @@ import { twclsx } from '@/libs/twclsx'
 
 import { useSearchPortfolio } from '@/hooks'
 
+import React from 'react'
+import {Adsense} from '@ctrl/react-adsense';
+
 import type { GetStaticProps, NextPage } from 'next'
 import type { Portfolio } from 'taufikcrisnawan'
 
@@ -63,6 +66,13 @@ const ProjectPage: NextPage<PortfoliopageProps> = ({ portfolio }) => {
 
         {search.query !== '' && search.filteredPortfolio.length === 0 && <EmptyResult />}
       </div>
+      <Adsense
+        client="ca-pub-9254295768355301"
+        slot="5444509195"
+        style={{ display: 'block' }}
+        layout="in-article"
+        format="fluid"
+      />
     </LayoutPage>
   )
 }

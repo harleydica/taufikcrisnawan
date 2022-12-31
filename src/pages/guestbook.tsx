@@ -60,13 +60,6 @@ const GuestbookPage: NextPage<GuestbookPageProps> = ({ guestbook = [] }) => {
         description='Hey, leave a little message to let me and other visitors know you were here. You can write whatever you want, maybe some appreciation, a friendly message, a joke, or just a quick hello.'
       />
       <GuestbookEditor />
-      <Adsense
-        client="ca-pub-9254295768355301"
-        slot="8000984806"
-        style={{ display: 'block' }}
-        layout="in-article"
-        format="fluid"
-      />
       <Guestbook guestbook={guestbookClient.length === 0 ? guestbook : guestbookClient} />
       <br></br>
       <Adsense
