@@ -5,9 +5,6 @@ import { twclsx } from '@/libs/twclsx'
 
 import { SocialHome } from './SocialHome'
 
-import React from 'react';
-import { Adsense } from '@ctrl/react-adsense';
-
 import { useRouter } from 'next/router'
 
 export const Footer: React.FunctionComponent = () => {
