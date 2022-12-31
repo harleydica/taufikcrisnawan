@@ -12,6 +12,9 @@ import { isDev } from '@/libs/constants/environmentState'
 import { getMetaPageBlog } from '@/libs/metapage'
 import { twclsx } from '@/libs/twclsx'
 
+import React from 'react';
+import {Adsense} from '@ctrl/react-adsense';
+
 import axios from 'axios'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -42,16 +45,16 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     // run only on client side
     if (typeof window !== 'undefined') {
       if (isDev) return
-      ;(async () => {
-        try {
-          const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
-          const res = await axios.get<PageViewResponse>(baseURL + '/api/pageviews?slug=' + header.slug)
-          const view = res.data.view ?? 0
-          setPostViews(view)
-        } catch (error) {
-          console.info('Could not retrieve page views')
-        }
-      })()
+        ; (async () => {
+          try {
+            const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
+            const res = await axios.get<PageViewResponse>(baseURL + '/api/pageviews?slug=' + header.slug)
+            const view = res.data.view ?? 0
+            setPostViews(view)
+          } catch (error) {
+            console.info('Could not retrieve page views')
+          }
+        })()
     }
   }, [header.slug])
 
@@ -68,6 +71,13 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
         />
 
         <AuthorSection name={header.author_name} username={header.github_username} />
+        <Adsense
+          client="ca-pub-9254295768355301"
+          slot="6212464255"
+          style={{ display: 'block' }}
+          layout="in-article"
+          format="fluid"
+        />
 
         <div
           className={twclsx('prose dark:prose-invert', 'md:prose-lg', 'prose-headings:scroll-mt-24', 'prose-img:my-4')}

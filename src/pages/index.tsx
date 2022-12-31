@@ -9,6 +9,9 @@ import { getMetaPage } from '@/libs/metapage'
 import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
 import { twclsx } from '@/libs/twclsx'
 
+import React from 'react';
+import { Adsense } from '@ctrl/react-adsense';
+
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
 import type { Blog, Portfolio } from 'taufikcrisnawan'
@@ -82,7 +85,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
                 <p className={twclsx('text-theme-700 dark:text-theme-200')}>
                   خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
                   <br></br>
-                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain. 
+                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
                   <br></br>
                   ~ HR. Tirmidzi
                 </p>
@@ -91,6 +94,14 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
             </div>
           </div>
         </section>
+
+        <Adsense
+          client="ca-pub-9254295768355301"
+          slot="8371723731"
+          style={{ display: 'block' }}
+          layout="in-article"
+          format="fluid"
+        />
 
         <BlogList
           className='pt-32'
