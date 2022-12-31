@@ -68,6 +68,7 @@ const GuestbookPage: NextPage<GuestbookPageProps> = ({ guestbook = [] }) => {
         format="fluid"
       />
       <Guestbook guestbook={guestbookClient.length === 0 ? guestbook : guestbookClient} />
+      <br></br>
       <Adsense
         client="ca-pub-9254295768355301"
         slot="8000984806"
