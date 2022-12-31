@@ -12,7 +12,6 @@ import { isDev } from '@/libs/constants/environmentState'
 import { getMetaPageBlog } from '@/libs/metapage'
 import { twclsx } from '@/libs/twclsx'
 
-import React from 'react';
 import {Adsense} from '@ctrl/react-adsense';
 
 import axios from 'axios'
@@ -20,7 +19,7 @@ import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from '
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { ParsedUrlQuery } from 'querystring'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
 import type { Blog, PageViewResponse } from 'taufikcrisnawan'
