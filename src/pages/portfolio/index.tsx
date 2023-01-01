@@ -66,6 +66,7 @@ const ProjectPage: NextPage<PortfoliopageProps> = ({ portfolio }) => {
 
         {search.query !== '' && search.filteredPortfolio.length === 0 && <EmptyResult />}
       </div>
+      <br></br>
       <Adsense
         client="ca-pub-9254295768355301"
         slot="5444509195"
