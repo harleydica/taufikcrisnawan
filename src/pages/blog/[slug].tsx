@@ -75,7 +75,8 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
           slot="6212464255"
           style={{ display: 'block' }}
           layout="in-article"
-          format="fluid"
+          format="auto"
+          responsive="true"
         />
 
         <div
