@@ -94,7 +94,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
             </div>
           </div>
         </section>
-
+        <br></br>
         <Adsense
           client="ca-pub-9254295768355301"
           slot="8371723731"
