@@ -48,6 +48,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
       )
 
     case 'git':
+    case 'mysql':
       return (
         <span
           className={twclsx(
