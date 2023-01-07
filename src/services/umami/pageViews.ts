@@ -33,7 +33,7 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
   // please change to your data website id
   const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
-  const firtsDeployedAppAtMs = 1671642000000
+  const firtsDeployedAppAtMs = 1672977600000
   
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
