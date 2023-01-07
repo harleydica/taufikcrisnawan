@@ -19,12 +19,12 @@ export const LINKS: typeof SOCIAL = [
 ]
 
 export const SKILLS = [
-  `Mampu mengelola dan mengkonfigurasi sistem operasi seperti Linux atau Windows`,
-  `Mampu mengelola dan mengkonfigurasi jaringan komputer, termasuk LAN, dan internet`,
-  `Mengembangkan aplikasi web menggunakan teknologi seperti HTML, CSS, dan JavaScript`,
-  `Menggunakan alat-alat seperti Git untuk mengelola dan mengontrol versi dari kode sumber aplikasi`,
-  `Soft Skills: Problem Solving, Komunikatif, Teamwork, Multitasking`,
-  `Hobby: Codding, Fotografi, Videografi, Badminton, Mendaki`
+  `Mampu mengelola dan mengkonfigurasi sistem operasi seperti Linux atau Windows.`,
+  `Mampu mengelola dan mengkonfigurasi jaringan komputer, termasuk LAN, dan internet.`,
+  `Mengembangkan aplikasi web menggunakan teknologi seperti HTML, CSS, dan JavaScript.`,
+  `Menggunakan alat-alat seperti Git untuk mengelola dan mengontrol versi dari kode sumber aplikasi.`,
+  `Soft Skills: Problem Solving, Komunikatif, Teamwork, Multitasking.`,
+  `Hobby: Codding, Fotografi, Videografi, Badminton, Mendaki.`
 ]
 
 export const KEY_SKILLS = [
@@ -56,7 +56,7 @@ export const EXPERIENCE: Experience[] = [
     },
     lists: [
       `Menjalankan program kerja RISMA dalam kondisi pandemi Covid-19, mengordinasi seluruh anggota dengan baik.`,
-      `Bertanggung jawab mengelola organisasi, mengatur program kerja, membagi tugas di masing-masing bidang kepada anggota, mengingatkan anggota untuk menjalankan tugasnya, dan memastikan program kerja dapat berjalan dengan lancar`
+      `Bertanggung jawab mengelola organisasi, mengatur program kerja, membagi tugas di masing-masing bidang kepada anggota, mengingatkan anggota untuk menjalankan tugasnya, dan memastikan program kerja dapat berjalan dengan lancar.`
     ]
   }
 ]
@@ -90,7 +90,7 @@ export const EDUCATION: Education = [
       start: 'September, 2017',
       end: 'Mei, 2020'
     },
-    paragraphs: ['Lulus tanggal May, 2020.']
+    paragraphs: ['Lulus di May, 2020.']
   },
   {
     school: 'SD Negeri Nogopuro',
@@ -98,12 +98,14 @@ export const EDUCATION: Education = [
       start: 'April, 2011',
       end: 'August, 2017'
     },
-    paragraphs: ['Lulus tanggal July, 2017.']
+    paragraphs: ['Lulus di July, 2017.']
   }
 ]
 
 export const SUMMARY = [
-  'Sedikit pengalaman dalam memperbaiki jaringan dasar dalam lingkup yang kecil.',
+  'Seorang siswa yang fokus untuk mewujudkan target.',
+  `Memiliki pengalaman dalam berbagai organisasi di sekolah.`,
+  `Mempelajari pengembangan website berbasis HTML, CSS, JavaScript.`,
   'Terus belajar mencari tahu dan mengeksplorasi tentang teknologi baru dan praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.'
 ]
 
