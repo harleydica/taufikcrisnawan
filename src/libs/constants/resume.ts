@@ -18,12 +18,17 @@ export const LINKS: typeof SOCIAL = [
   }
 ]
 
-/*export const SKILLS = [
-  `Berpengetahuan tentang Mikrotik konfigurasi dasar dan beberapa konfigurasi lainnya`,
-]*/
+export const SKILLS = [
+  `Mampu mengelola dan mengkonfigurasi sistem operasi seperti Linux atau Windows`,
+  `Mampu mengelola dan mengkonfigurasi jaringan komputer, termasuk LAN, dan internet`,
+  `Mengembangkan aplikasi web menggunakan teknologi seperti HTML, CSS, dan JavaScript`,
+  `Menggunakan alat-alat seperti Git untuk mengelola dan mengontrol versi dari kode sumber aplikasi`,
+  `Soft Skills: Problem Solving, Komunikatif, Teamwork, Multitasking`,
+  `Hobby: Codding, Fotografi, Videografi, Badminton, Mendaki`
+]
 
 export const KEY_SKILLS = [
-  `Sebagai orang yang profesionals mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
+  `Sebagai orang yang profesional saya mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
   `Saya sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
   `Saya juga dikenal karena kreativitas dan kemampuan saya untuk mendekati tugas dan tantangan dengan pola pikir yang inovatif.`
 
@@ -39,7 +44,7 @@ export const EXPERIENCE: Experience[] = [
     },
     lists: [
       `Membantu kinerja OSIS dalam bidang TIK & HUMAS.`,
-      `Mendokumentasi seluruh kegiatan program kerja OSIS.`
+      `Bertugas mendokumentasikan semua kegiatan yang diadakan sekolah dan organisasi sekolah lainnya dalam bentuk foto, video, dan streaming langsung. Saya juga bertanggung jawab untuk mengunggah, menyimpan, dan mengatur semua dokumentasi yang telah dilakukan, serta mempublikasikan jika diperlukan.`
     ]
   },
   {
@@ -51,8 +56,7 @@ export const EXPERIENCE: Experience[] = [
     },
     lists: [
       `Menjalankan program kerja RISMA dalam kondisi pandemi Covid-19, mengordinasi seluruh anggota dengan baik.`,
-      `Mendapatkan ilmu tentang agama walaupun tidak banyak yang saya dapatkan.`,
-      `Mempelajari cara Public Speaking dengan baik didepan orang banyak.`
+      `Bertanggung jawab mengelola organisasi, mengatur program kerja, membagi tugas di masing-masing bidang kepada anggota, mengingatkan anggota untuk menjalankan tugasnya, dan memastikan program kerja dapat berjalan dengan lancar`
     ]
   }
 ]

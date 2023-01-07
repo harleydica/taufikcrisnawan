@@ -4,7 +4,7 @@ import { AlertResume, HowToPrintDialog } from '@/components/dialog'
 import { UnstyledButton } from '@/UI/buttons'
 import { UnderlineLink } from '@/UI/links'
 
-import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, /*SKILLS,*/ SUMMARY } from '@/libs/constants/resume'
+import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, SUMMARY } from '@/libs/constants/resume'
 import { generateOgImage, getMetaPage } from '@/libs/metapage'
 
 import { useMediaQuery } from '@/hooks'
@@ -13,52 +13,6 @@ import htmr from 'htmr'
 import type { NextPage } from 'next'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { HiInformationCircle } from 'react-icons/hi'
-
-/*<section>
-<h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Technical Skills</h3>
-
-<ul className={listStyle}>
-  {SKILLS.map((skill) => (
-    <li key={skill}>{skill}</li>
-  ))}
-</ul>
-</section>*/
-/*<section>
-<div className='flex items-center justify-between pb-2.5 border-b-2 border-b-theme-700'>
-  <h3>Experience</h3>
-</div>
-
-{EXPERIENCE.map((exp, i) => (
-  <div key={i} className='mt-4'>
-    <div className='flex items-start justify-between mb-2.5'>
-      <div>
-        <h4>{exp.companyName}</h4>
-        <h5>{exp.role}</h5>
-      </div>
-
-      <p className='text-sm font-semibold'>
-        {exp.period.start} - {exp.period.end}
-      </p>
-    </div>
-
-    <ul className={listStyle}>
-      {exp.lists.map((list, idx) => {
-        return (
-          <li key={idx}>
-            {htmr(list, {
-              transform: {
-                a: (props) => <UnderlineLink href={props.href ?? ''}>{props.children}</UnderlineLink>
-              }
-            })}
-          </li>
-        )
-      })}
-    </ul>
-  </div>
-))}
-</section>*/
-
-
 
 const meta = getMetaPage({
   title: 'Resume',
@@ -142,6 +96,51 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
+          <div className='flex items-center justify-between pb-2.5 border-b-2 border-b-theme-700'>
+            <h3>Experience</h3>
+          </div>
+
+          {EXPERIENCE.map((exp, i) => (
+            <div key={i} className='mt-4'>
+              <div className='flex items-start justify-between mb-2.5'>
+                <div>
+                  <h4>{exp.companyName}</h4>
+                  <h5>{exp.role}</h5>
+                </div>
+
+                <p className='text-sm font-semibold'>
+                  {exp.period.start} - {exp.period.end}
+                </p>
+              </div>
+
+              <ul className={listStyle}>
+                {exp.lists.map((list, idx) => {
+                  return (
+                    <li key={idx}>
+                      {htmr(list, {
+                        transform: {
+                          a: (props) => <UnderlineLink href={props.href ?? ''}>{props.children}</UnderlineLink>
+                        }
+                      })}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          ))}
+        </section>
+
+        <section>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Technical Skills</h3>
+
+          <ul className={listStyle}>
+            {SKILLS.map((skill) => (
+              <li key={skill}>{skill}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Key Skills</h3>
 
           <ul className={listStyle}>
@@ -189,40 +188,6 @@ const Resume: NextPage = () => {
           ))}
         </section>
 
-        <section>
-          <div className='flex items-center justify-between pb-2.5 border-b-2 border-b-theme-700'>
-            <h3>Experience</h3>
-          </div>
-
-          {EXPERIENCE.map((exp, i) => (
-            <div key={i} className='mt-4'>
-              <div className='flex items-start justify-between mb-2.5'>
-                <div>
-                  <h4>{exp.companyName}</h4>
-                  <h5>{exp.role}</h5>
-                </div>
-
-                <p className='text-sm font-semibold'>
-                  {exp.period.start} - {exp.period.end}
-                </p>
-              </div>
-
-              <ul className={listStyle}>
-                {exp.lists.map((list, idx) => {
-                  return (
-                    <li key={idx}>
-                      {htmr(list, {
-                        transform: {
-                          a: (props) => <UnderlineLink href={props.href ?? ''}>{props.children}</UnderlineLink>
-                        }
-                      })}
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          ))}
-        </section>
 
         <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Languages</h3>
