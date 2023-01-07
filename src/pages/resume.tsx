@@ -164,7 +164,7 @@ const Resume: NextPage = () => {
               <div className='flex items-start justify-between mb-2.5'>
                 <div>
                   <h4>{exp.companyName}</h4>
-                  <h5>{exp.role}</h5>
+                  <h6>{exp.role}</h6>
                 </div>
 
                 <p className='text-sm font-semibold'>

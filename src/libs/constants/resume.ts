@@ -28,7 +28,7 @@ export const SKILLS = [
 ]
 
 export const KEY_SKILLS = [
-  `Sebagai orang yang profesional saya mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
+  `Sebagai seorang yang profesional saya mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
   `Saya sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
   `Saya juga dikenal karena kreativitas dan kemampuan saya untuk mendekati tugas dan tantangan dengan pola pikir yang inovatif.`
 
@@ -115,7 +115,7 @@ export const LANGUAGES = [
     level: 'Native, Fluent'
   },
   {
-    title: `Jawa`,
+    title: `Javanese`,
     level: `Fluent`,
   },
   {
