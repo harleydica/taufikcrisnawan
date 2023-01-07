@@ -1,6 +1,6 @@
 import SOCIAL from './social'
 
-import { Experience } from 'taufikcrisnawan'
+//import { Experience } from 'taufikcrisnawan'
 
 export const HEADLINE = {
   name: 'Taufik Crisnawan Santosa'
