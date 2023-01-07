@@ -40,7 +40,7 @@ export const IconStack: React.FunctionComponent<IconStackProps> = ({ type, class
     case 'node.js':
       return <SiNodedotjs className={twclsx('text-emerald-500', className)} />
     case 'vercel':
-      return <SiVercel className={twclsx('text-emerald-500', className)} />
+      return <SiVercel className={twclsx('text-theme-800 dark:text-theme-200', className)} />
 
     case 'vite':
       return <SiVite className={twclsx('text-yellow-500', className)} />
