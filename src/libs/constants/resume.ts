@@ -112,10 +112,14 @@ export const SUMMARY = [
 export const LANGUAGES = [
   {
     title: 'Indonesia',
-    level: 'Sehari-hari'
+    level: 'Native, Fluent'
+  },
+  {
+    title: `Jawa`,
+    level: `Fluent`,
   },
   {
     title: 'English',
-    level: 'Terbatas'
+    level: 'Beginner'
   }
 ]
