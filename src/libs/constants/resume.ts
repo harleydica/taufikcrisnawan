@@ -1,6 +1,6 @@
 import SOCIAL from './social'
 
-//import { Experience } from 'taufikcrisnawan'
+import { Experience } from 'taufikcrisnawan'
 
 export const HEADLINE = {
   name: 'Taufik Crisnawan Santosa'
@@ -29,19 +29,33 @@ export const KEY_SKILLS = [
 
 ]
 
-/* export const EXPERIENCE: Experience[] = [
+export const EXPERIENCE: Experience[] = [
   {
-    companyName: 'Company Name',
-    role: 'Role',
+    companyName: 'OSIS',
+    role: 'Ketua Sekbid Tim TIK & HUMAS',
     period: {
-      start: 'April, 2022',
-      end: 'Present'
+      start: 'Agust, 2022',
+      end: 'Sekarang'
     },
     lists: [
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+      `Membantu kinerja OSIS dalam bidang TIK & HUMAS.`,
+      `Mendokumentasi seluruh kegiatan program kerja OSIS.`
+    ]
+  },
+  {
+    companyName: 'Remaja Islam Masjid Al-Qomar, Gowok',
+    role: 'Ketua Umum',
+    period: {
+      start: 'January, 2021',
+      end: 'January, 2022'
+    },
+    lists: [
+      `Menjalankan program kerja RISMA dalam kondisi pandemi Covid-19, mengordinasi seluruh anggota dengan baik.`,
+      `Mendapatkan ilmu tentang agama walaupun tidak banyak yang saya dapatkan.`,
+      `Mempelajari cara Public Speaking dengan baik didepan orang banyak.`
     ]
   }
-]*/
+]
 
 type Education = Array<{
   school: string
