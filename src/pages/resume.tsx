@@ -4,7 +4,7 @@ import { AlertResume, HowToPrintDialog } from '@/components/dialog'
 import { UnstyledButton } from '@/UI/buttons'
 import { UnderlineLink } from '@/UI/links'
 
-import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, SUMMARY } from '@/libs/constants/resume'
+import { EDUCATION, /*EXPERIENCE,*/ HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, /*SKILLS,*/ SUMMARY } from '@/libs/constants/resume'
 import { generateOgImage, getMetaPage } from '@/libs/metapage'
 
 import { useMediaQuery } from '@/hooks'
