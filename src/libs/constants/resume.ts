@@ -36,7 +36,7 @@ export const KEY_SKILLS = [
 
 export const EXPERIENCE: Experience[] = [
   {
-    companyName: 'OSIS',
+    companyName: 'Organisasi Siswa Intra Sekolah',
     role: 'Ketua Sekbid Tim TIK & HUMAS',
     period: {
       start: 'Agust, 2022',
