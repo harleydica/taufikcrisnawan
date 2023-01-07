@@ -4,7 +4,7 @@ import { AlertResume, HowToPrintDialog } from '@/components/dialog'
 import { UnstyledButton } from '@/UI/buttons'
 import { UnderlineLink } from '@/UI/links'
 
-import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, SUMMARY } from '@/libs/constants/resume'
+import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, TAUFIK, SUMMARY } from '@/libs/constants/resume'
 import { generateOgImage, getMetaPage } from '@/libs/metapage'
 
 import { useMediaQuery } from '@/hooks'
@@ -95,6 +95,15 @@ const Resume: NextPage = () => {
           </ul>
         </section>
 
+        <section>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Profile</h3>
+
+          <ul className={listStyle}>
+            {TAUFIK.map((tauf) => (
+              <li key={tauf}>{tauf}</li>
+            ))}
+          </ul>
+        </section>
 
         <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Technical Skills</h3>

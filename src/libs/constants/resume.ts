@@ -27,6 +27,13 @@ export const SKILLS = [
   `Hobby: Codding, Fotografi, Videografi, Badminton, Mendaki.`
 ]
 
+export const TAUFIK = [
+  `Nama: Taufik Crisnawan Santosa`,
+  `Tempat, Tanggal Lahir: Yogyakarta, 1 November 2004`,
+  `Alamat: Jl. Nogopuro, Gowok, Caturtunggal, Depok, Sleman, Yogyakarta`,
+  `Jenis Kelamin: Laki-Laki`,
+]
+
 export const KEY_SKILLS = [
   `Sebagai seorang yang profesional saya mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
   `Saya sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
