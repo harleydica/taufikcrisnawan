@@ -16,6 +16,7 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
+  SiVercel,
   SiVite
 } from 'react-icons/si'
 
@@ -38,6 +39,8 @@ export const IconStack: React.FunctionComponent<IconStackProps> = ({ type, class
     case 'nodejs':
     case 'node.js':
       return <SiNodedotjs className={twclsx('text-emerald-500', className)} />
+    case 'vercel':
+      return <SiVercel className={twclsx('text-emerald-500', className)} />
 
     case 'vite':
       return <SiVite className={twclsx('text-yellow-500', className)} />
