@@ -72,7 +72,7 @@ const Resume: NextPage = () => {
       <div className='space-y-8'>
         <section>
           <div className='flex items-center justify-between pb-2.5 border-b-2 border-b-theme-700'>
-            <h3>Summary</h3>
+            <h3>Profile</h3>
 
             <UnstyledButton onClick={openPopup} className='print:hidden'>
               <HiInformationCircle className='text-red-500 animate-pulse text-lg' />
@@ -81,10 +81,10 @@ const Resume: NextPage = () => {
           </div>
 
           <ul className={listStyle}>
-            {SUMMARY.map((summ, idx) => {
+            {TAUFIK.map((tauf, idx) => {
               return (
                 <li key={idx}>
-                  {htmr(summ, {
+                  {htmr(tauf, {
                     transform: {
                       a: (props) => <UnderlineLink href={props.href ?? ''}>{props.children}</UnderlineLink>
                     }
@@ -96,11 +96,11 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
-          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Profile</h3>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Summary</h3>
 
           <ul className={listStyle}>
-            {TAUFIK.map((tauf) => (
-              <li key={tauf}>{tauf}</li>
+            {SUMMARY.map((summ) => (
+              <li key={summ}>{summ}</li>
             ))}
           </ul>
         </section>
