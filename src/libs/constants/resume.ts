@@ -18,15 +18,18 @@ export const LINKS: typeof SOCIAL = [
   }
 ]
 
-export const SKILLS = [
-  `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
-]
+/*export const SKILLS = [
+  `Berpengetahuan tentang Mikrotik konfigurasi dasar dan beberapa konfigurasi lainnya`,
+]*/
 
 export const KEY_SKILLS = [
-  `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
+  `Sebagai orang yang profesionals mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
+  `Saya sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
+  `Saya juga dikenal karena kreativitas dan kemampuan saya untuk mendekati tugas dan tantangan dengan pola pikir yang inovatif.`
+
 ]
 
-export const EXPERIENCE: Experience[] = [
+/* export const EXPERIENCE: Experience[] = [
   {
     companyName: 'Company Name',
     role: 'Role',
@@ -38,7 +41,7 @@ export const EXPERIENCE: Experience[] = [
       `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
     ]
   }
-]
+]*/
 
 type Education = Array<{
   school: string
@@ -52,46 +55,47 @@ type Education = Array<{
 
 export const EDUCATION: Education = [
   {
-    school: 'Vocational High School of 2 Depok',
+    school: 'SMK Negeri 2 Depok Sleman',
     period: {
       start: 'June, 2020',
-      end: 'Present'
+      end: 'Sekarang'
     },
-    paragraphs: ['Semester 5, Information Networking System and Aplication'],
+    paragraphs: ['Semester 5, Sistem Informatika Jaringan dan Aplikasi'],
     list: {
-      title: 'Honorable Award:',
-      listItem: ['Student Competency']
+      title: 'Penghargaan:',
+      listItem: ['-']
     }
   },
   {
-    school: 'Junior High School of 5 Depok',
+    school: 'SMP Negeri 5 Depok Sleman',
     period: {
       start: 'September, 2017',
       end: 'Mei, 2020'
     },
-    paragraphs: ['Graduated in May, 2020.']
+    paragraphs: ['Lulus tanggal May, 2020.']
   },
   {
-    school: 'Primary School of Nogopuro',
+    school: 'SD Negeri Nogopuro',
     period: {
       start: 'April, 2011',
       end: 'August, 2017'
     },
-    paragraphs: ['Graduated in July, 2017.']
+    paragraphs: ['Lulus tanggal July, 2017.']
   }
 ]
 
 export const SUMMARY = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  'Sedikit pengalaman dalam memperbaiki jaringan dasar dalam lingkup yang kecil.',
+  'Terus belajar mencari tahu dan mengeksplorasi tentang teknologi baru dan praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.'
 ]
 
 export const LANGUAGES = [
   {
     title: 'Indonesia',
-    level: 'Native, Fluent'
+    level: 'Sehari-hari'
   },
   {
     title: 'English',
-    level: 'Limited working proficiency'
+    level: 'Terbatas'
   }
 ]
