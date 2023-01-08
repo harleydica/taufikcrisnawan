@@ -12,7 +12,6 @@ export default function Track(track: any) {
             className="border-b border-dashed border-transparent hover:border-theme-500 dark:hover:border-theme-300"
             href={track.songUrl}
             target="_blank"
-            rel="noopener noreferrer"
           >
             {track.title}
           </UnstyledLink>
