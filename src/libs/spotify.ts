@@ -14,10 +14,10 @@ const getAccessToken = async () => {
       Authorization: `Basic ${basic}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    const body = new URLSearchParams({ grant_type: "refresh_token" });
-    if(refresh_token) {
-      body.append("refresh_token", refresh_token);
-    }
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: refresh_token
+    })
   });
 
   return response.json();
