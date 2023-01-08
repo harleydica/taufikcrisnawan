@@ -16,6 +16,7 @@ export default function Tracks() {
       {data.tracks.map((track, index) => (
         <Track ranking={index + 1} key={track.songUrl} {...track} />
       ))}
+      <br></br>
     </>
   );
 }
