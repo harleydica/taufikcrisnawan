@@ -17,10 +17,10 @@
   - Store post comments by using GitHub discussion
 - **Umami**
   - an open source, privacy-focused alternative to Google Analytics
-- **Google Analytics**
-  - Platform that collects data from my sites' to create reports that provide insights my sites'
 - **Google AdSense**
   - Google AdSense, can earn money from sites' content
+- **Spotify**
+  - Show what i'm listening to
 - **Supabase**
   - Auth
   - Store Guestbook
