@@ -5,8 +5,8 @@ export default function Track(track: any) {
         {track.ranking}
       </p>
       <div className="flex flex-col pl-3">
-        <a
-          className="border-b border-dashed border-transparent hover:border-theme-500 dark:hover:border-theme-300 no-underline"
+      <a
+          className="font-medium hover:text truncate w-60 sm:w-96 md:w-full"
           href={track.songUrl}
           target="_blank"
           rel="noopener noreferrer"
