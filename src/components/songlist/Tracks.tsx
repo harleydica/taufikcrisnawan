@@ -6,7 +6,7 @@ export default function Track(track: any) {
       </p>
       <div className="flex flex-col pl-3">
         <a
-          className="border-b border-dashed border-transparent hover:border-b-theme-500 font-medium text-gray-900 dark:text-gray-100 truncate w-60 sm:w-96 md:w-full"
+          className="border-b border-dashed border-transparent hover:border-b-theme-500 font-medium text-gray-900 dark:text-gray-100 "
           href={track.songUrl}
           target="_blank"
           rel="noopener noreferrer"
