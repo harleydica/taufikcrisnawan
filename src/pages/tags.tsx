@@ -30,7 +30,7 @@ const meta = getMetaPage({
   description: 'Look for a specific blog post based on tag.',
   keywords: ['Tags', 'tag', 'tags', 'taufikcrisnawan.dev'],
   og_image: generateOgImage({ title: 'Tags', subTitle: 'Look for a specific blog post based on tag.', theme: 'dark' }),
-  og_image_alt: 'Certificate — taufikcrisnawan.dev',
+  og_image_alt: 'Tags — taufikcrisnawan.dev',
   slug: '/tags',
   type: 'website'
 })
