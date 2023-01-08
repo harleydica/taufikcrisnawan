@@ -4,7 +4,6 @@ import { createElement, forwardRef } from 'react'
 
 export type UnstyledLinkProps = {
   href: string
-  target: string
   title?: string
   className?: string
   children?: React.ReactNode
