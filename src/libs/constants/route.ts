@@ -19,10 +19,6 @@ const APP_ROUTE = [
 
 export const ADDT_ROUTE = [
   {
-    path: '/toptracks',
-    name: 'Top Tracks'
-  },
-  {
     path: '/tags',
     name: 'Tags'
   },
@@ -34,6 +30,10 @@ export const ADDT_ROUTE = [
   {
     path: '/certificate',
     name: 'Certificate'
+  },
+  {
+    path: '/toptracks',
+    name: 'Top Tracks'
   }
 ]
 
