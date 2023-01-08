@@ -99,4 +99,8 @@ declare module 'taufikcrisnawan' {
     songUrl: string;
     title: string;
   };
+  
+  export type TopTracks = {
+    tracks: Song[];
+  };
 } 

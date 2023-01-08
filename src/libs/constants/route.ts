@@ -19,6 +19,10 @@ const APP_ROUTE = [
 
 export const ADDT_ROUTE = [
   {
+    path: '/toptracks',
+    name: 'Top Tracks'
+  },
+  {
     path: '/tags',
     name: 'Tags'
   },
