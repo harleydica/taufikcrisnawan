@@ -22,7 +22,7 @@ related: []
 ---
 
 phpMyAdmin merupakan salah satu aplikasi web yang sering digunakan untuk mengelola database MySQL. phpMyAdmin memiliki banyak fitur yang memudahkan kita dalam mengelola database, seperti import dan export database, optimasi database, dan lain-lain.
-![Thumbnail](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/thumbnail.png 'Thumbnail')
+![Thumbnail](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/thumbnail.png 'Thumbnail')
 
 Pada tutorial kali ini, kita akan membahas bagaimana cara menginstall phpMyAdmin di sistem operasi Debian 11. Dengan mengikuti langkah-langkah yang akan kita bahas, diharapkan kita dapat dengan mudah menginstall phpMyAdmin di Debian 11 dan segera menggunakannya untuk mengelola database MySQL.😉
 
@@ -62,7 +62,7 @@ Setelah selesai terinstall, kita perlu check status service dari Apache.
 systemctl status apache2
 ```
 Akan muncul tampilan yang menunjukkan status Apache service berjalan **active(running)**.
-![Status Apache](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/status-apache.png 'Status Apache')
+![Status Apache](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/status-apache.png 'Status Apache')
 Tekan **Ctrl+Z** untuk kembali ke command prompt.
 
 ### 1.3 Install PHP on Debian 11
@@ -78,7 +78,7 @@ Setelah berhasil install plugins, kita perlu check versi PHP yang terinstall.
 php --version
 ```
 System akan memunculkan versi PHP saat ini bersama dengan tanggal rilis.
-![PHP Version](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/php-version.png 'PHP Version')
+![PHP Version](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/php-version.png 'PHP Version')
 
 ### 1.4 Install dan Set Up MariaDB di Debian 11
 
@@ -93,7 +93,7 @@ Check status MariaDB sudah berjalan atau belum.
 systemctl status mariadb
 ```
 Seperti pada Apache, status menunjukkan **active(running)**.
-![Status MariaDB](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/status-mariadb.png 'Status MariaDB')
+![Status MariaDB](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/status-mariadb.png 'Status MariaDB')
 
 Sebelum menginstall phpMyAdmin, kita perlu setting MariaDB Database.
 
@@ -112,7 +112,7 @@ Karena kalian belum menetapkan kata sandi root untuk database kalian, tekan Ente
 - **Remove test database and access to it? [Y/n]** - tekan **y**
 - **Reload privilege tables now? [Y/n]** - tekan **y**
 System akan menunjukkan instalasi MariaDB sekarang lebih aman.
-![Secure MariaDB](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/secure-mariadb.png 'Secure MariaDB')
+![Secure MariaDB](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/secure-mariadb.png 'Secure MariaDB')
 
 #### Membuat User Baru MariaDB
 
@@ -127,7 +127,7 @@ Kita akan menggunakan **wget** tools untuk download phpMyAdmin dengan versi stab
 wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 ```
 Menggunakan opsi **-p** pada wget untuk menyimpan file secara langsung di direktori download.
-![Download phpMyAdmin](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/download-phpmyadmin.png 'Download phpMyAdmin')
+![Download phpMyAdmin](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/download-phpmyadmin.png 'Download phpMyAdmin')
 
 ## Check phpMyAdmin GPG Key
 
@@ -142,7 +142,7 @@ wget -P Downloads https://files.phpmyadmin.net/phpmyadmin.keyring
 cd Downloads
 gpg --import phpmyadmin.keyring
 ```
-![GPG Key](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/keyring.png 'GPG Key')
+![GPG Key](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/keyring.png 'GPG Key')
 3. Download file .asc GPG yang sesuai untuk versi phpMyAdmin kalian dan tetap berada di direktori yang sama.
 ```bash
 wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc
@@ -152,7 +152,7 @@ wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 gpg --verify phpMyAdmin-latest-all-languages.tar.gz.asc
 ```
 Sistem merespons dengan menampilkan informasi kunci GPG.
-![Verify phpMyAdmin](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/verify-phpmyadmin.png 'Verify phpMyAdmin')
+![Verify phpMyAdmin](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/verify-phpmyadmin.png 'Verify phpMyAdmin')
 
 Kalian sekarang dapat membandingkan GPG Key dengan developer credentials di [halaman dokumentasi phpMyAdmin](https://phpmyadmin.readthedocs.io/en/latest/setup.html#verifying-phpmyadmin-releases).
 
@@ -175,7 +175,7 @@ sudo cp /var/www/html/phpMyAdmin/config.sample.inc.php /var/www/html/phpMyAdmin/
 sudo nano /var/www/html/phpMyAdmin/config.inc.php
 ```
 Temukan baris **$cfg['blowfish_secret'] = '';**. Lalu berikan password pada tengah petik sebelum akhir kode.
-![blowfish_secret](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/blowfish.png 'blowfish_secret')
+![blowfish_secret](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/blowfish.png 'blowfish_secret')
 
 5. Ubah permissions untuk file config.inc.php.
 ```bash
@@ -193,7 +193,7 @@ sudo systemctl restart apache2
 ## Access phpMyAdmin di Browser
 
 Pada web browser ketik **localhost/phpMyAdmin** untuk akses phpMyAdmin
-![Login Page phpMyAdmin](https://ik.imagekit.io/taufik/install-phpmyadmin-debian-11/login-page.png 'Login Page phpMyAdmin')
+![Login Page phpMyAdmin](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/login-page.png 'Login Page phpMyAdmin')
 Login ke phpMyAdmin dengan user dan password untuk user MariaDB yang telah kalian buat.
 
 Yey kalian bisa menggunakan phpMyAdmin untuk memanagement databases dengan mudah😉

@@ -19,7 +19,7 @@ related: []
 ---
 
 Saat kita ingin menjadi IT administrator terutama IT Support, Network Engineer, IT Infrastruktur, mungkin yang lain. Atau ketika anda mengelola jaringan rumah dan usaha dengan jaringan kita biasanya menggunakan alat jaringan yang bernama *MikroTik*, yap tidak asing lagi bagi seorang ahli IT atau pelajar SMK jurusan TKJ atau SIJA. Nah pada artikel ini, kita akan membahas tentang konfigurasi dasar Mikrotik yang umum digunakan para administrator jaringan. Tentunya akan sangat bermanfaat bagi teman-teman yang ingin belajar seputar jaringan.
-![topologi](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/topology.png 'topologi')
+![topologi](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/topology.png 'topologi')
 
 Pada konfigurasi dasar MikroTik ini saya menggunakan sebuah Router bertipe RB941-2nD yang merupakan salah satu Router entrylevel dengan harga 300Rb. Router ini juga cocok untuk teman-teman yang ingin belajar Mikrotik tetapi tidak begitu mahal.
 Jadi sebelum melakukan konfigurasi teman-teman bisa lihat topologi diatas ini untuk gambaran bagaimana jalur kabel ethernet maupun ip addressnya.
@@ -32,37 +32,37 @@ Nyalakan router lalu hubungkan seperti topologi diatas, lalu buka aplikasi Winbo
 
 Buka Winbox dan connect router Mikrotik untuk melakukan konfigurasinya
 
-![Connect Winbox](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/connect-winbox.png 'Connect Winbox')
+![Connect Winbox](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/connect-winbox.png 'Connect Winbox')
 
 ## Reset Konfigurasi Default MikroTik
 
 Saat teman-teman login winbox, secara default router Mikrotik memiliki default konfigurasi bawaan pabrik, tentunya untuk memudahkan user yang tidak ingin melakukan konfigurasi secara basic atau advance. Karena kita akan melakukan konfigurasi router dari 0 jadi kita akan menghapus konfigurasi bawaan router ini atau *"Remove Configuration", semua konfigurasi dasar akan dihapus dan memulainya kembali dari awal.
 
-![Remove Configuration](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/remove-config.png 'Remove Configuration')
+![Remove Configuration](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/remove-config.png 'Remove Configuration')
 
 ## Konfigurasi WAN di MikroTik Dari ISP (Internet Service Provider)
 
 Setelah kita menghapus konfigurasi bawaan pabrik lalu apa yang akan kita lakukan? Pertama kita akan melakukan konfigurasi WAN (Wide Access Network) terlebih dahulu. Biasanya ISP pada port LAN sudah menggunakan konfigurasi *DHCP Server*, sehingga dari Mikrotik kita bisa menggunakan *DCHP Client* untuk menghubungkan yang nantinya device Mikrotik akan mendapatkan IP Address, Default Route, DNS secara otomatis. Teman-teman bisa mengikuti langkah pada gambar dibawah ini.
 
-![DHCP Client](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/dhcp-client.png 'DHCP Client')
+![DHCP Client](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/dhcp-client.png 'DHCP Client')
 
 ## Tes Ping Dari Router Ke ISP
 
 Untuk melakukan verifikasi connection dari Mikrotik Ke ISP kita perhatikan bagian "Status" pastikan status tersebut menunjukkan "Bound" artinya sudah mendapatkan informasi DHCP nya. Lalu kita pastikan kembali apakah default Route sudah bejalan dengan membuka *New Terminal* lalu ping IP Gateway dari ISP tersebut atau kita juga bisa ping ke internet manapun seperti detik.com (misalnya). Ketika semua berjalan dengan normal maka ping tersebut menampilkan hasil reply artinya kita sudah terconnect dengan ISP.
 
-![Test Ping ISP](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/tes-ping-isp.png 'Test Ping ISP')
+![Test Ping ISP](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/tes-ping-isp.png 'Test Ping ISP')
 
 ## Memberikan IP Address Untuk Jaringan Lokal (LAN)
 
 Setelah router sudah bisa mengakses internet, maka selanjutnya kita memberikan IP Address ke interface yang akan dijadikan jaringan lokal (LAN) agar laptop, pc atau device lainnya bisa mengakses internet nantinya. Untuk konfigurasinya kita bisa lihat gambar dibawah ini
 
-![IP Address](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/ip-address.png 'IP Address')
+![IP Address](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/ip-address.png 'IP Address')
 
 ## Distribusi IP Address ke Jaringan LAN Dengan DHCP Server
 
 Untuk melakukan distribusi IP Address, yang kita butuhkan untuk pendistribusian tersebut adalah DHCP Server yang nantinya client bisa mendapatkan IP Address secara otomatis. Bagaimana konfigurasinya? bisa lihat gambar dibawah
 
-![DHCP Server](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/dhcp-server.png 'DHCP Server')
+![DHCP Server](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/dhcp-server.png 'DHCP Server')
 
 Saat melakukan konfigurasi DHCP Server, teman-teman harus memperhatikan kembali step pada konfigurasinya, yaitu
 
@@ -70,7 +70,7 @@ Saat melakukan konfigurasi DHCP Server, teman-teman harus memperhatikan kembali 
 * Gateway
 * IP Pool
 
-![Cek DHCP Server](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/cek-dhcp-server.png 'Cek DHCP Server')
+![Cek DHCP Server](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/cek-dhcp-server.png 'Cek DHCP Server')
 
 * DHCP Address Space: yaitu network address yang dikonfigurasi
 * Gateway for DHCP Network: IP Address pada interface yang akan dikonfigurasi (192.168.100.1)
@@ -80,13 +80,13 @@ Saat melakukan konfigurasi DHCP Server, teman-teman harus memperhatikan kembali 
 
 ## Pastikan Laptop/PC Sudah Mendapatkan IP Otomatis dan Bisa Ping Gateway Router
 
-![Verifikasi DHCP Server](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/verifikasi-dhcp-server.png 'Verifikasi DHCP Server')
-![Ping Router](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/ping-router.png 'Ping Router')
+![Verifikasi DHCP Server](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/verifikasi-dhcp-server.png 'Verifikasi DHCP Server')
+![Ping Router](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/ping-router.png 'Ping Router')
 
 Pada tes konfigurasi dasar Mikrotik, laptop atau pc sudah bisa akses ke router, tapi ketika kita akses ke internet belum bisa, dikarenakan kita perlu konfigurasi NAT untuk merubah IP LAN menjadi IP WAN. Tidak sepenuhnya IP LAN menjadi IP WAN tetapi sebuah metode yang mengizinkan dan memperbolehkan IP LAN(IP Private) untuk terkoneksi internet dengan menggunakan bantuan IP WAN(IP Public) atau bertopengkan sebuah IP Public.
 
-![NAT Masquerade](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/nat-masquerade.png 'NAT Masquerade')
-![Ping Google](https://ik.imagekit.io/taufik/Konfigurasi_Dasar_Mikrotik/ping-google.png 'Ping Google')
+![NAT Masquerade](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/nat-masquerade.png 'NAT Masquerade')
+![Ping Google](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/ping-google.png 'Ping Google')
 
 Selamat kita sudah melakukan konfigurasi dasar Mikrotik😉, sangat mudah sekali untuk kita melakukan sebuah konfigurasi Mikrotik dasar ini.
 setelah selesai konfigurasinya teman-teman bisa memberikan sedikit konfigurasi lagi untuk mengamankan router teman-teman.

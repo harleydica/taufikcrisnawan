@@ -36,7 +36,7 @@ Sebelum melakukan konfigurasi teman-teman bisa download sofware [Cisco Packet Tr
 
 Buatlah topologi sedeharna seperti dibawah ini, disini saya menggunakan Router PT Empty yang saya masukkan interfaces Cisco Gigabit Ethernet(CGE).
 
-![topologi](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/topologi.jpg 'topologi')
+![topologi](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/topologi.jpg 'topologi')
 
 Konfigurasikan ip addressnya terlebih dahulu sesuai dengan gambar pada masing masing interface router yang ada.
 
@@ -135,24 +135,24 @@ Yang perlu di perhatikan dalam konfigurasi static routing adalah **destination a
 Setelah melakukan konfigurasi routing static pada setiap router, selanjutnya pc client meminta ip dari masing-masing router yang sudah dikonfigurasi IP DHCP. Disini kita perlu melakukan konfigurasi IP dynamic pada PC Client, untuk caranya ada dibawah ini;
 
 * pada menu PC client, pilih menu dekstop
-![Menu Dekstop](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/menudekstop.jpg 'Menu Dekstop')
+![Menu Dekstop](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/menudekstop.jpg 'Menu Dekstop')
 
 * pilih IP Configuration, pojok kiri atas
-![IP Configuration](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/ipconfiguration.jpg 'IP Configuration')
+![IP Configuration](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/ipconfiguration.jpg 'IP Configuration')
 
 * klik DHCP untuk meminta ip dynamic dari router
-![DHCP](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/dhcp.jpg 'DHCP')
+![DHCP](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/dhcp.jpg 'DHCP')
 
 Kalian sudah melakukan routing static 3 router, jika konfigurasi diatas tidak terjadi error seharusnya pengetestan ping akan berjalan normal. Kita akan melakukan pengetestan dari PC1 ke PC2, PC1 ke PC3, dan PC2 ke PC3
 
 * PC1 ke PC2
-![PC1 ke PC2](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/testpc1-pc2.jpg 'PC1 ke PC2')
+![PC1 ke PC2](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/testpc1-pc2.jpg 'PC1 ke PC2')
 
 * PC1 ke PC3
-![PC1 ke PC3](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/testpc1-pc3.jpg 'PC1 ke PC3')
+![PC1 ke PC3](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/testpc1-pc3.jpg 'PC1 ke PC3')
 
 * PC2 ke PC3
-![PC2 ke PC3](https://ik.imagekit.io/taufik/Cisco/Static-Routing-3-Router/testpc2-pc3.jpg 'PC2 ke PC3')
+![PC2 ke PC3](https://ik.imagekit.io/taufik/blog/Cisco/Static-Routing-3-Router/testpc2-pc3.jpg 'PC2 ke PC3')
 
 Terlihat di atas bahwa hasilnya Reply yang menandakan paket sukses di kirim dari PC1 ke PC2, PC1 ke PC3, dan PC2 e PC3.
 
