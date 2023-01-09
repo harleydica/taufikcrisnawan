@@ -1,0 +1,159 @@
+---
+title: 'How To Add Google AdSense in Your Next.js'
+summary: 'In this article I am going to explain, how you can add Google AdSense in Next.js sites (or any other react applications).. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/9/2023'
+topics: ['nextjs']
+keywords:
+  [
+    'nextjs',
+    'adsense',
+    'google',
+    'google adsense',
+    'nextjs sites',
+    'framework nextjs'
+  ]
+related: []
+---
+
+Apakah kalian pernah berpikir pada saat membuat website untuk menambahkan iklan Google AdSense ke website yang kalian buat menggunakan [Next.js](https://nextjs.org)? Pasti kalian pernah saat mengunjungi sebuah situs website blogger yang terdapat iklan, mungkin iklan toko online atau mungkin iklan game.
+
+Jadi apa sih Google AdSense ini? Kenapa banyak dijumpai di website-website?
+
+[Google AdSense](https://www.google.com/intl/id_id/adsense/start) merupakan layanan iklan milik Google yang memungkinkan pemilik website atau blog untuk menampilkan iklan dari Google dan meraih pendapatan dari klik yang dilakukan pengunjung terhadap iklan tersebut. AdSense mengizinkan kita untuk menampilkan iklan di website atau blog yang sesuai dengan konten kita, sehingga iklan yang ditampilkan kemungkinan lebih menarik bagi pengunjung kita.
+
+Biasanya website blogger yang menampilkan iklan Google AdSense menggunakan platform seperti [Blogger](https://www.blogger.com) atau [WordPress](https://wordpress.com), namun bagaimana orang yang melakukan blogging atau membuat artikelnya menggunakan [Next.js](https://nextjs.org) sebagai **framework**? Jangan khawatir pada artikel kali ini, saya akan menunjukkan kepada kalian cara mudah menambahkan AdSense ke website Next.js kalian. Kalian akan bisa menghasilkan pendapatan dari website dengan menampilkan iklan yang relevan bagi pengunjung kalian. Ayo kita mulai!😉
+
+Untuk memulai Google AdSense dan Next.js, kalian memperlukan Google AdSense untuk memverifikasi akun. Ada 2 cara menambahkan Google AdSense ke website Next.js kalian.
+1. Auto ads
+2. Ads unit
+
+### Auto Ads
+
+Langkah ini kalian hanya perlu:
+- AdSense code
+- Script component
+- Custom app
+
+Kalian akan mendapatkan code Google AdSense seperti dibawah ini.
+#### Basic Code
+```html
+<script data-ad-client="ca-pub-************" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+```
+Ini adalah code script component yang ditambahkan pada **<head></head>**, pada Next.js kalian perlu merubahnya menjadi:
+#### Script component (AdSense + Next.js)
+```js
+<Script
+   id="Adsense-id"
+   // your tag google publisher
+   data-ad-client="ca-pub-************"
+   async="true"
+   strategy="beforeInteractive"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+/>
+```
+Implementasi pada custom app file **_app.js** yang berada di directory root.
+```js
+// import module Script
+import Script from "next/script"
+
+export default function MyApp({ Component, pageProps }) {
+return (
+<>
+// paste your code 
+<Script id="Adsense-id" data-ad-client="ca-pub-************"
+  async strategy="afterInteractive"
+  onError={ (e) => { console.error('Script failed to load', e) }}
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+/>
+<Component {...pageProps} />
+</>
+);
+}
+```
+
+Setelah Google AdSense terverifikasi, Sites kalian akan menunjukkan status **ready** dan siap menampilkan iklan pada website kalian. Setelah itu kalian perlu menghidupkan **Auto Ads** pada menu Ads di Google AdSense dan website kalian akan menampilkan iklan secara otomatis.
+
+### Ads Unit
+
+Sebenarnya cara ini hampir sama dengan **Auto Ads**, namun kalian bisa membagi kode menjadi beberapa bagian dan menampilkan iklan pada layout kalian secara custom.
+
+Langkahnya sangat gampang:
+1. Install npm module [@ctrl/react-adsense](https://www.npmjs.com/package/@ctrl/react-adsense)
+2. Pasang script ads ```<head></head>```
+3. Code dari unit
+4. Custom app
+5. Pasang ads unit
+
+#### Install npm module **@ctrl/react-adsense**
+```bash
+npm install @ctrl/react-adsense
+```
+
+#### Pasang script ads pada ```<head></head>```
+```html
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+```
+
+#### Import module pada custom app
+```js
+import React from 'react'
+import {Adsense} from '@ctrl/react-adsense'
+```
+
+#### Buat code unit di Google AdSense, lalu copy code pada custom app kalian
+```js
+// _app.js or your pages
+
+// ads with no set-up
+<Adsense
+  client="ca-pub-************"
+  slot="7259870550"
+/>
+
+// ads with custom format
+<Adsense
+  client="ca-pub-************"
+  slot="7259870550"
+  style={{ width: 500, height: 300 }}
+  format=""
+/>
+
+// responsive and native ads
+<Adsense
+  client="ca-pub-************"
+  slot="7259870550"
+  style={{ display: 'block' }}
+  layout="in-article"
+  format="fluid"
+/>
+```
+
+#### Penerapan pada custom app:
+```js
+// import module
+import React from 'react';
+import {Adsense} from '@ctrl/react-adsense';
+
+export default function MyApp({ Component, pageProps }) {
+return (
+<Header />
+// apply code your custom app
+<Adsense
+  client="ca-pub-************"
+  slot="7259870550"
+  style={{ width: 500, height: 300 }}
+  format=""
+/>
+<Component {...pageProps} />
+<Footer />
+);
+}
+
+export default MyApp
+```
+
+Demikian artikel ini saya buat, dengan mengikuti cara diatas kalian bisa menambah penghasilan dari menulis artikel atau blog ke website kalian yang dibuat dengan Next.js dengan mudah.
+Good Luck😉
