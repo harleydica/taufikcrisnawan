@@ -43,7 +43,7 @@ Kalian akan mendapatkan code Google AdSense seperti dibawah ini.
 ```html
 <script data-ad-client="ca-pub-************" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 ```
-Ini adalah code script component yang ditambahkan pada ```<head></head>```, di Next.js kalian perlu merubahnya menjadi:
+Ini adalah code script component yang ditambahkan pada ``<head></head>``, di Next.js kalian perlu merubahnya menjadi:
 #### Script component (AdSense + Next.js)
 ```js
 <Script
@@ -83,7 +83,7 @@ Sebenarnya cara ini hampir sama dengan **Auto Ads**, namun kalian bisa membagi k
 
 Langkahnya sangat gampang:
 1. Install npm module [@ctrl/react-adsense](https://www.npmjs.com/package/@ctrl/react-adsense)
-2. Pasang script ads ```<head></head>```
+2. Pasang script ads ``<head></head>``
 3. Code dari unit
 4. Custom app
 5. Pasang ads unit
@@ -93,7 +93,7 @@ Langkahnya sangat gampang:
 npm install @ctrl/react-adsense
 ```
 
-#### Pasang script ads pada ```<head></head>```
+#### Pasang script ads pada ``<head></head>``
 ```html
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 ```
@@ -106,7 +106,7 @@ import {Adsense} from '@ctrl/react-adsense'
 
 #### Buat code unit di Google AdSense, lalu copy code pada custom app kalian
 ```js
-// _app.js or your pages
+// example format unit
 
 // ads with no set-up
 <Adsense
