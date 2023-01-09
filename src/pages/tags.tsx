@@ -94,11 +94,11 @@ const TagsPage: NextPage<TagsProps> = ({ tags, blogs }) => {
         </section>
       )}
       <Adsense
-        client="ca-pub-7640562161899788"
+        client="ca-pub-9254295768355301"
         slot="1435576454"
         style={{ display: 'block' }}
-        layout="in-article"
-        format="fluid"
+        format="auto"
+        responsive="true"
       />
     </LayoutPage>
   )

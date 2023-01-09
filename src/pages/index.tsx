@@ -99,8 +99,8 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           client="ca-pub-9254295768355301"
           slot="8371723731"
           style={{ display: 'block' }}
-          layout="in-article"
-          format="fluid"
+          format="auto"
+          responsive="true"
         />
 
         <BlogList

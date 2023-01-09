@@ -7,6 +7,8 @@ import { twclsx } from '@/libs/twclsx'
 
 import { useMediaQuery } from '@/hooks'
 
+import {Adsense} from '@ctrl/react-adsense';
+
 import type { NextPage } from 'next'
 import { useCallback, useEffect, useId, useState } from 'react'
 import Lightbox from 'react-image-lightbox'
@@ -96,6 +98,14 @@ const CertificatePage: NextPage = () => {
           />
         </div>
       )}
+      <br></br>
+      <Adsense
+        client="ca-pub-9254295768355301"
+        slot="2705298238"
+        style={{ display: 'block' }}
+        format="auto"
+        responsive="true"
+      />
     </LayoutPage>
   )
 }

@@ -12,7 +12,7 @@ import { isDev } from '@/libs/constants/environmentState'
 import { getMetaPageBlog } from '@/libs/metapage'
 import { twclsx } from '@/libs/twclsx'
 
-import {Adsense} from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense';
 
 import axios from 'axios'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
@@ -74,7 +74,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
           client="ca-pub-9254295768355301"
           slot="6212464255"
           style={{ display: 'block' }}
-          layout="in-article"
           format="auto"
           responsive="true"
         />
@@ -95,12 +94,12 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       </div>
       <br></br>
       <Adsense
-          client="ca-pub-9254295768355301"
-          slot="5171394066"
-          style={{ display: 'block' }}
-          layout="in-article"
-          format="fluid"
-        />
+        client="ca-pub-9254295768355301"
+        slot="9504842004"
+        style={{ display: 'block' }}
+        layout="in-article"
+        format="fluid"
+      />
     </LayoutPage>
   )
 }

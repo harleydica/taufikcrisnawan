@@ -14,6 +14,8 @@ import { twclsx } from '@/libs/twclsx'
 
 import { useSearchBlog } from '@/hooks'
 
+import {Adsense} from '@ctrl/react-adsense';
+
 import axios from 'axios'
 import { GetStaticProps, NextPage } from 'next'
 import { useEffect, useMemo } from 'react'
@@ -90,6 +92,13 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
           )}
         </>
       )}
+      <Adsense
+          client="ca-pub-9254295768355301"
+          slot="5171394066"
+          style={{ display: 'block' }}
+          format="auto"
+          responsive="true"
+        />
     </LayoutPage>
   )
 }
