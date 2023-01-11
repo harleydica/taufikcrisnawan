@@ -14,10 +14,6 @@ const SOCIAL = [
   {
     title: 'Instagram',
     href: 'https://instagram.com/taufikntz22'
-  },
-  {
-    title: 'WhatsApp',
-    href: 'https://wa.me/628985383531'
   }
 ]
 
