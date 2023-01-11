@@ -21,6 +21,7 @@
   - Google AdSense, can earn money from sites' content
 - **Spotify**
   - Show what i'm listening to
+  - Top tracks on Spotify updated daily
 - **Supabase**
   - Auth
   - Store Guestbook
