@@ -4,7 +4,7 @@ import { twclsx } from '@/libs'
 import SOCIAL from '@/libs/constants/social'
 
 import type { IconType } from 'react-icons/lib'
-import { SiGithub, SiLinkedin, SiMaildotru, SiInstagram, SiWhatsapp } from 'react-icons/si'
+import { SiGithub, SiLinkedin, SiMaildotru, SiInstagram } from 'react-icons/si'
 
 type SocialWithIcon = typeof SOCIAL[0] & { icon: IconType }
 
@@ -12,8 +12,7 @@ const icon = {
   email: SiMaildotru,
   linkedin: SiLinkedin,
   github: SiGithub,
-  instagram: SiInstagram,
-  whatsapp: SiWhatsapp
+  instagram: SiInstagram
 } as Record<string, IconType>
 
 const socialList: SocialWithIcon[] = SOCIAL.map((social) => ({
