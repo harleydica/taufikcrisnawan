@@ -19,34 +19,24 @@ export const LINKS: typeof SOCIAL = [
 ]
 
 export const SKILLS = [
-  `Mampu mengelola dan mengkonfigurasi sistem operasi seperti Linux atau Windows.`,
-  `Mampu mengelola dan mengkonfigurasi jaringan komputer, termasuk LAN, dan internet.`,
+  `Mampu mengelola dan mengkonfigurasi sistem operasi dasar seperti Linux atau Windows.`,
+  `Mampu mengelola dan mengkonfigurasi jaringan komputer dasar, termasuk LAN, dan internet.`,
   `Mengembangkan aplikasi web menggunakan teknologi seperti HTML, CSS, dan JavaScript.`,
-  `Menggunakan alat-alat seperti Git untuk mengelola dan mengontrol versi dari kode sumber aplikasi.`,
-  `Soft Skills: Problem Solving, Komunikatif, Teamwork, Multitasking.`,
-  `Hobby: Codding, Fotografi, Videografi, Badminton, Mendaki.`
-]
-
-export const TAUFIK = [
-  `Nama: Taufik Crisnawan Santosa`,
-  `Tempat, Tanggal Lahir: Yogyakarta, 1 November 2004`,
-  `Alamat: Jl. Nogopuro, Gowok, Caturtunggal, Depok, Sleman, Yogyakarta`,
-  `Jenis Kelamin: Laki-Laki`,
+  `Menggunakan alat-alat seperti Git untuk mengelola dan mengontrol versi dari kode sumber aplikasi.`
 ]
 
 export const KEY_SKILLS = [
-  `Sebagai seorang yang profesional saya mahir dalam Proses Berpikir Desain. Saya juga terampil dalam Berpikir Kritis & Pemecahan Masalah.`,
-  `Saya sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
+  `Sebagai seorang yang profesional saya mahir dalam proses berpikir desain. Saya juga terampil dalam berpikir kritis & pemecahan masalah.`,
+  `Sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
   `Saya juga dikenal karena kreativitas dan kemampuan saya untuk mendekati tugas dan tantangan dengan pola pikir yang inovatif.`
-
 ]
 
 export const EXPERIENCE: Experience[] = [
   {
     companyName: 'Organisasi Siswa Intra Sekolah',
-    role: 'Ketua Sekbid Tim TIK & HUMAS',
+    role: 'Ketua Seksi Bidang Tim TIK & HUMAS',
     period: {
-      start: 'Agust, 2022',
+      start: 'Agustus, 2022',
       end: 'Sekarang'
     },
     lists: [
@@ -58,12 +48,12 @@ export const EXPERIENCE: Experience[] = [
     companyName: 'Remaja Islam Masjid Al-Qomar, Gowok',
     role: 'Ketua Umum',
     period: {
-      start: 'January, 2021',
-      end: 'January, 2022'
+      start: 'Januari, 2021',
+      end: 'Januari, 2022'
     },
     lists: [
-      `Menjalankan program kerja RISMA dalam kondisi pandemi Covid-19, mengordinasi seluruh anggota dengan baik.`,
-      `Bertanggung jawab mengelola organisasi, mengatur program kerja, membagi tugas di masing-masing bidang kepada anggota, mengingatkan anggota untuk menjalankan tugasnya, dan memastikan program kerja dapat berjalan dengan lancar.`
+      `Menjalankan program kerja Remaja Islam Masjid Al-Qomar dengan lancar dan mengkoordinasi seluruh anggota dengan baik.`,
+      `Bertanggung jawab menjalankan organisasi, mengatur program kerja, membagi tugas di masing-masing bidang kepada anggota, dan memastikan program kerja dapat berjalan dengan lancar.`
     ]
   }
 ]
@@ -86,10 +76,10 @@ export const EDUCATION: Education = [
       end: 'Sekarang'
     },
     paragraphs: ['Semester 5, Sistem Informatika Jaringan dan Aplikasi'],
-    list: {
-      title: 'Penghargaan:',
-      listItem: ['-']
-    }
+    // list: {
+    //   title: 'Penghargaan:',
+    //   listItem: ['-']
+    // }
   },
   {
     school: 'SMP Negeri 5 Depok Sleman',
@@ -97,36 +87,44 @@ export const EDUCATION: Education = [
       start: 'September, 2017',
       end: 'Mei, 2020'
     },
-    paragraphs: ['Lulus di May, 2020.']
-  },
-  {
-    school: 'SD Negeri Nogopuro',
-    period: {
-      start: 'April, 2011',
-      end: 'August, 2017'
-    },
-    paragraphs: ['Lulus di July, 2017.']
+    paragraphs: ['Lulus Mei, 2020']
   }
 ]
 
 export const SUMMARY = [
-  'Seorang siswa yang fokus untuk mewujudkan target.',
-  `Memiliki pengalaman dalam berbagai organisasi di sekolah.`,
-  `Mempelajari pengembangan website berbasis HTML, CSS, JavaScript.`,
-  'Terus belajar mencari tahu dan mengeksplorasi tentang teknologi baru dan praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.'
+  `Saya Taufik Crisnawan Santosa, pelajar SMK Negeri 2 Depok Sleman kompetensi keahlian Sistem Informatika Jaringan & Aplikasi. Memiliki berbagai pengalaman organisasi di sekolah maupun di luar sekolah. Saya memiliki minat dalam dunia IT Network System Administrator dengan pengalaman dasar. Mempelajari, mencari tahu dan mengeksplorasi tentang teknologi baru serta praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.`
 ]
 
 export const LANGUAGES = [
   {
     title: 'Indonesia',
-    level: 'Native, Fluent'
+    level: 'Warga Asli, Fasih'
   },
   {
-    title: `Javanese`,
-    level: `Fluent`,
+    title: `Jawa`,
+    level: `Fasih`,
   },
   {
-    title: 'English',
-    level: 'Beginner'
+    title: 'Inggris',
+    level: 'Pemula'
+  }
+]
+
+export const CONTACT = [
+  {
+    title: 'Website',
+    level: 'taufikcrisnawan.dev'
+  },
+  {
+    title: `Sosial Media`,
+    level:  `links.taufikcrisnawan.dev`
+  },
+  {
+    title: `E-mail`,
+    level: `taufiklah87@gmail.com`,
+  },
+  {
+    title: 'WhatsApp',
+    level: '+62 898-5383-531'
   }
 ]

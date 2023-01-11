@@ -4,7 +4,7 @@ import { AlertResume, HowToPrintDialog } from '@/components/dialog'
 import { UnstyledButton } from '@/UI/buttons'
 import { UnderlineLink } from '@/UI/links'
 
-import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, TAUFIK, SUMMARY } from '@/libs/constants/resume'
+import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, SUMMARY, CONTACT } from '@/libs/constants/resume'
 import { generateOgImage, getMetaPage } from '@/libs/metapage'
 
 import { useMediaQuery } from '@/hooks'
@@ -72,7 +72,7 @@ const Resume: NextPage = () => {
       <div className='space-y-8'>
         <section>
           <div className='flex items-center justify-between pb-2.5 border-b-2 border-b-theme-700'>
-            <h3>Profile</h3>
+            <h3>Tentang Saya</h3>
 
             <UnstyledButton onClick={openPopup} className='print:hidden'>
               <HiInformationCircle className='text-red-500 animate-pulse text-lg' />
@@ -81,10 +81,10 @@ const Resume: NextPage = () => {
           </div>
 
           <ul className={listStyle}>
-            {TAUFIK.map((tauf, idx) => {
+            {SUMMARY.map((summ, idx) => {
               return (
-                <li key={idx}>
-                  {htmr(tauf, {
+                <li key={idx}>   
+                  {htmr(summ, {
                     transform: {
                       a: (props) => <UnderlineLink href={props.href ?? ''}>{props.children}</UnderlineLink>
                     }
@@ -96,17 +96,7 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
-          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Summary</h3>
-
-          <ul className={listStyle}>
-            {SUMMARY.map((summ) => (
-              <li key={summ}>{summ}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Technical Skills</h3>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Keterampilan</h3>
 
           <ul className={listStyle}>
             {SKILLS.map((skill) => (
@@ -116,7 +106,7 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
-          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Key Skills</h3>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Kunci kemampuan</h3>
 
           <ul className={listStyle}>
             {KEY_SKILLS.map((skill, idx) => {
@@ -134,7 +124,7 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
-          <h3 className='pb-2.5 border-b-2 border-b-theme-700'>Education</h3>
+          <h3 className='pb-2.5 border-b-2 border-b-theme-700'>Pendidikan</h3>
 
           {EDUCATION.map((ed) => (
             <div key={ed.school} className='mt-4'>
@@ -165,7 +155,7 @@ const Resume: NextPage = () => {
 
         <section>
           <div className='flex items-center justify-between pb-2.5 border-b-2 border-b-theme-700'>
-            <h3>Experience</h3>
+            <h3>Pengalaman</h3>
           </div>
 
           {EXPERIENCE.map((exp, i) => (
@@ -199,7 +189,7 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
-          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Languages</h3>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Bahasa</h3>
 
           {LANGUAGES.map((lang) => (
             <p className='[&:not(:first-of-type)]:mt-2.5' key={lang.title}>
@@ -207,6 +197,27 @@ const Resume: NextPage = () => {
             </p>
           ))}
         </section>
+
+        {/* <section>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Kontak Saya</h3>
+
+          {CONTACT.map((cont) => (
+            <p className='[&:not(:first-of-type)]:mt-2.5' key={cont.title}>
+              <strong>{cont.title}:</strong> {cont.level}.
+            </p>
+          ))}
+        </section> */}
+
+        <section>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Kontak Saya</h3>
+
+          <ul className={listStyle}>
+            {CONTACT.map((cont) => (
+              <li key={cont}><strong>{cont.title}:</strong> {cont.level}</li>
+            ))}
+          </ul>
+        </section>
+
       </div>
     </main>
   )
