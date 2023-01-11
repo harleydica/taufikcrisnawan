@@ -83,7 +83,7 @@ const Resume: NextPage = () => {
           <ul className={listStyle}>
             {SUMMARY.map((summ, idx) => {
               return (
-                <li key={idx}>   
+                <li key={idx}>
                   {htmr(summ, {
                     transform: {
                       a: (props) => <UnderlineLink href={props.href ?? ''}>{props.children}</UnderlineLink>
@@ -198,24 +198,14 @@ const Resume: NextPage = () => {
           ))}
         </section>
 
-        {/* <section>
-          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Kontak Saya</h3>
-
-          {CONTACT.map((cont) => (
-            <p className='[&:not(:first-of-type)]:mt-2.5' key={cont.title}>
-              <strong>{cont.title}:</strong> {cont.level}.
-            </p>
-          ))}
-        </section> */}
-
         <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Kontak Saya</h3>
 
-          <ul className={listStyle}>
-            {CONTACT.map((cont) => (
-              <li key={cont}><strong>{cont.title}:</strong> {cont.level}</li>
-            ))}
-          </ul>
+          {CONTACT.map((cont) => (
+            <li className='[&:not(:first-of-type)]:mt-2.5' key={cont.title}>
+              <strong>{cont.title}:</strong> {cont.level}.
+            </li>
+          ))}
         </section>
 
       </div>
