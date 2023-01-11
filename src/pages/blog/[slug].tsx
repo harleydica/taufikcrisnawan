@@ -72,10 +72,10 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
         <AuthorSection name={header.author_name} username={header.github_username} />
         <Adsense
           client="ca-pub-9254295768355301"
-          slot="6212464255"
+          slot="2553715414"
           style={{ display: 'block' }}
-          format="auto"
-          responsive="true"
+        layout="in-article"
+        format="fluid"
         />
 
         <div
