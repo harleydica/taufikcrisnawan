@@ -13,8 +13,8 @@ export const LINKS: typeof SOCIAL = [
     title: 'Website'
   },
   {
-    href: 'https://taufikcrisnawan.dev/blog',
-    title: 'Blog'
+    href: 'https://taufikcrisnawan.dev/certificate',
+    title: 'Certificate'
   }
 ]
 
@@ -26,8 +26,8 @@ export const SKILLS = [
 ]
 
 export const KEY_SKILLS = [
-  `Sebagai seorang yang profesional saya mahir dalam proses berpikir desain. Saya juga terampil dalam berpikir kritis & pemecahan masalah.`,
-  `Sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim.`,
+  `Sebagai seorang yang profesional saya berusaha untuk berpikir desain, terampil dalam berpikir kritis & pemecahan masalah.`,
+  `Sangat mudah beradaptasi dan berkembang dalam lingkungan yang berorientasi pada tim maupun individu.`,
   `Saya juga dikenal karena kreativitas dan kemampuan saya untuk mendekati tugas dan tantangan dengan pola pikir yang inovatif.`
 ]
 
