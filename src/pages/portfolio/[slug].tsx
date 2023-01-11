@@ -77,6 +77,14 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ header, mdxSource
           <ToTopButton />
         </div>
       </article>
+      <br></br>
+      <Adsense
+          client="ca-pub-9254295768355301"
+          slot="3554121684"
+          style={{ display: 'block' }}
+          layout="in-article"
+          format="fluid"
+        />
     </LayoutPage>
   )
 }
