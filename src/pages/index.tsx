@@ -27,7 +27,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
     template: 'Student And Tech Enthusiast',
     description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
     keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan S', 'Taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
-    og_image: `https://ik.imagekit.io/taufik/profile/IMG-20220928.webp`,
+    og_image: `https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santosa-jpg`,
     og_image_alt: 'Taufik Crisnawan Santosa',
     slug: '/',
     type: 'website'
@@ -42,7 +42,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         <section className='flex flex-col'>
           <div className='relative flex h-14 md:h-16'>
             <ContentImage
-              src='https://ik.imagekit.io/taufik/profile/IMG-20220928.webp'
+              src='https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santosa-jpg'
               alt='Taufik Crisnawan Santosa'
               width={128}
               height={128}
