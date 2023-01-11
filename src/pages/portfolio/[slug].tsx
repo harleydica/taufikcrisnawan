@@ -11,6 +11,8 @@ import { dateFormat, dateStringToISO } from '@/libs/intl'
 import { getMetaPage } from '@/libs/metapage'
 import { twclsx } from '@/libs/twclsx'
 
+import { Adsense } from '@ctrl/react-adsense';
+
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
