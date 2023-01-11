@@ -12,10 +12,6 @@ const APP_ROUTE = [
     name: 'Portfolio'
   },
   {
-    path: '/certificate',
-    name: 'Certificate'
-  },
-  {
     path: '/guestbook',
     name: 'Guestbook'
   }
@@ -29,6 +25,10 @@ export const ADDT_ROUTE = [
   {
     path: '/resume',
     name: 'Resume'
+  },
+  {
+    path: '/certificate',
+    name: 'Certificate'
   },
   {
     path: '/toptracks',
