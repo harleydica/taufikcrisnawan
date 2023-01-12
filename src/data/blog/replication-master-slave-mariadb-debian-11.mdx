@@ -87,6 +87,9 @@ max_binlog_size         = 100M
 relay_log               = /var/log/mysql/mysql-relay-bin
 relay_log_index         = /var/log/mysql/mysql-relay-bin.index
 ```
+Dibawah ini contoh menambahkan barisnya:
+![Menambahkan Baris Node Master](https://ik.imagekit.io/taufik/blog/replication-master-slave-mariadb-debian-11/master-node-file.png.png 'Menambahkan Baris Node Master')
+
 Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
 ```bash
 sudo systemctl restart mariadb
@@ -165,6 +168,9 @@ max_binlog_size         = 100M
 relay_log               = /var/log/mysql/mysql-relay-bin
 relay_log_index         = /var/log/mysql/mysql-relay-bin.index
 ```
+![Menambahkan Baris Node Slave](https://ik.imagekit.io/taufik/blog/replication-master-slave-mariadb-debian-11/slave-node-file.png.png 'Menambahkan Baris Node Slave')
+
+
 Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
 ```bash
 sudo systemctl restart mariadb
@@ -186,6 +192,7 @@ CHANGE MASTER TO MASTER_HOST = '10.50.50.100', MASTER_USER = 'replication', MAST
 - **12345** password user replication.
 - **mysql-bin.000001** binary log name file (dari master).
 - **786** binary log file position.
+
 Setelah itu kalian bisa start slave:
 ```sql
 START SLAVE;
