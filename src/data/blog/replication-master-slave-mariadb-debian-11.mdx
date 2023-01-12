@@ -181,11 +181,11 @@ Selanjutnya kalian konekkan slave ke replication node master dengan mengikuiti p
 ```sql
 CHANGE MASTER TO MASTER_HOST = '10.50.50.100', MASTER_USER = 'replication', MASTER_PASSWORD = '12345', MASTER_LOG_FILE = 'mysql-bin.000001', MASTER_LOG_POS = 786;
 ```
-- 69.87.220.86 is the IP address of the Master node.
-- replication is the replication user.
-- securepassword is the replication user password.
-- mysql-bin.000001 is the binary log file name.
-- 786 is the binary log file position.
+- **10.50.50.100** IP Address dari node master.
+- **replication** user yang di replication.
+- **12345** password user replication.
+- **mysql-bin.000001** binary log name file (dari master).
+- **786** binary log file position.
 Setelah itu kalian bisa start slave:
 ```sql
 START SLAVE;
