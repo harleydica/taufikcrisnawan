@@ -1,0 +1,337 @@
+---
+title: 'Replcation Master Slave MariaDB on Debian 11'
+summary: 'In this article I am going to explain, how you can make replication master slave with MariaDB MySQL on Debian 11. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/12/2023'
+topics: ['debian, 'mysql']
+keywords:
+  [
+    'replication',
+    'mariadb',
+    'debian 11',
+    'replication master slave',
+    'replication master',
+    'replication slave',
+    'mysql'
+  ]
+related: []
+---
+
+Replication Master-Slave adalah metode yang digunakan untuk menyalin data dari satu server basis data **Master** ke server basis data lainnya **Slave**. Metode ini digunakan untuk meningkatkan ketahanan sistem dan meningkatkan kinerja aplikasi dengan memperbolehkan beberapa server untuk membaca data dari satu sumber.
+![Thumbnail](https://ik.imagekit.io/taufik/blog/replication-master-slave-mariadb-debian-11/thumbnail.png 'Thumbnail')
+
+Pada artikel kali ini kita akan mempraktekkan replication master-slave menggunakan MariaDB, sebelum itu apa sih MariaDB itu? Jadii...
+
+MariaDB adalah sebuah sistem manajemen basis data relasional **RDBMS** yang merupakan fork dari MySQL. MariaDB dikembangkan oleh perusahaan yang didirikan oleh salah satu pendiri MySQL, **Michael Widenius**. MariaDB mencakup perbaikan dan fitur baru yang tidak ada pada MySQL dan diklaim lebih stabil dan lebih aman.
+
+Tanpa basa-basi lagi mari kita ke tutorialnya... Let's GO
+
+Untuk mengatur replication Master-Slave pada sistem berbasis Debian 11 dengan MariaDB, ada beberapa langkah yang harus diikuti:
+1. Instalasi MariaDB pada semua node Master dan Slave.
+2. Konfigurasi node Master dengan mengatur file konfigurasi **50-server.cnf** untuk mengaktifkan binary logging dan menentukan ID unik untuk server tersebut.
+3. Membuat user replication pada node Master dan memberikan izin untuk mengakses data.
+4. Mengatur node Slave dengan mengkonfigurasi file konfigurasi **50-server.cnf** dan menentukan ID unik untuk server tersebut.
+5. Verifikasi replication pada node master-slave.
+
+Diatas merupakan point-point dari pembuatan replication master-slave, untuk penjelasannya kalian bisa lanjutkan tutorial ini sampai selesai
+
+## Install MariaDB pada semua node Master dan Slave.
+
+### Install MariaDB
+Kalian memperlukan instalasi MariaDB server package pada kedua node kalian (master-slave), namun jika server kalian masih dalam kondisi setelah install makan dilakukan update dan upgrade package terlebih dahulu. Kalian bisa ikuti perintah dibawah ini:
+```bash
+sudo apt-get update && apt-get upgrade
+```
+install MariaDB-server
+```bash
+sudo apt-get install mariadb-server -y
+```
+Setelah selesai install package MariaDB-server, kalian check status service dari MariaDB apakah sudah berjalan atau belum:
+```bash
+sudo systemctl status mariadb
+```
+### Konfigurasi **mysql_secure_installation**:
+```bash
+sudo mysql_secure_installation
+```
+Ikuti jawaban seperti dibawah ini:
+1. Enter current password for root (enter for none): **Enter**
+2. Set root password? [Y/n] **Y** (Isikan password root kalian)
+3. Remove anonymous users? [Y/n] **Y**
+4. Disallow root login remotely? [Y/n] **Y**
+5. Remove test database and access to it? [Y/n] **Y**
+6. Reload privilege tables now? [Y/n] YReload privilege tables now? [Y/n] **Y**
+
+Selesai, kalian bisa melakukan konfigurasi node Master untuk melanjutkan replication ini.
+
+## Konfigurasi node Master
+
+Server MariaDB menggunakan file **binary log** untuk melakukan replication, secara default binary log belum diaktifkan di konfigurasi default MariaDB. Jadi kita mengedit file konfigurasi MariaDB dan mengaktifkan binary log.
+```bash
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+Ganti bind-address dari **localhost** menjadi 0.0.0.0:
+```bash
+bind-address            = 0.0.0.0
+```
+Setelah itu, tambahkan baris dibawah ini untuk mengaktifkan binary log:
+```bash
+server-id               = 1
+log_bin                 = /var/log/mysql/mysql-bin.log
+max_binlog_size         = 100M
+relay_log               = /var/log/mysql/mysql-relay-bin
+relay_log_index         = /var/log/mysql/mysql-relay-bin.index
+```
+Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
+```bash
+sudo systemctl restart mariadb
+```
+Secara default MariaDB menggunakan servicenya dengan port 3306, untuk mengchecknya kalian bisa ikuti perintah ini:
+```bash
+sudo ss -antpl | grep mysql
+```
+Maka akan menampilkan tampilan seperti dibawah:
+```bash
+LISTEN    0         80                 0.0.0.0:3306             0.0.0.0:*        users:(("mysqld",pid=3425,fd=22))
+```
+
+## Membuat User Replication Pada node Master dan Memberikan Permission
+
+Untuk membuat replication user, kalian masuk pada menu **mysql -u root -p**, kalian bisa ikuti perintah dibawah ini:
+```bash
+mysql -u root -p
+```
+Akan menampilkan tampilan versi MariaDB beserta versi server kalian.
+```mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 42
+Server version: 10.5.18-MariaDB-0+deb11u1 Debian 11
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+```
+Buatlah user dan password seperti dibawah:
+```mysql
+CREATE USER 'replication'@'%' identified by '12345';
+```
+Selanjutnya **grant replication slave previlage** ke user dengan mengikuti perintah dibawah:
+```mysql
+GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';
+```
+Lalu **flush previlage** untuk memberikan perubahan:
+```mysql
+FLUSH PRIVILEGES;
+```
+Verifikasi master status dengan mengikuti perintah dibawah:
+```mysql
+SHOW MASTER STATUS;
+```
+kalian harus mendapatkan binary log file pada tampilan berikut:
+```mysql
++------------------+----------+--------------+------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++------------------+----------+--------------+------------------+
+| mysql-bin.000001 |      777 |              |                  |
++------------------+----------+--------------+------------------+
+```
+Selesai kalia bisa keluar dari MariaDB, dan melanjutkan konfigurasi pada node slave
+```mysql
+EXIT;
+```
+
+## Mengatur Node Slave
+
+Pertama kalian diharuskan mengaktifkan **relay log** dan **replication** pada node slave. Kalian bisa melakukannya dengan mengikuti perintah dibawah ini:
+```bash
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+Ubah bind-address dari **localhost** ke 0.0.0.0:
+```bash
+bind-address            = 0.0.0.0
+```
+Setelah itu, tambahkan baris dibawah ini untuk mengaktifkan binary log:
+```bash
+server-id               = 2
+log_bin                 = /var/log/mysql/mysql-bin.log
+max_binlog_size         = 100M
+relay_log               = /var/log/mysql/mysql-relay-bin
+relay_log_index         = /var/log/mysql/mysql-relay-bin.index
+```
+Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
+```bash
+sudo systemctl restart mariadb
+```
+Kalian juga perlu mengkonfigurasi node slave untuk replication node master, Ikuti perintah ini:
+```bash
+mysql -u root -p
+```
+Jika ingin mengkoneksikan, kalian dianjurkan untuk nonaktifkan slave:
+```mysql
+STOP SLAVE;
+```
+Selanjutnya kalian konekkan slave ke replication node master dengan mengikuiti perintah dibawah:
+```mysql
+CHANGE MASTER TO MASTER_HOST = '10.50.50.100', MASTER_USER = 'replication', MASTER_PASSWORD = '12345', MASTER_LOG_FILE = 'mysql-bin.000001', MASTER_LOG_POS = 786;
+```
+- 69.87.220.86 is the IP address of the Master node.
+- replication is the replication user.
+- securepassword is the replication user password.
+- mysql-bin.000001 is the binary log file name.
+- 786 is the binary log file position.
+Setelah itu kalian bisa start slave:
+```mysql
+START SLAVE;
+```
+Jika tidak terjadi eror maka slave kalian berhasil terkonek😉.
+Keluar untuk menguji replication:
+```mysql
+EXIT;
+```
+## Verifikasi replication MariaDB
+
+Pada point, MariaDB master dan slave sudah terkonek, lalu kita perlu mengtest dari replication ini berjalan atau tidak.
+Pertama, pada node master:
+```bash
+mysql -u root -p
+```
+Buatkan databases sebagai contoh **test_database**;
+```mysql
+CREATE DATABASE test_database;
+```
+Gunakan database test_database untuk membuat tabel seperti dibawah:
+```mysql
+USE test_database;
+CREATE TABLE table-database (id int, name varchar(20), surname varchar(20));
+```
+Isikan data pada tabel table-database.
+```mysql
+INSERT INTO table-database VALUES (1,"Taufik Crisnawan Santosa","Taufik");
+INSERT INTO table-database VALIES (2,"Muhammad Ichsanul Fadhil","Ichsan");
+```
+Verifikasi data dengan perintah:
+```mysql
+SELECT * FROM test_database;
+``` 
+Akan mengeluarkan tampilan data dari database.
+```mysq
++------+--------------------------+---------+
+| id   |           name           | surname |
++------+--------------------------+---------+
+|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    2 | Muhammad Ichsanul Fadhil | Ichsan  |
++------+--------------------------+---------+
+```
+Setelah itu kembali pada node sleve dan masuk pada menu MariaDB:
+```bash
+mysql -u root -p
+```
+Masukkan perintah dibawah ini untuk memverifikasi status slave sudah terkonek atau belum:
+```mysql
+SHOW SLAVE STATUS \G
+```
+Akan muncul tampilan seperti dibawah ini:
+```mysql
+*************************** 1. row ***************************
+                Slave_IO_State: Waiting for master to send event
+                   Master_Host: 10.50.50.100
+                   Master_User: replication
+                   Master_Port: 3306
+                 Connect_Retry: 60
+               Master_Log_File: mysql-bin.000001
+           Read_Master_Log_Pos: 1491
+                Relay_Log_File: mysql-relay-bin.000002
+                 Relay_Log_Pos: 1260
+         Relay_Master_Log_File: mysql-bin.000001
+              Slave_IO_Running: Yes
+             Slave_SQL_Running: Yes
+               Replicate_Do_DB:
+           Replicate_Ignore_DB:
+            Replicate_Do_Table:
+        Replicate_Ignore_Table:
+       Replicate_Wild_Do_Table:
+   Replicate_Wild_Ignore_Table:
+                    Last_Errno: 0
+                    Last_Error:
+                  Skip_Counter: 0
+           Exec_Master_Log_Pos: 1491
+               Relay_Log_Space: 1569
+               Until_Condition: None
+                Until_Log_File:
+                 Until_Log_Pos: 0
+            Master_SSL_Allowed: No
+            Master_SSL_CA_File:
+            Master_SSL_CA_Path:
+               Master_SSL_Cert:
+             Master_SSL_Cipher:
+                Master_SSL_Key:
+         Seconds_Behind_Master: 0
+ Master_SSL_Verify_Server_Cert: No
+                 Last_IO_Errno: 0
+                 Last_IO_Error:
+                Last_SQL_Errno: 0
+                Last_SQL_Error:
+   Replicate_Ignore_Server_Ids:
+              Master_Server_Id: 1
+                Master_SSL_Crl:
+            Master_SSL_Crlpath:
+                    Using_Gtid: No
+                   Gtid_IO_Pos:
+       Replicate_Do_Domain_Ids:
+   Replicate_Ignore_Domain_Ids:
+                 Parallel_Mode: conservative
+                     SQL_Delay: 0
+           SQL_Remaining_Delay: NULL
+       Slave_SQL_Running_State: Slave has read all relay log; waiting for the slave I/O thread to update it
+              Slave_DDL_Groups: 2
+Slave_Non_Transactional_Groups: 0
+    Slave_Transactional_Groups: 2
+```
+Kalian bisa check juga menggunakan perintah dibawah:
+```mysql
+SHOW DATABASES;
+```
+Berikut tampilannya:
+```mysql
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test_database      |
++--------------------+
+```
+Masuk databases **test_database**:
+```mysql
+USE test_database;
+SHOW TABLES;
+```
+Akan muncul table seperti node master:
+```mysql
++--------------------------+
+| Tables_in_ test_database |
++--------------------------+
+| table-database           |
++--------------------------+
+```
+Verifikasi kembali data yang ada pada table-database:
+```mysql
++------+--------------------------+---------+
+| id   |           name           | surname |
++------+--------------------------+---------+
+|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    2 | Muhammad Ichsanul Fadhil | Ichsan  |
++------+--------------------------+---------+
+```
+
+## Kesimpulan
+
+Replication master-slave adalah metode penyalinan data dari server data master ke server slave pada sistem Debian 11 dengan MariaDB untuk meningkatkan ketahanan sistem dan kinerja. Konfigurasi replication meliputi pengaturan file konfigurasi, membuat user replikasi, membuat backup basis data, dan mengatur server slave untuk melakukan replication dari server master.
+
+Kalian bisa bagikan tutorial ini ke teman kalian yang kebingungan dalam melakukan replication master-slave😉
+TERIMAKSIH
