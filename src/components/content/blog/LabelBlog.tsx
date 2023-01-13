@@ -165,6 +165,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
       )
 
     case 'accessibility':
+    case 'mqtt':
       return (
         <span
           className={twclsx(
