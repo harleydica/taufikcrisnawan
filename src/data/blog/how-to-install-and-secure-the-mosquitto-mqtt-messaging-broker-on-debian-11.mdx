@@ -60,12 +60,14 @@ mosquitto_sub -h localhost -t "test"
 Jika kalian berhasil maka tampilannya akan seperti dibawah ini:
 ![Test Subscribe](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-sub.png 'Test Subscribe')
 
+Setelah **ENTER** mosquitto_sub akan menunggu messages dari server yang disubscribe.
 
-Setelah **ENTER** mosquitto_sub akan menunggu messages dari server yang disubscribe. Kalian buka new terminal untuk melakukan publish ke subscriber:
+Kalian buka new terminal untuk melakukan publish ke subscriber:
 ```bash
 mosquitto_pub -h localhost -t test -m "hallo SIJA"
 ```
 mosquitto_pub sama dengan mosquitto_sub, namun kita perlu **-m** untuk menuliskan pesan yang akan dipublish ke subscriber.
+
 Pada test publish tidak terjadi error, maka tidak ada output yang akan tampilkan.
 ![Test Publish](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-pub.png 'Test Publish')
 
@@ -127,6 +129,7 @@ sudo mosquitto_passwd -c /etc/mosquitto/passwd taufik
 Lalu isikan password autentikasi Mosquitto.
 
 Perintah diatas akan menyimpan autentikasi yang sudah dibuat. Lalu kalian perlu mengkonfigurasi file dari Mosquitto.conf seperti contoh dibawah:
+
 Copy **password_file /etc/mosquitto/passwd** lalu tambah kan pada file **mosquitto.conf**.
 Menjadi:
 ```bash
