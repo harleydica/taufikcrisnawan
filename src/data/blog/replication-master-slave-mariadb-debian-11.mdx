@@ -187,6 +187,7 @@ Selanjutnya kalian konekkan slave ke replication node master dengan mengikuiti p
 ```sql
 CHANGE MASTER TO MASTER_HOST = '10.50.50.100', MASTER_USER = 'replication', MASTER_PASSWORD = '12345', MASTER_LOG_FILE = 'mysql-bin.000001', MASTER_LOG_POS = 786;
 ```
+Pastikan saat mengisi **CHANGE MASTER** sesuai dengan node master kalian, untuk keterangannya sebagai berikut:
 - **10.50.50.100** IP Address dari node master.
 - **replication** user yang di replication.
 - **12345** password user replication.
@@ -216,12 +217,12 @@ CREATE DATABASE test_database;
 Gunakan database test_database untuk membuat tabel seperti dibawah:
 ```sql
 USE test_database;
-CREATE TABLE table-database (id int, name varchar(20), surname varchar(20));
+CREATE TABLE daftar_siswa (id int, name varchar(30), surname varchar(20));
 ```
-Isikan data pada tabel table-database.
+Isikan data pada tabel daftar_siswa.
 ```sql
-INSERT INTO table-database VALUES (1,"Taufik Crisnawan Santosa","Taufik");
-INSERT INTO table-database VALUES (2,"Muhammad Ichsanul Fadhil","Ichsan");
+INSERT INTO `daftar_siswa` (`id`,`name`,`surname`) VALUES (1,"Taufik Crisnawan Santosa","Taufik");
+INSERT INTO daftar_siswa(`id`,`name`,`surname`) VALUES (2,"Muhammad Ichsanul Fadhil","Ichsan");
 ```
 Verifikasi data dengan perintah:
 ```sql
@@ -326,10 +327,10 @@ Akan muncul table seperti node master:
 +--------------------------+
 | Tables_in_ test_database |
 +--------------------------+
-| table-database           |
+| daftar_siswa             |
 +--------------------------+
 ```
-Verifikasi kembali data yang ada pada table-database:
+Verifikasi kembali data yang ada pada daftar_siswa:
 ```sql
 +------+--------------------------+---------+
 | id   |           name           | surname |
