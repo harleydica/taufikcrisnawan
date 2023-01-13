@@ -1,0 +1,171 @@
+---
+title: 'How to Install and Secure Mosquitto MQTT Messaging Broker on Debian 11'
+summary: 'In this article I am going to explain, how you can install and secure Mosquitto MQTT Messaging Broker on Debian 11. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/13/2023'
+topics: ['debian']
+keywords:
+  [
+    'mosquitto',
+    'mqtt',
+    'debian 11',
+    'mosquitto mqtt messaging',
+    'mqtt messaging broker',
+    'mosquitto messaging broker',
+    'secure'
+  ]
+related: []
+---
+
+## Pendahuluan
+
+MQTT adalah sebuah protokol komunikasi jaringan yang digunakan untuk mengirimkan data dari perangkat ke perangkat lainnya dalam jaringan **Internet of Things** (IoT). Protokol ini digunakan untuk mengirimkan data dari perangkat yang memiliki sumber daya terbatas seperti **sensor** ke perangkat yang lebih kuat seperti **server** atau **gateway**.
+![Thumbnail](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/thumbnail.png 'Thumbnail')
+
+Implementasi protokol MQTT menggunakan Mosquitto memungkinkan perangkat IoT untuk terhubung dan berkomunikasi dengan mudah dan efisien, dengan menyediakan cara yang aman dan dapat digunakan untuk mengirim dan menerima data ke siapa saja yang melakukan subscribe.
+
+Mosquitto sendiri merupakan sebuah server atau broker MQTT **open source** yang digunakan untuk menghubungkan perangkat-perangkat dalam jaringan IoT. Server ini berfungsi sebagai **relayer** atau penghubung antara perangkat-perangkat yang mengirim dan menerima data melalui protokol MQTT. Mosquitto juga menyediakan fitur-fitur seperti **enkripsi**, **autentikasi**, dan pengelolaan topik yang memungkinkan pengguna untuk mengkonfigurasi dan mengontrol komunikasi antar perangkat dengan mudah dan aman.
+
+Yok kita mulai implementasi dari MQTT protokol menggunakan Mosquitto. LET'S GO...
+
+Yang pertama kalian lakukan yaitu menyiapkan Debian 11 sebagai server dan nantinya akan di install Mosquitto.
+
+### Install package Mosquitto
+
+Sebelum install Mosquitto kalian bisa update && upgrade package source untuk memperbarui versi package source:
+```bash
+sudo apt-get update && apt-get upgrade -y
+```
+Setelah itu kalian bisa install Mosquitto dengan perintah berikut:
+```bash
+sudo apt install mosquitto mosquitto-clients
+```
+Secara default, Debian 11 akan merunning service Mosquitto setelah melakukan install. Kalian bisa test service jika ingin memastikan Mosquitto sudah berjalan atau belum:
+```bash
+sudo systemctl status mosquitto
+```
+
+### Test Subscribe
+
+Status Mosquitto **running** yang berarti service dari Mosquitto sudah berjalan. Kita bisa test untuk subscribe ke **localhost** untuk mencobanya:
+```bash
+mosquitto_sub -h localhost -t "test"
+```
+- **mosquitto_sub** perintah untuk melakukan subscribe
+- **-h** digunakan untuk menentukan host dari server MQTT
+- **-t** nama topic
+
+Jika kalian berhasil maka tampilannya akan seperti dibawah ini:
+![Test Subscribe](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-sub.png 'Test Subscribe')
+
+
+Setelah **ENTER** mosquitto_sub akan menunggu messages dari server yang disubscribe. Kalian buka new terminal untuk melakukan publish ke subscriber:
+```bash
+mosquitto_pub -h localhost -t test -m "hallo SIJA"
+```
+mosquitto_pub sama dengan mosquitto_sub, namun kita perlu **-m** untuk menuliskan pesan yang akan dipublish ke subscriber.
+Pada test publish tidak terjadi error, maka tidak ada output yang akan tampilkan.
+![Test Publish](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-pub.png 'Test Publish')
+
+Kita check bagian subscribe, apakah sudah mendapatkan pesan dari server Mosquitto. Jika berhasil maka akan menampilkan messages yang ditulis dari server seperti dibawah ini:
+![Test Result](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-result.png 'Test Result')
+
+Yey kalian sudah berhasil melakukan subscribe. Mudah bukan😉
+
+### Test Subscribe IP Host yang Berbeda
+
+Karena diatas tadi merupakan subscribe yang berada di satu server Mosquitto, nah disini kita akan mencoba subscribe server Mosquitto dengan IP host yang berbeda namun masih dalam satu network yang sama.
+
+Pertama kalian bisa setting file **mosquitto.conf** dengan perintah:
+```bash
+sudo nano /etc/mosquitto/mosquitto.conf
+```
+Copy barisdibawah ini dan tambahkan pada file **mosquitto.conf** seperti contoh dibawah:
+```bash
+listener 1883 0.0.0.0
+allow_anonymous true
+```
+Menjadi:
+```bash
+listener 1883 0.0.0.0
+allow_anonymous true
+
+pid_file /run/mosquitto/mosquitto.pid
+
+persistence true
+persistence_location /var/lib/mosquitto/
+
+log_dest file /var/log/mosquitto/mosquitto.log
+
+include_dir /etc/mosquitto/conf.d
+```
+Setelah menambahkan baris, kalian restart terlebih dahulu service Mosquitto untuk melakukan perubahan. Namun sebelum melakukan cara ini, kalian siapkan server client Mosquitto untuk mensubscribe server Mosquitto.
+
+Jika sudah siap, kalian bisa mencoba subscribe ke server Mosquitto dengan perintah:
+```bash
+mosquitto_sub -h 10.50.50.100 -t "text"
+```
+Lalu pada bagian publish, kirimkan messages kepada subscriber:
+```bash
+mosquitto_pub -h 10.50.50.100 -t "text" -m "hallo SIJA"
+```
+Diatas tanda **-h** yang sebelumnya diisi **localhost** sekarang diganti dengan IP host server Mosquitto kalian.
+
+Jika berhasil pada bagian subscriber akan menampilkan messages yang dikirim dari publisher, seperti contoh berikut:
+![Test Result Host](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-result-host.png 'Test Result Host')
+
+Yey kalian sudah berhasil mekakukan implementasi dari protokol MQTT menggunakan Mosquitto server dan client.😉
+
+### Konfigurasi User dan Password Mosquitto
+
+Untuk mengamankan pesan yang dikirim, kita perlu menambahkan autentikasi pada server Mosquitto, ikuti perintah dibawah ini:
+```bash
+sudo mosquitto_passwd -c /etc/mosquitto/passwd taufik
+```
+Lalu isikan password autentikasi Mosquitto.
+
+Perintah diatas akan menyimpan autentikasi yang sudah dibuat. Lalu kalian perlu mengkonfigurasi file dari Mosquitto.conf seperti contoh dibawah:
+Copy **password_file /etc/mosquitto/passwd** lalu tambah kan pada file **mosquitto.conf**.
+Menjadi:
+```bash
+listener 1883 0.0.0.0
+allow_anonymous false
+password_file /etc/mosquitto/passwd
+
+pid_file /run/mosquitto/mosquitto.pid
+
+persistence true
+persistence_location /var/lib/mosquitto/
+
+log_dest file /var/log/mosquitto/mosquitto.log
+
+include_dir /etc/mosquitto/conf.d
+```
+Restart service mosquitto untuk melakukan perubahan.
+
+Setelah itu kalian bisa melakukan subscribe ke server Mosquitto namun kalian diharuskan memasukkan autentikasi yang sudah dibuat oleh server Mosquitto.
+Ikuti perintah berikut:
+```bash
+mosquitto_sub -h 10.50.50.101 -t "test" -u "taufik" -P "12345"
+```
+- **-u** isikan user server mosquitto.
+- **-P** disini merupakan huruf besar dan disikan password server mosquitto.
+
+Pada server Mosquitto, kalian coba publish messages ke subscriber dengan perintah:
+```bash
+mosquitto_pub -h 10.50.50.101 -t "test" -u "taufik" -P "12345" -m "hallo SIJA"
+```
+Jika berhasil, subscriber akan menerima messages dari server Mosquitto yang di publish ke subscribernya, seperti dibawah ini:
+![Test Result Autentikasi](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-result-autentikasi.png 'Test Result Autentikasi')
+
+Yey kalian sudah berhasil mengimplementasikan protokol MQTT menggunakan Mosquitto Server-Client dengan autentikasi. Mudah sekali bukan😉
+
+## Kesimpulan
+
+Implementasi protokol MQTT menggunakan Mosquitto Server memberikan solusi yang mudah dalam komunikasi jaringan IoT. Mosquitto sebagai open-source MQTT broker yang memungkinkan perangkat-perangkat dalam jaringan untuk terhubung dan berkomunikasi dengan mudah, aman, dan efisien. Memiliki fitur menarik seperti seperti enkripsi, autentikasi, dan pengelolaan topik yang memudahkan dalam mengkonfigurasi dan mengontrol komunikasi antar perangkat.
+
+Metode ini membuat implementasi MQTT menggunakan Mosquitto Server menjadi pilihan yang tepat untuk aplikasi IoT.
+
+TERIMAKSIH😉
