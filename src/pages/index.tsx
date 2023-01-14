@@ -72,7 +72,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
                 Welcome to my website where you can find my portfolio, Certificate, blog and more. Enjoy 😄
               </p>
 
-              <div class="flex mx-full h-full">
+              <div className="flex mx-full h-full">
                 <div className='w-full mx-full  mt-10 bg-gradient-to-b from-primary-500 to-ternary-500'>
                   <div className='flex flex-col h-full ml-1 bg-theme-50 dark:bg-theme-900'>
                     <p className='ml-4 text-xl italic'>
