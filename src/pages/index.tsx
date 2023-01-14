@@ -7,7 +7,6 @@ import { GetContents, getContents } from '@/services'
 
 import { getMetaPage } from '@/libs/metapage'
 import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
-import { twclsx } from '@/libs/twclsx'
 
 import React from 'react';
 import { Adsense } from '@ctrl/react-adsense';
@@ -54,7 +53,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
             <SocialHome className='ml-auto max-w-max' />
           </div>
 
-          <div className='mt-3 md:mt-6'>
+          <div className='mt-2 md:mt-4'>
             <h1>Taufik Crisnawan Santosa</h1>
             <h2 className='max-w-max mb-7 text-transparent font-bold text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-primary-500 to-ternary-500 dark:text-transparent'>
               Student &amp; Tech Enthusiast
@@ -72,25 +71,18 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
               <p>
                 Welcome to my website where you can find my portfolio, Certificate, blog and more. Enjoy 😄
               </p>
-
-              <br></br>
-              <blockquote>
-                <style jsx>
-                  {`
-                blockquote {
-                  border-image: linear-gradient(to bottom, #3b82f6, #14b8a6) 1;
-                }
-              `}
-                </style>
-                <p className={twclsx('text-theme-700 dark:text-theme-200')}>
+              <div className="w-1 h-[84px] bg-gradient-to-b from-primary-500 to-ternary-500 mt-8">
+              </div>
+              <div className='ml-4'>
+                <p className='-mt-[82px] mb-2 text-xl'>
                   خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-                  <br></br>
-                  Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
-                  <br></br>
-                  ~ HR. Tirmidzi
                 </p>
-              </blockquote>
-
+                <p className='italic'>
+                "Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
+                <br></br>
+                ~ HR. Tirmidzi"
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -104,7 +96,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         />
 
         <BlogList
-          className='pt-32'
+          className='pt-16'
           description="If you're looking for some interesting reads, check out my featured blog post. sorted from latest to least, feel free to explore it."
           posts={blogs}
           title='Featured Post'
