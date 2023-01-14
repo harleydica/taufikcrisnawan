@@ -71,18 +71,23 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
               <p>
                 Welcome to my website where you can find my portfolio, Certificate, blog and more. Enjoy 😄
               </p>
-              <div className="w-1 h-[84px] bg-gradient-to-b from-primary-500 to-ternary-500 mt-8">
+
+              <div class="flex mx-full h-full">
+                <div className='w-full mx-full  mt-10 bg-gradient-to-b from-primary-500 to-ternary-500'>
+                  <div className='flex flex-col h-full ml-1 bg-theme-50 dark:bg-theme-900'>
+                    <p className='ml-4 text-xl italic'>
+                      خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
+                    </p>
+                    <p className='ml-4 mt-1 italic'>
+                      &ldquo;Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
+                    </p>
+                    <p className='ml-4 italic'>
+                      ~ HR. Tirmidzi&ldquo;
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className='ml-4'>
-                <p className='-mt-[82px] mb-2 text-xl'>
-                  خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-                </p>
-                <p className='italic'>
-                &ldquo;Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
-                <br></br>
-                ~ HR. Tirmidzi&ldquo;
-                </p>
-              </div>
+
             </div>
           </div>
         </section>
