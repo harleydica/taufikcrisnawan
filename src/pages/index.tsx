@@ -78,9 +78,9 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
                   خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
                 </p>
                 <p className='italic'>
-                "Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
+                &ldquo;Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
                 <br></br>
-                ~ HR. Tirmidzi"
+                ~ HR. Tirmidzi&ldquo;
                 </p>
               </div>
             </div>
