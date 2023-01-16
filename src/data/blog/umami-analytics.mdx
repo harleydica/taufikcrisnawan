@@ -1,0 +1,148 @@
+---
+title: 'Set Up Web Analytics with Umami (Alternative Google Analytics)'
+summary: 'How to set up Umami Analytics as an alternative Googole Analytics. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/15/2023'
+topics: ['web analytics']
+keywords:
+  [
+    'umami',
+    'analytics',
+    'google',
+    'google analytics',
+    'web analytics',
+    'analytics'
+  ]
+related: []
+---
+
+## Pendahuluan
+
+Umami Analytics solusi analytics web alternatif, **open source**, **privacy-focused** yang dapat digunakan sebagai pengganti Google Analytics. Umami sendiri menyediakan fitur yang hampir sama seperti Google Analytics, namun kaunggulan fitur yang ditawarkan oleh Umami seperti menganalisa web secara real-time yang membuat saya bisa melihat langsung perkembangan web. Umami juga dipercaya lebih aman dibandingkan Google Analytics karena tidak mengumpulkan data pribadi yang tidak perlu.
+![Thumbnail](https://ik.imagekit.io/taufik/blog/umami-analytics/thumbnail.png 'Thumbnail')
+
+Web analytics ini bisa di hosted atau dideploy dimana saja, misal jika memiliki server sendiri (self-hosted) atau ingin mendeploy menggunakan [Vercel](https://vercel.com).
+
+Pada kesempatan ini saya akan memberikan cara set up Umami analytics ini dengan menggunakan Vercel Deployment dan Supabase, tanpa basa-basi lagi yok kita mulai..LET'S GOO😉
+
+### Prerequisites
+
+Kalian diharuskan menyiapkan akun Github, Supabase, dan Vercel. Yang nantinya Github kita gunakan sebagai repositori saat kita deploy ke Vercel, Supabase sebagai databases dari Umami analytics.
+
+### Set Up Supabase
+
+Login akun [Supabase](https://supabase.com/), jika belum memilki akun Supabase bisa login menggunakan akun Github.
+
+Setelah login kalian akan ditampilkan menu project, kalian bisa klik **New project** untuk membuat project baru.
+![New Project](https://ik.imagekit.io/taufik/blog/umami-analytics/new-project.png 'New Project')
+
+Isikan nama, database password, dan pricing plan. Jika sudah bisa klik **Create new project**.
+![Create New Project](https://ik.imagekit.io/taufik/blog/umami-analytics/create-new-project.png 'Create New Project')
+Tunggu pembuatan project sampai selesai.
+
+### Deploy Umami on Vercel
+
+Kalian dengan mudah mendeploy Umami menggunakan Vercel, kunjungi [Umami Deploy to Vercel](https://umami.is/docs/running-on-vercel). Diharapkan kalian untuk membaca documentasi dari Umami, setelah itu kalian bisa klik **Deploy**.
+![Umami Deploy](https://ik.imagekit.io/taufik/blog/umami-analytics/umami-deploy.png 'Umami Deploy')
+
+Untuk Umami versi lama kalian diharuskan mengisi query sql pada Supabase. Namun, sekarang kalian hanya klik **Deploy** pada Vercel seperti diatas dan mengisi enviroment, dengan otomatis database Umami akan terisi.
+
+
+Isikan nama repositori yang nanti akan menjadi repositori utama pada Github kalian. Sebelum start deploy kalian kembali ke Supabase untuk set up database.
+![Vercel Name Repositori](https://ik.imagekit.io/taufik/blog/umami-analytics/vercel-name-project.png 'Vercel Name Repositori')
+
+Pada Supabase, masuk ke project kalian lalu klik **Project setting** => **Database**, di menu database menuju ke **Connecting string** => **URI** dan copy text lalu paste pada bagian enviroment Vercel.
+![Copy Postgresql](https://ik.imagekit.io/taufik/blog/umami-analytics/copy-postgresql.png 'Copy Postgresql')
+
+Paste postgresql kalian pada kolom **DATABASE_URL**, pada **[YOUR-PASSWORD]** isikan password project kalian.
+![Configure Project](https://ik.imagekit.io/taufik/blog/umami-analytics/configure-project.png 'Configure Project')
+Untuk **HAST-SALT** kalian isi random string atau bisa gunakan password generator. 
+
+Jika sudah bisa klik deploy, dan tunggu proses deployment sampai selesai.
+
+Kalian bisa custom domain pada menu **Setting** => **Domains**.
+![Custom Domains](https://ik.imagekit.io/taufik/blog/umami-analytics/custom-domain.png 'Custom Domains')
+
+### Set Up Umami
+
+Buka halaman web Umami yang sudah kalian deploy, login Umami menggunakan default user dari Umami **admin** password **umami**. Kalian bisa ganti passwordnya pada menu **Setting** => **Profile** => **Change password**.
+![Change Password](https://ik.imagekit.io/taufik/blog/umami-analytics/change-password.png 'Change Password')
+
+Setelah itu kalian ke menu **Website** => **Add website**, isikan nama website kalian dan domain website lalu klik save.
+![Add Website](https://ik.imagekit.io/taufik/blog/umami-analytics/add-website.png 'Add Website')
+
+### Set Up Umami Ke Website
+
+Untuk set up Umami ke website kalian hanya menempelkan **Tracking code script** pada `<head></head>`, atau jika kalian menggunakan framework Next.js bisa copy ke file **_document.txs**.
+![Get Tracking Code](https://ik.imagekit.io/taufik/blog/umami-analytics/get-tracking-code.png 'Get Tracking Code')
+
+Format html:
+```html
+<script
+  async
+  defer
+  data-website-id="some-random-string-or-the-websites-id-here"
+  src="https://the-umami-you-deployed.com/umami.js"
+></script>
+```
+Menjadi:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    // paste your code here
+    <script
+      async
+      defer
+      data-website-id="4bfe1718-9cc9-4831-836f-98d894cc7631"
+      src="https://umami.taufikcrisnawan.dev/umami.js">
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+```
+
+Pada Next.js kalian bisa copy tracking code pada file _document.tsx seperti contoh berikut:
+```tsx
+// _document.tsx
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+import Script from 'next/script'
+
+export default class CustomDocument extends Document {
+  render() {
+    return (
+      <Html lang='en-US'>
+        <Head>
+          <Script
+            async
+            defer
+            data-do-not-track='true'
+            data-website-id='6daf05f5-92d2-430f-9cdd-1801014260da'
+            src='https://umami.rizkicitra.dev/umami.js'/>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+
+```
+
+Yey website kalian sudah bisa ter analytics oleh Umami, kalian bisa lihat statistik di halaman dashboard Umami secara real-time.
+
+## Kesimpulan
+
+Umami Analytics adalah solusi open-source dan real-time yang menawarkan fungsi yang hampir sama dengan Google Analytics, tetapi dengan privasi yang lebih baik karena tidak perlu mengumpulkan data pribadi pengguna. Umami juga memiliki tampilan yang lebih sederhana dan mudah digunakan dibandingkan Google Analytics. Namun, Umami Analytics memang belum sepopuler Google Analytics dan mungkin tidak memiliki fitur yang sama seperti Google Analytics.
+
+TERIMAKASIH😉
