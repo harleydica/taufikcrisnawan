@@ -7,6 +7,8 @@ import { HeadingFour, HeadingThree, HeadingTwo } from './Headings'
 import { Pre } from './Pre'
 
 import { MDXRemoteProps } from 'next-mdx-remote'
+import Callout from './Callout'
+import Tree from './Tree'
 
 const MDXComponents = {
   pre: Pre,
@@ -15,6 +17,8 @@ const MDXComponents = {
   blockquote: Blockquote,
   a: UnderlineLink,
   ContentImage,
+  Callout,
+  Tree,
   h2: HeadingTwo,
   h3: HeadingThree,
   h4: HeadingFour
