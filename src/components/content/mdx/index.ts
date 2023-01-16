@@ -9,6 +9,7 @@ import { Pre } from './Pre'
 import { MDXRemoteProps } from 'next-mdx-remote'
 import Callout from './Callout'
 import Tree from './Tree'
+import Kbd from './Kbd'
 
 const MDXComponents = {
   pre: Pre,
@@ -19,6 +20,7 @@ const MDXComponents = {
   ContentImage,
   Callout,
   Tree,
+  Kbd,
   h2: HeadingTwo,
   h3: HeadingThree,
   h4: HeadingFour
