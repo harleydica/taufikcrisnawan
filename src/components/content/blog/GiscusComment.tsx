@@ -12,7 +12,7 @@ export const GiscusComment = memo(() => {
   return (
     <div className='mt-4 md:mt-8'>
       <Giscus
-        lang='en'
+        lang='id'
         theme={gcTheme}
         emitMetadata='0'
         inputPosition='top'
@@ -21,7 +21,7 @@ export const GiscusComment = memo(() => {
         category='General'
         categoryId='DIC_kwDOIp5zBM4CTMbn'
         mapping='pathname'
-        reactionsEnabled='0'
+        reactionsEnabled='1'
         loading='lazy'
       />
     </div>
