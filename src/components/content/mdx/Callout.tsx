@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 
-import { WithChildren } from '@/types'
+import { WithChildren } from 'taufikcrisnawan'
 
 const Icon = {
   default: '💡',
