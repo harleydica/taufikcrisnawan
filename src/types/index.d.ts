@@ -98,9 +98,13 @@ declare module 'taufikcrisnawan' {
     isPlaying: boolean;
     songUrl: string;
     title: string;
-  };
+  }
   
   export type TopTracks = {
     tracks: Song[];
-  };
+  }
+
+  export type WithChildren = {
+    children: React.ReactNode 
+  }
 } 
