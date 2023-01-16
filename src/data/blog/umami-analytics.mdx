@@ -35,32 +35,33 @@ Kalian diharuskan menyiapkan akun Github, Supabase, dan Vercel. Yang nantinya Gi
 
 Login akun [Supabase](https://supabase.com/), jika belum memilki akun Supabase bisa login menggunakan akun Github.
 
-Setelah login kalian akan ditampilkan menu project, kalian bisa klik **New project** untuk membuat project baru.
+Setelah login kalian akan ditampilkan menu project, kalian bisa klik <Kbd>New project</Kbd> untuk membuat project baru.
 ![New Project](https://ik.imagekit.io/taufik/blog/umami-analytics/new-project.png 'New Project')
 
-Isikan nama, database password, dan pricing plan. Jika sudah bisa klik **Create new project**.
+Isikan nama, database password, dan pricing plan. Jika sudah bisa klik <Kbd>Create new project</Kbd>.
 ![Create New Project](https://ik.imagekit.io/taufik/blog/umami-analytics/create-new-project.png 'Create New Project')
 Tunggu pembuatan project sampai selesai.
 
 ### Deploy Umami on Vercel
 
-Kalian dengan mudah mendeploy Umami menggunakan Vercel, kunjungi [Umami Deploy to Vercel](https://umami.is/docs/running-on-vercel). Diharapkan kalian untuk membaca documentasi dari Umami, setelah itu kalian bisa klik **Deploy**.
+Kalian dengan mudah mendeploy Umami menggunakan Vercel, kunjungi [Umami Deploy to Vercel](https://umami.is/docs/running-on-vercel). Diharapkan kalian untuk membaca documentasi dari Umami, setelah itu kalian bisa klik <Kbd>Deploy</Kbd>.
 ![Umami Deploy](https://ik.imagekit.io/taufik/blog/umami-analytics/umami-deploy.png 'Umami Deploy')
 
-Untuk Umami versi lama kalian diharuskan mengisi query sql pada Supabase. Namun, sekarang kalian hanya klik **Deploy** pada Vercel seperti diatas dan mengisi enviroment, dengan otomatis database Umami akan terisi.
-
+<Callout>
+Untuk Umami versi lama kalian diharuskan mengisi query sql pada Supabase. Namun, sekarang kalian hanya klik <Kbd>Deploy</Kbd> pada Vercel seperti diatas dan mengisi enviroment, dengan otomatis database Umami akan terisi.
+</Callout>
 
 Isikan nama repositori yang nanti akan menjadi repositori utama pada Github kalian. Sebelum start deploy kalian kembali ke Supabase untuk set up database.
 ![Vercel Name Repositori](https://ik.imagekit.io/taufik/blog/umami-analytics/vercel-name-project.png 'Vercel Name Repositori')
 
-Pada Supabase, masuk ke project kalian lalu klik **Project setting** => **Database**, di menu database menuju ke **Connecting string** => **URI** dan copy text lalu paste pada bagian enviroment Vercel.
+Pada Supabase, masuk ke project kalian lalu klik <Kbd>Project setting</Kbd> => <Kbd>Database</Kbd>, di menu database menuju ke **Connecting string** => **URI** dan copy text lalu paste pada bagian enviroment Vercel.
 ![Copy Postgresql](https://ik.imagekit.io/taufik/blog/umami-analytics/copy-postgresql.png 'Copy Postgresql')
 
 Paste postgresql kalian pada kolom **DATABASE_URL**, pada **[YOUR-PASSWORD]** isikan password project kalian.
 ![Configure Project](https://ik.imagekit.io/taufik/blog/umami-analytics/configure-project.png 'Configure Project')
 Untuk **HAST-SALT** kalian isi random string atau bisa gunakan password generator. 
 
-Jika sudah bisa klik deploy, dan tunggu proses deployment sampai selesai.
+Jika sudah bisa klik <Kbd>deploy</Kbd>, dan tunggu proses deployment sampai selesai.
 
 Kalian bisa custom domain pada menu **Setting** => **Domains**.
 ![Custom Domains](https://ik.imagekit.io/taufik/blog/umami-analytics/custom-domain.png 'Custom Domains')
@@ -70,7 +71,7 @@ Kalian bisa custom domain pada menu **Setting** => **Domains**.
 Buka halaman web Umami yang sudah kalian deploy, login Umami menggunakan default user dari Umami **admin** password **umami**. Kalian bisa ganti passwordnya pada menu **Setting** => **Profile** => **Change password**.
 ![Change Password](https://ik.imagekit.io/taufik/blog/umami-analytics/change-password.png 'Change Password')
 
-Setelah itu kalian ke menu **Website** => **Add website**, isikan nama website kalian dan domain website lalu klik save.
+Setelah itu kalian ke menu **Website** => **Add website**, isikan nama website kalian dan domain website lalu klik <Kbd>save</Kbd>.
 ![Add Website](https://ik.imagekit.io/taufik/blog/umami-analytics/add-website.png 'Add Website')
 
 ### Set Up Umami Ke Website
@@ -145,4 +146,6 @@ Yey website kalian sudah bisa ter analytics oleh Umami, kalian bisa lihat statis
 
 Umami Analytics adalah solusi open-source dan real-time yang menawarkan fungsi yang hampir sama dengan Google Analytics, tetapi dengan privasi yang lebih baik karena tidak perlu mengumpulkan data pribadi pengguna. Umami juga memiliki tampilan yang lebih sederhana dan mudah digunakan dibandingkan Google Analytics. Namun, Umami Analytics memang belum sepopuler Google Analytics dan mungkin tidak memiliki fitur yang sama seperti Google Analytics.
 
+<Callout icon='👋' type='info'>
 TERIMAKASIH😉
+</Callout>
