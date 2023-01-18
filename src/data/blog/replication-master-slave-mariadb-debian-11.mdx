@@ -45,7 +45,9 @@ Diatas merupakan point-point dari pembuatan replication master-slave, untuk penj
 ### Install MariaDB
 Kalian memperlukan instalasi MariaDB server package pada kedua node kalian (master-slave), namun jika server kalian masih dalam kondisi setelah install makan dilakukan update dan upgrade package terlebih dahulu. Kalian bisa ikuti perintah dibawah ini:
 
-Pastikan kalian sudag masuk sebagai user root, caranya bisa menggunakan perintah `su` atau `sudo` lalu masukkan password.
+<Callout>
+Pastikan kalian sudah masuk sebagai user root, caranya bisa menggunakan perintah `su' atau `sudo` lalu masukkan password.
+</Callout>
 
 Jika sudah masuk sebagai user root silahkan update repositori apt.
 
@@ -65,12 +67,12 @@ systemctl status mariadb
 mysql_secure_installation
 ```
 Ikuti jawaban seperti dibawah ini:
-1. Enter current password for root (enter for none): **Enter**
-2. Set root password? [Y/n] **Y** (Isikan password root kalian)
-3. Remove anonymous users? [Y/n] **Y**
-4. Disallow root login remotely? [Y/n] **Y**
-5. Remove test database and access to it? [Y/n] **Y**
-6. Reload privilege tables now? [Y/n] YReload privilege tables now? [Y/n] **Y**
+1. Enter current password for root (enter for none): <Kbd>Enter</Kbd>
+2. Set root password? [Y/n] <Kbd>Y</Kbd> (Isikan password root kalian)
+3. Remove anonymous users? [Y/n] <Kbd>Y</Kbd>
+4. Disallow root login remotely? [Y/n] <Kbd>Y</Kbd>
+5. Remove test database and access to it? [Y/n] <Kbd>Y</Kbd>
+6. Reload privilege tables now? [Y/n] YReload privilege tables now? [Y/n] <Kbd>Y</Kbd>
 
 Selesai, kalian bisa melakukan konfigurasi node Master untuk melanjutkan replication ini.
 
@@ -263,8 +265,8 @@ Akan muncul tampilan seperti dibawah ini:
                 Relay_Log_File: mysql-relay-bin.000002
                  Relay_Log_Pos: 1260
          Relay_Master_Log_File: mysql-bin.000001
-              Slave_IO_Running: Yes
-             Slave_SQL_Running: Yes
+              Slave_IO_Running: **Yes**
+             Slave_SQL_Running: **Yes**
                Replicate_Do_DB:
            Replicate_Ignore_DB:
             Replicate_Do_Table:
@@ -307,6 +309,11 @@ Akan muncul tampilan seperti dibawah ini:
 Slave_Non_Transactional_Groups: 0
     Slave_Transactional_Groups: 2
 ```
+
+<Callout>
+Pastikan pada **Slave_IO_Running** dan **Slave_SQL_Running** menunjukkan status **Yes**, yang artinya replication berhasil terconnect dengan node master.
+</Callout>
+
 Kalian bisa check juga menggunakan perintah dibawah:
 ```sql 
 SHOW DATABASES;
