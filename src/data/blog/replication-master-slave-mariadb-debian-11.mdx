@@ -44,20 +44,25 @@ Diatas merupakan point-point dari pembuatan replication master-slave, untuk penj
 
 ### Install MariaDB
 Kalian memperlukan instalasi MariaDB server package pada kedua node kalian (master-slave), namun jika server kalian masih dalam kondisi setelah install makan dilakukan update dan upgrade package terlebih dahulu. Kalian bisa ikuti perintah dibawah ini:
+
+Pastikan kalian sudag masuk sebagai user root, caranya bisa menggunakan perintah `su` atau `sudo` lalu masukkan password.
+
+Jika sudah masuk sebagai user root silahkan update repositori apt.
+
 ```bash
-sudo apt-get update && apt-get upgrade
+apt update && apt upgrade
 ```
 Install MariaDB-server.
 ```bash
-sudo apt-get install mariadb-server -y
+apt install mariadb-server -y
 ```
 Setelah selesai install package MariaDB-server, kalian check status service dari MariaDB apakah sudah berjalan atau belum:
 ```bash
-sudo systemctl status mariadb
+systemctl status mariadb
 ```
 ### Konfigurasi **mysql_secure_installation**:
 ```bash
-sudo mysql_secure_installation
+mysql_secure_installation
 ```
 Ikuti jawaban seperti dibawah ini:
 1. Enter current password for root (enter for none): **Enter**
@@ -73,7 +78,7 @@ Selesai, kalian bisa melakukan konfigurasi node Master untuk melanjutkan replica
 
 Server MariaDB menggunakan file **binary log** untuk melakukan replication, secara default binary log belum diaktifkan di konfigurasi default MariaDB. Jadi kita mengedit file konfigurasi MariaDB dan mengaktifkan binary log.
 ```bash
-sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 Ganti bind-address dari **localhost** menjadi 0.0.0.0:
 ```bash
@@ -92,11 +97,11 @@ Contoh menambahkan barisnya:
 
 Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
 ```bash
-sudo systemctl restart mariadb
+systemctl restart mariadb
 ```
 Secara default MariaDB menggunakan servicenya dengan port 3306, untuk mengchecknya kalian bisa ikuti perintah ini:
 ```bash
-sudo ss -antpl | grep mysql
+ss -antpl | grep mysql
 ```
 Maka akan menampilkan tampilan seperti dibawah:
 ```bash
@@ -154,7 +159,7 @@ EXIT;
 
 Pertama kalian diharuskan mengaktifkan **relay log** dan **replication** pada node slave. Kalian bisa melakukannya dengan mengikuti perintah dibawah ini:
 ```bash
-sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 Ubah bind-address dari **localhost** ke 0.0.0.0:
 ```bash
@@ -173,7 +178,7 @@ Contoh menambahkan barisnya:
 
 Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
 ```bash
-sudo systemctl restart mariadb
+systemctl restart mariadb
 ```
 Kalian juga perlu mengkonfigurasi node slave untuk replication node master, Ikuti perintah ini:
 ```bash
