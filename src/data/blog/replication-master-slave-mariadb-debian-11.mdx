@@ -344,6 +344,11 @@ Akan muncul table seperti node master:
 ```
 Verifikasi kembali data yang ada pada daftar_siswa:
 ```sql
+SELECT * FROM daftar_siswa;
+```
+
+Maka pada slave akan muncul data yang sudah dibuat di node master:
+```sql
 +------+--------------------------+---------+
 | id   |           name           | surname |
 +------+--------------------------+---------+
