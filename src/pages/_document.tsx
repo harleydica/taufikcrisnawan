@@ -14,7 +14,7 @@ export default class CustomDocument extends Document {
           <link rel='preload' href='/fonts/inter-var-latin.woff2' as='font' type='font/woff2' crossOrigin='true' />
           <link rel='apple-touch-icon' sizes='180x180' href='/icon-192.png' />
           <link rel='shortcut icon' href='/favicon.svg' type='svg/x-icon' />
-          <link rel='icon' href='/favicon.svg' type='svg/x-icon' />
+          <link rel='icon' href='/favicon.svg' />
           <link rel='manifest' href='/manifest.json' />
           {process.env.NODE_ENV === 'production' && (
             <Script
