@@ -1,0 +1,75 @@
+---
+title: 'Port Scanning Techniques Using Nmap'
+summary: 'In this article I am going to explain, how to scan ports using nmap. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/17/2023'
+topics: ['network']
+keywords:
+  [
+    'networ',
+    'network protocol',
+    'scanning port',
+    'nmap',
+    'nmap tool',
+    'port checker'
+  ]
+related: []
+---
+## Pendahuluan
+
+Port scanning merupakan proses pengecekan port yang terbuka dan aktif pada sebuah sistem atau jaringan. Salah satu alat yang populer digunakan untuk melakukan port scanning adalah **Nmap (Network Mapper)**.
+![Thumbnail](https://ik.imagekit.io/taufik/blog/nmap-scanning-port/thumbnail.png 'Thumbnail')
+
+Nmap dapat digunakan untuk melakukan scanning port yang terbuka pada sebuah sistem atau jaringan dengan cara mengirimkan paket ke port yang ingin di scan dan menganalisis respons yang diterima. Ini memungkinkan Nmap untuk menentukan status dari port tersebut, apakah itu terbuka, tertutup atau terfiltrasi.
+
+Pada kesempatan kali ini saya akan mencoba untuk melakukan port scanning menggunakan Nmap ini, sebelum melakukan Nmap kalian install dulu tool Nmap pada operating system kalian.
+
+### Install Nmap
+
+Jika kalian menggunakan linux cli, kalian bisa menggunakan perintah berikut untuk menginstall Nmap:
+```bash
+sudo apt install nmap -y
+```
+
+Untuk Windows kalian bisa download menggunakan link dibawah ini:
+[Nmap Download](https://nmap.org/download.html)
+
+### Eksekusi
+
+Untuk menjalankan Nmap, kalian dapat menjalankan perintah Nmap dengan mengetikkan:
+```bash
+nmap [alamat IP atau nama domain]
+```
+Contoh, jika Anda ingin melakukan port scanning pada alamat IP "192.168.10.1", Anda dapat mengetikkan:
+```bash
+nmap 192.168.10.1
+```
+Pada Windows, buka Nmap - Zenmap GUI lalu isikan command seperti dibawah:
+![Windows Scanning](https://ik.imagekit.io/taufik/blog/nmap-scanning-port/windows-scanning.png 'Windows Scanning')
+
+
+Nmap juga memiliki banyak opsi dan parameter yang dapat digunakan untuk mengkonfigurasi jenis scan yang digunakan, waktu timeout, dan lain-lain. Berikut adalah contoh perintah yang sering digunakan adalah:
+
+- **-sS** untuk melakukan scan SYN stealth.
+- **-sT** untuk melakukan scan TCP.
+- **-sU** untuk melakukan scan UDP.
+- **-sN, -sF, -sX**
+    - Null scan **-sN** tidak mengirimkan bit(header flag TCP adalah 0).
+    - FIN scan **-sF** hanya menset bit FIN TCP.
+    - Xmas scan **-sX** menset flag FIN, PSH, dan URG, menerangi paket seperti sebuah pohon Natal.
+- **-p** untuk menentukan jangkauan port yang akan di scan.
+- **-A** untuk melakukan OS detection dan service version detection.
+- **-oN** untuk menyimpan hasil scan ke dalam sebuah file.
+
+Atau kalian juga bisa menggunakan profile yang tersedia di Nmap Gui ini:
+![Windows Profile](https://ik.imagekit.io/taufik/blog/nmap-scanning-port/windows-profile.png 'Windows Profile')
+
+<Callout type='warning'>
+Penggunaan Nmap harus dilakukan dengan bijak dan hanya pada sistem atau jaringan yang Anda miliki izin untuk mengecek. Port scanning tanpa izin dapat dianggap sebagai tindakan ilegal dan merugikan.
+</Callout>
+
+## Kesimpulan
+
+Nmap adalah alat yang sangat berguna untuk melakukan port scanning pada sebuah sistem atau jaringan. Namun, perlu diingat bahwa penggunaan Nmap harus dilakukan dengan bijak dan hanya pada sistem atau jaringan yang diberi izin.
