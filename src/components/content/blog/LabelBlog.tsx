@@ -91,6 +91,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
       )
 
     case 'web analytics':
+    case 'node js':
       return (
         <span
           className={twclsx(

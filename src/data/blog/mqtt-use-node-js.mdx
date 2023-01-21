@@ -1,0 +1,102 @@
+---
+title: 'How to Make MQTT Broker Use NodeJS'
+summary: 'In this article I am going to explain, how you can make MQTT Broker use NodeJS on Debian 11. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/21/2023'
+topics: ['mqtt', 'node js']
+keywords:
+  [
+    'nodejs',
+    'mqtt',
+    'debian 11',
+    'mqtt use nodejs',
+    'mqtt nodejs broker',
+    'mqtt mosca broker',
+    'mosca'
+  ]
+related: []
+---
+
+## Pendahuluan
+
+Seperti yang sudah dijelaskan pada artikel [How to Install and Secure Mosquitto MQTT Messaging Broker on Debian 11](https://taufikcrisnawan.dev/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11) bahwa MQTT adalah sebuah protokol komunikasi jaringan yang digunakan untuk mengirimkan data dari perangkat ke perangkat lainnya dalam jaringan **Internet of Things** (IoT). Protokol ini digunakan untuk mengirimkan data dari perangkat yang memiliki sumber daya terbatas seperti **sensor** ke perangkat yang lebih kuat seperti **server** atau **gateway**.
+
+Menggunakan **Node.js** sebagai platform untuk membuat broker MQTT memungkinkan kalian untuk menjalankan kode javascript pada server, yang dapat meningkatkan kemampuan dalam memproses data dan mengurangi **latency**. Node.js juga memiliki banyak paket npm yang dapat digunakan untuk membuat broker MQTT, seperti **mosca** dan **mqtt**.
+
+Pada kesempatan kali ini, saya akan mempraktekkan cara membuat broker MQTT menggunakan Node.js dengan menggunakan paket npm mosca dan mqtt. Kita akan melihat bagaimana menginstal dan mengkonfigurasi paket, serta menjalankan broker MQTT dan mengecek koneksi. Diharapkan setelah kalian mengikuti tutorial ini akan dapat membuat broker MQTT yang digunakan untuk mengelola koneksi antara perangkat IoT dan aplikasi yang menggunakannya.
+
+Tanpa basa-basi lagi, mari kita cobaaaa...
+
+### Install Package
+
+Sebelum install package kalian diharapkan membuat project node js dengan perintah:
+
+```bash
+npm init
+```
+
+Yang nantinya kalian akan mengisi nama project, deskripsi dan lain-lain.
+
+Setelah itu install package mosca dan mqtt dengan perintah berikut:
+
+```bash
+npm install mosca
+npm install mqtt
+```
+
+Setelah itu kalian buat file untuk broker mqtt seperti **broker.js**.
+
+```js
+#broker.js
+var mosca = require('mosca');
+var settings = {
+		port:1883
+		}
+
+var server = new mosca.Server(settings);
+
+server.on('start', function(){
+console.log("start");
+});
+```
+
+Setelah itu kalian juga buat file untuk publisher.
+
+```js
+#publisher.js
+var mqtt = require('mqtt');
+var client  = mqtt.connect('mqtt://localhost');
+client.on('connect', function () {
+setInterval(function() {
+client.publish('Topic test', 'Hallo SIJA');
+console.log('Message Sent');
+}, 5000);
+});
+```
+
+Pada subscriber juga kita membuat file js codenya seperti dibawah ini.
+
+```js
+#subscriber.js
+var mqtt = require('mqtt')
+var client  = mqtt.connect('mqtt://localhost')
+client.on('connect', function () {
+    client.subscribe('Topic test')
+})
+client.on('message', function (topic, message) {
+context = message.toString();
+console.log(context)
+})
+```
+
+Jalankan masing-masing file tersebut dengan perintah **node broker.js**.
+
+Broker MQTT sekarang akan berjalan di port 1883. Kalian dapat mengeceknya dengan menggunakan aplikasi seperti MQTT.fx atau mosquitto_sub.
+
+Diatas merupakan cara sederhana untuk membuat broker MQTT menggunakan Node.js, kalian dapat mengeksplorasi fitur lain dari mosca atau mqtt untuk menyesuaikan broker kalian sesuai kebutuhan.
+
+<Callout type='info' icon='👋'>
+  TERIMAKASIH
+</Callout>
