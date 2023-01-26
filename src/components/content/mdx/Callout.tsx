@@ -14,16 +14,16 @@ type CalloutType = keyof typeof Icon
 
 const classes: Record<CalloutType, string> = {
   default: clsx(
-    'border-orange-100 bg-orange-50 text-orange-800 dark:border-orange-400/30 dark:bg-orange-400/20 dark:text-orange-300'
+    'border-orange-900 bg-orange-600 text-orange-50 dark:border-orange-400/30 dark:bg-orange-400/20 dark:text-orange-300'
   ),
   error: clsx(
-    'border-red-200 bg-red-100 text-red-900 dark:border-red-200/30 dark:bg-red-900/30 dark:text-red-200'
+    'border-red-900 bg-red-600 text-red-50 dark:border-red-200/30 dark:bg-red-900/30 dark:text-red-200'
   ),
   info: clsx(
-    'border-blue-200 bg-blue-100 text-blue-900 dark:border-blue-200/30 dark:bg-blue-900/30 dark:text-blue-200'
+    'border-blue-900 bg-blue-600 text-blue-50 dark:border-blue-200/30 dark:bg-blue-900/30 dark:text-blue-200'
   ),
   warning: clsx(
-    'border-yellow-100 bg-yellow-50 text-yellow-900 dark:border-yellow-200/30 dark:bg-yellow-700/30 dark:text-yellow-200'
+    'border-yellow-900 bg-yellow-600 text-yellow-50 dark:border-yellow-200/30 dark:bg-yellow-700/30 dark:text-yellow-200'
   ),
 }
 
