@@ -1,0 +1,499 @@
+---
+title: 'Circular Replication Master Master with MariaDB'
+summary: 'In this article I am going to explain, how you can make a circular replication master master with MariaDB MySQL on Debian 11. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '1/26/2023'
+topics: ['debian', 'mysql']
+keywords:
+  [
+    'replication',
+    'mariadb',
+    'debian 11',
+    'replication master master',
+    'replication master',
+    'replication circular',
+    'mysql'
+  ]
+related: []
+---
+
+## Pendahuluan
+
+**Circular Replication** merupakan sejenis replication master-master dimana setiap server master dapat digunakan sebagai sumber data dan dapat digunakan untuk melakukan query dan update data. Dalam jenis replication ini, setiap server master saling terhubung dan saling mengirimkan perubahan data yang terjadi pada satu server ke server lainnya, sehingga setiap server memiliki salinan data yang sama. Ini memungkinkan setiap server untuk digunakan sebagai cadangan atau **failover** jika server lain mengalami masalah.
+
+![Thumbnail](https://ik.imagekit.io/taufik/blog/circular-replication-master-master-mariadb/replication.png 'Thumbnail')
+
+Circular replication biasa digunakan pada aplikasi yang membutuhkan tingkat tinggi **disponibilitas** dan **skalabilitas**.
+
+<Callout>
+  Namun harus diingat bahwa ada beberapa kendala yang harus diantisipasi seperti konflik data, kesalahan konfigurasi,
+  atau masalah jaringan yang dapat menyebabkan masalah pada replikasi.
+</Callout>
+
+Pada kesempatan kali ini saya akan menjelaskan cara membuat circular replication master master menggunakan MariaDB MySql. Diharapkan kalian dapat mengikuti tutorial ini sampai selesai agar dapat melakukan replication dengan baik dan benar. LET'S GO😉
+
+Untuk mengatur circular replication Master Master dengan MariaDB, ada beberapa langkah yang harus diikuti:
+
+1. [Instalasi MariaDB](#install-mariadb-pada-setiap-node) pada setiap node Master.
+2. [Konfigurasi node Master](#konfigurasi-setiap-node-master) dengan mengatur file konfigurasi **50-server.cnf** untuk mengaktifkan binary logging dan menentukan ID unik untuk server tersebut.
+3. [Membuat user replication](#membuat-user-replication-dan-memberikan-permission) pada node Master dan memberikan izin untuk mengakses data.
+4. [Connect Replication](#connect-replication) pada setiap node master.
+5. [Verifikasi replication](#verifikasi-circular-replication-mariadb) pada node master master.
+
+<Callout type='warning'>
+  Sebaiknya kalian selalu mengacu pada dokumentasi resmi mariadb dan selalu membackup data sebelum melakukan konfigurasi
+  apapun pada server kalian.
+</Callout>
+
+## Install MariaDB pada Setiap Node
+
+Kalian memperlukan Install MariaDB server package pada semua node master kalian.
+
+Update source package terlebih dahulu:
+
+```bash
+apt update && apt upgrade -y
+```
+
+Install MariaDB
+
+```bash
+apt install mariadb-server -y
+```
+
+Setelah install MariaDB kalian check service MariaDB apakah sudah berstatus running atau belum.
+
+```bash
+systemctl status mariadb
+```
+
+Jika belum running kalian bisa hidupkan service MariaDB.
+
+```bash
+systemctl start mariadb
+```
+
+## Konfigurasi **mysql_secure_installation**:
+
+```bash
+mysql_secure_installation
+```
+
+Ikuti jawaban seperti dibawah ini:
+
+1. Enter current password for root (enter for none): <Kbd>Enter</Kbd>
+2. Set root password? [Y/n] <Kbd>Y</Kbd> (Isikan password root kalian)
+3. Remove anonymous users? [Y/n] <Kbd>Y</Kbd>
+4. Disallow root login remotely? [Y/n] <Kbd>Y</Kbd>
+5. Remove test database and access to it? [Y/n] <Kbd>Y</Kbd>
+6. Reload privilege tables now? [Y/n] YReload privilege tables now? [Y/n] <Kbd>Y</Kbd>
+
+YEY kalian sudah melakukan install service MariaDB, setelah itu kalian bisa melakukan konfigurasi circular replication pada semua node.
+
+## Konfigurasi Setiap Node Master
+
+Pastikan sebelum melakukan konfigurasi IP Host kalian bisa saling connect (1 network), untuk perintahnya:
+
+```bash
+hostname -I
+```
+
+Pada node yang saya gunakan menggunakan IP Host seperti dibawah ini:
+
+- Replication 1
+  - 10.50.50.52
+- Replication 2
+  - 10.50.50.53
+
+Server MariaDB menggunakan file binary log untuk melakukan replication, secara default binary log belum diaktifkan di konfigurasi default MariaDB. Jadi kalian edit file konfigurasi MariaDB dan mengaktifkan binary log.
+
+<Tree
+  data={[
+    {
+      name: 'etc',
+      children: [
+        {
+          name: 'mysql',
+          children: [
+            {
+              name: 'mariadb.conf.d',
+              children: [
+                {
+                  name: '50-server.cnf'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]}
+/>
+
+```bash
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Tempelkan baris konfigurasi dibawah ini untuk seluruh node master kalian:
+
+```bash
+[server]
+bind-address    = <IP HOST KALIAN>
+server-id       = <NOMOR NODE KALIAN>
+report_host     = <HOSTNAME NODE KALIAN>
+log_bin         = /var/log/mysql/mariadb-bin
+log_bin_index   = /var/log/mysql/mariadb-bin.index
+relay_log       = /var/log/mysql/relay-bin
+relay_log_index = /var/log/mysql/relay-bin.index
+```
+
+Ubah bind-address **localhost** menjadi comment script:
+
+```bash
+# bind-address            = 127.0.0.1
+```
+
+Contoh menambahkan barisnya:
+
+![Paste File Configuration Node Master](https://ik.imagekit.io/taufik/blog/circular-replication-master-master-mariadb/paste-file-configuration.png 'Paste File Configuration Node Master')
+
+<Callout>
+  Kalian lakukan konfigurasi file **50-server.cnf** pada semua node master, pastikan bahwa konfigurasi kalian sudah
+  benar.
+</Callout>
+
+Save dan restart service MariaDB untuk melakukan perubahan konfigurasi yang sudah diganti tadi:
+
+```bash
+systemctl restart mariadb
+```
+
+Secara default MariaDB menggunakan servicenya dengan port 3306, untuk mengchecknya kalian bisa ikuti perintah ini:
+
+```bash
+ss -antpl | grep mariadb
+```
+
+Maka akan menampilkan tampilan seperti dibawah:
+
+```bash
+LISTEN 0      80       10.50.50.52:3306      0.0.0.0:*    users:(("mariadbd",pid=552,fd=21))
+```
+
+<Callout>10.50.50.52 adalah IP Host yang saya gunakan, yang nantinya akan muncul IP Host yang kalian gunakan</Callout>
+
+## Membuat User Replication dan Memberikan Permission
+
+Pada setiap node master akan membuat user replication, untuk membuat replication user, kalian masuk pada menu mysql -u root -p, kalian bisa ikuti perintah dibawah ini:
+
+```bash
+mysql -u root -p
+```
+
+Akan menampilkan tampilan versi MariaDB beserta versi server kalian.
+
+```sql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 42
+Server version: 10.5.18-MariaDB-0+deb11u1 Debian 11
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+```
+
+Buatlah user dan password seperti dibawah:
+
+```sql
+CREATE USER 'replication'@'%' identified by '12345';
+```
+
+Selanjutnya **grant replication slave previlage** ke user dengan mengikuti perintah dibawah:
+
+```sql
+GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';
+```
+
+Lalu **flush previlage** untuk memberikan perubahan:
+
+```sql
+FLUSH PRIVILEGES;
+```
+
+Verifikasi master status dengan mengikuti perintah dibawah:
+
+```sql
+SHOW MASTER STATUS;
+```
+
+kalian harus mendapatkan binary log file pada tampilan berikut:
+
+```sql
++------------------+----------+--------------+------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++------------------+----------+--------------+------------------+
+| mysql-bin.000001 |      719 |              |                  |
++------------------+----------+--------------+------------------+
+```
+
+<Callout>
+  Salin nama-file-binary-log dan posisi-binary-log agar nanti kalian dapat mudah saat menkonekkan node master 1 ke yang
+  lain
+</Callout>
+
+## Connect Replication
+
+Sebelum mengconnectkan replication ini, kalian dianjurkan untuk nonaktifkan slave:
+
+```sql
+STOP SLAVE;
+```
+
+Selanjutnya kalian konekkan slave ke replication node master dengan mengikuiti perintah dibawah:
+
+```sql
+CHANGE MASTER TO MASTER_HOST = '10.50.50.53', MASTER_USER = 'replication', MASTER_PASSWORD = '12345', MASTER_LOG_FILE = 'mysql-bin.000001', MASTER_LOG_POS = 719;
+```
+
+Pastikan saat mengisi **CHANGE MASTER** sesuai dengan node master kalian, untuk keterangannya sebagai berikut:
+
+- **10.50.50.52** IP Address dari node master.
+- **replication** user yang di replication.
+- **12345** password user replication.
+- **mysql-bin.000001** binary log name file (dari master).
+- **719** binary log file position.
+
+Setelah itu kalian bisa start slave:
+
+```sql
+START SLAVE;
+```
+
+Jika tidak terjadi eror maka slave kalian berhasil terkonek😉.
+Keluar untuk menguji replication:
+
+```sql
+EXIT;
+```
+
+## Verifikasi Circular Replication MariaDB
+
+Jika langkah diatas tidak ada error verifikasikan hasil dari replication dengan membuat database dan mengisi data:
+
+### Verifikasi Connection Replication Master 1
+
+Masukkan perintah dibawah ini untuk memverifikasi status slave sudah terkonek atau belum:
+
+```sql
+SHOW SLAVE STATUS \G
+```
+
+Akan muncul tampilan seperti dibawah ini:
+
+```sql
+*************************** 1. row ***************************
+                Slave_IO_State: Waiting for master to send event
+                   Master_Host: 10.50.50.53
+                   Master_User: replication
+                   Master_Port: 3306
+                 Connect_Retry: 60
+               Master_Log_File: mariadb-bin.000001
+           Read_Master_Log_Pos: 1668
+                Relay_Log_File: relay-bin.000002
+                 Relay_Log_Pos: 1456
+         Relay_Master_Log_File: mariadb-bin.000001
+              Slave_IO_Running: Yes
+             Slave_SQL_Running: Yes
+               Replicate_Do_DB:
+           Replicate_Ignore_DB:
+            Replicate_Do_Table:
+        Replicate_Ignore_Table:
+       Replicate_Wild_Do_Table:
+   Replicate_Wild_Ignore_Table:
+                    Last_Errno: 0
+                    Last_Error:
+                  Skip_Counter: 0
+           Exec_Master_Log_Pos: 1668
+               Relay_Log_Space: 1759
+               Until_Condition: None
+                Until_Log_File:
+                 Until_Log_Pos: 0
+            Master_SSL_Allowed: No
+            Master_SSL_CA_File:
+            Master_SSL_CA_Path:
+               Master_SSL_Cert:
+             Master_SSL_Cipher:
+                Master_SSL_Key:
+         Seconds_Behind_Master: 0
+ Master_SSL_Verify_Server_Cert: No
+                 Last_IO_Errno: 0
+                 Last_IO_Error:
+                Last_SQL_Errno: 0
+                Last_SQL_Error:
+   Replicate_Ignore_Server_Ids:
+              Master_Server_Id: 2
+                Master_SSL_Crl:
+            Master_SSL_Crlpath:
+                    Using_Gtid: No
+                   Gtid_IO_Pos:
+       Replicate_Do_Domain_Ids:
+   Replicate_Ignore_Domain_Ids:
+                 Parallel_Mode: optimistic
+                     SQL_Delay: 0
+           SQL_Remaining_Delay: NULL
+       Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+              Slave_DDL_Groups: 1
+Slave_Non_Transactional_Groups: 0
+    Slave_Transactional_Groups: 3
+1 row in set (0.000 sec)
+```
+
+### Verifikasi Connection Replication Master 1
+
+Masukkan perintah dibawah ini untuk memverifikasi status slave sudah terkonek atau belum:
+
+```sql
+SHOW SLAVE STATUS \G
+```
+
+Akan muncul tampilan seperti dibawah ini:
+
+```sql
+*************************** 1. row ***************************
+                Slave_IO_State: Waiting for master to send event
+                   Master_Host: 10.50.50.52
+                   Master_User: replication
+                   Master_Port: 3306
+                 Connect_Retry: 60
+               Master_Log_File: mariadb-bin.000001
+           Read_Master_Log_Pos: 719
+                Relay_Log_File: relay-bin.000002
+                 Relay_Log_Pos: 946
+         Relay_Master_Log_File: mariadb-bin.000001
+              Slave_IO_Running: Yes
+             Slave_SQL_Running: Yes
+               Replicate_Do_DB:
+           Replicate_Ignore_DB:
+            Replicate_Do_Table:
+        Replicate_Ignore_Table:
+       Replicate_Wild_Do_Table:
+   Replicate_Wild_Ignore_Table:
+                    Last_Errno: 0
+                    Last_Error:
+                  Skip_Counter: 0
+           Exec_Master_Log_Pos: 719
+               Relay_Log_Space: 1249
+               Until_Condition: None
+                Until_Log_File:
+                 Until_Log_Pos: 0
+            Master_SSL_Allowed: No
+            Master_SSL_CA_File:
+            Master_SSL_CA_Path:
+               Master_SSL_Cert:
+             Master_SSL_Cipher:
+                Master_SSL_Key:
+         Seconds_Behind_Master: 0
+ Master_SSL_Verify_Server_Cert: No
+                 Last_IO_Errno: 0
+                 Last_IO_Error:
+                Last_SQL_Errno: 0
+                Last_SQL_Error:
+   Replicate_Ignore_Server_Ids:
+              Master_Server_Id: 1
+                Master_SSL_Crl:
+            Master_SSL_Crlpath:
+                    Using_Gtid: No
+                   Gtid_IO_Pos:
+       Replicate_Do_Domain_Ids:
+   Replicate_Ignore_Domain_Ids:
+                 Parallel_Mode: optimistic
+                     SQL_Delay: 0
+           SQL_Remaining_Delay: NULL
+       Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+              Slave_DDL_Groups: 1
+Slave_Non_Transactional_Groups: 0
+    Slave_Transactional_Groups: 1
+1 row in set (0.000 sec)
+```
+
+<Callout>
+  Pastikan pada **Slave_IO_Running** dan **Slave_SQL_Running** menunjukkan status **Yes**, yang artinya replication
+  berhasil terconnect dengan node master.
+</Callout>
+
+### Melakukan Query dan Update data
+
+Untuk menguji kembali connection Replication Circular kalian dapat melakukan query dan update data pada setiap node master.
+
+```bash
+mysql -u root -p
+```
+
+Buatkan databases sebagai contoh **test_database**:
+
+```sql
+CREATE DATABASE test_database;
+```
+
+Gunakan database test_database untuk membuat tabel seperti dibawah:
+
+```sql
+USE test_database;
+CREATE TABLE daftar_siswa (id int, name varchar(30), surname varchar(20));
+```
+
+Isikan data pada tabel daftar_siswa.
+
+```sql
+INSERT INTO daftar_siswa (id, name, surname) VALUES (1, 'Taufik Crisnawan Santosa', 'Taufik');
+INSERT INTO daftar_siswa (id, name, surname) VALUES (2, 'Muhammad Ichsan', 'Ichsan');
+```
+
+Verifikasi data dengan perintah:
+
+```sql
+SELECT * FROM daftar_siswa;
+```
+
+Akan mengeluarkan tampilan data dari database.
+
+```sql
++------+--------------------------+---------+
+| id   |           name           | surname |
++------+--------------------------+---------+
+|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    2 | Muhammad Ichsanul Fadhil | Ichsan  |
++------+--------------------------+---------+
+```
+
+Pada setiap master akan menampilkan data dari database yang dibuat dari master 1.
+
+Lalu kita tes untuk menghapus data dari master 1 apakah data dari database master 2 juga kehapus atau tidak.
+
+```sql
+DELETE FROM daftar_siswa ORDER BY name ASC LIMIT 1;
+```
+
+Baris dari nomor 2 akan dihapus seperti contoh dibawah:
+
+```sql
++------+--------------------------+---------+
+| id   | name                     | surname |
++------+--------------------------+---------+
+|    1 | Taufik Crisnawan Santosa | Taufik  |
++------+--------------------------+---------+
+```
+
+Lakukan verifikasi diatas pada setiap node master untuk memastikan bahwa semua replication master dapat melakukan query dan update pada salah satu server master, dan perubahan tersebut akan otomatis ter-replication ke server master lainnya.
+
+## Kesimpulan
+
+Replikasi Circular master master pada MariaDB merupakan solusi yang baik untuk meningkatkan tingkat disponibilitas dan skalabilitas aplikasi. Melalui konfigurasi yang tepat, setiap server master dapat digunakan sebagai sumber data dan dapat digunakan untuk melakukan query dan update data. Dengan melakukan konfigurasi dan monitoring yang baik, kendala yang mungkin terjadi dapat diminimalisir dan aplikasi dapat berjalan dengan baik.
+
+<Callout icon='👋' type='info'>
+  TERIMAKASIH
+</Callout>
