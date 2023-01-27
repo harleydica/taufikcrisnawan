@@ -94,18 +94,32 @@ YEY kalian sudah melakukan install service MariaDB, setelah itu kalian bisa mela
 
 ## Konfigurasi Setiap Node Master
 
-Pastikan sebelum melakukan konfigurasi IP Host kalian bisa saling connect (1 network), untuk perintahnya:
+Pastikan sebelum melakukan konfigurasi kalian perlu untuk mengetahui IP Host dan Hostname, untuk perintahnya:
 
 ```bash
-hostname -I
+hostname -I && hostname
 ```
 
-Pada node yang saya gunakan menggunakan IP Host seperti dibawah ini:
-
+Pada node yang saya gunakan yaitu menggunakan IP Host dan Hostname seperti dibawah ini:
+```bash
+10.50.50.52
+master-1
+```
 - Replication 1
-  - 10.50.50.52
+```bash
+10.50.50.52
+master-1
+```
+  - IP HOST: 10.50.50.52
+  - HOSTNAME: master-1
+
 - Replication 2
-  - 10.50.50.53
+```bash
+10.50.50.52
+master-1
+```
+  - IP HOST: 10.50.50.53
+  - HOSTNAME: master-2
 
 Server MariaDB menggunakan file binary log untuk melakukan replication, secara default binary log belum diaktifkan di konfigurasi default MariaDB. Jadi kalian edit file konfigurasi MariaDB dan mengaktifkan binary log.
 
