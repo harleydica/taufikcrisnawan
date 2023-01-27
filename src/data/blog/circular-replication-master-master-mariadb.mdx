@@ -101,25 +101,13 @@ hostname -I && hostname
 ```
 
 Pada node yang saya gunakan yaitu menggunakan IP Host dan Hostname seperti dibawah ini:
-```bash
-10.50.50.52
-master-1
-```
 - Replication 1
-```bash
-10.50.50.52
-master-1
-```
-  - IP HOST: 10.50.50.52
-  - HOSTNAME: master-1
+  - IP Host: 10.50.50.52
+  - Hostname: master-1
 
 - Replication 2
-```bash
-10.50.50.52
-master-1
-```
-  - IP HOST: 10.50.50.53
-  - HOSTNAME: master-2
+  - IP Host: 10.50.50.53
+  - Hostname: master-2
 
 Server MariaDB menggunakan file binary log untuk melakukan replication, secara default binary log belum diaktifkan di konfigurasi default MariaDB. Jadi kalian edit file konfigurasi MariaDB dan mengaktifkan binary log.
 
