@@ -203,7 +203,7 @@ const Resume: NextPage = () => {
 
           {CONTACT.map((cont) => (
             <li className='[&:not(:first-of-type)]:mt-2.5' key={cont.title}>
-              <strong>{cont.title}:</strong> {cont.level}.
+              <strong>{cont.title}:</strong> {cont.level}
             </li>
           ))}
         </section>
