@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "bierner.markdown-preview-github-styles",
+        "shyykoserhiy.vscode-spotify",
+        "pkief.material-icon-theme",
+        "eamodio.gitlens",
+        "dbaeumer.vscode-eslint",
+        "formulahendry.auto-rename-tag",
+        "yzhang.markdown-all-in-one"
+    ]
+}
