@@ -23,9 +23,9 @@ export default async function handler(req: NextRequest) {
             backgroundImage: "url('https://ik.imagekit.io/taufik/profile/cover-og')"
           }}
         >
-          <div tw='flex flex-col h-full w-full justify-between'>
+          <div tw='flex flex-col h-full w-1/2 justify-between'>
             <p tw='font-bold text-3xl text-blue-500'>https://taufikcrisnawan.dev/blog</p>
-            <p tw='font-extrabold text-6xl max-w-lg'>{title}</p>
+            <p tw='font-extrabold text-6xl'>{title}</p>
             <div tw='flex items-center'>
               <img
                 width='44'
@@ -41,12 +41,9 @@ export default async function handler(req: NextRequest) {
             </div>
           </div>
 
-          <img
-            src='https://ik.imagekit.io/taufik/profile/icon-192x192.webp'
-            alt='logo'
-            width='128'
-            height='128'
-          />
+          <div tw='flex items-center justify-center w-1/2 h-full'>
+            <img src='https://ik.imagekit.io/taufik/profile/icon-192x192.webp' alt='logo' width={192} height={192} />
+          </div>
         </div>
       ),
       {
@@ -55,7 +52,6 @@ export default async function handler(req: NextRequest) {
       }
     )
   } catch (err) {
-    console.info(JSON.stringify(err))
     return new Response('Failed to generate the og image', {
       status: 500,
       statusText: 'failed to generate the og image'
