@@ -8,6 +8,7 @@
         "eamodio.gitlens",
         "dbaeumer.vscode-eslint",
         "formulahendry.auto-rename-tag",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "devzstudio.emoji-snippets"
     ]
 }

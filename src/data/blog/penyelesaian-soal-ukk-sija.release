@@ -1,0 +1,64 @@
+---
+title: 'Penyelesaian Soal UKK SIJA 2023 Mikrotik Paket 1 Lengkap'
+summary: 'Artikel kali ini akan membahas cara penyelesaian soal UKK SIJA 2023 Mikrotik Paket 1 dengan mudah, bagi kalian yang ingin mencobanya simak tutorial ini sampai selesai😉'
+featured: false
+author_name: 'Taufik Crisnawan Santosa'
+github_username: 'harleydica'
+published: '2/06/2023'
+topics: ['mikrotik']
+keywords:
+  [
+    'ukk sija mikrotik',
+    'ukk',
+    'tutorial',
+    'konfigurasi',
+    'mikrotik',
+    'jaringan',
+    'sija',
+    'tkj'
+  ]
+related: []
+---
+
+## Pendahuluan
+
+UKK **(Ujian Kompetensi Keahlian)** merupakan ujian nasional yang diberikan kepada siswa SMK untuk mengukur kompetensi yang mereka miliki dalam bidang tertentu. Tahun 2023, UKK dengan kompetensi keahlian SIJA **(Sistem Informatika Jaringan & Aplikasi)** [SMK Negeri 2 Depok](https://smkn2depoksleman.sch.id/web/index.php) akan menggunakan soal pada paket 1 yang memfokuskan pada pengetahuan tentang konfigurasi dasar pada perangkat Mikrotik RouterOS. 
+
+![Thumbnail](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/thumbnail.png 'Thumbnail')
+
+Pada kesempatan ini, saya akan membahas tentang cara penyelesaian soal UKK SIJA paket 1 Mikrotik 2023. Diharapkan kalian yang akan mengikuti UKK Mikrotik paket 1 dapat menggunakan tutorial ini sebagai acuan dalam mempersiapkan diri kalian untuk menghadapi ujian tersebut.
+
+Tanpa basa-basi mari kita selesaikan soal UKK ini.. LET'S GO 👊 
+
+## Point Konfigurasi
+
+Pada soal UKK SIJA Paket 1 Mikrotik 2023 kita akan berjumpa dengan konfigurasi: 
+
+1. VLAN (layer 3 & 2)
+2. Wireless
+3. DHCP Client
+4. IP Address
+   - VLAN 100 dengan network 192.168.100.0/24 sebagai VLAN admin.
+   - VLAN 200 dengan network 192.168.200.0/24 sebagai VLAN jaringan.
+   - Wlan1 Hotspot dengan network 172.16.17.0/24.
+5. DHCP Server
+6. Hotspot
+   - Username: tamu
+   - Password: guest
+7. Firewall NAT
+
+## Konfigurasi Router
+
+Pertama dalam mengerjakan soal UKK ini adalah melakukan konfigurasi pada Router terlebih dahulu.
+
+### Konfigurasi VLAN
+
+Untuk membuat konfigurasi VLAN, pertama-tama kita harus membuat interface VLAN pada Mikrotik. Langkah-langkahnya adalah sebagai berikut:
+
+1. Buka winbox dan masuk ke Mikrotik RouterOS.
+2. Klik menu Interfaces dan pilih VLAN.
+3. Klik tombol + untuk membuat interface VLAN baru.
+4. Isikan ID VLAN sesuai dengan subnet yang diinginkan (contoh: VLAN 10 dengan ID 100).
+5. Pada menu Interface, pilih interface yang akan digunakan sebagai trunk port (port yang menghubungkan router dengan switch).
+6. Klik tombol OK untuk menyimpan konfigurasi.
+
