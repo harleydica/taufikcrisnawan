@@ -15,7 +15,14 @@ export default async function handler(req: NextRequest) {
 
     return new ImageResponse(
       (
-        <div tw='flex h-[600px] py-3 px-5 bg-gray-800 text-zinc-200'>
+        <div
+          tw='flex items-center h-[600px] w-full py-3 px-5 text-zinc-100'
+          style={{
+            opacity: 1,
+            backgroundSize: 'cover',
+            backgroundImage: "url('https://ik.imagekit.io/taufik/profile/cover-og')"
+          }}
+        >
           <div tw='flex flex-col h-full w-full justify-between'>
             <p tw='font-bold text-3xl text-blue-500'>https://taufikcrisnawan.dev/blog</p>
             <p tw='font-extrabold text-6xl max-w-lg'>{title}</p>
