@@ -190,3 +190,55 @@ Konfigurasi Router sudah selesai, dan kita menggunakan router Mikrotik yang nant
 
 ## Konfigurasi Switch Manageable
 
+Setelah kita selesai melakukan konfigurasi Router dan dipastikan konfigurasi tersebut benar tidak ada kendala atau error, kita bisa melanjutkan konfigurasi pada Switch Manageable.
+
+Perangkat yang kita gunakan sama dengan Router, namun kita hanya menggunakan layer 2 untuk melakukan konfigurasi ini, yaitu pada **Bridging**.
+
+### Menambahkan Interface Bridge
+
+1. Klik pada menu <Kbd>Bridge</Kbd> lalu pada menu **Bridge** klik <Kbd>+</Kbd> untuk membuat interface bridge.
+   - ![Add Bridge](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/add-bridge.png 'Add Bridge')
+2. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
+
+### Tambahkan Port
+
+1. Pergi ke menu <Kbd>Ports</Kbd> lalu klik <Kbd>+</Kbd> untuk menambahkan port baru.
+2. Pilih interface yang akan ditambah ke bridge, dan pilih Bridge yang sudah ditambahkan.
+   - ![Add Port Bridge](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/add-port.png 'Add Port Bridge')
+3. Pada interface **ether1** & **ether2** tambahkan juga VLAN ID => **PVID** pada menu <Kbd>VLAN</Kbd> saat menambahkan port ke bridge.
+   - ![PVID](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/vlan-id.png 'PVID')
+4. Verifikasi ports bridge.
+   - ![Verifikasi Ports Bridge](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/port-verifikasi.png 'Verifikasi Ports Bridge')
+
+### Konfigurasi VLANs
+
+Untuk menandai port mode kita pergi ke menu <Kbd>VLANs</Kbd> pada bridge interface.
+
+1. Klik <Kbd>+</Kbd> untuk menambahkan VLAN baru.
+2. Isikan VLAN IDs
+3. Pada Tagged, pilih interface yang terhubung dengan Router.
+4. Untagged ini adalah mode access yang terhubung dengan client.
+5. VLAN 100
+   - ![Add VLANs 100](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/add-vlans-100.png 'Add VLANs 100')
+6. VLAN 200
+   - ![Add VLANs 100](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/add-vlans-100.png 'Add VLANs 100')
+7. Verifikasi VLANs sudah benar atau belum.
+   - ![Verifikasi VLANs](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/verifikasi-vlans.png 'Verifikasi VLANs')
+
+YEY SELESAI, kalian sudah menyelesaikan soal UKK SIJA Paket 1 Mikrotik, untuk melakukan verifikasi kalian konekkan Laptop dengan interface yang dijadikan sebagai mode access (untagged).
+
+Pastikan juga kalian sudah mendapatkan IP Address dari router sesuai dengan IP VLAN ID kalian.
+
+Pada ujicoba Hotspot Wireless, kalian konekkan device Laptop atau Mobile menggunakan jaringan nirkabel/wifi. Setelah terkonek apakah ke direct ke browser login page dari Mikrotik, jika tidak kalian buka browser dan tuliskan gateway dari hotspot router atau bisa juga menggunakan DNS Name yang sudah dikonfigurasi pada Hotspot.
+
+Jika berhasil login kalian sudah bisa internetan dan verifikasi soal UKK SIJA Paket 1 Mikrotik telah SUCCESS.
+
+## Kesimpulan
+
+Dalam penyelesaian soal UKK SIJA paket 1, Mikrotik menuntut para siswa SMK untuk memahami cara mengkonfigurasi VLAN, DHCP, firewall NAT, Hotspot dan konfigurasi dasar lainnya. Dengan memahami cara mengkonfigurasi jaringan ini, para siswa dapat dengan mudah menyelesaikan soal UKK dan menguasai Mikrotik secara dasar. Konfigurasi VLAN juga membantu dalam membagi jaringan fisik menjadi beberapa jaringan virtual yang terpisah, konfigurasi DHCP server akan memudahkan dalam mengelola pembagian IP Address, konfigurasi firewall NAT dengan action masquerade membantu dalam mencegah broadcast storm dan memperkuat keamanan jaringan, Hotspot yang akan membuat autentikasi pada jaringan wireless.
+
+Jika memiliki kendala dalam konfigurasi, kalian bisa tulis kendala pada kolom komentar dibawah dengan login Github. Kalian juga bisa kunjungi sosial media saya untuk menghubungi lebih lanjut tentang konfigurasi ini.
+
+<Callout type='info' icon='🤝 '>
+Sekian dari saya terimakasih
+</Callout>
