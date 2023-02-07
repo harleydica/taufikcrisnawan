@@ -45,20 +45,148 @@ Pada soal UKK SIJA Paket 1 Mikrotik 2023 kita akan berjumpa dengan konfigurasi:
 6. Hotspot
    - Username: tamu
    - Password: guest
-7. Firewall NAT
+7. DNS
+8. Firewall NAT
 
 ## Konfigurasi Router
 
 Pertama dalam mengerjakan soal UKK ini adalah melakukan konfigurasi pada Router terlebih dahulu.
-
 ### Konfigurasi VLAN
 
 Untuk membuat konfigurasi VLAN, pertama-tama kita harus membuat interface VLAN pada Mikrotik. Langkah-langkahnya adalah sebagai berikut:
 
-1. Buka winbox dan masuk ke Mikrotik RouterOS.
-2. Klik menu Interfaces dan pilih VLAN.
-3. Klik tombol + untuk membuat interface VLAN baru.
-4. Isikan ID VLAN sesuai dengan subnet yang diinginkan (contoh: VLAN 10 dengan ID 100).
-5. Pada menu Interface, pilih interface yang akan digunakan sebagai trunk port (port yang menghubungkan router dengan switch).
-6. Klik tombol OK untuk menyimpan konfigurasi.
+1. Klik menu <Kbd>Interfaces</Kbd> dan pilih <Kbd>VLAN</Kbd>.
+2. Klik tombol <Kbd>+</Kbd> untuk membuat interface VLAN baru.
+3. Isikan ID VLAN sesuai dengan subnet yang diinginkan (contoh: VLAN 100 dengan ID 100).
+4. Pada menu Interface, pilih interface yang akan digunakan sebagai trunk port (port yang menghubungkan router dengan switch).
+5. Contoh VLAN 100 & VLAN 200
+   - ![VLAN 100](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/vlan100.png 'VLAN 100')
+   - ![VLAN 200](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/vlan200.png 'VLAN 200')
+6. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
+
+### Konfigurasi Wireless
+
+Konfigurasi wireless yang nantinya akan digunakan untuk perangkat nirkabel, seperti laptop atau mobile.
+
+1. Klik menu <Kbd>wireless</Kbd> pada winbox.
+2. Enable interface wlan1 dengan klik centang pada kiri atas tab wireless.
+3. Klik 2x <Kbd>wlan1</Kbd> untuk masuk ke konfigurasi wlan1 lalu masuk menu wireless. 
+4. Ganti mode wireless dengan **ap bridge**.
+5. Isikan SSID dengan nama kalian.
+   - Contoh taufik-hotspot.
+6. Verifikasi kembali konfigurasi seperti dibawah ini: 
+   ![Wireless](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/wireless.png 'Wireless')
+7. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
+
+### Konfigurasi DHCP Client
+
+DHCP merupakan kependekan dari **Dynamic Host Cost Protocol**, nah DHCP Client ini nantinya akan mendapatkan IP Address secara otomatis. Ikuti cara dibawah untuk konfigurasinya: 
+
+1. Buka menu <Kbd>IP</Kbd> => <Kbd>DHCP Client</Kbd>.
+2. Klik tombol <Kbd>+</Kbd> untuk membuat DHCP Client baru.
+3. Pilih interface yang akan digunakan sebagai client.
+4. Centang bagian **Use Peer NTP** dan **Use Peer DNS**, dan pilih **Yes** pada **Add Default Route**.
+5. ![Add DHCP Client](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/add-dhcp-client.png 'Add DHCP Client')
+6. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
+7. Tunggu status DHCP Client menjadi **bond** yang artinya sudah mendapatkan IP secara otomatis.
+   ![DHCP Bond](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-bond.png 'DHCP Bond')
+
+### Konfigurasi IP Address
+
+Memberikan IP Address sesuai interface yang sudah ditentukan soal, kasus soal UKK Paket 1 sebagai berikut: 
+
+1. VLAN 100 
+   - 192.168.100.1/24
+   - Interface VLAN 100
+2. VLAN 200
+   - 192.168.200.1/24
+   - Interface VLAN 200
+3. Wlan1
+   - 172.16.17.1/24
+   - Interface wlan1
+
+Pastikan IP Address sudah sesuai dengan ketentuan soal, seperti dibawah: 
+
+![IP Address](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/ipaddress.png 'IP Address')
+
+
+### konfigurasi DHCP Server
+
+Konfigurasi DHCP Server ini nantinya akan mendistribusikan atau memberikan IP Address secara otomatis ke client.
+
+1. Buka menu <Kbd>IP</Kbd> => <Kbd>DHCP Server</Kbd>.
+2. Klik <Kbb>DHCP Setup</Kbd> untuk menambahkan DHCP Server.
+3. Pilih interface.
+   ![DHCP Server Interface](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-interface.png 'DHCP Server Interface')
+4. Pastikan network interface.
+   ![DHCP Server Network](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-network.png 'DHCP Server Network')
+5. Gateway interface.
+   ![DHCP Server Gateway](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-gateway.png 'DHCP Server Gateway')
+6. IP Address yang akan diberikan ke client.
+   ![DHCP Server Addresses](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-addresses.png 'DHCP Server Addresses')
+7. DNS DHCP Server.
+   ![DHCP Server DNS](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-dns.png 'DHCP Server DNS')
+8. Isi lease time sesuai kebuhtuhan client pada Lease Time.
+   ![DHCP Server Leases](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-leases.png 'DHCP Server Leases')
+9. Lakukan kembali pada interface VLAN 200 & wlan1.
+10. Lakukan verifikasi DHCP Server seperti gambar dibawah: 
+    ![DHCP Server Verifikasi](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-verifikasi.png 'DHCP Server Verifikasi')
+
+### Konfigurasi Hotspot
+
+pada interface wlan1 ini akan menggunakan autentikasi **Hotspot**, bagaimana caranya ikuti cara berikut: 
+
+1. Buka menu <Kbd>IP</Kbd> => <Kbd>Hotspot</Kbd>.
+2. Klik <Kbb>Hotspot Setup</Kbd> untuk menambahkan Hotspot.
+3. Pilih interface.
+   ![Hotspot Interface](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-interface.png 'Hotspot Interface')
+4. Hotspot Address.
+   ![Hotspot Address](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-address.png 'Hotspot Address')
+5. Pastikan pool sudah benar pada Hotspot Pool.
+   ![Hotspot Pool](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-poll.png 'Hotspot Pool')
+6. Pilih **none** pada Hotspot SSL certificate.
+   ![Hotspot SSL](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-ssl.png 'Hotspot SSL')
+7. Next pada Hotspot SMTP.
+   ![Hotspot SMTP](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-smtp.png 'Hotspot SMTP')
+8. Isikan dns google pada Hotspot DNS.
+   ![Hotspot DNS](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-dns.png 'Hotspot DNS')
+9. Isikan user untuk admin.
+    ![Hotspot User Admin](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-user-admin.png 'Hotspot User Admin')
+10. Verifikasi Hotspot seperti dibawah ini: 
+    ![Hotspot Verifikasi](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-verifikasi.png 'Hotspot Verifikasi')
+
+Selesai, kalian sudah menambahkan Hotspot pada interface wlan1, lalu kalian juga membuat user client seperti dibawah ini: 
+
+- Username: tamu
+- Password: guest
+
+Caranya sebagai berikut: 
+
+1. Pada Hotspot, pindah ke menu **Users**, lalu klik <Kbd>+</Kbd> untuk menambah user.
+2. Isikan username dan password seperti dibawah ini: 
+   ![Hotspot User Tamu](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-user-tamu.png 'Hotspot User Tamu')
+
+### Konfigurasi DNS
+
+Agar client bisa menggunakan internet dari router, kita perlu setting DNS pada menu <Kbd>IP</Kbd> => <Kbd>DNS</Kbd>.
+
+Isikan Servers Google 8.8.8.8 dan klik centang pada **Allow Remote Requests**
+
+![DNS](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dns.png 'DNS')
+
+### Konfigurasi NAT
+
+Untuk membuat LAN pada jaringan anda, kalian perlu membuat konfigurasi **NAT** dengan action **masquerade** agar client dapat memasuki jaringan LAN yang sudah kita buat.
+
+1. Buka menu <Kbd>IP</Kbd> => <Kbd>Firewall</Kbd>.
+2. Pergi ke menu <Kbd>NAT</Kbd>
+3. Klik tombol <Kbd>+</Kbd> untuk membuat interface NAT baru.
+4. Pada menu **General** pilih Chain menggunakan **srcnat**, dan pada **Out. Interface** pilih interface yang terkonek dengan internet.
+   ![Nat General](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/nat-general.png 'Nat General')
+5. Pergi ke menu <Kbd>acction</Kbd> lalu pilih **masquerade**.
+6. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
+   
+Konfigurasi Router sudah selesai, dan kita menggunakan router Mikrotik yang nantinya dijadikan Switch Manageable. Bagaimana caranya, simak tutorial ini sampai selesai.
+
+## Konfigurasi Switch Manageable
 
