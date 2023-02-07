@@ -180,6 +180,7 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
       )
 
       case 'nextjs':
+      case 'sija':
         return (
           <span
             className={twclsx(
