@@ -26,9 +26,14 @@ const config = {
   images: { domains: ['ik.imagekit.io', 'og-image.vercel.app', 'media3.giphy.com', 'media0.giphy.com', 'github.com'] },
   compiler: { removeConsole: !isDev },
   swcMinify: true,
-  compress: true
+  compress: true,
+  swcMinify: true
 }
 
-module.exports = withPWA(config)
+const sentryWebpackPluginOptions = {
+  silent: true // Suppresses all logs
+}
+
+module.exports = withPWA(config, sentryWebpackPluginOptions)
 
 // module.exports = config
