@@ -9,6 +9,7 @@
         "dbaeumer.vscode-eslint",
         "formulahendry.auto-rename-tag",
         "yzhang.markdown-all-in-one",
-        "devzstudio.emoji-snippets"
+        "devzstudio.emoji-snippets",
+        "github.github-vscode-theme"
     ]
 }
