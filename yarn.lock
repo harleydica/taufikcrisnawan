@@ -1117,7 +1117,7 @@
   dependencies:
     chalk "^4.0.0"
 
-"@corex/deepmerge@^4.0.29":
+"@corex/deepmerge@^4.0.37":
   version "4.0.37"
   resolved "https://registry.yarnpkg.com/@corex/deepmerge/-/deepmerge-4.0.37.tgz#873dcf71aee46596d7e385437b0d94770ef4c85f"
   integrity sha512-PX90bEnrLdxd5e6rSFWsghExMuSw0Uov3fWJuuaoFuUQIS/446diu/4seExK5b+43L+SOBbd2uBGwYUkG1JfCw==
@@ -5319,10 +5319,15 @@ minimist@1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
-minimist@^1.2.0, minimist@^1.2.6, minimist@^1.2.7:
+minimist@^1.2.0, minimist@^1.2.6:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
+
+minimist@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
+  integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 motion@^10.14.3:
   version "10.15.3"
@@ -5403,13 +5408,13 @@ next-seo@^5.1.0:
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.1.0.tgz#aa9fd6249a11bf93e6da06fa2a6bc89268936edf"
   integrity sha512-ampuQfNTOi1x+xtRIb6CZGunIo6rQXtMo2Tyu861d5GjJFIwfOXsA4lzCa4+e2rLkyXDyVpavNNUZWa3US9ELw==
 
-next-sitemap@^3.0.0:
-  version "3.1.49"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.49.tgz#ed661fc800ead8a32728783c710ca28ef1a2d76d"
-  integrity sha512-bxBq+MQdi580PKn/8ert4X0RL8Kp9scvyiq6TmIpkCQC3bd4DResTyxHY2AuCGKz83ut2udHwKMZu3ztj3aq3w==
+next-sitemap@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-4.0.1.tgz#2c487fcf8fc178428df48d05f18d7762440510a7"
+  integrity sha512-dY6vKE/uayNYSfhXA64U9NZYSJtFzK01oBouY+XqgQieksKBG9BWNmq8yGSJUermyux4wCnNa9gLHwSk38emhA==
   dependencies:
-    "@corex/deepmerge" "^4.0.29"
-    minimist "^1.2.7"
+    "@corex/deepmerge" "^4.0.37"
+    minimist "^1.2.8"
 
 next-themes@^0.2.1:
   version "0.2.1"
