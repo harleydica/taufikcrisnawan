@@ -22,7 +22,7 @@
     "@headlessui/react": "^1.7.4",
     "@supabase/supabase-js": "^2.0.5",
     "@tailwindcss/typography": "^0.5.8",
-    "@vercel/og": "^0.3.0",
+    "@vercel/og": "^0.4.0",
     "axios": "^1.0.0",
     "clsx": "^1.1.1",
     "framer-motion": "^10.0.0",
