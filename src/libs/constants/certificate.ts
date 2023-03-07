@@ -8,6 +8,7 @@ const ALBUMS: Albums = [
   { title: 'Mikrotik Dasar - ID Networkers', src: `${IMG_URL}/Mikrotik_Dasar_-_ID_Networkers.png` },
   { title: 'Jaringan Komputer Dasar - ID Networkers', src: `${IMG_URL}/Jaringan_Komputer_Dasar-ID-Networkers.png` },
   { title: 'Cisco Dasar - ID Networkers', src: `${IMG_URL}/Cisco_Dasar-ID-Networkers.png` }
+  { title: 'Bootcamp Mikrotik (MTCNA & MTCRE) - ID Networkers', src: `${IMG_URL}/Bootcamp_Mikrotik__MTCNA___MTCRE_.png` }
 ]
 
 export default ALBUMS
