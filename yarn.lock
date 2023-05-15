@@ -4521,9 +4521,9 @@ jest-worker@^27.4.5:
     supports-color "^8.0.0"
 
 jotai@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/jotai/-/jotai-2.0.0.tgz#3938ad0166130417811bb57ec2de8abeb24bd948"
-  integrity sha512-04G0CRZQgp3xrFAezd6X14psZ2TRGekHeYMBcbDJ/BR8ZJQPS+j0YkMTxUxyG58HJnN2+adfj5sWQWoqgtp1XQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/jotai/-/jotai-2.1.0.tgz#b1a9525345518453802e4a64d99e2800598bab76"
+  integrity sha512-fR82PtHAmEQrc/daMEYGc4EteW96/b6wodtDSCzLvoJA/6y4YG70er4hh2f8CYwYjqwQ0eZUModGfG4DmwkTyQ==
 
 js-sdsl@^4.1.4:
   version "4.2.0"
