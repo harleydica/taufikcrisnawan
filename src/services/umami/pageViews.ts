@@ -33,12 +33,12 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
   // please change to your data website id
   const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
-  const firtsDeployedAppAtMs = 1671642000000
+  const firtsDeployedAppAtMs = 1671469200000
   
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
 
-  const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug}`
+  const blogURL = `/api/websites/${websitesId}/stats?startAt=${firtsDeployedAppAtMs}&endAt=${end_date.getTime()}&url=/blog/${slug}`
 
 
   let responseBlog = {

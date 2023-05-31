@@ -32,11 +32,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   // please change to your data website id
   const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
-  const firtsDeployedAppAtMs = 1671642000000
+  const firtsDeployedAppAtMs = 1671469200000
 
   const config = { headers: { Authorization: 'Bearer ' + token } }
 
-  const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
+  const blogURL = `/api/websites/${websitesId}/stats?startAt=${firtsDeployedAppAtMs}&endAt=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
   const settles = await Promise.allSettled([
     UMAMI.get<PageView>(blogURL, config)
