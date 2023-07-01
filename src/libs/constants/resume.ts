@@ -33,6 +33,19 @@ export const KEY_SKILLS = [
 
 export const EXPERIENCE: Experience[] = [
   {
+    companyName: 'PT Sintesa Sinergi Nusantara',
+    role: 'Intership Network Operation Center',
+    period: {
+      start: 'Juni, 2023',
+      end: 'Sekarang'
+    },
+    lists: [
+      `Melakukan aktivasi pelanggan internet.`,
+      `Troubleshoting koneksi internet pelanggan.`,
+      `Membuat trouble ticket untuk penugasan maintenance.`
+    ]
+  },
+  {
     companyName: 'Organisasi Siswa Intra Sekolah',
     role: 'Ketua Seksi Bidang Tim TIK & HUMAS',
     period: {
