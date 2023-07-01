@@ -23,7 +23,7 @@ interface HomePageProps {
 const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
   const meta = getMetaPage({
     title: 'Taufik Crisnawan Santosa',
-    template: 'Student And Tech Enthusiast',
+    template: 'NOC Engineer and Tech Enthusiast',
     description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
     keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan S', 'Taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
     og_image: `https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santosa.jpg`,
@@ -56,7 +56,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           <div className='mt-2 md:mt-4'>
             <h1>Taufik Crisnawan Santosa</h1>
             <h2 className='max-w-max mb-7 text-transparent font-bold text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-primary-500 to-ternary-500 dark:text-transparent'>
-              Student &amp; Tech Enthusiast
+            NOC Engineer &amp; Tech Enthusiast
             </h2>
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
