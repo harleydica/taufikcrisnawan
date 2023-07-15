@@ -17,7 +17,9 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiVercel,
-  SiVite
+  SiVite,
+  SiHtml5,
+  SiPhp
 } from 'react-icons/si'
 
 type IconStackProps = {
@@ -80,6 +82,12 @@ export const IconStack: React.FunctionComponent<IconStackProps> = ({ type, class
 
     case 'go':
       return <SiGo className={twclsx('text-emerald-600 dark:text-emerald-500', className)} />
+
+      case 'html':
+      return <SiHtml5 className={twclsx('text-orange-600 dark:text-orange-200', className)} />
+
+      case 'php':
+      return <SiPhp className={twclsx('text-indigo-400 dark:text-indigo-300', className)} />
 
     default:
       return <SiCodesandbox className={twclsx('text-slate-900 dark:text-slate-800', className)} />
