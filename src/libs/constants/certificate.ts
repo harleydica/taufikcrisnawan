@@ -3,6 +3,7 @@ type Albums = Array<{ title: string; src: string }>
 const IMG_URL = 'https://ik.imagekit.io/taufik/certificate'
 
 const ALBUMS: Albums = [
+  { title: 'Juara 1 Lomba Kompetensi Siswa SMK Provinsi D.I. Yogyakarta (ITNSA) - Pusat Prestasi Nasional', src: `${IMG_URL}/LKS-ITNSA-DIY.png` },
   { title: 'MikroTik Certified Network Associate (MTCNA) - ID Networkers', src: `${IMG_URL}/MTCNA-IDN.png` },
   { title: 'MikroTik Certified Network Associate (MTCNA) - Mikrotik', src: `${IMG_URL}/MTCNA.png` },
   { title: 'Belajar Dasar-Dasar DevOps - Dicoding', src: `${IMG_URL}/Belajar_Dasar-Dasar_DevOps.png` },
