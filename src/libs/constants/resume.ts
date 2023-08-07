@@ -90,7 +90,7 @@ export const EDUCATION: Education = [
       start: 'June, 2020',
       end: 'Sekarang'
     },
-    paragraphs: ['Semester 5, Sistem Informatika Jaringan dan Aplikasi'],
+    paragraphs: ['Semester 7 (Program Magang), Sistem Informatika Jaringan dan Aplikasi'],
     // list: {
     //   title: 'Penghargaan:',
     //   listItem: ['-']
