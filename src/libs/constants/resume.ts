@@ -91,10 +91,10 @@ export const EDUCATION: Education = [
       end: 'Sekarang'
     },
     paragraphs: ['Semester 7 (Program Magang), Sistem Informatika Jaringan dan Aplikasi'],
-    // list: {
-    //   title: 'Penghargaan:',
-    //   listItem: ['-']
-    // }
+     list: {
+       title: 'Penghargaan:',
+       listItem: ['Juara 1 Lomba Kompetensi Siswa Tingkat Provinsi D.I. Yogyakarta']
+     }
   },
   {
     school: 'SMP Negeri 5 Depok Sleman',
