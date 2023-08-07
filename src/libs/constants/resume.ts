@@ -40,9 +40,11 @@ export const EXPERIENCE: Experience[] = [
       end: 'Sekarang'
     },
     lists: [
-      `Melakukan aktivasi pelanggan internet.`,
-      `Troubleshoting koneksi internet pelanggan.`,
-      `Membuat trouble ticket untuk penugasan maintenance.`
+      `Melakukan instalasi klien FTTH (Fiber To The Home) dengan perangkat ONT (Optical Network Terminal), konfigurasi OLT (Optical line termination), PPPoe Secret.`,
+      `Mendeteksi, menganalisis, dan menangani gangguan jaringan atau masalah kinerja.`,
+      `Berkomunikasi dengan pelanggan dan penyedia layanan untuk memberikan informasi tentang gangguan jaringan dan status pemulihan.`,
+      `Membuat laporan rutin tentang kinerja jaringan, insiden, dan pemulihan. Menyimpan catatan dokumentasi tentang semua masalah dan tindakan yang telah diambil.`,
+      `Membuat trouble ticket pada tim Maintenance untuk menangani gangguan jaringan atau perangkat pada klien.`
     ]
   },
   {
