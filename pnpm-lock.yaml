@@ -71,6 +71,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-18-image-lightbox:
+        specifier: ^5.1.4
+        version: 5.1.4(react-dom@18.2.0)(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -80,9 +83,6 @@ importers:
       react-icons:
         specifier: ^4.6.0
         version: 4.11.0(react@18.2.0)
-      react-image-lightbox:
-        specifier: ^5.1.4
-        version: 5.1.4(react-dom@18.2.0)(react@18.2.0)
       slugify:
         specifier: ^1.6.5
         version: 1.6.6
@@ -7735,6 +7735,18 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
+  /react-18-image-lightbox@5.1.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-P9yDkGfpeCIIDCIWv4VHzMju8EgxilKNNonaJlSjcZPEInCSLNsvrtNo1Nij+SocOQ3utLcGN/iOJ8RVQnufGw==}
+    peerDependencies:
+      react: 16.x || 17.x || 18.x
+      react-dom: 16.x || 17.x || 18.x
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-modal: 3.16.1(react-dom@18.2.0)(react@18.2.0)
+    dev: false
+
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -7764,19 +7776,6 @@ packages:
       react: '*'
     dependencies:
       react: 18.2.0
-    dev: false
-
-  /react-image-lightbox@5.1.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-kTiAODz091bgT7SlWNHab0LSMZAPJtlNWDGKv7pLlLY1krmf7FuG1zxE0wyPpeA8gPdwfr3cu6sPwZRqWsc3Eg==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      react: 16.x || 17.x
-      react-dom: 16.x || 17.x
-    dependencies:
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-modal: 3.16.1(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /react-is@16.13.1:

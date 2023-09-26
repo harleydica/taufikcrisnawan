@@ -11,7 +11,7 @@ import {Adsense} from '@ctrl/react-adsense';
 
 import type { NextPage } from 'next'
 import { useCallback, useEffect, useId, useState } from 'react'
-import Lightbox from 'react-image-lightbox'
+import Lightbox from 'react-18-image-lightbox'
 
 const meta = getMetaPage({
   title: 'Certificate',
