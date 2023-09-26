@@ -32,7 +32,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <SkipToContent />
       <LazyMotion features={domAnimation}>
         <Header />
-        <AnimatePresence initial={false} onExitComplete={onExitComplete} exitBeforeEnter>
+        <AnimatePresence initial={false} onExitComplete={onExitComplete}>
           <m.div
             id='skip-content'
             key={router.route.concat(router.pathname)}

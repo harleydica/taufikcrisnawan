@@ -42,8 +42,8 @@
     "react-icons": "^4.6.0",
     "react-image-lightbox": "^5.1.4",
     "slugify": "^1.6.5",
-    "tailwind-merge": "^1.2.1",
-    "swr": "^2.0.0"
+    "swr": "^2.0.0",
+    "tailwind-merge": "^1.2.1"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
@@ -85,7 +85,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,mdx,md,css}": [
-      "yarn format \"./src/**/*.{js,jsx,ts,tsx,mdx,md,css}\""
+      "pnpm format \"./src/**/*.{js,jsx,ts,tsx,mdx,md,css}\""
     ]
   },
   "browserslist": {

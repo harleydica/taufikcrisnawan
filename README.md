@@ -33,7 +33,7 @@
 
 ## Commiting
 
-This repo uses conventional commit, when commiting, please do `yarn commit` instead of `git commit -m`. There you will find each context to your current changes.
+This repo uses conventional commit, when commiting, please do `pnpm commit` instead of `git commit -m`. There you will find each context to your current changes.
 
 ## Big Thanks
 

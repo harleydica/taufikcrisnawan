@@ -26,7 +26,7 @@ export const DrawerButton = () => {
         className={twclsx('accesible', 'md:hidden', 'w-10 h-10 rounded-lg text-lg')}
         onClick={changeState}
       >
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence>
           {isOpen && (
             <m.span key={1} variants={v} initial='hidden' animate='visible' exit='exit'>
               <HiX />
@@ -40,7 +40,7 @@ export const DrawerButton = () => {
         </AnimatePresence>
       </UnstyledButton>
 
-      <AnimatePresence exitBeforeEnter>{isOpen && <DrawerMenu />}</AnimatePresence>
+      <AnimatePresence>{isOpen && <DrawerMenu />}</AnimatePresence>
     </>
   )
 }

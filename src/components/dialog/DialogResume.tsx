@@ -24,7 +24,7 @@ export const HowToPrintDialog: React.FunctionComponent<HowToPrintProps> = (props
   const { theme, changeTheme } = useTheme()
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       {props.isOpen && (
         <m.div
           onClick={props.onClose}
@@ -82,7 +82,7 @@ type AlertResumeProps = {
 
 export const AlertResume: React.FunctionComponent<AlertResumeProps> = (props) => {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       {props.isOpen && (
         <m.div
           onClick={props.onClose}
