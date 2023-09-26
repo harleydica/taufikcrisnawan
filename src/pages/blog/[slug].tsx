@@ -4,7 +4,6 @@ import { AuthorSection, GiscusComment, HeadingContent } from '@/components/conte
 import { MDXComponents } from '@/components/content/mdx'
 
 import { LayoutPage } from '@/UI/templates'
-import type { LayoutPageProps } from '@/UI/templates'
 
 import { getContentBySlug, getContents } from '@/services/content'
 
@@ -55,7 +54,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
   }, [header.slug])
 
   return (
-    <LayoutPage {...(metaData as LayoutPageProps)} className='pb-4'>
+    <LayoutPage seo={metaData} className='pb-4'>
       <article className={twclsx('content-auto', 'flex flex-col', 'gap-8')}>
         <HeadingContent
           topics={header.topics}

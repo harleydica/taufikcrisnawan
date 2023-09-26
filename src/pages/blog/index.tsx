@@ -3,7 +3,6 @@ import { BlogList } from '@/components/content'
 import { EmptyResult } from '@/UI/common'
 import { Searchbar } from '@/UI/inputs'
 import { Hero, LayoutPage } from '@/UI/templates'
-import type { LayoutPageProps } from '@/UI/templates'
 
 import { getContents } from '@/services'
 
@@ -55,7 +54,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
   }, [])
 
   return (
-    <LayoutPage {...(meta as LayoutPageProps)}>
+    <LayoutPage seo={meta}>
       <Hero title={meta.title as string} description={meta.description as string} />
 
       <Searchbar onChange={search.handleChange} value={search.query} />

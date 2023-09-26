@@ -21,7 +21,7 @@ const meta = getMetaPage({
 const ToptracksPage: NextPage = () => {
 
     return (
-        <LayoutPage {...meta}>
+        <LayoutPage seo={meta}>
             <Hero title={meta.title as string} description={meta.description as string} />
             <TopTracks />
         </LayoutPage>
