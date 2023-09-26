@@ -60,8 +60,8 @@ importers:
         specifier: ^5.6.0
         version: 5.6.0(@babel/core@7.23.0)(next@13.5.3)(webpack@5.88.2)
       next-seo:
-        specifier: ^5.1.0
-        version: 5.15.0(next@13.5.3)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^6.0.0
+        version: 6.1.0(next@13.5.3)(react-dom@18.2.0)(react@18.2.0)
       next-themes:
         specifier: ^0.2.1
         version: 0.2.1(next@13.5.3)(react-dom@18.2.0)(react@18.2.0)
@@ -6997,8 +6997,8 @@ packages:
       - webpack
     dev: false
 
-  /next-seo@5.15.0(next@13.5.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-LGbcY91yDKGMb7YI+28n3g+RuChUkt6pXNpa8FkfKkEmNiJkeRDEXTnnjVtwT9FmMhG6NH8qwHTelGrlYm9rgg==}
+  /next-seo@6.1.0(next@13.5.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-iMBpFoJsR5zWhguHJvsoBDxDSmdYTHtnVPB1ij+CD0NReQCP78ZxxbdL9qkKIf4oEuZEqZkrjAQLB0bkII7RYA==}
     peerDependencies:
       next: ^8.1.1-canary.54 || >=9.0.0
       react: '>=16.0.0'
