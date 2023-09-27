@@ -33,6 +33,10 @@ export const ADDT_ROUTE = [
   {
     path: '/toptracks',
     name: 'Top Tracks'
+  },
+  {
+    path: 'https://status.taufikcrisnawan.online',
+    name: 'Status'
   }
 ]
 
