@@ -94,13 +94,8 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           </div>
         </section>
         <br></br>
-        <Adsense
-          client="ca-pub-9254295768355301"
-          slot="8371723731"
-          style={{ display: 'block' }}
-          format="auto"
-          responsive="true"
-        />
+
+        <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "13px" }} wide link="https://open.spotify.com/playlist/4VoWRHJWAzOBHcvUsueBRV" />
 
         <BlogList
           className='pt-16'
@@ -114,7 +109,14 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           title='Featured Portfolio'
           portfolios={portfolios}
         />
-        <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "12px" }} wide link="https://open.spotify.com/playlist/4VoWRHJWAzOBHcvUsueBRV" />
+        
+        <Adsense
+          client="ca-pub-9254295768355301"
+          slot="8371723731"
+          style={{ display: 'block' }}
+          format="auto"
+          responsive="true"
+        />
       </main>
 
       <Footer />
