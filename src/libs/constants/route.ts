@@ -19,6 +19,10 @@ const APP_ROUTE = [
 
 export const ADDT_ROUTE = [
   {
+    path: 'https://status.taufikcrisnawan.online',
+    name: 'Status'
+  },
+  {
     path: '/tags',
     name: 'Tags'
   },
@@ -33,10 +37,6 @@ export const ADDT_ROUTE = [
   {
     path: '/toptracks',
     name: 'Top Tracks'
-  },
-  {
-    path: 'https://status.taufikcrisnawan.online',
-    name: 'Status'
   }
 ]
 
