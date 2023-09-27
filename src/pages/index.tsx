@@ -9,6 +9,8 @@ import { getMetaPage } from '@/libs/metapage'
 import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
 
 import React from 'react';
+import { Spotify } from 'react-spotify-embed';
+
 import { Adsense } from '@ctrl/react-adsense';
 
 import type { GetStaticProps, NextPage } from 'next'
@@ -112,6 +114,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           title='Featured Portfolio'
           portfolios={portfolios}
         />
+        <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "12px" }} wide link="https://open.spotify.com/playlist/4VoWRHJWAzOBHcvUsueBRV" />
       </main>
 
       <Footer />

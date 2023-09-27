@@ -150,6 +150,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.5.4
         version: 0.5.4(@trivago/prettier-plugin-sort-imports@4.2.0)(prettier@3.0.3)
+      react-spotify-embed:
+        specifier: 2.0.3
+        version: 2.0.3
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0
@@ -7882,6 +7885,14 @@ packages:
       react-lifecycles-compat: 3.0.4
       warning: 4.0.3
     dev: false
+
+  /react-spotify-embed@2.0.3:
+    resolution: {integrity: sha512-buiiaaPrGTyOlciJFJiHz1o2a4iSJMuH9ewi2KaIjVGcedz6szM8plz7Y6HtcDxApxCv2Rwx38xS1z8Zs3M/ZA==}
+    engines: {node: '>=14'}
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
