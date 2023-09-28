@@ -35,9 +35,9 @@ export default async function handler(req: NextRequest) {
                   objectFit: 'cover'
                 }}
                 src='https://ik.imagekit.io/taufik/profile/IMG-20220928.webp'
-                alt='Taufik Crisnawan Santosa'
+                alt='Taufik Crisnawan Santoso'
               />
-              <p tw='ml-2.5 font-bold text-4xl'>Taufik Crisnawan Santosa</p>
+              <p tw='ml-2.5 font-bold text-4xl'>Taufik Crisnawan Santoso</p>
             </div>
           </div>
 

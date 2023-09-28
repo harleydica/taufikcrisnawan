@@ -24,12 +24,12 @@ interface HomePageProps {
 
 const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
   const meta = getMetaPage({
-    title: 'Taufik Crisnawan Santosa',
+    title: 'Taufik Crisnawan Santoso',
     template: 'NOC Engineer and Tech Enthusiast',
     description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
-    keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan S', 'Taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
-    og_image: `https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santosa.jpg`,
-    og_image_alt: 'Taufik Crisnawan Santosa',
+    keywords: ['Taufik Crisnawan Santoso', 'Taufik Crisnawan S', 'Taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
+    og_image: `https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santoso.jpg`,
+    og_image_alt: 'Taufik Crisnawan Santoso',
     slug: '/',
     type: 'website'
   })
@@ -43,8 +43,8 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         <section className='flex flex-col'>
           <div className='relative flex h-14 md:h-16'>
             <ContentImage
-              src='https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santosa.jpg'
-              alt='Taufik Crisnawan Santosa'
+              src='https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santoso.jpg'
+              alt='Taufik Crisnawan Santoso'
               width={128}
               height={128}
               className='rounded-full absolute left-1 bottom-0.5 border-4 cursor-pointer border-theme-50 dark:border-theme-900'
@@ -56,14 +56,14 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           </div>
 
           <div className='mt-2 md:mt-4'>
-            <h1>Taufik Crisnawan Santosa</h1>
+            <h1>Taufik Crisnawan Santoso</h1>
             <h2 className='max-w-max mb-7 text-transparent font-bold text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-primary-500 to-ternary-500 dark:text-transparent'>
             NOC Engineer &amp; Tech Enthusiast
             </h2>
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
               <p>
-                Hello👋, I&apos;m Taufik Crisnawan Santosa, a student at SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication).
+                Hello👋, I&apos;m Taufik Crisnawan Santoso, a student at SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication).
               </p>
 
               <p>

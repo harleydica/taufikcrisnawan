@@ -2,7 +2,7 @@
 title: 'Circular Replication Master Master with MariaDB'
 summary: 'In this article I am going to explain, how you can make a circular replication master master with MariaDB MySQL on Debian 11. How? read this article to the end😉'
 featured: true
-author_name: 'Taufik Crisnawan Santosa'
+author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '1/26/2023'
 topics: ['debian', 'mysql']
@@ -451,7 +451,7 @@ CREATE TABLE daftar_siswa (id int, name varchar(30), surname varchar(20));
 Isikan data pada tabel daftar_siswa.
 
 ```sql
-INSERT INTO daftar_siswa (id, name, surname) VALUES (1, 'Taufik Crisnawan Santosa', 'Taufik');
+INSERT INTO daftar_siswa (id, name, surname) VALUES (1, 'Taufik Crisnawan Santoso', 'Taufik');
 INSERT INTO daftar_siswa (id, name, surname) VALUES (2, 'Muhammad Ichsan', 'Ichsan');
 ```
 
@@ -467,7 +467,7 @@ Akan mengeluarkan tampilan data dari database.
 +------+--------------------------+---------+
 | id   |           name           | surname |
 +------+--------------------------+---------+
-|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    1 | Taufik Crisnawan Santoso | Taufik  |
 |    2 | Muhammad Ichsanul Fadhil | Ichsan  |
 +------+--------------------------+---------+
 ```
@@ -486,7 +486,7 @@ Baris dari nomor 2 akan dihapus seperti contoh dibawah:
 +------+--------------------------+---------+
 | id   | name                     | surname |
 +------+--------------------------+---------+
-|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    1 | Taufik Crisnawan Santoso | Taufik  |
 +------+--------------------------+---------+
 ```
 

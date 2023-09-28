@@ -28,7 +28,7 @@ type BlogPageProps = {
 const meta = getMetaPage({
   title: 'Blog',
   description: `You'll find a collection of my thoughts and musings on a variety of topics. I write about everything from current events to personal experiences, and I always strive to share my honest opinions. Keep in mind that my views are my own and do not necessarily reflect those of any other person or organization.`,
-  keywords: ['Taufik Crisnawan Santosa', 'Taufik Crisnawan Santosa', 'taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
+  keywords: ['Taufik Crisnawan Santoso', 'Taufik Crisnawan Santoso', 'taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
   og_image: generateOgImage({
     title: 'Blog - taufikcrisnawan.dev',
     subTitle: 'Any thought I think interesting to share on my personal site'

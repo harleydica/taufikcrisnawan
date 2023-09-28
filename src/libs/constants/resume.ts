@@ -3,7 +3,7 @@ import SOCIAL from './social'
 import { Experience } from 'taufikcrisnawan'
 
 export const HEADLINE = {
-  name: 'Taufik Crisnawan Santosa'
+  name: 'Taufik Crisnawan Santoso'
 }
 
 export const LINKS: typeof SOCIAL = [
@@ -106,7 +106,7 @@ export const EDUCATION: Education = [
 ]
 
 export const SUMMARY = [
-  `Saya Taufik Crisnawan Santosa, pelajar SMK Negeri 2 Depok Sleman kompetensi keahlian Sistem Informatika Jaringan & Aplikasi. Memiliki berbagai pengalaman organisasi di sekolah maupun di luar sekolah. Saya memiliki minat dalam dunia IT Network System Administrator dengan pengalaman dasar. Mempelajari, mencari tahu dan mengeksplorasi tentang teknologi baru serta praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.`
+  `Saya Taufik Crisnawan Santoso, pelajar SMK Negeri 2 Depok Sleman kompetensi keahlian Sistem Informatika Jaringan & Aplikasi. Memiliki berbagai pengalaman organisasi di sekolah maupun di luar sekolah. Saya memiliki minat dalam dunia IT Network System Administrator dengan pengalaman dasar. Mempelajari, mencari tahu dan mengeksplorasi tentang teknologi baru serta praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.`
 ]
 
 export const LANGUAGES = [

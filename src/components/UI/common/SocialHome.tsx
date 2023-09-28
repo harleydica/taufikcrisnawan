@@ -38,7 +38,7 @@ export const SocialHome: React.FunctionComponent<SocialHomeProps> = (props) => {
             title={`Connect with me on ${social.title}`}
           >
             <social.icon className={twclsx('w-5 h-5', props.iconStyle)} />
-            <span className='sr-only'>Connect with Taufik Crisnawan Santosa on {social.title}</span>
+            <span className='sr-only'>Connect with Taufik Crisnawan Santoso on {social.title}</span>
           </UnstyledLink>
         )
       })}

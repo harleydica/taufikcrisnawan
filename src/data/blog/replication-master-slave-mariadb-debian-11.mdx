@@ -2,7 +2,7 @@
 title: 'Replication Master Slave MariaDB on Debian 11'
 summary: 'In this article I am going to explain, how you can make replication master slave with MariaDB MySQL on Debian 11. How? read this article to the end😉'
 featured: false
-author_name: 'Taufik Crisnawan Santosa'
+author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '1/12/2023'
 topics: ['debian', 'mysql']
@@ -229,7 +229,7 @@ CREATE TABLE daftar_siswa (id int, name varchar(30), surname varchar(20));
 ```
 Isikan data pada tabel daftar_siswa.
 ```sql
-INSERT INTO daftar_siswa (id, name, surname) VALUES (1, 'Taufik Crisnawan Santosa', 'Taufik');
+INSERT INTO daftar_siswa (id, name, surname) VALUES (1, 'Taufik Crisnawan Santoso', 'Taufik');
 INSERT INTO daftar_siswa (id, name, surname) VALUES (2, 'Muhammad Ichsan', 'Ichsan');
 ```
 Verifikasi data dengan perintah:
@@ -241,7 +241,7 @@ Akan mengeluarkan tampilan data dari database.
 +------+--------------------------+---------+
 | id   |           name           | surname |
 +------+--------------------------+---------+
-|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    1 | Taufik Crisnawan Santoso | Taufik  |
 |    2 | Muhammad Ichsanul Fadhil | Ichsan  |
 +------+--------------------------+---------+
 ```
@@ -353,7 +353,7 @@ Maka pada slave akan muncul data yang sudah dibuat di node master:
 +------+--------------------------+---------+
 | id   |           name           | surname |
 +------+--------------------------+---------+
-|    1 | Taufik Crisnawan Santosa | Taufik  |
+|    1 | Taufik Crisnawan Santoso | Taufik  |
 |    2 | Muhammad Ichsanul Fadhil | Ichsan  |
 +------+--------------------------+---------+
 ```
