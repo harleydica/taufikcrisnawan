@@ -25,7 +25,7 @@ const ToptracksPage: NextPage = () => {
         <LayoutPage seo={meta}>
             <Hero title={meta.title as string} description={meta.description as string} />
             <div className='mb-10'>
-            <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "13px" }} wide link="https://open.spotify.com/playlist/4VoWRHJWAzOBHcvUsueBRV" />
+            <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "13px" }} wide link="https://open.spotify.com/playlist/37i9dQZF1EVKuMoAJjoTIw" />
             </div>
             <TopTracks />
         </LayoutPage>

@@ -95,7 +95,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         </section>
         <br></br>
 
-        <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "13px" }} wide link="https://open.spotify.com/playlist/4VoWRHJWAzOBHcvUsueBRV" />
+        <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "13px" }} wide link="https://open.spotify.com/playlist/37i9dQZF1EVKuMoAJjoTIw" />
 
         <BlogList
           className='pt-16'
