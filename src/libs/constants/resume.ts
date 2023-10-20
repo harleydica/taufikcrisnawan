@@ -58,18 +58,6 @@ export const EXPERIENCE: Experience[] = [
       `Membantu kinerja OSIS dalam bidang TIK & HUMAS.`,
       `Bertugas mendokumentasikan semua kegiatan yang diadakan sekolah dan organisasi sekolah lainnya dalam bentuk foto, video, dan streaming langsung. Saya juga bertanggung jawab untuk mengunggah, menyimpan, dan mengatur semua dokumentasi yang telah dilakukan, serta mempublikasikan jika diperlukan.`
     ]
-  },
-  {
-    companyName: 'Remaja Islam Masjid Al-Qomar, Gowok',
-    role: 'Ketua Umum',
-    period: {
-      start: 'Januari, 2021',
-      end: 'Januari, 2022'
-    },
-    lists: [
-      `Menjalankan program kerja Remaja Islam Masjid Al-Qomar dengan lancar dan mengkoordinasi seluruh anggota dengan baik.`,
-      `Bertanggung jawab menjalankan organisasi, mengatur program kerja, membagi tugas di masing-masing bidang kepada anggota, dan memastikan program kerja dapat berjalan dengan lancar.`
-    ]
   }
 ]
 
