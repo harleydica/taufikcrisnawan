@@ -21,6 +21,7 @@ export const LINKS: typeof SOCIAL = [
 export const SKILLS = [
   `Mampu mengelola dan mengkonfigurasi sistem operasi dasar seperti Linux atau Windows.`,
   `Mampu mengelola dan mengkonfigurasi jaringan komputer dasar, termasuk LAN, dan internet.`,
+  `Mampu mengelola dan mengkonfigurasi perangkat jaringan seperti Mikrotik, Cisco, dan berbagai perangkat jaringan lainnya`,
   `Menggunakan alat-alat seperti Git untuk mengelola dan mengontrol versi dari kode sumber aplikasi.`
 ]
 
