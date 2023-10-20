@@ -11,11 +11,20 @@ export default class CustomDocument extends Document {
       <Html lang='en-US'>
         <Head>
           <meta name='theme-color' content='#18181b' />
-          <link rel='preload' href='/fonts/inter-var-latin.woff2' as='font' type='font/woff2' crossOrigin='use-credentials' />
-          <link rel='apple-touch-icon' sizes='180x180' href='/icon-192.png' />
+          <meta name="msapplication-TileColor" content="#da532c"/>
+          <link
+            rel='preload'
+            href='/fonts/inter-var-latin.woff2'
+            as='font'
+            type='font/woff2'
+            crossOrigin='use-credentials'
+          />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
           <link rel='shortcut icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='icon' href='/favicon.svg' />
+          <link rel='mask-icon' href='/favicon.svg' color='#000000'/>
           <link rel='manifest' href='/manifest.json' />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#969696"/>
           {process.env.NODE_ENV === 'production' && (
             <Script
               async
@@ -32,8 +41,8 @@ export default class CustomDocument extends Document {
             <script
               async
               // please change to u data
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-            </script>
+              src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+            ></script>
           )}
         </Head>
         <body>
