@@ -124,7 +124,7 @@ export const CONTACT = [
   },
   {
     title: `E-mail`,
-    level: `taufiklah87@gmail.com`,
+    level: `mail@taufikcrisnawan.dev`,
   },
   {
     title: 'WhatsApp',

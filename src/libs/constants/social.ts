@@ -1,7 +1,7 @@
 const SOCIAL = [
   {
     title: 'Email',
-    href: 'mailto: taufiklah87@gmail.com?subject='
+    href: 'mailto: mail@taufikcrisnawan.dev?subject='
   },
   {
     title: 'LinkedIn',
