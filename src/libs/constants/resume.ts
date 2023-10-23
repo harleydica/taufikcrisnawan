@@ -2,6 +2,8 @@ import SOCIAL from './social'
 
 import { Experience } from 'taufikcrisnawan'
 
+const IMG_URL = 'https://ik.imagekit.io/taufik/certificate'
+
 export const HEADLINE = {
   name: 'Taufik Crisnawan Santoso'
 }
@@ -96,6 +98,49 @@ export const EDUCATION: Education = [
 
 export const SUMMARY = [
   `Saya Taufik Crisnawan Santoso, pelajar SMK Negeri 2 Depok Sleman kompetensi keahlian Sistem Informatika Jaringan & Aplikasi. Memiliki berbagai pengalaman organisasi di sekolah maupun di luar sekolah. Saya memiliki minat dalam dunia IT Network System Administrator dengan pengalaman dasar. Mempelajari, mencari tahu dan mengeksplorasi tentang teknologi baru serta praktik, tetap fokus pada tanggungjawab dan memberikan hasil semaksimal mungkin.`
+]
+
+export const HONOR = [
+  {
+    title: `Mikrotik Certified Network Associate (MTCNA).`,
+    level:  `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
+    href: `${IMG_URL}/MTCNA.png`
+  },
+  {
+    title: `Belajar Dasar-Dasar DevOps (Dicoding).`,
+    level: `Diterbitkan Jan 2023 kadaluarsa Jan 2026`,
+    href: `${IMG_URL}/Belajar_Dasar-Dasar_DevOps.png`
+  },
+  {
+    title: 'Belajar Jaringan Komputer Untuk Pemula (Dicoding).',
+    level: 'Diterbitkan Jan 2023 kadaluarsa Jan 2026',
+    href: `${IMG_URL}/Belajar_Jaringan_Komputer_Untuk_Pemula.png`
+  },
+  {
+    title: 'Bootcamp Mikrotik (MTCNA & MTCRE) (ID Networkers).',
+    level: 'Diterbitkan Mar 2023',
+    href: `${IMG_URL}/Bootcamp_Mikrotik__MTCNA___MTCRE_.png`
+  },
+  {
+    title: 'Mikrotik Dasar (ID Networkers).',
+    level: 'Diterbitkan Jan 2023 kadaluarsa Jan 2026',
+    href: `${IMG_URL}/Mikrotik_Dasar_-_ID_Networkers.png`
+  },
+  {
+    title: 'Cisco Dasar (ID Networkers).',
+    level: 'Diterbitkan Jan 2023 kadaluarsa Nov 2026',
+    href: `${IMG_URL}/Cisco_Dasar-ID-Networkers.png`
+  },
+  {
+    title: 'Jaringan Komputer Dasar (ID Networkers).',
+    level: 'Diterbitkan Jan 2023 kadaluarsa Nov 2026',
+    href: `${IMG_URL}/Jaringan_Komputer_Dasar-ID-Networkers.png`
+  },
+  {
+    title: 'Juara 1',
+    level: 'Lomba Kompetensi Siswa SMK Tingkat Provinsi D.I. Yogyakarta 2023 bidang IT Network System Administrator',
+    href: `${IMG_URL}/LKS-ITNSA-DIY.png`
+  }
 ]
 
 export const LANGUAGES = [

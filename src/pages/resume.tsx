@@ -4,7 +4,18 @@ import { AlertResume, HowToPrintDialog } from '@/components/dialog'
 import { UnstyledButton } from '@/UI/buttons'
 import { UnderlineLink } from '@/UI/links'
 
-import { EDUCATION, EXPERIENCE, HEADLINE, KEY_SKILLS, LANGUAGES, LINKS, SKILLS, SUMMARY, CONTACT } from '@/libs/constants/resume'
+import {
+  EDUCATION,
+  EXPERIENCE,
+  HEADLINE,
+  KEY_SKILLS,
+  LANGUAGES,
+  LINKS,
+  SKILLS,
+  SUMMARY,
+  HONOR,
+  CONTACT
+} from '@/libs/constants/resume'
 import { generateOgImage, getMetaPage } from '@/libs/metapage'
 
 import { useMediaQuery } from '@/hooks'
@@ -18,7 +29,13 @@ const meta = getMetaPage({
   title: 'Resume',
   description:
     "Personal resume that I build on the web, I use my creativity to build my personal resume on the web instead on a regular 'paper'.",
-  keywords: ['Taufik Crisnawan Santoso', 'resume', 'curriculum vitae', 'Taufik Crisnawan cv', 'Taufik Crisnawan Santoso resume'],
+  keywords: [
+    'Taufik Crisnawan Santoso',
+    'resume',
+    'curriculum vitae',
+    'Taufik Crisnawan cv',
+    'Taufik Crisnawan Santoso resume'
+  ],
   og_image: generateOgImage({ title: 'Resume - taufikcrisnawan.dev', subTitle: 'Take a look at my resume' }),
   og_image_alt: 'Resume — taufikcrisnawan.dev',
   slug: '/resume',
@@ -187,6 +204,15 @@ const Resume: NextPage = () => {
             </div>
           ))}
         </section>
+        <section>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Sertifikasi dan Penghargaan</h3>
+
+          {HONOR.map((hon) => (
+            <p className='[&:not(:first-of-type)]:mt-2.5' key={hon.title}>
+            <a href={hon.href} target='_blank'><strong>{hon.title}</strong></a> {hon.level}.
+          </p>
+          ))}
+        </section>
 
         <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Bahasa</h3>
@@ -207,7 +233,6 @@ const Resume: NextPage = () => {
             </li>
           ))}
         </section>
-
       </div>
     </main>
   )
