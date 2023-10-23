@@ -215,7 +215,7 @@ const Resume: NextPage = () => {
         </section>
 
         <section>
-          <h3 className='mt-32 mb-4 pb-2.5 border-b-2 border-b-theme-700'>Bahasa</h3>
+          <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Bahasa</h3>
 
           {LANGUAGES.map((lang) => (
             <p className='[&:not(:first-of-type)]:mt-2.5' key={lang.title}>
