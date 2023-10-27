@@ -102,6 +102,11 @@ export const SUMMARY = [
 
 export const HONOR = [
   {
+    title: `Cisco Certified Support Technician - Networking (CCST).`,
+    level:  `Diterbitkan Okt 2023`,
+    href: `${IMG_URL}/CCST-Networking.png`
+  },
+  {
     title: `Mikrotik Certified Network Associate (MTCNA).`,
     level:  `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
     href: `${IMG_URL}/MTCNA.png`
