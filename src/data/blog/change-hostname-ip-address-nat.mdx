@@ -144,7 +144,7 @@ atau
 /etc/init.d/networking restart
 ```
 
-Lalu pastikan kembali konfigurasi IP Addresses dengan tool <Kbd>ifconfig<Kbd>.
+Lalu pastikan kembali konfigurasi IP Addresses dengan tool <Kbd>ifconfig</Kbd>.
 
 ```bash
 root@lks-itnsa:~# ifconfig
@@ -175,7 +175,7 @@ Biasanya pada soal LKS ITNSA terdapat perintah pada server Ubuntu yang terkonfig
 
 Kalian perlu menginstall tool <Kbd>iptables</Kbd> untuk mengkonfigurasi Firewall NAT.
 
-Sebelum melakukan konfigurasi firewall ini, kalian perlu mengkonfigurasi <Kbd>sysctl<Kbd> untuk mengijinkan traffic melewati Ubuntu server ini. Caranya sebagai berikut: 
+Sebelum melakukan konfigurasi firewall ini, kalian perlu mengkonfigurasi <Kbd>sysctl</Kbd> untuk mengijinkan traffic melewati Ubuntu server ini. Caranya sebagai berikut: 
 
 ```bash
 sysctl -w net.ipv4.ip_forward=1
@@ -199,10 +199,10 @@ Bisa mengikuti cara konfigurasinya:
 iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 ```
 
-1. -t ini untuk menentukan metode rule yang akan dipakai, semisal NAT, FILTER, dan MANGLE.
-2. -A adalah change yang akan digunakan, semisal POSTROUTING, PREROUTING, INPUT, dan OUTPUT.
-3. -o untuk menentukan out interface.
-4. -j untuk menentukan action yang akan digunakan.
+1. **-t** ini untuk menentukan metode rule yang akan dipakai, semisal NAT, FILTER, dan MANGLE.
+2. **-A** adalah change yang akan digunakan, semisal POSTROUTING, PREROUTING, INPUT, dan OUTPUT.
+3. **-o** untuk menentukan out interface.
+4. **-j** untuk menentukan action yang akan digunakan.
 
 ### DST NAT
 
@@ -214,10 +214,10 @@ Kalian bisa mengkonfigurasinya dengan cara berikut:
 iptables -t nat -A PREROUTING -p tcp -d 202.65.116.12 --dport 80 -j DNAT --to-destination 10.5.7.201
 ```
 
-1. -p untuk menentukan protokol yang akan digunakan, seperti TCP, UDP, ICMP dan masih banyak lagi.
-2. -d adalah destination IP publik yang akan dibelokkan.
-3. --dport adalah port yang akan digunakan.
-4. --to-destination adalah IP private yang akan dituju.
+1. **-p** untuk menentukan protokol yang akan digunakan, seperti TCP, UDP, ICMP dan masih banyak lagi.
+2. **-d** adalah destination IP publik yang akan dibelokkan.
+3. **--dport** adalah port yang akan digunakan.
+4. **--to-destination** adalah IP private yang akan dituju.
 
 Jadi nantinya saat kita mengakses 202.65.116.12 dengan port 80, akan dibelokkan ke IP Address 10.5.7.201. 
 
