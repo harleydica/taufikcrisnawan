@@ -107,6 +107,11 @@ export const HONOR = [
     href: `${IMG_URL}/CCST-Networking.png`
   },
   {
+    title: `Network Addressing and Basic Troubleshooting (Cisco).`,
+    level:  `Diterbitkan Okt 2023`,
+    href: `${IMG_URL}/Network_Addressing_and_Basic_Troubleshooting.png`
+  },
+  {
     title: `Networking Basics (Cisco).`,
     level:  `Diterbitkan Okt 2023`,
     href: `${IMG_URL}/Networking_Basics.jpg`
