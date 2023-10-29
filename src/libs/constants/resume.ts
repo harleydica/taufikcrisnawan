@@ -107,6 +107,11 @@ export const HONOR = [
     href: `${IMG_URL}/CCST-Networking.png`
   },
   {
+    title: `Networking Basics (Cisco).`,
+    level:  `Diterbitkan Okt 2023`,
+    href: `${IMG_URL}/Networking_Basics.jpg`
+  },
+  {
     title: `Mikrotik Certified Network Associate (MTCNA).`,
     level:  `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
     href: `${IMG_URL}/MTCNA.png`
