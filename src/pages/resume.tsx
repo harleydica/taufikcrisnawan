@@ -43,7 +43,7 @@ const meta = getMetaPage({
 })
 
 const Resume: NextPage = () => {
-  const listStyle = useMemo(() => 'list-disc list-inside [&>li]:my-2', [])
+  const listStyle = useMemo(() => 'list-disc list-inside [&>li]:my-1', [])
   const isMatch = useMediaQuery('(min-width: 768px)')
   const [modal, setModal] = useState({ alert: false, popup: false })
 
@@ -208,7 +208,7 @@ const Resume: NextPage = () => {
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Sertifikasi dan Penghargaan</h3>
 
           {HONOR.map((hon) => (
-            <p className='[&:not(:first-of-type)]:mt-2.5' key={hon.title}>
+            <p className='[&:not(:first-of-type)]:mt-1' key={hon.title}>
             <a href={hon.href} target='_blank'><strong>{hon.title}</strong></a> {hon.level}.
           </p>
           ))}
