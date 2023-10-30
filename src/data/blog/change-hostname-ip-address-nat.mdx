@@ -1,6 +1,6 @@
 ---
-title: 'Change Hostname, IP Addresses, IP Firewall NAT - LKS ITNSA DIY'
-summary: 'Artikel kali ini akan membahas cara penyelesaian soal LKS IT Network System Administration Tingkat Provinsi Yogyakarta 2023 Modul A (Ubuntu Server) dengan mudah, bagi kalian yang ingin mencobanya simak tutorial ini sampai selesai😉'
+title: 'Change Hostname, IP Addresses, Firewall NAT - LKS ITNSA DIY'
+summary: 'Artikel kali ini akan membahas cara penyelesaian soal LKS IT Network System Administration Tingkat Provinsi Yogyakarta 2023 Modul A (Client Server) dengan mudah, bagi kalian yang ingin mencobanya simak tutorial ini sampai selesai😉'
 featured: true
 author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
@@ -8,7 +8,7 @@ published: '10/30/2023'
 topics: ['lks', 'sija']
 keywords:
   [
-    'lks sija ubuntu server',
+    'lks sija Debian server',
     'lks',
     'tutorial',
     'konfigurasi',
@@ -24,7 +24,7 @@ related: []
 
 ## Pendahuluan
 
-Hallo gais, disini saya akan memberikan tutorial cara penyelesaian soal LKS ITNSA DIY Modul A (Ubuntu Server). Setelah kalian membuat topologi dan konfigurasi dasar Mikrotik, kalian perlu mengganti Hostname pada setiap nodes, memberikan IP Address, dan tambahan untuk iptables untuk konfigurasi firewall NAT. Diharapkan kalian bisa mengikuti langkah ini dengan agar dapat menyelesaikan soal LKS ITNSA dengan mudah.
+Hallo gais, disini saya akan memberikan tutorial cara penyelesaian soal LKS ITNSA DIY Modul A (Debian Server). Setelah kalian membuat topologi dan konfigurasi dasar Mikrotik, kalian perlu mengganti Hostname pada setiap nodes, memberikan IP Address, dan tambahan untuk iptables untuk konfigurasi firewall NAT. Diharapkan kalian bisa mengikuti langkah ini dengan agar dapat menyelesaikan soal LKS ITNSA dengan mudah.
 
 ## Ganti Hostname
 
@@ -44,11 +44,11 @@ Tentunya dengan kalian mengganti hostname ini, akan menambah score saat penilaia
 
 ## IP Addresses
 
-IP Addresses merupakan pemberian IP Address pada nodes, dari konfigurasi ini akan menghubungkan antar node agar saling terkoneksi. Tentunya kalian juga mempelajari VLSM (Variable Length Subnet Mask) dan CIDR (Classless Inter-Domain Routing), setelah mempelajari 2 hal tersebut saya akan memberikan cara konfigurasi IP Address pada linux Ubuntu server. Ikuti langkah berikut: 
+IP Addresses merupakan pemberian IP Address pada nodes, dari konfigurasi ini akan menghubungkan antar node agar saling terkoneksi. Tentunya kalian juga mempelajari VLSM (Variable Length Subnet Mask) dan CIDR (Classless Inter-Domain Routing), setelah mempelajari 2 hal tersebut saya akan memberikan cara konfigurasi IP Address pada linux Debian server. Ikuti langkah berikut: 
 
 ### Cek adaptor network interface
 
-Pertama kalian perlu cek network interface linux Ubuntu server, maksud dari pengecekan ini adalah untuk mengetahui kode interface yang terpasang pada linux Ubuntu server. Caranya sebagai berikut:
+Pertama kalian perlu cek network interface linux Debian server, maksud dari pengecekan ini adalah untuk mengetahui kode interface yang terpasang pada linux Debian server. Caranya sebagai berikut:
 
 ```bash
 ip a
@@ -68,7 +68,7 @@ root@lks-itnsa:~# ip a
     link/ether 00:d8:61:76:9f:77 brd ff:ff:ff:ff:ff:ff
 ```
 
-Perhatikan pada interface nomor 2, ens33 adalah nama interface yang terpasang pada linux Ubuntu server. Secara default saat interface terpasang tidak memunculkan IP Address, kalian perlu mengkonfigurasinya. Caranya seperti dibawah: 
+Perhatikan pada interface nomor 2, ens33 adalah nama interface yang terpasang pada linux Debian server. Secara default saat interface terpasang tidak memunculkan IP Address, kalian perlu mengkonfigurasinya. Caranya seperti dibawah: 
 
 ```bash
 nano /etc/network/interfaces.d/ens33
@@ -171,11 +171,11 @@ Pada inet muncul IP Address yang sudah kalian konfigurasi, pastikan konfigurasi 
 
 ## Firewall NAT
 
-Biasanya pada soal LKS ITNSA terdapat perintah pada server Ubuntu yang terkonfigurasi Firwall NAT, fungsi dari konfigurasi ini untuk mentranslasikan IP publik ke IP private, jadi tidak menambahkan routing static untuk menghubungkan IP private ke IP publik. 
+Biasanya pada soal LKS ITNSA terdapat perintah pada server Debian yang terkonfigurasi Firwall NAT, fungsi dari konfigurasi ini untuk mentranslasikan IP publik ke IP private, jadi tidak menambahkan routing static untuk menghubungkan IP private ke IP publik. 
 
 Kalian perlu menginstall tool <Kbd>iptables</Kbd> untuk mengkonfigurasi Firewall NAT.
 
-Sebelum melakukan konfigurasi firewall ini, kalian perlu mengkonfigurasi <Kbd>sysctl</Kbd> untuk mengijinkan traffic melewati Ubuntu server ini. Caranya sebagai berikut: 
+Sebelum melakukan konfigurasi firewall ini, kalian perlu mengkonfigurasi <Kbd>sysctl</Kbd> untuk mengijinkan traffic melewati Debian server ini. Caranya sebagai berikut: 
 
 ```bash
 sysctl -w net.ipv4.ip_forward=1
