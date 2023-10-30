@@ -7,6 +7,7 @@ const ALBUMS: Albums = [
   { title: 'Network Addressing and Basic Troubleshooting (Cisco)', src: `${IMG_URL}/Network_Addressing_and_Basic_Troubleshooting.png` },
   { title: 'Networking Basics (Cisco)', src: `${IMG_URL}/Networking_Basics.jpg` },
   { title: 'MikroTik Certified Network Associate (MTCNA) - Mikrotik', src: `${IMG_URL}/MTCNA.png` },
+  { title: 'Finalis Lomba Kompetensi Siswa SMK Nasional - (ITNSA)', src: `${IMG_URL}/LKS%20Nasional%202023.png` },
   { title: 'Juara 1 Lomba Kompetensi Siswa SMK Provinsi D.I. Yogyakarta (ITNSA) - Pusat Prestasi Nasional', src: `${IMG_URL}/LKS-ITNSA-DIY.png` },
   { title: 'MikroTik Certified Network Associate (MTCNA) - ID Networkers', src: `${IMG_URL}/MTCNA-IDN.png` },
   { title: 'Belajar Dasar-Dasar DevOps - Dicoding', src: `${IMG_URL}/Belajar_Dasar-Dasar_DevOps.png` },

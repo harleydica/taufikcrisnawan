@@ -152,6 +152,11 @@ export const HONOR = [
     href: `${IMG_URL}/Jaringan_Komputer_Dasar-ID-Networkers.png`
   },
   {
+    title: 'Finalis Lomba Kompetensi Siswa SMK Nasional (ITNSA)',
+    level: 'Tingkat Nasional 2023 bidang IT Network System Administrator',
+    href: `${IMG_URL}/LKS%20Nasional%202023.png`
+  },
+  {
     title: 'Juara 1 Lomba Kompetensi Siswa SMK',
     level: 'Tingkat Provinsi D.I. Yogyakarta 2023 bidang IT Network System Administrator',
     href: `${IMG_URL}/LKS-ITNSA-DIY.png`
