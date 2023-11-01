@@ -122,6 +122,11 @@ export const HONOR = [
     href: `${IMG_URL}/MTCNA.png`
   },
   {
+    title: `Fortinet Networking Fundamentals (Fortinet).`,
+    level:  `Diterbitkan Nov 2023`,
+    href: `${IMG_URL}/Course_Completion_Certificate.png`
+  },
+  {
     title: `Belajar Dasar-Dasar DevOps (Dicoding).`,
     level: `Diterbitkan Jan 2023 kadaluarsa Jan 2026`,
     href: `${IMG_URL}/Belajar_Dasar-Dasar_DevOps.png`
