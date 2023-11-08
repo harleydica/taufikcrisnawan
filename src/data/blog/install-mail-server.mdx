@@ -1,0 +1,274 @@
+---
+title: 'Install Mail Server Debian Server - LKS ITNSA DIY'
+summary: 'Artikel kali ini akan membahas cara install Mail Server menggunakan Postfix dan Dovecot IMAPD & POP3DD soal LKS IT Network System Administration Tingkat Provinsi Yogyakarta 2023 Modul A (Client Server), bagi kalian yang ingin mencobanya simak tutorial ini sampai selesai😉'
+featured: true
+author_name: 'Taufik Crisnawan Santoso'
+github_username: 'harleydica'
+published: '11/8/2023'
+topics: ['lks', 'sija']
+keywords:
+  [
+    'lks sija Debian server',
+    'lks',
+    'tutorial',
+    'konfigurasi',
+    'mikrotik',
+    'jaringan',
+    'sija',
+    'tkj',
+    'lomba kompetensi siswa',
+    'itnsa'
+  ]
+related: []
+---
+
+## Pendahuluan
+
+Mail server adalah sistem yang memungkinkan pengguna untuk mengirim dan menerima email. Dalam tutorial ini, kita akan menginstalasi mail server menggunakan Postfix sebagai MTA (Mail Transfer Agent) dan Dovecot sebagai server IMAP/POP3D.
+
+Biasanya pada soal LKS ITNSA terdapat poin soal konfigurasi mail server, disini saya akan membagikan cara install dan konfigurasi mail server menggunakan Postfix dan Dovecot dengan Debian server. Ikuti tutorial ini sampai selesai 😻 
+
+### Install Postfix Dovecot
+
+Sebelum melakukan install dipastikan untuk update repository pada Debian server kalian, dengan cara: 
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+Setelah itu install Postfix & Dovecot IMAPD POP3DD: 
+
+```bash
+sudo apt install postfix dovecot-imapd dovecot-pop3d
+```
+
+Setelah installasi selesai akan muncul message box, kemudian pilih internet site agar komunikasi email menggunakan protokol SMTP secara langsung.
+
+![Postfix 1](https://ik.imagekit.io/taufik/blog/mail-server/postfix-1-mailserver.png 'Postfix 1')
+
+Selanjutnya masukkan nama domain yang akan digunakan.
+
+![Postfix 2](https://ik.imagekit.io/taufik/blog/mail-server/postfix-2-mailserver.png 'Postfix 2')
+
+### Konfigurasi Postfix
+
+Setelah melakukan installasi kita akan mengkonfigurasi Postfix. Tambahkan <Kbd>home_mailbox = Maildir/</Kbd>.
+
+```bash
+...
+inet_interfaces = all
+inet_protocols = all
+
+#tambahkan baris berikut pada baris paling bawah
+home_mailbox = Maildir/
+```
+
+Buat mail directory di directory /etc/skel/Maildir, ini berfungsi untuk menyimpan pesan pada setiap user.
+
+```bash
+maildirmake.dovecot /etc/skel/Maildir
+```
+
+Setelah itu lakukan reconfigure Postfix seperti berikut:
+
+```bash
+dpkg-reconfigure postfix
+```
+
+Pilih beberapa pilihan dan isikan beberapa input yang akan muncul, sesuaikan dengan topology/konfigurasi sistem dan kebutuhan, atau kalian bisa mengikuti seperti dibawah:
+
+Seperti diatas, kita menggunakan internet site.
+
+![Postfix 3](https://ik.imagekit.io/taufik/blog/mail-server/postfix-3-mailserver.png 'Postfix 3')
+
+Masih sama dengan yang diatas tadi, kita masukkan domain yang akan digunakan.
+
+![Postfix 4](https://ik.imagekit.io/taufik/blog/mail-server/postfix-4-mailserver.png 'Postfix 4')
+
+Kosongkan saja bagian ini.
+
+![Postfix 5](https://ik.imagekit.io/taufik/blog/mail-server/postfix-5-mailserver.png 'Postfix 5')
+
+Tambahkan domain kalian seperti contoh dibawah ini.
+
+![Postfix 6](https://ik.imagekit.io/taufik/blog/mail-server/postfix-6-mailserver.png 'Postfix 6')
+
+Yes saja pada bagian ini.
+
+![Postfix 7](https://ik.imagekit.io/taufik/blog/mail-server/postfix-7-mailserver.png 'Postfix 7')
+
+Pada menu ini tambahkan <Kbd>0.0.0.0/0</Kbd> untuk mengijinkan semua networks agar bisa mengakses mail server ini.
+
+![Postfix 8](https://ik.imagekit.io/taufik/blog/mail-server/postfix-8-mailserver.png 'Postfix 8')
+
+Lanjut saja pada bagian ini.
+
+![Postfix 9](https://ik.imagekit.io/taufik/blog/mail-server/postfix-9-mailserver.png 'Postfix 9')
+
+Lanjut lagi.
+
+![Postfix 10](https://ik.imagekit.io/taufik/blog/mail-server/postfix-10-mailserver.png 'Postfix 10')
+
+Pilh <Kbd>ipv4</Kbd> untuk menggunakan IPV4.
+
+![Postfix 11](https://ik.imagekit.io/taufik/blog/mail-server/postfix-11-mailserver.png 'Postfix 11')
+
+Restart service Postfix untuk melakukan perubahan yang telah terkonfigurasi diatas.
+
+```bash
+sudo systemctl restart postfix
+```
+
+### Konfigurasi Dovecot
+
+Pertama kita akan mengkonfigurasi file <Kbd>dovecot.conf</Kbd>, hapus <Kbd>#</Kbd> pada konfigurasi berikut: 
+
+```bash
+nano /etc/dovecot/dovecot.conf
+```
+
+```bash
+...
+# If you want to specify non-default ports or anything more complex,
+# edit conf.d/master.conf.
+listen = *
+...
+```
+
+Setelah itu edit file konfigurasi <Kbd>10-auth.conf</Kbd>.
+
+```bash
+nano /etc/dovecot/conf.d/10-auth.conf
+```
+
+Uncomment dan ganti dari yes ke no.
+
+```bash
+...
+# connection is considered secure and plaintext authentication is allowed.
+# See also ssl=required setting.
+disable_plaintext_auth = no
+...
+```
+
+Lanjut edit file konfigurasi <Kbd>10-mail.conf</Kbd>
+
+Uncomment pada baris berikut.
+
+```bash
+...
+mail_location = maildir:~/Maildir
+...
+```
+
+Beri comment pada baris berikut.
+
+```bash
+...
+# mail_location = mbox:~/mail:INBOX=/var/mail/%u
+...
+```
+
+Restart service Dovecot.
+
+```bash
+systemctl restart dovecot
+```
+
+## Pengujian Mail Server
+
+Setelah selesai melakukan semua konfigurasi kita akan mencoba mail server ini.
+
+### Menambahkan User Email 
+
+Tambahkan beberapa user dan password menggunakan perintah adduser yang akan digunakan untuk user email. Pada percobaan kali ini akan membuat dua user, yaitu satu dan dua.
+
+```bash
+adduser kirim
+```
+
+```bash
+adduser terima
+```
+
+Restart Postfix dan Dovecot service untuk memastikan service dari Postfix dan Dovecot
+
+```bash
+systemctl restart postfix dovecot
+```
+
+### Melakukan pengetesan Mail Server menggunakan Telnet
+
+Test kirim file menggunakan perintah <Kbd>telnet nama-domain port</Kbd> dengan menggunakan port 25 (SMTP). Masukkan nama alamat pengirim menggunakan mail from:. Masukkan nama alamat penerima menggunakan rcpt to:. Ketikkan data lalu enter. Isikan subject dengan megetikkan Subject: <Kbd>isi subject</Kbd>. Lalu isikan pesan yang akan dikirim kemudian isikan titik (.) untuk mengakhiri pesan.
+
+```bash
+telnet mail.contoh.local 25
+```
+
+```bash
+Trying 103.111.23.12...
+Connected to mail.contoh.local.
+Escape character is '^]'.
+220 debian ESMTP Postfix (Debian/GNU)
+mail from: kirim@mail.contoh.local
+250 2.1.0 Ok
+rcpt to: terima@mail.contoh.local
+250 2.1.5 Ok
+data
+354 End data with <CR><LF>.<CR><LF>
+Subject: Testing
+TESTING MAIL SERVER
+.
+250 2.0.0 Ok: queued as 7ASC123XA
+quit
+221 2.0.0 Bye
+Connection closed by foreign host.
+```
+
+Melihat pesan menggunakan perintah <Kbd>telnet nama-domain port </Kbd>. Login user menggunakan user <Kbd>nama user</Kbd>. Dan masukkan password menggunakan pass <Kbd>password</Kbd>. Untuk melihat list pesan yang diterima menggunakan perintah list. Dan untuk membuka pesan yang diterima menggunakan perintah <Kbd>retr nomer pesan</Kbd>. Perintah quit untuk keluar dari telnet.
+
+```bash
+Trying 103.111.23.12...
+Connected to mail.contoh.local.
+Escape character is '^]'.
++OK Dovecot (Debian) ready.
+user dua
++OK
+pass 0909
++OK Logged in.
+list
++OK 1 messages:
+1 436
+.
+retr 1
++OK 436 octets
+Return-Path: <kirim@mail.contoh.local>
+X-Original-To: terima@mail.contoh.local
+Delivered-To: terima@mail.contoh.local
+Received: from unknown (unknown [103.111.23.12])
+	by debian (Postfix) with SMTP id 7ASC123XA
+	for <terima@mail.contoh.local>; Wed,  8 Nov 2023 01:01:12 +0700 (WIB)
+Subject: Testing
+Message-Id: <2023013124324.7ASC123XA@debian>
+Date: Wed,  8 Nov 2023 01:01:12 +0700 (WIB)
+From: kirim@mail.contoh.local
+
+TESTING MAIL SERVER
+.
+quit
++OK Logging out.
+Connection closed by foreign host.
+```
+
+Jika tidak ada masalah pada pengetesan kalian sudah berhasil melakukan install dan konfigurasi mail server menggunakan Postfix dan Dovecot dengan Debian server.
+
+## Kesimpulan
+
+Kalian telah berhasil menginstalasi dan mengkonfigurasi mail server menggunakan Postfix dan Dovecot. Sekarang, server Kalian siap digunakan untuk mengirim dan menerima email. Jika terjadi masalah, pantau log server untuk memastikan operasinya berjalan atau tidak.
+
+Pastikan kembali dengan poin soal yang diminta, agar penyelesaian soal LKS ITNSA dapat dikerjakan dengan maksimal.
+
+<Callout icon='👋' type='info'>
+  TERIMAKASIH
+</Callout>
