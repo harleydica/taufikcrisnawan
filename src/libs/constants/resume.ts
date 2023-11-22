@@ -102,9 +102,9 @@ export const SUMMARY = [
 
 export const HONOR = [
   {
-    title: `Cisco Certified Support Technician - Networking (CCST).`,
-    level:  `Diterbitkan Okt 2023`,
-    href: `${IMG_URL}/CCST-Networking.png`
+    title: `Fortinet Networking Fundamentals (Fortinet).`,
+    level:  `Diterbitkan Nov 2023`,
+    href: `${IMG_URL}/Course_Completion_Certificate.png`
   },
   {
     title: `Network Addressing and Basic Troubleshooting (Cisco).`,
@@ -117,14 +117,34 @@ export const HONOR = [
     href: `${IMG_URL}/Networking_Basics.jpg`
   },
   {
+    title: 'Medallion For Excellence Lomba Kompetensi Siswa SMK (ITNSA)',
+    level: 'Tingkat Nasional 2023 bidang IT Network System Administrator',
+    href: `${IMG_URL}/LKS%20Nasional%20MoE.png`
+  },
+  {
+    title: 'Finalis Lomba Kompetensi Siswa SMK (ITNSA)',
+    level: 'Tingkat Nasional 2023 bidang IT Network System Administrator',
+    href: `${IMG_URL}/LKS%20Nasional%202023.png`
+  },
+  {
+    title: `Cisco Certified Support Technician - Networking (CCST).`,
+    level:  `Diterbitkan Okt 2023`,
+    href: `${IMG_URL}/CCST-Networking.png`
+  },
+  {
     title: `Mikrotik Certified Network Associate (MTCNA).`,
     level:  `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
     href: `${IMG_URL}/MTCNA.png`
   },
   {
-    title: `Fortinet Networking Fundamentals (Fortinet).`,
-    level:  `Diterbitkan Nov 2023`,
-    href: `${IMG_URL}/Course_Completion_Certificate.png`
+    title: 'Bootcamp Mikrotik (MTCNA & MTCRE) (ID Networkers).',
+    level: 'Diterbitkan Mar 2023',
+    href: `${IMG_URL}/Bootcamp_Mikrotik__MTCNA___MTCRE_.png`
+  },
+  {
+    title: 'Juara 1 Lomba Kompetensi Siswa SMK (ITNSA)',
+    level: 'Tingkat Provinsi D.I. Yogyakarta 2023 bidang IT Network System Administrator',
+    href: `${IMG_URL}/LKS-ITNSA-DIY.png`
   },
   {
     title: `Belajar Dasar-Dasar DevOps (Dicoding).`,
@@ -135,11 +155,6 @@ export const HONOR = [
     title: 'Belajar Jaringan Komputer Untuk Pemula (Dicoding).',
     level: 'Diterbitkan Jan 2023 kadaluarsa Jan 2026',
     href: `${IMG_URL}/Belajar_Jaringan_Komputer_Untuk_Pemula.png`
-  },
-  {
-    title: 'Bootcamp Mikrotik (MTCNA & MTCRE) (ID Networkers).',
-    level: 'Diterbitkan Mar 2023',
-    href: `${IMG_URL}/Bootcamp_Mikrotik__MTCNA___MTCRE_.png`
   },
   {
     title: 'Mikrotik Dasar (ID Networkers).',
@@ -156,21 +171,6 @@ export const HONOR = [
     level: 'Diterbitkan Jan 2023 kadaluarsa Nov 2026',
     href: `${IMG_URL}/Jaringan_Komputer_Dasar-ID-Networkers.png`
   },
-  {
-    title: 'Medallion For Excellence Lomba Kompetensi Siswa SMK (ITNSA)',
-    level: 'Tingkat Nasional 2023 bidang IT Network System Administrator',
-    href: `${IMG_URL}/LKS%20Nasional%20MoE.png`
-  },
-  {
-    title: 'Finalis Lomba Kompetensi Siswa SMK (ITNSA)',
-    level: 'Tingkat Nasional 2023 bidang IT Network System Administrator',
-    href: `${IMG_URL}/LKS%20Nasional%202023.png`
-  },
-  {
-    title: 'Juara 1 Lomba Kompetensi Siswa SMK (ITNSA)',
-    level: 'Tingkat Provinsi D.I. Yogyakarta 2023 bidang IT Network System Administrator',
-    href: `${IMG_URL}/LKS-ITNSA-DIY.png`
-  }
 ]
 
 export const LANGUAGES = [
