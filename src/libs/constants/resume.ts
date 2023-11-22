@@ -132,6 +132,11 @@ export const HONOR = [
     href: `${IMG_URL}/CCST-Networking.png`
   },
   {
+    title: 'Juara 1 Lomba Kompetensi Siswa SMK (ITNSA)',
+    level: 'Tingkat Provinsi D.I. Yogyakarta 2023 bidang IT Network System Administrator',
+    href: `${IMG_URL}/LKS-ITNSA-DIY.png`
+  },
+  {
     title: `Mikrotik Certified Network Associate (MTCNA).`,
     level:  `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
     href: `${IMG_URL}/MTCNA.png`
@@ -140,11 +145,6 @@ export const HONOR = [
     title: 'Bootcamp Mikrotik (MTCNA & MTCRE) (ID Networkers).',
     level: 'Diterbitkan Mar 2023',
     href: `${IMG_URL}/Bootcamp_Mikrotik__MTCNA___MTCRE_.png`
-  },
-  {
-    title: 'Juara 1 Lomba Kompetensi Siswa SMK (ITNSA)',
-    level: 'Tingkat Provinsi D.I. Yogyakarta 2023 bidang IT Network System Administrator',
-    href: `${IMG_URL}/LKS-ITNSA-DIY.png`
   },
   {
     title: `Belajar Dasar-Dasar DevOps (Dicoding).`,
@@ -170,7 +170,7 @@ export const HONOR = [
     title: 'Jaringan Komputer Dasar (ID Networkers).',
     level: 'Diterbitkan Jan 2023 kadaluarsa Nov 2026',
     href: `${IMG_URL}/Jaringan_Komputer_Dasar-ID-Networkers.png`
-  },
+  }
 ]
 
 export const LANGUAGES = [
