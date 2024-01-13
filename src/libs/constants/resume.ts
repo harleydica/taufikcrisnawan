@@ -35,11 +35,30 @@ export const KEY_SKILLS = [
 
 export const EXPERIENCE: Experience[] = [
   {
+    companyName: 'PT Step Point Indonesia',
+    role: 'Helper Staff',
+    period: {
+      start: 'November, 2023',
+      end: 'Sekarang'
+    },
+    lists: [
+      `Melakukan survei di lokasi pemasangan untuk menentukan rute kabel fiber optik.`,
+      `Melakukan instalasi WiFi menggunakan kabel fiber optik dari FAT (Fiber Access Terminal) hingga ke titik pemasangan di rumah pelanggan.`,
+      `Memastikan pemasangan kabel fiber optik sesuai dengan standar kualitas dan keamanan.`,
+      `Memasang dan konfigurasi perangkat ONT (Optical Network Terminal) di rumah pelanggan.`,
+      `Melakukan uji coba koneksi dan pengukuran kecepatan koneksi internet.`,
+      `Memberikan pelatihan kepada pelanggan terkait penggunaan perangkat dan pemahaman tentang layanan yang disediakan.`,
+      `Membuat dokumentasi mengenai detail pemasangan, konfigurasi, dan pengukuran.`,
+      `Berkoordinasi dengan tim lain, seperti tim maintenance service, untuk memastikan integrasi yang lancar dan pemecahan masalah yang efisien.`,
+      `Menyusun laporan mengenai pekerjaan yang telah dilakukan.`
+    ]
+  },
+  {
     companyName: 'PT Sintesa Sinergi Nusantara',
     role: 'Intership Network Operation Center',
     period: {
       start: 'Juni, 2023',
-      end: 'Sekarang'
+      end: 'November, 2023'
     },
     lists: [
       `Melakukan instalasi klien FTTH (Fiber To The Home) dengan perangkat ONT (Optical Network Terminal), konfigurasi OLT (Optical line termination), PPPoe Secret.`,
@@ -47,18 +66,6 @@ export const EXPERIENCE: Experience[] = [
       `Berkomunikasi dengan pelanggan dan penyedia layanan untuk memberikan informasi tentang gangguan jaringan dan status pemulihan.`,
       `Membuat laporan rutin tentang kinerja jaringan, insiden, dan pemulihan. Menyimpan catatan dokumentasi tentang semua masalah dan tindakan yang telah diambil.`,
       `Membuat trouble ticket pada tim Maintenance untuk menangani gangguan jaringan atau perangkat pada klien.`
-    ]
-  },
-  {
-    companyName: 'Organisasi Siswa Intra Sekolah',
-    role: 'Ketua Seksi Bidang Tim TIK & HUMAS',
-    period: {
-      start: 'Agustus, 2022',
-      end: 'Sekarang'
-    },
-    lists: [
-      `Membantu kinerja OSIS dalam bidang TIK & HUMAS.`,
-      `Bertugas mendokumentasikan semua kegiatan yang diadakan sekolah dan organisasi sekolah lainnya dalam bentuk foto, video, dan streaming langsung. Saya juga bertanggung jawab untuk mengunggah, menyimpan, dan mengatur semua dokumentasi yang telah dilakukan, serta mempublikasikan jika diperlukan.`
     ]
   }
 ]
