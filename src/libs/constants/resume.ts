@@ -35,11 +35,20 @@ export const KEY_SKILLS = [
 
 export const EXPERIENCE: Experience[] = [
   {
+    companyName: 'PT Eka Mas Republik (MyRepublic)',
+    role: 'Network Operating Center Staff',
+    period: {
+      start: 'Januari, 2024',
+      end: 'Sekarang'
+    },
+    lists: []
+  },
+  {
     companyName: 'PT Step Point Indonesia',
     role: 'Helper Staff',
     period: {
       start: 'November, 2023',
-      end: 'Sekarang'
+      end: 'Januari, 2024'
     },
     lists: [
       `Melakukan survei di lokasi pemasangan untuk menentukan rute kabel fiber optik.`,
