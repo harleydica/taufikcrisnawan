@@ -11,7 +11,7 @@ import { isDev } from '@/libs/constants/environmentState'
 import { getMetaPageBlog } from '@/libs/metapage'
 import { twclsx } from '@/libs/twclsx'
 
-import { Adsense } from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense'
 
 import axios from 'axios'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
@@ -43,7 +43,9 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     // run only on client side
     if (typeof window === 'undefined') return
     ;(async () => {
-      const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
+      const baseURL = isDev
+        ? 'http://localhost:3000'
+        : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
       try {
         const res = await axios.get<PageViewResponse>(`${baseURL}/api/pageviews?slug=${header.slug}`)
         setPostViews(res.data?.view ?? 0)
@@ -67,11 +69,11 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
 
         <AuthorSection name={header.author_name} username={header.github_username} />
         <Adsense
-          client="ca-pub-9254295768355301"
-          slot="2553715414"
+          client='ca-pub-9254295768355301'
+          slot='2553715414'
           style={{ display: 'block' }}
-          layout="in-article"
-          format="fluid"
+          layout='in-article'
+          format='fluid'
         />
 
         <div
@@ -90,11 +92,11 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       </div>
       <br></br>
       <Adsense
-        client="ca-pub-9254295768355301"
-        slot="9504842004"
+        client='ca-pub-9254295768355301'
+        slot='9504842004'
         style={{ display: 'block' }}
-        layout="in-article"
-        format="fluid"
+        layout='in-article'
+        format='fluid'
       />
     </LayoutPage>
   )

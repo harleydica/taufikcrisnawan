@@ -13,7 +13,7 @@ import { twclsx } from '@/libs/twclsx'
 import { useSearchPortfolio } from '@/hooks'
 
 import React from 'react'
-import {Adsense} from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense'
 
 import type { GetStaticProps, NextPage } from 'next'
 import type { Portfolio } from 'taufikcrisnawan'
@@ -32,7 +32,10 @@ const meta = getMetaPage({
     'Taufik Crisnawan portfolio',
     'taufikcrisnawan.dev'
   ],
-  og_image: generateOgImage({ title: 'Portfolio - taufikcrisnawan.dev', subTitle: 'Take a look at my personal portfolio' }),
+  og_image: generateOgImage({
+    title: 'Portfolio - taufikcrisnawan.dev',
+    subTitle: 'Take a look at my personal portfolio'
+  }),
   og_image_alt: 'Portfolio — taufikcrisnawan.dev',
   slug: '/portfolio',
   type: 'website'
@@ -67,11 +70,11 @@ const ProjectPage: NextPage<PortfoliopageProps> = ({ portfolio }) => {
       </div>
       <br></br>
       <Adsense
-        client="ca-pub-9254295768355301"
-        slot="5444509195"
+        client='ca-pub-9254295768355301'
+        slot='5444509195'
         style={{ display: 'block' }}
-        format="auto"
-        responsive="true"
+        format='auto'
+        responsive='true'
       />
     </LayoutPage>
   )

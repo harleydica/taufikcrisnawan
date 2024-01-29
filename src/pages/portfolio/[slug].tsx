@@ -10,7 +10,7 @@ import { dateFormat, dateStringToISO } from '@/libs/intl'
 import { getMetaPage } from '@/libs/metapage'
 import { twclsx } from '@/libs/twclsx'
 
-import { Adsense } from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense'
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
@@ -80,12 +80,12 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ header, mdxSource
       </article>
       <br></br>
       <Adsense
-          client="ca-pub-9254295768355301"
-          slot="3554121684"
-          style={{ display: 'block' }}
-          layout="in-article"
-          format="fluid"
-        />
+        client='ca-pub-9254295768355301'
+        slot='3554121684'
+        style={{ display: 'block' }}
+        layout='in-article'
+        format='fluid'
+      />
     </LayoutPage>
   )
 }

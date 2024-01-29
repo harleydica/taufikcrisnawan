@@ -6,17 +6,10 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '1/19/2023'
 topics: ['network']
-keywords:
-  [
-    'networ',
-    'network protocol',
-    'scanning port',
-    'nmap',
-    'nmap tool',
-    'port checker'
-  ]
+keywords: ['networ', 'network protocol', 'scanning port', 'nmap', 'nmap tool', 'port checker']
 related: []
 ---
+
 ## Pendahuluan
 
 Port scanning merupakan proses pengecekan port yang terbuka dan aktif pada sebuah sistem atau jaringan. Salah satu alat yang populer digunakan untuk melakukan port scanning adalah **Nmap (Network Mapper)**.
@@ -29,6 +22,7 @@ Pada kesempatan kali ini saya akan mencoba untuk melakukan port scanning menggun
 ### Install Nmap
 
 Jika kalian menggunakan Linux cli, kalian bisa menggunakan perintah berikut untuk menginstall Nmap:
+
 ```bash
 sudo apt install nmap -y
 ```
@@ -39,18 +33,21 @@ Untuk Windows kalian bisa download menggunakan link dibawah ini:
 ### Eksekusi
 
 Untuk menjalankan Nmap, kalian dapat menjalankan perintah Nmap dengan mengetikkan:
+
 ```bash
 nmap [alamat IP atau nama domain]
 ```
+
 Contoh, jika Anda ingin melakukan port scanning pada alamat IP "10.50.50.1", Anda dapat mengetikkan:
+
 ```bash
 nmap 10.50.50.1
 ```
+
 ![Debian Nmap](https://ik.imagekit.io/taufik/blog/nmap-scanning-port/debian-scanning.png 'Debian Nmap')
 
 Pada Windows, buka Nmap - Zenmap GUI lalu isikan command seperti dibawah:
 ![Windows Scanning](https://ik.imagekit.io/taufik/blog/nmap-scanning-port/windows-scanning.png 'Windows Scanning')
-
 
 Nmap juga memiliki banyak opsi dan parameter yang dapat digunakan untuk mengkonfigurasi jenis scan yang digunakan, waktu timeout, dan lain-lain. Berikut adalah contoh perintah yang sering digunakan adalah:
 
@@ -58,9 +55,9 @@ Nmap juga memiliki banyak opsi dan parameter yang dapat digunakan untuk mengkonf
 - **-sT** untuk melakukan scan TCP.
 - **-sU** untuk melakukan scan UDP.
 - **-sN, -sF, -sX**
-    - Null scan **-sN** tidak mengirimkan bit(header flag TCP adalah 0).
-    - FIN scan **-sF** hanya menset bit FIN TCP.
-    - Xmas scan **-sX** menset flag FIN, PSH, dan URG, menerangi paket seperti sebuah pohon Natal.
+  - Null scan **-sN** tidak mengirimkan bit(header flag TCP adalah 0).
+  - FIN scan **-sF** hanya menset bit FIN TCP.
+  - Xmas scan **-sX** menset flag FIN, PSH, dan URG, menerangi paket seperti sebuah pohon Natal.
 - **-p** untuk menentukan jangkauan port yang akan di scan.
 - **-A** untuk melakukan OS detection dan service version detection.
 - **-oN** untuk menyimpan hasil scan ke dalam sebuah file.
@@ -69,7 +66,8 @@ Atau kalian juga bisa menggunakan profile yang tersedia di Nmap Gui ini:
 ![Windows Profile](https://ik.imagekit.io/taufik/blog/nmap-scanning-port/windows-profile.png 'Windows Profile')
 
 <Callout type='warning'>
-Penggunaan Nmap harus dilakukan dengan bijak dan hanya pada sistem atau jaringan yang Anda miliki izin untuk mengecek. Port scanning tanpa izin dapat dianggap sebagai tindakan ilegal dan merugikan.
+  Penggunaan Nmap harus dilakukan dengan bijak dan hanya pada sistem atau jaringan yang Anda miliki izin untuk mengecek.
+  Port scanning tanpa izin dapat dianggap sebagai tindakan ilegal dan merugikan.
 </Callout>
 
 ## Kesimpulan

@@ -6,15 +6,7 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '1/17/2023'
 topics: ['network']
-keywords:
-  [
-    'network',
-    'network attack',
-    'brute force',
-    'medusa',
-    'medusa tools',
-    'kali linux medusa'
-  ]
+keywords: ['network', 'network attack', 'brute force', 'medusa', 'medusa tools', 'kali linux medusa']
 related: []
 ---
 
@@ -26,7 +18,8 @@ Brute Force merupakan metode serangan jaringan yang dilakukan dengan mencoba sem
 Pada kesempatan artikel kali ini, saya akan melakukan percobaan serangan jaringan Brute Force menggunakan Medusa sebagai tool Brute Force dan Mikrotik sebagai router server.
 
 <Callout type='warning'>
-Perlu diingat bahwasanya serangan Brute Force ini merupakan tindakan ilegal dan dapat menyebabkan kerusakan pada sistem yang diserang. Sebaiknya digunakan hanya untuk tujuan pendidikan dan pengujian keamanan.
+  Perlu diingat bahwasanya serangan Brute Force ini merupakan tindakan ilegal dan dapat menyebabkan kerusakan pada
+  sistem yang diserang. Sebaiknya digunakan hanya untuk tujuan pendidikan dan pengujian keamanan.
 </Callout>
 
 Langsung saja tanpa basa-basi kita coba Brute Force menggunakan Medusa... LET'S GOO😉
@@ -36,6 +29,7 @@ Langsung saja tanpa basa-basi kita coba Brute Force menggunakan Medusa... LET'S 
 Langkah pertama adalah menginstall Medusa tool pada sistem yang digunakan. Medusa dapat diunduh dari situs resmi Medusa [Medusa Project](https://medusa-project.com) dan diinstall sesuai dengan sistem operasi yang digunakan.
 
 Jika kalian menggunakan Linux CLI bisa mengikuti perintah berikut:
+
 ```bash
 sudo apt-get install -y medusa
 ```
@@ -47,9 +41,11 @@ Karena Brute Force kali ini hanya sebagai percobaan, kita juga akan menggunakan 
 ### Medusa Tool
 
 Langkah kali ini kita akan menjalankan medusa untuk melakukan serangan bruteforce. Medusa dapat digunakan dengan mengetik perintah:
+
 ```bash
 medusa -h [Host IP Mikrotik] -u [username] -P [password list] -M [protokol]
 ```
+
 Ini akan menjalankan serangan Brute Force pada Mikrotik menggunakan username dan password yang telah ditentukan, dan akan mencoba untuk menemukan wordlist username dan password yang benar.
 
 ### Eksekusi
@@ -58,7 +54,7 @@ Berikut contoh praktek serangan Brute Force menggunakan Medusa:
 
 Pastikan kalian sudah mencari wordlist dan pada wordlist diisikan username dan password Mikrotik kalian agar proses nya tidak terlalu lama. Pada praktek ini kita menggunakan protokol **SSH**, karena untuk prosesnya yang lebih cepat daripada **Telnet**.
 
-Isikan IP Host yang akan diserang, lalu isikan nama file wordlist, dan protokol  yang digunakan lalu tekan <Kbd>enter</Kbd> seperti contoh dibawah:
+Isikan IP Host yang akan diserang, lalu isikan nama file wordlist, dan protokol yang digunakan lalu tekan <Kbd>enter</Kbd> seperti contoh dibawah:
 ![Medusa](https://ik.imagekit.io/taufik/blog/brute-force/medusa.png 'Medusa')
 
 Tunggu hingga proses Brute Force berhasil.
@@ -81,6 +77,7 @@ Pada menu Services kalian pilih service yang tidak digunakan dan klik tombol **X
 ![Menu Services](https://ik.imagekit.io/taufik/blog/brute-force/menu-services.png 'Menu Services')
 
 Jika kalian menggunakan terminal, bisa ikuti perintah berikut:
+
 ```bash
 ip service set ssh disabled=yes
 ```
@@ -91,6 +88,7 @@ Jika menggunakan Winbox, Klik protokol yang ingin diganti portnya pada menu serv
 ![Change Port Protokol](https://ik.imagekit.io/taufik/blog/brute-force/change-port.png 'Change Port Protokol')
 
 Jika kalian menggunakan terminal, bisa ikuti perintah berikut:
+
 ```bash
 ip service set ssh port=[isikan port]
 ```
@@ -102,5 +100,5 @@ Yey jaringan administration kalian sudah lebih aman dengan melakukan pencegahan 
 Metode Brute Force ini dapat digunakan untuk meretas jaringan yang dilindungi oleh password namun, metode ini memerlukan sumber daya yang cukup besar dan bisa saja memakan waktu yang lama untuk menemukan worlist yang benar agar dapat masuk ke jaringan administation. Serangan ini juga akan menyebabkan kerugian besar pada jaringan jika tidak dilakukan pengamanan yang tepat. Dengan melakukan pencegahan sederharna pada Mikrotik, kita akan lebih aman dari serangan Brute Force ini.
 
 <Callout icon='👋' type='info'>
-TERIMAKASIH😉
+  TERIMAKASIH😉
 </Callout>

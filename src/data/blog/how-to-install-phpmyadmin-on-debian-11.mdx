@@ -27,6 +27,7 @@ phpMyAdmin merupakan salah satu aplikasi web yang sering digunakan untuk mengelo
 Pada tutorial kali ini, kita akan membahas bagaimana cara menginstall phpMyAdmin di sistem operasi Debian 11. Dengan mengikuti langkah-langkah yang akan kita bahas, diharapkan kita dapat dengan mudah menginstall phpMyAdmin di Debian 11 dan segera menggunakannya untuk mengelola database MySQL.😉
 
 ### Prerequisites
+
 - Debian 11 yang sudah terinstall
 - Akun user dengan sudo atau root privileges
 - Terminal atau command line
@@ -44,10 +45,13 @@ Update sofware package dan install beberapa package yang diperlukan
 ```bash
 sudo apt update
 ```
+
 install juga wget tools
+
 ```bash
 sudo apt install wget -y
 ```
+
 wget tools akan membantu kita saat mendownload file secara langsung, sekarang kita bisa melanjutkan cara install phpMyAdmin.
 
 ### 1.2 Install Apache Web Server
@@ -57,10 +61,13 @@ Apache adalah sebuah server web yang sangat populer dan banyak digunakan. Beriku
 ```bash
 sudo apt install apache2 -y
 ```
+
 Setelah selesai terinstall, kita perlu check status service dari Apache.
+
 ```bash
 systemctl status apache2
 ```
+
 Akan muncul tampilan yang menunjukkan status Apache service berjalan **active(running)**.
 ![Status Apache](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/status-apache.png 'Status Apache')
 Tekan **Ctrl+Z** untuk kembali ke command prompt.
@@ -73,10 +80,13 @@ Install core PHP packages, Apache dan MySQL(MariaDb) plugins, ikuti cara dibawah
 ```bash
 sudo apt -y install php php-cgi php-mysqli php-pear php-mbstring libapache2-mod-php php-common php-phpseclib php-mysql
 ```
+
 Setelah berhasil install plugins, kita perlu check versi PHP yang terinstall.
+
 ```bash
 php --version
 ```
+
 System akan memunculkan versi PHP saat ini bersama dengan tanggal rilis.
 ![PHP Version](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/php-version.png 'PHP Version')
 
@@ -88,10 +98,13 @@ Untuk install MariaDB ikuti perintah dibawah ini:
 ```bash
 sudo apt install mariadb-server mariadb-client -y
 ```
+
 Check status MariaDB sudah berjalan atau belum.
+
 ```bash
 systemctl status mariadb
 ```
+
 Seperti pada Apache, status menunjukkan **active(running)**.
 ![Status MariaDB](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/status-mariadb.png 'Status MariaDB')
 
@@ -100,9 +113,11 @@ Sebelum menginstall phpMyAdmin, kita perlu setting MariaDB Database.
 #### Secure MariaDB
 
 Untuk melakukan konfigurasi ini, bisa menggunakan default command dari fitur security MariaDB:
+
 ```bash
 sudo mysql_secure_installation
 ```
+
 Karena kalian belum menetapkan kata sandi root untuk database kalian, tekan Enter untuk melewati pertanyaan ini. Untuk itu ikuti pertanyaan ini sampai selesai.
 
 - **Switch to unix_socket authentication [Y/n]** - tekan **n**
@@ -111,8 +126,8 @@ Karena kalian belum menetapkan kata sandi root untuk database kalian, tekan Ente
 - **Disallow root login remotely? [Y/n]** - tekan **y**
 - **Remove test database and access to it? [Y/n]** - tekan **y**
 - **Reload privilege tables now? [Y/n]** - tekan **y**
-System akan menunjukkan instalasi MariaDB sekarang lebih aman.
-![Secure MariaDB](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/secure-mariadb.png 'Secure MariaDB')
+  System akan menunjukkan instalasi MariaDB sekarang lebih aman.
+  ![Secure MariaDB](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/secure-mariadb.png 'Secure MariaDB')
 
 #### Membuat User Baru MariaDB
 
@@ -123,9 +138,11 @@ Untuk detail membuat user akan dijelaskan pada blog [Membuat User Databases Mari
 ## Download phpMyAdmin
 
 Kita akan menggunakan **wget** tools untuk download phpMyAdmin dengan versi stable.
+
 ```bash
 wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 ```
+
 Menggunakan opsi **-p** pada wget untuk menyimpan file secara langsung di direktori download.
 ![Download phpMyAdmin](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/download-phpmyadmin.png 'Download phpMyAdmin')
 
@@ -134,23 +151,30 @@ Menggunakan opsi **-p** pada wget untuk menyimpan file secara langsung di direkt
 Setiap arsip yang didownload akan memiliki file .asc yang sesuai yang berisi GPG Key. Setelah kedua file berada di direktori yang sama, GPG Key akan dapat diverifikasi.
 
 1. Untuk memverifikasi GPG key untuk phpMyAdmin, download keyring phpMyAdmin ke direktori yang kalian gunakan sebelumnya.
+
 ```bash
 wget -P Downloads https://files.phpmyadmin.net/phpmyadmin.keyring
 ```
+
 2. Akses direktori download dan impor keyring.
+
 ```bash
 cd Downloads
 gpg --import phpmyadmin.keyring
 ```
-![GPG Key](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/keyring.png 'GPG Key')
-3. Download file .asc GPG yang sesuai untuk versi phpMyAdmin kalian dan tetap berada di direktori yang sama.
+
+![GPG Key](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/keyring.png 'GPG Key') 3. Download file .asc GPG yang sesuai untuk versi phpMyAdmin kalian dan tetap berada di direktori yang sama.
+
 ```bash
 wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc
 ```
+
 4. Pada direktori yang sama verifikasi file .asc dengan keyring yang kalian download.
+
 ```bash
 gpg --verify phpMyAdmin-latest-all-languages.tar.gz.asc
 ```
+
 Sistem merespons dengan menampilkan informasi kunci GPG.
 ![Verify phpMyAdmin](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/verify-phpmyadmin.png 'Verify phpMyAdmin')
 
@@ -159,33 +183,46 @@ Kalian sekarang dapat membandingkan GPG Key dengan developer credentials di [hal
 ## Unpack and Configure phpMyAdmin
 
 1. Buat direktori phpMyAdmin di direktori root web Apache.
+
 ```bash
 sudo mkdir /var/www/html/phpMyAdmin
 ```
+
 2. Akses direktori download dan ekstrak file tar.gz phpMyAdmin ke direktori yang baru dibuat.
+
 ```bash
 sudo tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/html/phpMyAdmin
 ```
+
 3. Buat file konfigurasi default.
+
 ```bash
 sudo cp /var/www/html/phpMyAdmin/config.sample.inc.php /var/www/html/phpMyAdmin/config.inc.php
 ```
+
 4. Gunakan editor teks nano untuk menambahkan secret passphrase ke file config.inc.php.
+
 ```bash
 sudo nano /var/www/html/phpMyAdmin/config.inc.php
 ```
+
 Temukan baris **$cfg['blowfish_secret'] = '';**. Lalu berikan password pada tengah petik sebelum akhir kode.
 ![blowfish_secret](https://ik.imagekit.io/taufik/blog/install-phpmyadmin-debian-11/blowfish.png 'blowfish_secret')
 
 5. Ubah permissions untuk file config.inc.php.
+
 ```bash
 sudo chmod 660 /var/www/html/phpMyAdmin/config.inc.php
 ```
+
 6. Ubah ownership direktori phpMyAdmin.
+
 ```bash
 sudo chown -R www-data:www-data /var/www/html/phpMyAdmin
 ```
+
 7. Langkah terakhir, restart Apache.
+
 ```bash
 sudo systemctl restart apache2
 ```

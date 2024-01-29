@@ -14,10 +14,10 @@ const NotFoundPage: NextPage = () => {
   return (
     <LayoutPage
       seo={{
-      title: '404',
-      description: 'The page you are looking for are not found, please contact Rizki if you encounter any problem',
-      template: 'Page Not Found'
-    }}
+        title: '404',
+        description: 'The page you are looking for are not found, please contact Rizki if you encounter any problem',
+        template: 'Page Not Found'
+      }}
     >
       <div className='flex flex-col items-center justify-center gap-4 min-h-screen'>
         <WrappedImage priority src='/static/404.svg' alt='illustration' quality={60} width={225} height={225} />

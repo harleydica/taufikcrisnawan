@@ -179,19 +179,13 @@ export const LabelBlog: React.FunctionComponent<LabelProps> = (props) => {
         </span>
       )
 
-      case 'nextjs':
-      case 'sija':
-        return (
-          <span
-            className={twclsx(
-              baseClass,
-              'text-white dark:text-black bg-black dark:bg-white',
-              props.className
-            )}
-          >
-            {props.type}
-          </span>
-        )
+    case 'nextjs':
+    case 'sija':
+      return (
+        <span className={twclsx(baseClass, 'text-white dark:text-black bg-black dark:bg-white', props.className)}>
+          {props.type}
+        </span>
+      )
 
     default:
       return (

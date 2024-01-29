@@ -5,7 +5,7 @@ import { twclsx } from '@/libs/twclsx'
 
 import { SocialHome } from './SocialHome'
 
-import NowPlaying from '@/components/song/NowPlaying';
+import NowPlaying from '@/components/song/NowPlaying'
 
 import { useRouter } from 'next/router'
 

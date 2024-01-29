@@ -69,7 +69,11 @@
       linear-gradient(225deg, rgba(59, 30, 246, 1) 25%, transparent 25%),
       linear-gradient(45deg, rgba(59, 30, 246, 1) 25%, transparent 25%),
       linear-gradient(315deg, rgba(59, 30, 246, 1) 25%, #ffffff 25%);
-    background-position: 19px 0, 19px 0, 0 0, 0 0;
+    background-position:
+      19px 0,
+      19px 0,
+      0 0,
+      0 0;
     background-size: 38px 38px;
     background-repeat: repeat;
   }

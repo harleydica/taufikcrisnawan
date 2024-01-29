@@ -209,8 +209,11 @@ const Resume: NextPage = () => {
 
           {HONOR.map((hon) => (
             <p className='[&:not(:first-of-type)]:mt-1' key={hon.title}>
-            <a href={hon.href} target='_blank'><strong>{hon.title}</strong></a> {hon.level}.
-          </p>
+              <a href={hon.href} target='_blank'>
+                <strong>{hon.title}</strong>
+              </a>{' '}
+              {hon.level}.
+            </p>
           ))}
         </section>
 

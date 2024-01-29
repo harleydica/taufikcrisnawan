@@ -5,16 +5,8 @@ featured: false
 author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '12/24/2022'
-topics: ['vpn','mikrotik']
-keywords:
-  [
-    'tutorial',
-    'konfigurasi',
-    'mikrotik',
-    'jaringan',
-    'sija',
-    'tkj'
-  ]
+topics: ['vpn', 'mikrotik']
+keywords: ['tutorial', 'konfigurasi', 'mikrotik', 'jaringan', 'sija', 'tkj']
 related: []
 ---
 
@@ -26,7 +18,7 @@ Lalu bagaimana cara administrator jaringan mengakses perangkat mikrotik diluar s
 
 Yang perlu kita gunakan yaitu VPN, yap benar VPN, dengan bantuan VPN ini kita bisa meremote perangkat mikrotik dimana saja, kapan saja selama terkoneksi dengan internet dan tentunya tanpa harus menggunakan IP Public.
 
-Hal pertama yang kita siapkan tentunya VPN itu sendiri, VPN ini bisa kita dapatkan secara gratis atau berbayar. Biasanya VPN gratis kita dapatkan dengan menggunakan masa trial / percobaan dan saat masa trialnya habis kalian akan diharuskan membayarnya. Ada banyak sekali penyedia VPN, tetapi kita juga harus berhati-hati saat memilih VPN agar aman dari serangan yang tidak diinginkan. 
+Hal pertama yang kita siapkan tentunya VPN itu sendiri, VPN ini bisa kita dapatkan secara gratis atau berbayar. Biasanya VPN gratis kita dapatkan dengan menggunakan masa trial / percobaan dan saat masa trialnya habis kalian akan diharuskan membayarnya. Ada banyak sekali penyedia VPN, tetapi kita juga harus berhati-hati saat memilih VPN agar aman dari serangan yang tidak diinginkan.
 
 ## Membuat Akun VPN
 
@@ -34,11 +26,12 @@ Disini saya akan menggunakan website [Tunnel FreeDDNS](https://tunnel.hostddns.u
 ![Order VPN](https://ik.imagekit.io/taufik/blog/remote-mikrotik-jarak-jauh/order-vpn.png 'Order VPV')
 
 Isi form berikut
-* VPN Server => Lokasi server yang tersedia
-* Username => Username untuk akun VPN
-* Password => Password untuk akun VPN
-* Port For Remote => Port device mikrotik yang ingin diremote (default port winbox: 8291)
-![Create VPN](https://ik.imagekit.io/taufik/blog/remote-mikrotik-jarak-jauh/create-vpn.png 'Create VPN')
+
+- VPN Server => Lokasi server yang tersedia
+- Username => Username untuk akun VPN
+- Password => Password untuk akun VPN
+- Port For Remote => Port device mikrotik yang ingin diremote (default port winbox: 8291)
+  ![Create VPN](https://ik.imagekit.io/taufik/blog/remote-mikrotik-jarak-jauh/create-vpn.png 'Create VPN')
 
 Jika berhasil, maka akan muncul hasil result seperti dibawah, klik **Go Back List** untuk melihat detail akun VPN.
 ![Success Create VPN](https://ik.imagekit.io/taufik/blog/remote-mikrotik-jarak-jauh/success-create-vpn.png 'Success Create VPN')
@@ -57,12 +50,13 @@ Setelah itu pada menu **General** isikan nama VPN
 ![Name VPN](https://ik.imagekit.io/taufik/blog/remote-mikrotik-jarak-jauh/name-vpn.png 'Name VPN')
 
 Menu kedua yaitu **Dial Out**
-* Connect To => sesuaikan dengan server VPN
-* Port => 1194 (default port OVPN, jika dirubah maka tidak akan connect)
-* Mode => ip
-* User/Password => sesuaikan dengan akun VPN
-* Profile => default
-* Chiper => blowfish 128
+
+- Connect To => sesuaikan dengan server VPN
+- Port => 1194 (default port OVPN, jika dirubah maka tidak akan connect)
+- Mode => ip
+- User/Password => sesuaikan dengan akun VPN
+- Profile => default
+- Chiper => blowfish 128
 
 Klik **Apply** dan tunggu status menjadi **Connected**, yang artinya VPN Remote sudah terconnect dan bisa digunakan.
 ![Connect VPN](https://ik.imagekit.io/taufik/blog/remote-mikrotik-jarak-jauh/connect-vpn.png 'Connect VPN')
@@ -82,8 +76,3 @@ Keren, perangkat mikrotik sudah berhasil terconnect dengan VPN, untuk pengujiann
 
 Berhasil. Demikian tutorialnya, jangan lupa share keteman-teman kalian. TERIMAKASIH😉
 Jika terjadi kendala bisa menghubungi saya di WhatsApp.
-
-
-
-
-

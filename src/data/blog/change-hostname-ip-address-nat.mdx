@@ -44,7 +44,7 @@ Tentunya dengan kalian mengganti hostname ini, akan menambah score saat penilaia
 
 ## IP Addresses
 
-IP Addresses merupakan pemberian IP Address pada nodes, dari konfigurasi ini akan menghubungkan antar node agar saling terkoneksi. Tentunya kalian juga mempelajari VLSM (Variable Length Subnet Mask) dan CIDR (Classless Inter-Domain Routing), setelah mempelajari 2 hal tersebut saya akan memberikan cara konfigurasi IP Address pada linux Debian server. Ikuti langkah berikut: 
+IP Addresses merupakan pemberian IP Address pada nodes, dari konfigurasi ini akan menghubungkan antar node agar saling terkoneksi. Tentunya kalian juga mempelajari VLSM (Variable Length Subnet Mask) dan CIDR (Classless Inter-Domain Routing), setelah mempelajari 2 hal tersebut saya akan memberikan cara konfigurasi IP Address pada linux Debian server. Ikuti langkah berikut:
 
 ### Cek adaptor network interface
 
@@ -54,7 +54,7 @@ Pertama kalian perlu cek network interface linux Debian server, maksud dari peng
 ip a
 ```
 
-Jika interface belum terkonfigurasi akan muncul seperti dibawah ini: 
+Jika interface belum terkonfigurasi akan muncul seperti dibawah ini:
 
 ```bash
 root@lks-itnsa:~# ip a
@@ -62,13 +62,13 @@ root@lks-itnsa:~# ip a
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
+    inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
 2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast master vmbr0 state UP group default qlen 1000
     link/ether 00:d8:61:76:9f:77 brd ff:ff:ff:ff:ff:ff
 ```
 
-Perhatikan pada interface nomor 2, ens33 adalah nama interface yang terpasang pada linux Debian server. Secara default saat interface terpasang tidak memunculkan IP Address, kalian perlu mengkonfigurasinya. Caranya seperti dibawah: 
+Perhatikan pada interface nomor 2, ens33 adalah nama interface yang terpasang pada linux Debian server. Secara default saat interface terpasang tidak memunculkan IP Address, kalian perlu mengkonfigurasinya. Caranya seperti dibawah:
 
 ```bash
 nano /etc/network/interfaces.d/ens33
@@ -114,7 +114,7 @@ nano /etc/network/interfaces
           name: 'network',
           children: [
             {
-              name: 'interfaces',
+              name: 'interfaces'
             }
           ]
         }
@@ -123,7 +123,7 @@ nano /etc/network/interfaces
   ]}
 />
 
-Lalu tambahkan konfigurasi seperti berikut: 
+Lalu tambahkan konfigurasi seperti berikut:
 
 ```bash
 auto ens33
@@ -171,11 +171,11 @@ Pada inet muncul IP Address yang sudah kalian konfigurasi, pastikan konfigurasi 
 
 ## Firewall NAT
 
-Biasanya pada soal LKS ITNSA terdapat perintah pada server Debian yang terkonfigurasi Firwall NAT, fungsi dari konfigurasi ini untuk mentranslasikan IP publik ke IP private, jadi tidak menambahkan routing static untuk menghubungkan IP private ke IP publik. 
+Biasanya pada soal LKS ITNSA terdapat perintah pada server Debian yang terkonfigurasi Firwall NAT, fungsi dari konfigurasi ini untuk mentranslasikan IP publik ke IP private, jadi tidak menambahkan routing static untuk menghubungkan IP private ke IP publik.
 
 Kalian perlu menginstall tool <Kbd>iptables</Kbd> untuk mengkonfigurasi Firewall NAT.
 
-Sebelum melakukan konfigurasi firewall ini, kalian perlu mengkonfigurasi <Kbd>sysctl</Kbd> untuk mengijinkan traffic melewati Debian server ini. Caranya sebagai berikut: 
+Sebelum melakukan konfigurasi firewall ini, kalian perlu mengkonfigurasi <Kbd>sysctl</Kbd> untuk mengijinkan traffic melewati Debian server ini. Caranya sebagai berikut:
 
 ```bash
 sysctl -w net.ipv4.ip_forward=1
@@ -208,7 +208,7 @@ iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 
 DST NAT atau Destination NAT adalah proses pembelokan IP Address tujuan dari IP publik ke IP private. Tujuan DST NAT adalah agar server lokal dapat menerima data yang berasal dari IP Publik.
 
-Kalian bisa mengkonfigurasinya dengan cara berikut: 
+Kalian bisa mengkonfigurasinya dengan cara berikut:
 
 ```bash
 iptables -t nat -A PREROUTING -p tcp -d 202.65.116.12 --dport 80 -j DNAT --to-destination 10.5.7.201
@@ -219,7 +219,7 @@ iptables -t nat -A PREROUTING -p tcp -d 202.65.116.12 --dport 80 -j DNAT --to-de
 3. **--dport** adalah port yang akan digunakan.
 4. **--to-destination** adalah IP private yang akan dituju.
 
-Jadi nantinya saat kita mengakses 202.65.116.12 dengan port 80, akan dibelokkan ke IP Address 10.5.7.201. 
+Jadi nantinya saat kita mengakses 202.65.116.12 dengan port 80, akan dibelokkan ke IP Address 10.5.7.201.
 
 ## Kesimpulan
 

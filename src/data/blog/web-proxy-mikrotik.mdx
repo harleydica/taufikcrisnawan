@@ -6,15 +6,7 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '3/15/2023'
 topics: ['mikrotik']
-keywords:
-  [
-    'tutorial',
-    'konfigurasi',
-    'mikrotik',
-    'jaringan',
-    'sija',
-    'tkj'
-  ]
+keywords: ['tutorial', 'konfigurasi', 'mikrotik', 'jaringan', 'sija', 'tkj']
 related: []
 ---
 
@@ -46,9 +38,10 @@ Setelah mengaktifkan Web Proxy, langkah selanjutnya adalah memblokir situs web t
 
 Dalam aturan ini, kalian dapat memilih untuk memblokir situs web berdasarkan nama domain, URL, atau alamat IP. Misalnya, jika kalian ingin memblokir situs web dengan nama domain **"example.com"**, kalian dapat memasukkan nama domain tersebut ke dalam kolom **"Domain Name"**. kalian juga dapat memilih untuk memblokir situs web berdasarkan kata kunci tertentu pada URL dengan memasukkannya ke dalam kolom **"URL"**.
 
-Selain itu, kalian dapat memilih untuk memblokir situs web dengan mengaktifkan opsi **"Block File Extension"**. Dalam opsi ini, kalian dapat memilih jenis file ekstensi yang ingin kalian blokir, seperti **"*.exe"** atau **"*.mp3"**. Setelah memilih opsi yang sesuai, klik tombol <Kbd>Apply</Kbd> untuk menyimpan aturan tersebut.
+Selain itu, kalian dapat memilih untuk memblokir situs web dengan mengaktifkan opsi **"Block File Extension"**. Dalam opsi ini, kalian dapat memilih jenis file ekstensi yang ingin kalian blokir, seperti **"\*.exe"** atau **"\*.mp3"**. Setelah memilih opsi yang sesuai, klik tombol <Kbd>Apply</Kbd> untuk menyimpan aturan tersebut.
 
 ### Konfigurasi Transparent Proxy
+
 Selain memblokir situs web secara manual, kalian juga dapat menggunakan Transparent Proxy untuk memblokir situs web secara otomatis. Transparent Proxy memungkinkan kalian untuk memaksa semua koneksi HTTP yang masuk melalui router untuk melewati Web Proxy tanpa konfigurasi klien yang rumit.
 
 Untuk mengaktifkan Transparent Proxy pada MikroTik, buka menu <Kbd>IP</Kbd> dan pilih <Kbd>Firewall</Kbd>. Kemudian, klik tab <Kbd>NAT</Kbd> dan tambahkan aturan baru dengan mengklik tombol <Kbd>Add</Kbd>.
@@ -65,7 +58,8 @@ Dalam aturan baru ini, kalian harus mengatur koneksi yang masuk ke port HTTP unt
 Setelah aturan telah disimpan, semua koneksi HTTP yang masuk melalui router akan melewati Web Proxy secara otomatis.
 
 ### Tes Konfigurasi Web Proxy
-Setelah menyelesaikan konfigurasi Web Proxy dan Transparent Proxy, tes apakah semua aturan yang telah dibuat bekerja dengan baik. Untuk melakukannya, buka browser web dan coba mengakses website yang telah diblokir tadi, jika berhasil akan muncul tampilan seperti dibawah: 
+
+Setelah menyelesaikan konfigurasi Web Proxy dan Transparent Proxy, tes apakah semua aturan yang telah dibuat bekerja dengan baik. Untuk melakukannya, buka browser web dan coba mengakses website yang telah diblokir tadi, jika berhasil akan muncul tampilan seperti dibawah:
 
 ![Tes Konfigurasi](https://ik.imagekit.io/taufik/blog/web-proxy-mikrotik/tes.png 'Tes Konfigurasi')
 

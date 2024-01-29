@@ -8,10 +8,10 @@ import { GetContents, getContents } from '@/services'
 import { getMetaPage } from '@/libs/metapage'
 import { getNewestBlog, getNewestPortfolio } from '@/libs/sorters'
 
-import React from 'react';
-import { Spotify } from 'react-spotify-embed';
+import React from 'react'
+import { Spotify } from 'react-spotify-embed'
 
-import { Adsense } from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense'
 
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
@@ -27,7 +27,13 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
     title: 'Taufik Crisnawan Santoso',
     template: 'NOC Engineer and Tech Enthusiast',
     description: `Taufik Crisnawan S personal website, its contain about my blog, work, achievment and more. You can call me with Taufik or Topek.`,
-    keywords: ['Taufik Crisnawan Santoso', 'Taufik Crisnawan S', 'Taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
+    keywords: [
+      'Taufik Crisnawan Santoso',
+      'Taufik Crisnawan S',
+      'Taufikcrisnawan',
+      'Taufik Crisnawan',
+      'taufikcrisnawan.dev'
+    ],
     og_image: `https://ik.imagekit.io/taufik/profile/Taufik-Crisnawan-Santoso.jpg`,
     og_image_alt: 'Taufik Crisnawan Santoso',
     slug: '/',
@@ -48,7 +54,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
               width={128}
               height={128}
               className='rounded-full absolute left-1 bottom-0.5 border-4 cursor-pointer border-theme-50 dark:border-theme-900'
-              title="Taufik Face"
+              title='Taufik Face'
               quality={100}
               priority
             />
@@ -58,44 +64,46 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           <div className='mt-2 md:mt-4'>
             <h1>Taufik Crisnawan Santoso</h1>
             <h2 className='max-w-max mb-7 text-transparent font-bold text-xl md:text-2xl bg-clip-text bg-gradient-to-r from-primary-500 to-ternary-500 dark:text-transparent'>
-            NOC Engineer &amp; Tech Enthusiast
+              NOC Engineer &amp; Tech Enthusiast
             </h2>
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
               <p>
-                Hello👋, I&apos;m Taufik Crisnawan Santoso, a student at SMKN 2 Depok, majoring in SIJA (System Information Network and Aplication).
+                Hello👋, I&apos;m Taufik Crisnawan Santoso, a student at SMKN 2 Depok, majoring in SIJA (System
+                Information Network and Aplication).
               </p>
 
               <p>
-                Interested in the world of Technology and a little like Programing which has become my hobby, besides that I also like to make a documentation about what I do, this is where I tell everything. I liked technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the internet cafe.
+                Interested in the world of Technology and a little like Programing which has become my hobby, besides
+                that I also like to make a documentation about what I do, this is where I tell everything. I liked
+                technology since I was 10 years old. when I was still using a nokia cellphone, and liked to go to the
+                internet cafe.
               </p>
 
-              <p>
-                Welcome to my website where you can find my portfolio, Certificate, blog and more. Enjoy 😄
-              </p>
+              <p>Welcome to my website where you can find my portfolio, Certificate, blog and more. Enjoy 😄</p>
 
-              <div className="flex mx-full h-full">
+              <div className='flex mx-full h-full'>
                 <div className='w-full mx-full  mt-10 bg-gradient-to-b from-primary-500 to-ternary-500'>
                   <div className='flex flex-col h-full ml-1 bg-theme-50 dark:bg-theme-900'>
-                    <p className='ml-4 text-xl italic'>
-                      خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-                    </p>
+                    <p className='ml-4 text-xl italic'>خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
                     <p className='ml-4 mt-1 italic'>
                       &ldquo;Sebaik-baiknya manusia adalah yang paling bermanfaat bagi manusia lain.
                     </p>
-                    <p className='ml-4 italic'>
-                      ~ HR. Tirmidzi&ldquo;
-                    </p>
+                    <p className='ml-4 italic'>~ HR. Tirmidzi&ldquo;</p>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
         <br></br>
 
-        <Spotify className='bg-theme-50 dark:bg-theme-900 spotify' style={{ borderRadius: "13px" }} wide link="https://open.spotify.com/playlist/37i9dQZF1EVKuMoAJjoTIw" />
+        <Spotify
+          className='bg-theme-50 dark:bg-theme-900 spotify'
+          style={{ borderRadius: '13px' }}
+          wide
+          link='https://open.spotify.com/playlist/37i9dQZF1EVKuMoAJjoTIw'
+        />
 
         <BlogList
           className='pt-16'
@@ -109,13 +117,13 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
           title='Featured Portfolio'
           portfolios={portfolios}
         />
-        
+
         <Adsense
-          client="ca-pub-9254295768355301"
-          slot="8371723731"
+          client='ca-pub-9254295768355301'
+          slot='8371723731'
           style={{ display: 'block' }}
-          format="auto"
-          responsive="true"
+          format='auto'
+          responsive='true'
         />
       </main>
 

@@ -13,8 +13,8 @@ import { getNewestBlog } from '@/libs/sorters'
 
 import { useTags } from '@/hooks'
 
-import React from 'react';
-import { Adsense } from '@ctrl/react-adsense';
+import React from 'react'
+import { Adsense } from '@ctrl/react-adsense'
 
 import type { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
@@ -70,8 +70,8 @@ const TagsPage: NextPage<TagsProps> = ({ tags, blogs }) => {
                 'py-2 px-4 rounded',
                 !selectedTags.includes(t) && 'motion-safe:active:scale-95 motion-safe:hover:scale-110',
                 !selectedTags.includes(t) &&
-                selectedTags.length > 0 &&
-                'bg-theme-500 text-white dark:bg-theme-200 dark:text-theme-900'
+                  selectedTags.length > 0 &&
+                  'bg-theme-500 text-white dark:bg-theme-200 dark:text-theme-900'
               )}
             />
           </UnstyledButton>
@@ -94,11 +94,11 @@ const TagsPage: NextPage<TagsProps> = ({ tags, blogs }) => {
         </section>
       )}
       <Adsense
-        client="ca-pub-9254295768355301"
-        slot="1435576454"
+        client='ca-pub-9254295768355301'
+        slot='1435576454'
         style={{ display: 'block' }}
-        format="auto"
-        responsive="true"
+        format='auto'
+        responsive='true'
       />
     </LayoutPage>
   )

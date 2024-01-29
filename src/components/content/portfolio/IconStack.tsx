@@ -83,10 +83,10 @@ export const IconStack: React.FunctionComponent<IconStackProps> = ({ type, class
     case 'go':
       return <SiGo className={twclsx('text-emerald-600 dark:text-emerald-500', className)} />
 
-      case 'html':
+    case 'html':
       return <SiHtml5 className={twclsx('text-orange-600 dark:text-orange-200', className)} />
 
-      case 'php':
+    case 'php':
       return <SiPhp className={twclsx('text-indigo-400 dark:text-indigo-300', className)} />
 
     default:

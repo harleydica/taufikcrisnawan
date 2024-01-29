@@ -34,12 +34,10 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
   const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
   const firtsDeployedAppAtMs = 1671469200000
-  
+
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
-
   const blogURL = `/api/websites/${websitesId}/stats?startAt=${firtsDeployedAppAtMs}&endAt=${end_date.getTime()}&url=/blog/${slug}`
-
 
   let responseBlog = {
     bounces: { change: 0, value: 0 },

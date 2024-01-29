@@ -92,19 +92,19 @@ declare module 'taufikcrisnawan' {
   }
 
   export type NowPlayingSong = {
-    album: string;
-    albumImageUrl: string;
-    artist: string;
-    isPlaying: boolean;
-    songUrl: string;
-    title: string;
+    album: string
+    albumImageUrl: string
+    artist: string
+    isPlaying: boolean
+    songUrl: string
+    title: string
   }
-  
+
   export type TopTracks = {
-    tracks: Song[];
+    tracks: Song[]
   }
 
   export type WithChildren = {
-    children: React.ReactNode 
+    children: React.ReactNode
   }
-} 
+}

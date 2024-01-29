@@ -13,7 +13,7 @@ import { twclsx } from '@/libs/twclsx'
 
 import { useSearchBlog } from '@/hooks'
 
-import {Adsense} from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense'
 
 import axios from 'axios'
 import { GetStaticProps, NextPage } from 'next'
@@ -28,7 +28,13 @@ type BlogPageProps = {
 const meta = getMetaPage({
   title: 'Blog',
   description: `You'll find a collection of my thoughts and musings on a variety of topics. I write about everything from current events to personal experiences, and I always strive to share my honest opinions. Keep in mind that my views are my own and do not necessarily reflect those of any other person or organization.`,
-  keywords: ['Taufik Crisnawan Santoso', 'Taufik Crisnawan Santoso', 'taufikcrisnawan', 'Taufik Crisnawan', 'taufikcrisnawan.dev'],
+  keywords: [
+    'Taufik Crisnawan Santoso',
+    'Taufik Crisnawan Santoso',
+    'taufikcrisnawan',
+    'Taufik Crisnawan',
+    'taufikcrisnawan.dev'
+  ],
   og_image: generateOgImage({
     title: 'Blog - taufikcrisnawan.dev',
     subTitle: 'Any thought I think interesting to share on my personal site'
@@ -92,12 +98,12 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
         </>
       )}
       <Adsense
-          client="ca-pub-9254295768355301"
-          slot="5171394066"
-          style={{ display: 'block' }}
-          format="auto"
-          responsive="true"
-        />
+        client='ca-pub-9254295768355301'
+        slot='5171394066'
+        style={{ display: 'block' }}
+        format='auto'
+        responsive='true'
+      />
     </LayoutPage>
   )
 }

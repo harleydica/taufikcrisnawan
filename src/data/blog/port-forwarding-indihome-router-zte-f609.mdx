@@ -6,15 +6,7 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '12/25/2022'
 topics: ['network']
-keywords:
-  [
-    'tutorial',
-    'konfigurasi',
-    'jaringan',
-    'sija',
-    'port forwarding',
-    'tkj'
-  ]
+keywords: ['tutorial', 'konfigurasi', 'jaringan', 'sija', 'port forwarding', 'tkj']
 related: []
 ---
 
@@ -25,7 +17,7 @@ Blog kali ini akan menjelaskan cara setting port forwarding pada perangkat ZTE F
 
 Pastikan modem router yang kalian gunakan sudah mendapatkan IP Public dari ISP atau Layanan Internet, jika berlangganan Indihome kalian bisa restart modemnya hingga mendapatkan IP Public dari Indihome. Jika sudah kalian bisa melanjutkan tutorial ini sampai selesai😉.
 
-Pertama, buka router/ONT ZTE F609 Indihome biasanya dengan default IP [192.168.1.1](http://192.168.1.1), masuk dengan username admin dan password telecomadmin (default password ZTE F609) jika username atau password sudah diganti masuk dengan user yang telah diganti. 
+Pertama, buka router/ONT ZTE F609 Indihome biasanya dengan default IP [192.168.1.1](http://192.168.1.1), masuk dengan username admin dan password telecomadmin (default password ZTE F609) jika username atau password sudah diganti masuk dengan user yang telah diganti.
 ![Login Page](https://ik.imagekit.io/taufik/blog/port-forwarding/login-page.png 'Login Page')
 ![Tampilan Awal](https://ik.imagekit.io/taufik/blog/port-forwarding/page.png 'Tampilan Awal')
 
@@ -36,16 +28,16 @@ Sebagai contoh ketika ingin memforward port 80 (HTTP) ke IP 192.168.1.201 Webser
 ![Port Forwarding](https://ik.imagekit.io/taufik/blog/port-forwarding/port-forwarding.png 'Port Forwarding')
 
 Berikut yang perlu disini
-* Enable => Checklist untuk menghidupkan Port Forwarding
-* Name => Isikan nama apa saja bebas
-* Protocol => Protocol jaringan yang digunakan, karena ingin forward HTTP maka gunakan TCP 
-* WAN Start Port => Port awal yang dibuka
-* WAN End Port => Port akhir yang dibuka
-* LAN Host IP Address => IP Local yang ingin diforward
-* LAN Host Start Port => Port awal LAN yang dibuka
-* LAN Host End Port => Port akhir LAN yang dibuka
+
+- Enable => Checklist untuk menghidupkan Port Forwarding
+- Name => Isikan nama apa saja bebas
+- Protocol => Protocol jaringan yang digunakan, karena ingin forward HTTP maka gunakan TCP
+- WAN Start Port => Port awal yang dibuka
+- WAN End Port => Port akhir yang dibuka
+- LAN Host IP Address => IP Local yang ingin diforward
+- LAN Host Start Port => Port awal LAN yang dibuka
+- LAN Host End Port => Port akhir LAN yang dibuka
 
 Jika sudah klik **Add** untuk menyimpan port forwarding
 
 Wah kita sudah melakukan port forwarding pada perangkat router ZTE F609 (modem Indihome), setiap request port 80 (HTTP) dari internet ke IP Public router maka akan di forward ke IP Lokal 192.168.1.201 yang menggunakan protokol HTTP:80. TERIMAKASIH😉
-

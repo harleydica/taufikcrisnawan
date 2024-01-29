@@ -88,10 +88,10 @@ export const EDUCATION: Education = [
       end: 'Sekarang'
     },
     paragraphs: ['Semester 7 (Program Magang), Sistem Informatika Jaringan dan Aplikasi'],
-     list: {
-       title: 'Penghargaan:',
-       listItem: ['Juara 1 Lomba Kompetensi Siswa Tingkat Provinsi D.I. Yogyakarta']
-     }
+    list: {
+      title: 'Penghargaan:',
+      listItem: ['Juara 1 Lomba Kompetensi Siswa Tingkat Provinsi D.I. Yogyakarta']
+    }
   },
   {
     school: 'SMP Negeri 5 Depok Sleman',
@@ -110,17 +110,17 @@ export const SUMMARY = [
 export const HONOR = [
   {
     title: `Fortinet Networking Fundamentals (Fortinet).`,
-    level:  `Diterbitkan Nov 2023`,
+    level: `Diterbitkan Nov 2023`,
     href: `${IMG_URL}/Course_Completion_Certificate.png`
   },
   {
     title: `Network Addressing and Basic Troubleshooting (Cisco).`,
-    level:  `Diterbitkan Okt 2023`,
+    level: `Diterbitkan Okt 2023`,
     href: `${IMG_URL}/Network_Addressing_and_Basic_Troubleshooting.png`
   },
   {
     title: `Networking Basics (Cisco).`,
-    level:  `Diterbitkan Okt 2023`,
+    level: `Diterbitkan Okt 2023`,
     href: `${IMG_URL}/Networking_Basics.jpg`
   },
   {
@@ -135,7 +135,7 @@ export const HONOR = [
   },
   {
     title: `Cisco Certified Support Technician - Networking (CCST).`,
-    level:  `Diterbitkan Okt 2023`,
+    level: `Diterbitkan Okt 2023`,
     href: `${IMG_URL}/CCST-Networking.png`
   },
   {
@@ -145,7 +145,7 @@ export const HONOR = [
   },
   {
     title: `Mikrotik Certified Network Associate (MTCNA).`,
-    level:  `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
+    level: `Diterbitkan Mar 2023 kadaluarsa Mar 2026`,
     href: `${IMG_URL}/MTCNA.png`
   },
   {
@@ -187,7 +187,7 @@ export const LANGUAGES = [
   },
   {
     title: `Jawa`,
-    level: `Fasih`,
+    level: `Fasih`
   },
   {
     title: 'Inggris',
@@ -202,11 +202,11 @@ export const CONTACT = [
   },
   {
     title: `Sosial Media`,
-    level:  `links.taufikcrisnawan.dev`
+    level: `links.taufikcrisnawan.dev`
   },
   {
     title: `E-mail`,
-    level: `mail@taufikcrisnawan.dev`,
+    level: `mail@taufikcrisnawan.dev`
   },
   {
     title: 'WhatsApp',

@@ -1,14 +1,14 @@
-import useSWR from 'swr';
+import useSWR from 'swr'
 
-import fetcher from '@/libs/sing/fetcher';
-import { TopTracks } from 'taufikcrisnawan';
-import Track from '@/components/songlist/Tracks';
+import fetcher from '@/libs/sing/fetcher'
+import { TopTracks } from 'taufikcrisnawan'
+import Track from '@/components/songlist/Tracks'
 
 export default function Tracks() {
-  const { data } = useSWR<TopTracks>('/api/top-tracks', fetcher);
+  const { data } = useSWR<TopTracks>('/api/top-tracks', fetcher)
 
   if (!data) {
-    return null;
+    return null
   }
 
   return (
@@ -18,5 +18,5 @@ export default function Tracks() {
       ))}
       <br></br>
     </>
-  );
+  )
 }

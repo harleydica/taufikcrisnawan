@@ -10,7 +10,7 @@ import { Guestbook as GuestbookType } from '@/hooks/guestbook/model'
 
 import { GetStaticProps, NextPage } from 'next'
 import React, { useEffect } from 'react'
-import {Adsense} from '@ctrl/react-adsense';
+import { Adsense } from '@ctrl/react-adsense'
 
 type GuestbookPageProps = {
   guestbook: GuestbookType[]
@@ -47,7 +47,7 @@ const GuestbookPage: NextPage<GuestbookPageProps> = ({ guestbook = [] }) => {
   const { guestbook: guestbookClient, getGuestbook } = useGuestbook()
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       await Promise.all([getUser(), getGuestbook()])
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,11 +63,11 @@ const GuestbookPage: NextPage<GuestbookPageProps> = ({ guestbook = [] }) => {
       <Guestbook guestbook={guestbookClient.length === 0 ? guestbook : guestbookClient} />
       <br></br>
       <Adsense
-        client="ca-pub-9254295768355301"
-        slot="8000984806"
+        client='ca-pub-9254295768355301'
+        slot='8000984806'
         style={{ display: 'block' }}
-        format="auto"
-        responsive="true"
+        format='auto'
+        responsive='true'
       />
     </LayoutPage>
   )

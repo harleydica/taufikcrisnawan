@@ -12,7 +12,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import React from 'react';
+import React from 'react'
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'

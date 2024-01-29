@@ -1,31 +1,29 @@
-import { UMAMI, getToken } from '@/services';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { PageView, PageViewResponse } from 'taufikcrisnawan';
+import { UMAMI, getToken } from '@/services'
+import { NextApiRequest, NextApiResponse } from 'next'
+import { PageView, PageViewResponse } from 'taufikcrisnawan'
 
-let token: null | string | false = null;
-const allowedMethod = ['GET'];
+let token: null | string | false = null
+const allowedMethod = ['GET']
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<PageViewResponse>) {
   if (req.method && !allowedMethod.includes(req.method)) {
-    return res.status(405).send({ message: 'Method not allowed.', view: null });
+    return res.status(405).send({ message: 'Method not allowed.', view: null })
   }
 
-  if (!req.query.slug)
-    return res.status(400).send({ message: 'query parameter is required', view: null });
+  if (!req.query.slug) return res.status(400).send({ message: 'query parameter is required', view: null })
 
   if (!token && token !== false) {
-    const newToken = await getToken();
+    const newToken = await getToken()
     if (!newToken) {
-      token = false;
+      token = false
     } else {
-      token = newToken;
+      token = newToken
     }
   }
 
-  if (token === false)
-    return res.status(500).send({ message: 'Cannot get token', view: null });
+  if (token === false) return res.status(500).send({ message: 'Cannot get token', view: null })
 
-  let view = 0;
+  let view = 0
 
   const slug = req.query.slug
   const end_date = new Date()
@@ -38,9 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const blogURL = `/api/websites/${websitesId}/stats?startAt=${firtsDeployedAppAtMs}&endAt=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
-  const settles = await Promise.allSettled([
-    UMAMI.get<PageView>(blogURL, config)
-  ])
+  const settles = await Promise.allSettled([UMAMI.get<PageView>(blogURL, config)])
 
   settles.forEach((settle) => {
     if (settle.status === 'fulfilled') {

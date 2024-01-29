@@ -1,12 +1,12 @@
-import { type NextRequest } from 'next/server';
-import { getNowPlaying } from 'libs/spotify';
+import { type NextRequest } from 'next/server'
+import { getNowPlaying } from 'libs/spotify'
 
 export const config = {
   runtime: 'experimental-edge'
-};
+}
 
 export default async function handler(req: NextRequest) {
-  const response = await getNowPlaying();
+  const response = await getNowPlaying()
 
   if (response.status === 204 || response.status > 400) {
     return new Response(JSON.stringify({ isPlaying: false }), {
@@ -14,10 +14,10 @@ export default async function handler(req: NextRequest) {
       headers: {
         'content-type': 'application/json'
       }
-    });
+    })
   }
 
-  const song = await response.json();
+  const song = await response.json()
 
   if (song.item === null) {
     return new Response(JSON.stringify({ isPlaying: false }), {
@@ -25,15 +25,15 @@ export default async function handler(req: NextRequest) {
       headers: {
         'content-type': 'application/json'
       }
-    });
+    })
   }
 
-  const isPlaying = song.is_playing;
-  const title = song.item.name;
-  const artist = song.item.artists.map((_artist: any) => _artist.name).join(', ');
-  const album = song.item.album.name;
-  const albumImageUrl = song.item.album.images[0].url;
-  const songUrl = song.item.external_urls.spotify;
+  const isPlaying = song.is_playing
+  const title = song.item.name
+  const artist = song.item.artists.map((_artist: any) => _artist.name).join(', ')
+  const album = song.item.album.name
+  const albumImageUrl = song.item.album.images[0].url
+  const songUrl = song.item.external_urls.spotify
 
   return new Response(
     JSON.stringify({
@@ -51,5 +51,5 @@ export default async function handler(req: NextRequest) {
         'cache-control': 'public, s-maxage=60, stale-while-revalidate=30'
       }
     }
-  );
+  )
 }

@@ -12,12 +12,12 @@ const getAccessToken = async () => {
     method: 'POST',
     headers: {
       Authorization: `Basic ${basic}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
     body: `grant_type=refresh_token&refresh_token=${refresh_token}`
-  });
-  
-  return response.json();
+  })
+
+  return response.json()
 }
 
 export const getNowPlaying = async () => {
@@ -25,13 +25,13 @@ export const getNowPlaying = async () => {
 
   return fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
-      Authorization: `Bearer ${access_token}`,
-    },
+      Authorization: `Bearer ${access_token}`
+    }
   })
 }
 
 export const getTopTracks = async () => {
-  const { access_token } = await getAccessToken();
+  const { access_token } = await getAccessToken()
 
   return fetch(TOP_TRACKS_ENDPOINT, {
     headers: {

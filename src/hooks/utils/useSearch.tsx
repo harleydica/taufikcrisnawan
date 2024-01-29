@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState, useTransition } from 'react'
-import type { Blog, Portfolio, } from 'taufikcrisnawan'
+import type { Blog, Portfolio } from 'taufikcrisnawan'
 
 type Data = Array<Blog> | Array<Portfolio>
 
@@ -31,7 +31,6 @@ export const useSearch = <T,>(data: Data, type: 'blog' | 'portfolio') => {
               r.stack.map(mapArrayString).includes(true) || r.title.toLowerCase().includes(e.target.value.toLowerCase())
             )
           })
-
 
           setFilteredData(newData)
         }

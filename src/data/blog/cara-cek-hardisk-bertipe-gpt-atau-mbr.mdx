@@ -6,16 +6,7 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '12/29/2022'
 topics: ['operating system']
-keywords:
-  [
-    'hardisk',
-    'tipe hardisk',
-    'gpt',
-    'mbr',
-    'gpt atau mbr',
-    'guid partition table',
-    'master boot record'
-  ]
+keywords: ['hardisk', 'tipe hardisk', 'gpt', 'mbr', 'gpt atau mbr', 'guid partition table', 'master boot record']
 related: []
 ---
 
@@ -23,8 +14,7 @@ Kalian pasti pernah bingung memilih tipe hardisk yang kalian gunakan saat membua
 
 ![Thumbnail](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan.png 'Thumbnail')
 
-
-Hardisk merupakan sebuah perangkat keras (hardware) pada komponen komputer yang berfungsi sebagai media penyimpanan dalam pengoprasian komputer. Didalamnya terdapat kapasitas yang terbagi menjadi beberapa bagian, bagian inilah yang disebut partisi. Lalu kenapa hardisk dibuat beberapa bagian? Tentunya agar pengguna lebih mudah dan efisien dalam memanagement kapasitas yang ada. 
+Hardisk merupakan sebuah perangkat keras (hardware) pada komponen komputer yang berfungsi sebagai media penyimpanan dalam pengoprasian komputer. Didalamnya terdapat kapasitas yang terbagi menjadi beberapa bagian, bagian inilah yang disebut partisi. Lalu kenapa hardisk dibuat beberapa bagian? Tentunya agar pengguna lebih mudah dan efisien dalam memanagement kapasitas yang ada.
 
 Hardisk juga dibagi menjadi dua tipe yaitu **MBR (Master Boot Record)** dan **GPT (GUID Partition Table)**. Kedua tipe ini memiliki banyak perberdaan, MBR sudah digunakan sejak lama, kompatible dengan windows / OS versi jadul, dan juga memiliki keterbatasan yaitu ukuran ruang penyimpanan maksimal 2TB. Dengan itu GPT hadir untuk mengatasi masalah keterbatasan pada tipe MBR, GPT tidak membatasi ukuran ruang penyimpanan jadi bisa bebas menambahkan size storage kalian.
 
@@ -39,13 +29,13 @@ Pada kesempatan kali ini saya akan membagikan cara mengetahui hardisk bertipe MB
 Pada cara ini kalian hanya membuka Comand Prompt (CMD) untuk mengetahui partisi kalian MBR atau GPT
 
 1. Buka Comand Prompt as Administrator.
-![CMD As Administrator](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-1.png 'CMD As Administrator')
+   ![CMD As Administrator](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-1.png 'CMD As Administrator')
 2. ketikan comand **diskpart**.
-![diskpart](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-2.png 'diskpart')
+   ![diskpart](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-2.png 'diskpart')
 3. ketikkan comand **list disk** untuk melihat drive yang ada.
-![list disk](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-3.png 'list disk')
-4. Saat muncul daftar drive, maka ada kolom **Gpt**, dimana jika partisi yang digunakan adalah GPT, maka akan ada tanda bintang (*). Pada contoh gambar laptop yang saya gunakan belum bertipe GPT jadi tidak ada tanda bintang maka tipe yang saya gunakan tersebut adalah MBR.
-![list disk](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-4.png 'list disk')
+   ![list disk](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-3.png 'list disk')
+4. Saat muncul daftar drive, maka ada kolom **Gpt**, dimana jika partisi yang digunakan adalah GPT, maka akan ada tanda bintang (\*). Pada contoh gambar laptop yang saya gunakan belum bertipe GPT jadi tidak ada tanda bintang maka tipe yang saya gunakan tersebut adalah MBR.
+   ![list disk](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-cmd-4.png 'list disk')
 5. Selesai😉 kalian bisa mengetahui tipe partisi dengan menggunakan Comand Prompt.
 
 ### Cara Cek Partisi MBR atau GPT Menggunakan Disk Management
@@ -54,14 +44,14 @@ Cara Mudah lainnya untuk cek GPT atau MBR dengan **Disk Management**, disk manag
 
 1. Buka File Exporer.
 2. Klik kanan pada **This PC** lalu klik opsi **Manage** pada context menu yang muncul.
-![This PC](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-1.png 'This PC')
+   ![This PC](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-1.png 'This PC')
 3. Lalu klik **Storage** dua kali.
-![Storage](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-2.png 'Storage')
+   ![Storage](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-2.png 'Storage')
 4. Klik dua kali lagi **Disk Management**.
-![Disk management](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-3.png 'Disk management')
+   ![Disk management](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-3.png 'Disk management')
 5. Akan muncul berbagai partisi yang ada didevice kalian, klik kanan pada partisi yang akan dicek, lalu klik **Properties**.
-![Properties](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-4.png 'Properties')
+   ![Properties](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-4.png 'Properties')
 6. Pada properties pindah ke menu **Volumes**, dan akan terlihat beberapa informasi partisi. Pada **Partition style** terdapat informasi partisi kalian menggunakan MBR atau GPT.
-![Volumes](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-5.png 'Volumes')
+   ![Volumes](https://ik.imagekit.io/taufik/blog/cara-cek-hardisk-bertipe-gpt-atau-mbr/tampilan-diskmanagement-5.png 'Volumes')
 
 Itulah cara mudah untuk mengetahui partisi hardisk yang terpasang pada PC kalian. Diperhatikan lagi pada saat kalian akan melakukan install ulang Windows harus memeriksa jenis partisi hardisk terlebih dahulu untuk menyesuaikan dengan jenis installer yang dibuat.

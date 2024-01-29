@@ -6,19 +6,11 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '11/30/2022'
 topics: ['mikrotik']
-keywords:
-  [
-    'tutorial',
-    'konfigurasi',
-    'mikrotik',
-    'jaringan',
-    'sija',
-    'tkj'
-  ]
+keywords: ['tutorial', 'konfigurasi', 'mikrotik', 'jaringan', 'sija', 'tkj']
 related: []
 ---
 
-Saat kita ingin menjadi IT administrator terutama IT Support, Network Engineer, IT Infrastruktur, mungkin yang lain. Atau ketika anda mengelola jaringan rumah dan usaha dengan jaringan kita biasanya menggunakan alat jaringan yang bernama *MikroTik*, yap tidak asing lagi bagi seorang ahli IT atau pelajar SMK jurusan TKJ atau SIJA. Nah pada artikel ini, kita akan membahas tentang konfigurasi dasar Mikrotik yang umum digunakan para administrator jaringan. Tentunya akan sangat bermanfaat bagi teman-teman yang ingin belajar seputar jaringan.
+Saat kita ingin menjadi IT administrator terutama IT Support, Network Engineer, IT Infrastruktur, mungkin yang lain. Atau ketika anda mengelola jaringan rumah dan usaha dengan jaringan kita biasanya menggunakan alat jaringan yang bernama _MikroTik_, yap tidak asing lagi bagi seorang ahli IT atau pelajar SMK jurusan TKJ atau SIJA. Nah pada artikel ini, kita akan membahas tentang konfigurasi dasar Mikrotik yang umum digunakan para administrator jaringan. Tentunya akan sangat bermanfaat bagi teman-teman yang ingin belajar seputar jaringan.
 ![topologi](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/topology.png 'topologi')
 
 Pada konfigurasi dasar MikroTik ini saya menggunakan sebuah Router bertipe RB941-2nD yang merupakan salah satu Router entrylevel dengan harga 300Rb. Router ini juga cocok untuk teman-teman yang ingin belajar Mikrotik tetapi tidak begitu mahal.
@@ -29,7 +21,7 @@ Router ini pada ether1 akan dihubungkan ke router ISP dan ether2 akan menjadi LA
 Nyalakan router lalu hubungkan seperti topologi diatas, lalu buka aplikasi Winbox untuk melakukan konfigurasi MikroTik ini. Jika teman-teman belum ada, bisa download dulu pada link dibawah ini.
 
 <Callout icon='🔗' type='info'>
-[MikroTik Download Winbox](https://mikrotik.com/download)
+  [MikroTik Download Winbox](https://mikrotik.com/download)
 </Callout>
 
 Buka Winbox dan connect router Mikrotik untuk melakukan konfigurasinya
@@ -38,19 +30,19 @@ Buka Winbox dan connect router Mikrotik untuk melakukan konfigurasinya
 
 ## Reset Konfigurasi Default MikroTik
 
-Saat teman-teman login winbox, secara default router Mikrotik memiliki default konfigurasi bawaan pabrik, tentunya untuk memudahkan user yang tidak ingin melakukan konfigurasi secara basic atau advance. Karena kita akan melakukan konfigurasi router dari 0 jadi kita akan menghapus konfigurasi bawaan router ini atau *"Remove Configuration", semua konfigurasi dasar akan dihapus dan memulainya kembali dari awal.
+Saat teman-teman login winbox, secara default router Mikrotik memiliki default konfigurasi bawaan pabrik, tentunya untuk memudahkan user yang tidak ingin melakukan konfigurasi secara basic atau advance. Karena kita akan melakukan konfigurasi router dari 0 jadi kita akan menghapus konfigurasi bawaan router ini atau \*"Remove Configuration", semua konfigurasi dasar akan dihapus dan memulainya kembali dari awal.
 
 ![Remove Configuration](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/remove-config.png 'Remove Configuration')
 
 ## Konfigurasi WAN di MikroTik Dari ISP (Internet Service Provider)
 
-Setelah kita menghapus konfigurasi bawaan pabrik lalu apa yang akan kita lakukan? Pertama kita akan melakukan konfigurasi WAN (Wide Access Network) terlebih dahulu. Biasanya ISP pada port LAN sudah menggunakan konfigurasi *DHCP Server*, sehingga dari Mikrotik kita bisa menggunakan *DCHP Client* untuk menghubungkan yang nantinya device Mikrotik akan mendapatkan IP Address, Default Route, DNS secara otomatis. Teman-teman bisa mengikuti langkah pada gambar dibawah ini.
+Setelah kita menghapus konfigurasi bawaan pabrik lalu apa yang akan kita lakukan? Pertama kita akan melakukan konfigurasi WAN (Wide Access Network) terlebih dahulu. Biasanya ISP pada port LAN sudah menggunakan konfigurasi _DHCP Server_, sehingga dari Mikrotik kita bisa menggunakan _DCHP Client_ untuk menghubungkan yang nantinya device Mikrotik akan mendapatkan IP Address, Default Route, DNS secara otomatis. Teman-teman bisa mengikuti langkah pada gambar dibawah ini.
 
 ![DHCP Client](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/dhcp-client.png 'DHCP Client')
 
 ## Tes Ping Dari Router Ke ISP
 
-Untuk melakukan verifikasi connection dari Mikrotik Ke ISP kita perhatikan bagian "Status" pastikan status tersebut menunjukkan "Bound" artinya sudah mendapatkan informasi DHCP nya. Lalu kita pastikan kembali apakah default Route sudah bejalan dengan membuka *New Terminal* lalu ping IP Gateway dari ISP tersebut atau kita juga bisa ping ke internet manapun seperti detik.com (misalnya). Ketika semua berjalan dengan normal maka ping tersebut menampilkan hasil reply artinya kita sudah terconnect dengan ISP.
+Untuk melakukan verifikasi connection dari Mikrotik Ke ISP kita perhatikan bagian "Status" pastikan status tersebut menunjukkan "Bound" artinya sudah mendapatkan informasi DHCP nya. Lalu kita pastikan kembali apakah default Route sudah bejalan dengan membuka _New Terminal_ lalu ping IP Gateway dari ISP tersebut atau kita juga bisa ping ke internet manapun seperti detik.com (misalnya). Ketika semua berjalan dengan normal maka ping tersebut menampilkan hasil reply artinya kita sudah terconnect dengan ISP.
 
 ![Test Ping ISP](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/tes-ping-isp.png 'Test Ping ISP')
 
@@ -68,17 +60,17 @@ Untuk melakukan distribusi IP Address, yang kita butuhkan untuk pendistribusian 
 
 Saat melakukan konfigurasi DHCP Server, teman-teman harus memperhatikan kembali step pada konfigurasinya, yaitu
 
-* Network Address
-* Gateway
-* IP Pool
+- Network Address
+- Gateway
+- IP Pool
 
 ![Cek DHCP Server](https://ik.imagekit.io/taufik/blog/Konfigurasi_Dasar_Mikrotik/cek-dhcp-server.png 'Cek DHCP Server')
 
-* DHCP Address Space: yaitu network address yang dikonfigurasi
-* Gateway for DHCP Network: IP Address pada interface yang akan dikonfigurasi (192.168.100.1)
-* Addresses to Give Out: Range IP yang akan diberikan oleh client, misalnya (192.168.100.20 - 254) kenapa tidak dari 2-254, kita sisihkan IP tersebut untuk konfigurasi static (kebutuhan IP yang static)
-* DNS Servers: DNS Server bisa teman-teman isikan sesuai DNS Provider atau DNS Google dll.
-* Lease Time: Adalah waktu sewa yang akan diberikan oleh client, jika client tidak mengakses jaringan lebih dari waktu sewa,IP Address akan diberikan ke client lain agar IP Pool tidak habis.
+- DHCP Address Space: yaitu network address yang dikonfigurasi
+- Gateway for DHCP Network: IP Address pada interface yang akan dikonfigurasi (192.168.100.1)
+- Addresses to Give Out: Range IP yang akan diberikan oleh client, misalnya (192.168.100.20 - 254) kenapa tidak dari 2-254, kita sisihkan IP tersebut untuk konfigurasi static (kebutuhan IP yang static)
+- DNS Servers: DNS Server bisa teman-teman isikan sesuai DNS Provider atau DNS Google dll.
+- Lease Time: Adalah waktu sewa yang akan diberikan oleh client, jika client tidak mengakses jaringan lebih dari waktu sewa,IP Address akan diberikan ke client lain agar IP Pool tidak habis.
 
 ## Pastikan Laptop/PC Sudah Mendapatkan IP Otomatis dan Bisa Ping Gateway Router
 
@@ -92,6 +84,3 @@ Pada tes konfigurasi dasar Mikrotik, laptop atau pc sudah bisa akses ke router, 
 
 Selamat kita sudah melakukan konfigurasi dasar Mikrotik😉, sangat mudah sekali untuk kita melakukan sebuah konfigurasi Mikrotik dasar ini.
 setelah selesai konfigurasinya teman-teman bisa memberikan sedikit konfigurasi lagi untuk mengamankan router teman-teman.
-
-
-

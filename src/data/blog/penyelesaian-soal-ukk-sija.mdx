@@ -6,33 +6,23 @@ author_name: 'Taufik Crisnawan Santoso'
 github_username: 'harleydica'
 published: '2/06/2023'
 topics: ['mikrotik', 'sija']
-keywords:
-  [
-    'ukk sija mikrotik',
-    'ukk',
-    'tutorial',
-    'konfigurasi',
-    'mikrotik',
-    'jaringan',
-    'sija',
-    'tkj'
-  ]
+keywords: ['ukk sija mikrotik', 'ukk', 'tutorial', 'konfigurasi', 'mikrotik', 'jaringan', 'sija', 'tkj']
 related: []
 ---
 
 ## Pendahuluan
 
-UKK **(Ujian Kompetensi Keahlian)** merupakan ujian nasional yang diberikan kepada siswa SMK untuk mengukur kompetensi yang mereka miliki dalam bidang tertentu. Tahun 2023, UKK dengan kompetensi keahlian SIJA **(Sistem Informatika Jaringan & Aplikasi)** [SMK Negeri 2 Depok](https://smkn2depoksleman.sch.id/web/index.php) akan menggunakan soal pada paket 1 yang memfokuskan pada pengetahuan tentang konfigurasi dasar pada perangkat Mikrotik RouterOS. 
+UKK **(Ujian Kompetensi Keahlian)** merupakan ujian nasional yang diberikan kepada siswa SMK untuk mengukur kompetensi yang mereka miliki dalam bidang tertentu. Tahun 2023, UKK dengan kompetensi keahlian SIJA **(Sistem Informatika Jaringan & Aplikasi)** [SMK Negeri 2 Depok](https://smkn2depoksleman.sch.id/web/index.php) akan menggunakan soal pada paket 1 yang memfokuskan pada pengetahuan tentang konfigurasi dasar pada perangkat Mikrotik RouterOS.
 
 ![Thumbnail](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/thumbnail.png 'Thumbnail')
 
 Pada kesempatan ini, saya akan membahas tentang cara penyelesaian soal UKK SIJA paket 1 Mikrotik 2023. Diharapkan kalian yang akan mengikuti UKK Mikrotik paket 1 dapat menggunakan tutorial ini sebagai acuan dalam mempersiapkan diri kalian untuk menghadapi ujian tersebut.
 
-Tanpa basa-basi mari kita selesaikan soal UKK ini.. LET'S GO 👊 
+Tanpa basa-basi mari kita selesaikan soal UKK ini.. LET'S GO 👊
 
 ## Point Konfigurasi
 
-Pada soal UKK SIJA Paket 1 Mikrotik 2023 kita akan berjumpa dengan konfigurasi: 
+Pada soal UKK SIJA Paket 1 Mikrotik 2023 kita akan berjumpa dengan konfigurasi:
 
 ![Topologi](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/topologi.png 'Topologi')
 
@@ -53,6 +43,7 @@ Pada soal UKK SIJA Paket 1 Mikrotik 2023 kita akan berjumpa dengan konfigurasi:
 ## Konfigurasi Router
 
 Pertama dalam mengerjakan soal UKK ini adalah melakukan konfigurasi pada Router terlebih dahulu.
+
 ### Konfigurasi VLAN
 
 Untuk membuat konfigurasi VLAN, pertama-tama kita harus membuat interface VLAN pada Mikrotik. Langkah-langkahnya adalah sebagai berikut:
@@ -72,17 +63,17 @@ Konfigurasi wireless yang nantinya akan digunakan untuk perangkat nirkabel, sepe
 
 1. Klik menu <Kbd>wireless</Kbd> pada winbox.
 2. Enable interface wlan1 dengan klik centang pada kiri atas tab wireless.
-3. Klik 2x <Kbd>wlan1</Kbd> untuk masuk ke konfigurasi wlan1 lalu masuk menu wireless. 
+3. Klik 2x <Kbd>wlan1</Kbd> untuk masuk ke konfigurasi wlan1 lalu masuk menu wireless.
 4. Ganti mode wireless dengan **ap bridge**.
 5. Isikan SSID dengan nama kalian.
    - Contoh taufik-hotspot.
-6. Verifikasi kembali konfigurasi seperti dibawah ini: 
+6. Verifikasi kembali konfigurasi seperti dibawah ini:
    ![Wireless](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/wireless.png 'Wireless')
 7. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
 
 ### Konfigurasi DHCP Client
 
-DHCP merupakan kependekan dari **Dynamic Host Cost Protocol**, nah DHCP Client ini nantinya akan mendapatkan IP Address secara otomatis. Ikuti cara dibawah untuk konfigurasinya: 
+DHCP merupakan kependekan dari **Dynamic Host Cost Protocol**, nah DHCP Client ini nantinya akan mendapatkan IP Address secara otomatis. Ikuti cara dibawah untuk konfigurasinya:
 
 1. Buka menu <Kbd>IP</Kbd> => <Kbd>DHCP Client</Kbd>.
 2. Klik tombol <Kbd>+</Kbd> untuk membuat DHCP Client baru.
@@ -95,9 +86,9 @@ DHCP merupakan kependekan dari **Dynamic Host Cost Protocol**, nah DHCP Client i
 
 ### Konfigurasi IP Address
 
-Memberikan IP Address sesuai interface yang sudah ditentukan soal, kasus soal UKK Paket 1 sebagai berikut: 
+Memberikan IP Address sesuai interface yang sudah ditentukan soal, kasus soal UKK Paket 1 sebagai berikut:
 
-1. VLAN 100 
+1. VLAN 100
    - 192.168.100.1/24
    - Interface VLAN 100
 2. VLAN 200
@@ -107,10 +98,9 @@ Memberikan IP Address sesuai interface yang sudah ditentukan soal, kasus soal UK
    - 172.16.17.1/24
    - Interface wlan1
 
-Pastikan IP Address sudah sesuai dengan ketentuan soal, seperti dibawah: 
+Pastikan IP Address sudah sesuai dengan ketentuan soal, seperti dibawah:
 
 ![IP Address](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/ipaddress.png 'IP Address')
-
 
 ### konfigurasi DHCP Server
 
@@ -131,12 +121,12 @@ Konfigurasi DHCP Server ini nantinya akan mendistribusikan atau memberikan IP Ad
 8. Isi lease time sesuai kebuhtuhan client pada Lease Time.
    ![DHCP Server Leases](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-leases.png 'DHCP Server Leases')
 9. Lakukan kembali pada interface VLAN 200 & wlan1.
-10. Lakukan verifikasi DHCP Server seperti gambar dibawah: 
+10. Lakukan verifikasi DHCP Server seperti gambar dibawah:
     ![DHCP Server Verifikasi](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/dhcp-server-verifikasi.png 'DHCP Server Verifikasi')
 
 ### Konfigurasi Hotspot
 
-pada interface wlan1 ini akan menggunakan autentikasi **Hotspot**, bagaimana caranya ikuti cara berikut: 
+pada interface wlan1 ini akan menggunakan autentikasi **Hotspot**, bagaimana caranya ikuti cara berikut:
 
 1. Buka menu <Kbd>IP</Kbd> => <Kbd>Hotspot</Kbd>.
 2. Klik <Kbd>Hotspot Setup</Kbd> untuk menambahkan Hotspot.
@@ -153,19 +143,19 @@ pada interface wlan1 ini akan menggunakan autentikasi **Hotspot**, bagaimana car
 8. Isikan dns google pada Hotspot DNS.
    ![Hotspot DNS](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-dns.png 'Hotspot DNS')
 9. Isikan user untuk admin.
-    ![Hotspot User Admin](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-user-admin.png 'Hotspot User Admin')
-10. Verifikasi Hotspot seperti dibawah ini: 
+   ![Hotspot User Admin](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-user-admin.png 'Hotspot User Admin')
+10. Verifikasi Hotspot seperti dibawah ini:
     ![Hotspot Verifikasi](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-verifikasi.png 'Hotspot Verifikasi')
 
-Selesai, kalian sudah menambahkan Hotspot pada interface wlan1, lalu kalian juga membuat user client seperti dibawah ini: 
+Selesai, kalian sudah menambahkan Hotspot pada interface wlan1, lalu kalian juga membuat user client seperti dibawah ini:
 
 - Username: tamu
 - Password: guest
 
-Caranya sebagai berikut: 
+Caranya sebagai berikut:
 
 1. Pada Hotspot, pindah ke menu **Users**, lalu klik <Kbd>+</Kbd> untuk menambah user.
-2. Isikan username dan password seperti dibawah ini: 
+2. Isikan username dan password seperti dibawah ini:
    ![Hotspot User Tamu](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/hotspot-user-tamu.png 'Hotspot User Tamu')
 
 ### Konfigurasi DNS
@@ -187,7 +177,7 @@ Untuk membuat LAN pada jaringan anda, kalian perlu membuat konfigurasi **NAT** d
    ![Nat General](https://ik.imagekit.io/taufik/blog/penyelesaian-soal-ukk-sija/nat-general.png 'Nat General')
 5. Pergi ke menu <Kbd>acction</Kbd> lalu pilih **masquerade**.
 6. Klik tombol <Kbd>OK</Kbd> untuk menyimpan konfigurasi.
-   
+
 Konfigurasi Router sudah selesai, dan kita menggunakan router Mikrotik yang nantinya dijadikan Switch Manageable. Bagaimana caranya, simak tutorial ini sampai selesai.
 
 ## Konfigurasi Switch Manageable
@@ -242,5 +232,5 @@ Dalam penyelesaian soal UKK SIJA paket 1, Mikrotik menuntut para siswa SMK untuk
 Jika memiliki kendala dalam konfigurasi, kalian bisa tulis kendala pada kolom komentar dibawah dengan login Github. Kalian juga bisa kunjungi sosial media saya untuk menghubungi lebih lanjut tentang konfigurasi ini.
 
 <Callout type='info' icon='🤝 '>
-Sekian dari saya terimakasih
+  Sekian dari saya terimakasih
 </Callout>

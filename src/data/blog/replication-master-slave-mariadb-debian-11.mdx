@@ -19,7 +19,6 @@ keywords:
 related: []
 ---
 
-
 ## Pendahuluan
 
 Data center yang besar pasti akan menyalin data dari satu server basis data **Master** ke server basis data lainnya **Slave**. Metode ini dinamakan **Replication** yang digunakan untuk meningkatkan ketahanan sistem dan meningkatkan kinerja aplikasi dengan memperbolehkan beberapa server untuk membaca data dari satu sumber.
@@ -32,6 +31,7 @@ MariaDB merupakan sebuah sistem manajemen basis data relasional **RDBMS** yang m
 Tanpa basa-basi lagi mari kita ke tutorialnya... Let's GO
 
 Untuk mengatur replication Master-Slave pada sistem berbasis Debian 11 dengan MariaDB, ada beberapa langkah yang harus diikuti:
+
 1. [Instalasi MariaDB](#install-mariadb-pada-semua-node-master-dan-slave) pada semua node Master dan Slave.
 2. [Konfigurasi node Master](#konfigurasi-node-master) dengan mengatur file konfigurasi **50-server.cnf** untuk mengaktifkan binary logging dan menentukan ID unik untuk server tersebut.
 3. [Membuat user replication](#membuat-user-replication-pada-node-master-dan-memberikan-permission) pada node Master dan memberikan izin untuk mengakses data.
@@ -43,10 +43,12 @@ Diatas merupakan point-point dari pembuatan replication master-slave, untuk penj
 ## Install MariaDB pada semua node Master dan Slave
 
 ### Install MariaDB
+
 Kalian memperlukan instalasi MariaDB server package pada kedua node kalian (master-slave), namun jika server kalian masih dalam kondisi setelah install makan dilakukan update dan upgrade package terlebih dahulu. Kalian bisa ikuti perintah dibawah ini:
 
 <Callout>
-Pastikan kalian sudah masuk sebagai user root, caranya bisa menggunakan perintah `su` atau `sudo` lalu masukkan password.
+  Pastikan kalian sudah masuk sebagai user root, caranya bisa menggunakan perintah `su` atau `sudo` lalu masukkan
+  password.
 </Callout>
 
 Jika sudah masuk sebagai user root silahkan update repositori apt.
@@ -54,19 +56,27 @@ Jika sudah masuk sebagai user root silahkan update repositori apt.
 ```bash
 apt update && apt upgrade
 ```
+
 Install MariaDB-server.
+
 ```bash
 apt install mariadb-server -y
 ```
+
 Setelah selesai install package MariaDB-server, kalian check status service dari MariaDB apakah sudah berjalan atau belum:
+
 ```bash
 systemctl status mariadb
 ```
+
 ### Konfigurasi **mysql_secure_installation**:
+
 ```bash
 mysql_secure_installation
 ```
+
 Ikuti jawaban seperti dibawah ini:
+
 1. Enter current password for root (enter for none): <Kbd>Enter</Kbd>
 2. Set root password? [Y/n] <Kbd>Y</Kbd> (Isikan password root kalian)
 3. Remove anonymous users? [Y/n] <Kbd>Y</Kbd>
@@ -79,14 +89,19 @@ Selesai, kalian bisa melakukan konfigurasi node Master untuk melanjutkan replica
 ## Konfigurasi Node Master
 
 Server MariaDB menggunakan file **binary log** untuk melakukan replication, secara default binary log belum diaktifkan di konfigurasi default MariaDB. Jadi kita mengedit file konfigurasi MariaDB dan mengaktifkan binary log.
+
 ```bash
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
+
 Ganti bind-address dari **localhost** menjadi 0.0.0.0:
+
 ```bash
 bind-address            = 0.0.0.0
 ```
+
 Setelah itu, tambahkan baris dibawah ini untuk mengaktifkan binary log:
+
 ```bash
 server-id               = 1
 log_bin                 = /var/log/mysql/mysql-bin.log
@@ -94,18 +109,24 @@ max_binlog_size         = 100M
 relay_log               = /var/log/mysql/mysql-relay-bin
 relay_log_index         = /var/log/mysql/mysql-relay-bin.index
 ```
+
 Contoh menambahkan barisnya:
 ![Menambahkan Baris Node Master](https://ik.imagekit.io/taufik/blog/replication-master-slave-mariadb-debian-11/master-node-file.png 'Menambahkan Baris Node Master')
 
 Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
+
 ```bash
 systemctl restart mariadb
 ```
+
 Secara default MariaDB menggunakan servicenya dengan port 3306, untuk mengchecknya kalian bisa ikuti perintah ini:
+
 ```bash
 ss -antpl | grep mariadb
 ```
+
 Maka akan menampilkan tampilan seperti dibawah:
+
 ```bash
 LISTEN    0         80                 0.0.0.0:3306             0.0.0.0:*        users:(("mysqld",pid=3425,fd=22))
 ```
@@ -113,10 +134,13 @@ LISTEN    0         80                 0.0.0.0:3306             0.0.0.0:*       
 ## Membuat User Replication Pada node Master dan Memberikan Permission
 
 Untuk membuat replication user, kalian masuk pada menu **mysql -u root -p**, kalian bisa ikuti perintah dibawah ini:
+
 ```bash
 mysql -u root -p
 ```
+
 Akan menampilkan tampilan versi MariaDB beserta versi server kalian.
+
 ```sql
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 42
@@ -128,23 +152,33 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 MariaDB [(none)]>
 ```
+
 Buatlah user dan password seperti dibawah:
+
 ```sql
 CREATE USER 'replication'@'%' identified by '12345';
 ```
+
 Selanjutnya **grant replication slave previlage** ke user dengan mengikuti perintah dibawah:
+
 ```sql
 GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';
 ```
+
 Lalu **flush previlage** untuk memberikan perubahan:
+
 ```sql
 FLUSH PRIVILEGES;
 ```
+
 Verifikasi master status dengan mengikuti perintah dibawah:
+
 ```sql
 SHOW MASTER STATUS;
 ```
+
 kalian harus mendapatkan binary log file pada tampilan berikut:
+
 ```sql
 +------------------+----------+--------------+------------------+
 | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
@@ -152,7 +186,9 @@ kalian harus mendapatkan binary log file pada tampilan berikut:
 | mysql-bin.000001 |      777 |              |                  |
 +------------------+----------+--------------+------------------+
 ```
+
 Selesai kalian bisa keluar dari MariaDB, dan melanjutkan konfigurasi pada node slave.
+
 ```sql
 EXIT;
 ```
@@ -160,14 +196,19 @@ EXIT;
 ## Mengatur Node Slave
 
 Pertama kalian diharuskan mengaktifkan **relay log** dan **replication** pada node slave. Kalian bisa melakukannya dengan mengikuti perintah dibawah ini:
+
 ```bash
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
+
 Ubah bind-address dari **localhost** ke 0.0.0.0:
+
 ```bash
 bind-address            = 0.0.0.0
 ```
+
 Setelah itu, tambahkan baris dibawah ini untuk mengaktifkan binary log:
+
 ```bash
 server-id               = 2
 log_bin                 = /var/log/mysql/mysql-bin.log
@@ -175,26 +216,36 @@ max_binlog_size         = 100M
 relay_log               = /var/log/mysql/mysql-relay-bin
 relay_log_index         = /var/log/mysql/mysql-relay-bin.index
 ```
+
 Contoh menambahkan barisnya:
 ![Menambahkan Baris Node Slave](https://ik.imagekit.io/taufik/blog/replication-master-slave-mariadb-debian-11/slave-node-file.png 'Menambahkan Baris Node Slave')
 
 Save dan restart service MariaDB untuk menjalankan konfigurasi yang sudah diganti tadi:
+
 ```bash
 systemctl restart mariadb
 ```
+
 Kalian juga perlu mengkonfigurasi node slave untuk replication node master, Ikuti perintah ini:
+
 ```bash
 mysql -u root -p
 ```
+
 Jika ingin mengkoneksikan, kalian dianjurkan untuk nonaktifkan slave:
+
 ```sql
 STOP SLAVE;
 ```
+
 Selanjutnya kalian konekkan slave ke replication node master dengan mengikuiti perintah dibawah:
+
 ```sql
 CHANGE MASTER TO MASTER_HOST = '10.50.50.100', MASTER_USER = 'replication', MASTER_PASSWORD = '12345', MASTER_LOG_FILE = 'mysql-bin.000001', MASTER_LOG_POS = 786;
 ```
+
 Pastikan saat mengisi **CHANGE MASTER** sesuai dengan node master kalian, untuk keterangannya sebagai berikut:
+
 - **10.50.50.100** IP Address dari node master.
 - **replication** user yang di replication.
 - **12345** password user replication.
@@ -202,41 +253,56 @@ Pastikan saat mengisi **CHANGE MASTER** sesuai dengan node master kalian, untuk 
 - **786** binary log file position.
 
 Setelah itu kalian bisa start slave:
+
 ```sql
 START SLAVE;
 ```
+
 Jika tidak terjadi eror maka slave kalian berhasil terkonek😉.
 Keluar untuk menguji replication:
+
 ```sql
 EXIT;
 ```
+
 ## Verifikasi Replication MariaDB
 
 Jika MariaDB master dan slave sudah terkonek, kita perlu test dari replication ini berjalan atau tidak.
 
 Pertama, pada node master:
+
 ```bash
 mysql -u root -p
 ```
+
 Buatkan databases sebagai contoh **test_database**:
+
 ```sql
 CREATE DATABASE test_database;
 ```
+
 Gunakan database test_database untuk membuat tabel seperti dibawah:
+
 ```sql
 USE test_database;
 CREATE TABLE daftar_siswa (id int, name varchar(30), surname varchar(20));
 ```
+
 Isikan data pada tabel daftar_siswa.
+
 ```sql
 INSERT INTO daftar_siswa (id, name, surname) VALUES (1, 'Taufik Crisnawan Santoso', 'Taufik');
 INSERT INTO daftar_siswa (id, name, surname) VALUES (2, 'Muhammad Ichsan', 'Ichsan');
 ```
+
 Verifikasi data dengan perintah:
+
 ```sql
 SELECT * FROM daftar_siswa;
-``` 
+```
+
 Akan mengeluarkan tampilan data dari database.
+
 ```sql
 +------+--------------------------+---------+
 | id   |           name           | surname |
@@ -245,15 +311,21 @@ Akan mengeluarkan tampilan data dari database.
 |    2 | Muhammad Ichsanul Fadhil | Ichsan  |
 +------+--------------------------+---------+
 ```
+
 Setelah itu kembali pada node sleve dan masuk pada menu MariaDB:
+
 ```bash
 mysql -u root -p
 ```
+
 Masukkan perintah dibawah ini untuk memverifikasi status slave sudah terkonek atau belum:
+
 ```sql
 SHOW SLAVE STATUS \G
 ```
+
 Akan muncul tampilan seperti dibawah ini:
+
 ```sql
 *************************** 1. row ***************************
                 Slave_IO_State: Waiting for master to send event
@@ -312,14 +384,18 @@ Slave_Non_Transactional_Groups: 0
 ```
 
 <Callout>
-Pastikan pada **Slave_IO_Running** dan **Slave_SQL_Running** menunjukkan status **Yes**, yang artinya replication berhasil terconnect dengan node master.
+  Pastikan pada **Slave_IO_Running** dan **Slave_SQL_Running** menunjukkan status **Yes**, yang artinya replication
+  berhasil terconnect dengan node master.
 </Callout>
 
 Kalian bisa check juga menggunakan perintah dibawah:
-```sql 
+
+```sql
 SHOW DATABASES;
 ```
+
 Berikut tampilannya:
+
 ```sql
 +--------------------+
 | Database           |
@@ -330,12 +406,16 @@ Berikut tampilannya:
 | test_database      |
 +--------------------+
 ```
+
 Masuk databases **test_database**:
+
 ```sql
 USE test_database;
 SHOW TABLES;
 ```
+
 Akan muncul table seperti node master:
+
 ```sql
 +--------------------------+
 | Tables_in_ test_database |
@@ -343,12 +423,15 @@ Akan muncul table seperti node master:
 | daftar_siswa             |
 +--------------------------+
 ```
+
 Verifikasi kembali data yang ada pada daftar_siswa:
+
 ```sql
 SELECT * FROM daftar_siswa;
 ```
 
 Maka pada slave akan muncul data yang sudah dibuat di node master:
+
 ```sql
 +------+--------------------------+---------+
 | id   |           name           | surname |

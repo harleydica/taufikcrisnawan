@@ -35,14 +35,19 @@ Yang pertama kalian lakukan yaitu menyiapkan Debian 11 sebagai server dan nantin
 ### Install package Mosquitto
 
 Sebelum install Mosquitto kalian bisa update && upgrade package source untuk memperbarui versi package source:
+
 ```bash
 sudo apt-get update && apt-get upgrade -y
 ```
+
 Setelah itu kalian bisa install Mosquitto dengan perintah berikut:
+
 ```bash
 sudo apt install mosquitto mosquitto-clients
 ```
+
 Secara default, Debian 11 akan merunning service Mosquitto setelah melakukan install. Kalian bisa test service jika ingin memastikan Mosquitto sudah berjalan atau belum:
+
 ```bash
 sudo systemctl status mosquitto
 ```
@@ -50,9 +55,11 @@ sudo systemctl status mosquitto
 ### Test Subscribe
 
 Status Mosquitto **running** yang berarti service dari Mosquitto sudah berjalan. Kita bisa test untuk subscribe ke **localhost** untuk mencobanya:
+
 ```bash
 mosquitto_sub -h localhost -t "test"
 ```
+
 - **mosquitto_sub** perintah untuk melakukan subscribe
 - **-h** digunakan untuk menentukan host dari server MQTT
 - **-t** nama topic
@@ -63,9 +70,11 @@ Jika kalian berhasil maka tampilannya akan seperti dibawah ini:
 Setelah **ENTER** mosquitto_sub akan menunggu messages dari server yang disubscribe.
 
 Kalian buka new terminal untuk melakukan publish ke subscriber:
+
 ```bash
 mosquitto_pub -h localhost -t test -m "hallo SIJA"
 ```
+
 mosquitto_pub sama dengan mosquitto_sub, namun kita perlu **-m** untuk menuliskan pesan yang akan dipublish ke subscriber.
 
 Pada test publish tidak terjadi error, maka tidak ada output yang akan tampilkan.
@@ -81,15 +90,20 @@ Yey kalian sudah berhasil melakukan subscribe. Mudah bukan😉
 Karena diatas tadi merupakan subscribe yang berada di satu server Mosquitto, nah disini kita akan mencoba subscribe server Mosquitto dengan IP host yang berbeda namun masih dalam satu network yang sama.
 
 Pertama kalian bisa setting file **mosquitto.conf** dengan perintah:
+
 ```bash
 sudo nano /etc/mosquitto/mosquitto.conf
 ```
+
 Copy barisdibawah ini dan tambahkan pada file **mosquitto.conf** seperti contoh dibawah:
+
 ```bash
 listener 1883 0.0.0.0
 allow_anonymous true
 ```
+
 Menjadi:
+
 ```bash
 listener 1883 0.0.0.0
 allow_anonymous true
@@ -103,16 +117,21 @@ log_dest file /var/log/mosquitto/mosquitto.log
 
 include_dir /etc/mosquitto/conf.d
 ```
+
 Setelah menambahkan baris, kalian restart terlebih dahulu service Mosquitto untuk melakukan perubahan. Namun sebelum melakukan cara ini, kalian siapkan server client Mosquitto untuk mensubscribe server Mosquitto.
 
 Jika sudah siap, kalian bisa mencoba subscribe ke server Mosquitto dengan perintah:
+
 ```bash
 mosquitto_sub -h 10.50.50.100 -t "text"
 ```
+
 Lalu pada bagian publish, kirimkan messages kepada subscriber:
+
 ```bash
 mosquitto_pub -h 10.50.50.100 -t "text" -m "hallo SIJA"
 ```
+
 Diatas tanda **-h** yang sebelumnya diisi **localhost** sekarang diganti dengan IP host server Mosquitto kalian.
 
 Jika berhasil pada bagian subscriber akan menampilkan messages yang dikirim dari publisher, seperti contoh berikut:
@@ -123,15 +142,18 @@ Yey kalian sudah berhasil mekakukan implementasi dari protokol MQTT menggunakan 
 ### Konfigurasi User dan Password Mosquitto
 
 Untuk mengamankan pesan yang dikirim, kita perlu menambahkan autentikasi pada server Mosquitto, ikuti perintah dibawah ini:
+
 ```bash
 sudo mosquitto_passwd -c /etc/mosquitto/passwd taufik
 ```
+
 Lalu isikan password autentikasi Mosquitto.
 
 Perintah diatas akan menyimpan autentikasi yang sudah dibuat. Lalu kalian perlu mengkonfigurasi file dari Mosquitto.conf seperti contoh dibawah:
 
 Copy **password_file /etc/mosquitto/passwd** lalu tambah kan pada file **mosquitto.conf**.
 Menjadi:
+
 ```bash
 listener 1883 0.0.0.0
 allow_anonymous false
@@ -146,20 +168,25 @@ log_dest file /var/log/mosquitto/mosquitto.log
 
 include_dir /etc/mosquitto/conf.d
 ```
+
 Restart service mosquitto untuk melakukan perubahan.
 
 Setelah itu kalian bisa melakukan subscribe ke server Mosquitto namun kalian diharuskan memasukkan autentikasi yang sudah dibuat oleh server Mosquitto.
 Ikuti perintah berikut:
+
 ```bash
 mosquitto_sub -h 10.50.50.101 -t "test" -u "taufik" -P "12345"
 ```
+
 - **-u** isikan user server mosquitto.
 - **-P** disini merupakan huruf besar dan disikan password server mosquitto.
 
 Pada server Mosquitto, kalian coba publish messages ke subscriber dengan perintah:
+
 ```bash
 mosquitto_pub -h 10.50.50.101 -t "test" -u "taufik" -P "12345" -m "hallo SIJA"
 ```
+
 Jika berhasil, subscriber akan menerima messages dari server Mosquitto yang di publish ke subscribernya, seperti dibawah ini:
 ![Test Result Autentikasi](https://ik.imagekit.io/taufik/blog/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-debian-11/test-result-autentikasi.png 'Test Result Autentikasi')
 

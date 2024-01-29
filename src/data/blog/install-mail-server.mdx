@@ -26,18 +26,18 @@ related: []
 
 Mail server adalah sistem yang memungkinkan pengguna untuk mengirim dan menerima email. Dalam tutorial ini, kita akan menginstalasi mail server menggunakan Postfix sebagai MTA (Mail Transfer Agent) dan Dovecot sebagai server IMAP/POP3D.
 
-Biasanya pada soal LKS ITNSA terdapat poin soal konfigurasi mail server, disini saya akan membagikan cara install dan konfigurasi mail server menggunakan Postfix dan Dovecot dengan Debian server. Ikuti tutorial ini sampai selesai 😻 
+Biasanya pada soal LKS ITNSA terdapat poin soal konfigurasi mail server, disini saya akan membagikan cara install dan konfigurasi mail server menggunakan Postfix dan Dovecot dengan Debian server. Ikuti tutorial ini sampai selesai 😻
 
 ### Install Postfix Dovecot
 
-Sebelum melakukan install dipastikan untuk update repository pada Debian server kalian, dengan cara: 
+Sebelum melakukan install dipastikan untuk update repository pada Debian server kalian, dengan cara:
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
 
-Setelah itu install Postfix & Dovecot IMAPD POP3DD: 
+Setelah itu install Postfix & Dovecot IMAPD POP3DD:
 
 ```bash
 sudo apt install postfix dovecot-imapd dovecot-pop3d
@@ -122,7 +122,7 @@ sudo systemctl restart postfix
 
 ### Konfigurasi Dovecot
 
-Pertama kita akan mengkonfigurasi file <Kbd>dovecot.conf</Kbd>, hapus <Kbd>#</Kbd> pada konfigurasi berikut: 
+Pertama kita akan mengkonfigurasi file <Kbd>dovecot.conf</Kbd>, hapus <Kbd>#</Kbd> pada konfigurasi berikut:
 
 ```bash
 nano /etc/dovecot/dovecot.conf
@@ -180,7 +180,7 @@ systemctl restart dovecot
 
 Setelah selesai melakukan semua konfigurasi kita akan mencoba mail server ini.
 
-### Menambahkan User Email 
+### Menambahkan User Email
 
 Tambahkan beberapa user dan password menggunakan perintah adduser yang akan digunakan untuk user email. Pada percobaan kali ini akan membuat dua user, yaitu satu dan dua.
 

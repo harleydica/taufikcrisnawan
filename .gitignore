@@ -46,3 +46,4 @@ temp
 
 **/public/*.xml
 **/public/robots.txt
+.env*.local

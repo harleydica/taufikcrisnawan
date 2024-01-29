@@ -37,27 +37,21 @@ const Inner = (props: InnerType) => {
                   key={i}
                   className='absolute h-full w-px -translate-x-1/2 bg-accent-2'
                   style={{
-                    left: `calc(${i * 20}px + 22px / 2)`,
+                    left: `calc(${i * 20}px + 22px / 2)`
                   }}
                 />
               ))}
               <div
                 style={{
-                  paddingLeft: level * 20,
+                  paddingLeft: level * 20
                 }}
               >
-                {!node.children ? (
-                  <BsFileEarmark size={22} />
-                ) : (
-                  <BsFolder size={22} />
-                )}
+                {!node.children ? <BsFileEarmark size={22} /> : <BsFolder size={22} />}
               </div>
               <div>{node.name}</div>
             </div>
 
-            {node.children ? (
-              <Inner data={node.children} level={level + 1} />
-            ) : null}
+            {node.children ? <Inner data={node.children} level={level + 1} /> : null}
           </React.Fragment>
         )
       })}
