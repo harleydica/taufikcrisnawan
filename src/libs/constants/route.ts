@@ -19,7 +19,7 @@ const APP_ROUTE = [
 
 export const ADDT_ROUTE = [
   {
-    path: 'https://status.taufikcrisnawan.dev/status/netmon',
+    path: 'https://status.taufikcrisnawan.online/',
     name: 'Status'
   },
   {
