@@ -31,7 +31,7 @@ export const getPageViews = async (slug: string, token: string): Promise<GetPage
   const end_date = new Date()
 
   // please change to your data website id
-  const websitesId = 'b31d4821-5128-4314-aafc-2d2d39d2c193'
+  const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
   const firtsDeployedAppAtMs = 1671469200000
 
