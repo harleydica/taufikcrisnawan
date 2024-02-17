@@ -151,8 +151,8 @@ importers:
         specifier: ^0.5.11
         version: 0.5.11(@trivago/prettier-plugin-sort-imports@4.3.0)(prettier@3.2.5)
       react-spotify-embed:
-        specifier: 2.0.3
-        version: 2.0.3
+        specifier: 2.0.4
+        version: 2.0.4
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0
@@ -7845,8 +7845,8 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-spotify-embed@2.0.3:
-    resolution: {integrity: sha512-buiiaaPrGTyOlciJFJiHz1o2a4iSJMuH9ewi2KaIjVGcedz6szM8plz7Y6HtcDxApxCv2Rwx38xS1z8Zs3M/ZA==}
+  /react-spotify-embed@2.0.4:
+    resolution: {integrity: sha512-bVIToA3Rsw/HhFqBpvveUMJyvijgX0Rw8kpkm5lWRr0GgNyjNynr2rcdpH2OuCTMKkN3ynBn+Zw5nJ794N8vJw==}
     engines: {node: '>=14'}
     dependencies:
       react: 18.2.0
