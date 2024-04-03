@@ -13,7 +13,7 @@ const SOCIAL = [
   },
   {
     title: 'Instagram',
-    href: 'https://instagram.com/taufikntz22'
+    href: 'https://instagram.com/taufikcrisnawan'
   }
 ]
 
