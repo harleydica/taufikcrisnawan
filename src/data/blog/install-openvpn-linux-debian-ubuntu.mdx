@@ -1,0 +1,160 @@
+---
+title: 'Install OpenVPN Linux Debian / Ubuntu'
+summary: 'Cara install OpenVPN Linux Debian / Ubuntu menggunakan example config yang sudah disediakan di dokumentasi OpenVPN, bagaimana caranya? simak tutorial ini sampai selesai😉 '
+featured: true
+author_name: 'Taufik Crisnawan Santoso'
+github_username: 'harleydica'
+published: '4/18/2024'
+topics: ['network']
+keywords: ['tutorial', 'konfigurasi', 'jaringan', 'sija', 'openvpn', 'tkj', 'lksitnsa']
+related: []
+---
+
+## Pendahuluan
+
+![Thumbnail](https://ik.imagekit.io/taufik/blog/openvpn-linux-debian-ubuntu/thumbnail.png 'Thumbnail')
+
+OpenVPN merupakan sebuah perangkat lunak open-source yang memungkinkan Anda untuk membuat jaringan pribadi virtual (VPN) yang aman. Pada kesempatan kali ini, kita akan melakukan cara instalasi OpenVPN di sistem operasi Linux Debian atau Ubuntu menggunakan contoh konfigurasi, sertifikat, dan kunci yang disediakan oleh paket dokumentasi OpenVPN.
+
+### Persiapan
+
+Sebelum melakukan instalasi, pastikan sudah update repository agar mendapatkan daftar package yang terbaru saat melakukan install.
+
+```bash
+sudo apt update
+```
+
+### Install OpenVPN
+
+Jalankan perintah berikut untuk menginstal paket OpenVPN:
+
+```bash
+sudo apt install openvpn
+```
+
+## Konfigurasi OpenVPN Server
+
+Paket dokumentasi OpenVPN menyediakan contoh konfigurasi yang dapat digunakan sebagai titik awal. Salin file konfigurasi contoh ke direktori konfigurasi OpenVPN dengan menjalankan perintah:
+
+```bash
+sudo cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf /etc/openvpn/
+```
+
+Sekarang, Anda dapat mengedit file konfigurasi yang baru saja disalin. Gunakan editor teks favorit Anda, misalnya nano:
+
+```bash
+sudo nano /etc/openvpn/server.conf
+```
+
+Dalam file ini, Anda dapat menyesuaikan pengaturan sesuai kebutuhan Anda. Pastikan untuk memperhatikan parameter seperti port, protokol, enkripsi, dan jalur sertifikat yang akan digunakan. Contoh konfigurasi yang saya gunakan sebagai berikut:
+
+```bash
+port 1194
+proto udp
+dev tun0
+ca ca.crt
+cert server.crt
+key server.key  # This file should be kept secret
+dh dh2048.pem
+topology subnet
+server 10.5.7.0 255.255.255.0
+ifconfig-pool-persist /var/log/openvpn/ipp.txt
+;push "route 192.168.10.0 255.255.255.0" # optional push route
+;push "dhcp-option DNS 208.67.222.222" # optional push dns server
+keepalive 10 120
+status /var/log/openvpn/openvpn-status.log
+log         /var/log/openvpn/openvpn.log
+;log-append  /var/log/openvpn/openvpn.log
+verb 3
+explicit-exit-notify 1
+```
+
+Jika terdapat konfigurasi yang tidak ingin digunakan bisa command baris konfigurasi tersebut menggunakan <Kbd>;</Kbd> atau <Kbd>#</Kbd>.
+
+### Copy Certificate / Key
+
+Paket dokumentasi OpenVPN juga menyertakan sertifikat dan kunci yang dapat Anda gunakan untuk keperluan uji coba. Salin file sertifikat dan kunci ke direktori konfigurasi OpenVPN:
+
+```bash
+sudo cp /usr/share/doc/openvpn/examples/sample-keys/{ca.crt,server.crt,server.key,dh2048.pem} /etc/openvpn/
+```
+
+### Start Service OpenVPN Server
+
+Setelah konfigurasi selesai, mulai layanan OpenVPN dengan menjalankan perintah:
+
+```bash
+sudo systemctl start openvpn@server
+```
+
+Jika tidak ada pesan kesalahan, layanan seharusnya sudah berjalan dengan baik.
+
+## Konfigurasi OpenVPN Client
+
+Untuk menguji koneksi OpenVPN, Anda dapat menggunakan client OpenVPN.
+
+Sama dengan OpenVPN Server, dokumentasi OpenVPN ini juga menyediakan contoh konfigurasi dari sisi client. Salin file konfigurasi contoh ke direktori konfigurasi OpenVPN dengan menjalankan perintah:
+
+```bash
+sudo cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/
+```
+
+Edit file konfigurasi client OpenVPN.
+
+```bash
+sudo nano /etc/openvpn/client.conf
+```
+
+Contoh konfigurasi yang saya gunakan sebagai berikut:
+
+```bash
+remote [alamat_ip_server] 1194
+proto udp
+ca ca.crt
+cert client.crt
+key client.key
+dev tun0
+nobind
+verb 3
+# Penyesuaian tambahan sesuai kebutuhan
+# Misalnya:
+# remote-random
+# resolv-retry infinite
+# tun-mtu 1500
+# tun-mtu-extra 32
+# mssfix 1450
+```
+
+### Copy Example Certificate / Key
+
+Copy file contoh certificate dan key untuk melanjutkan pengujian client.
+
+```bash
+sudo cp /usr/share/doc/openvpn/examples/sample-keys/{ca.crt,client.crt,client.key} /etc/openvpn/
+```
+
+## Pengujian konfigurasi OpenVPN
+
+Setelah Anda melakukan konfigurasi ini sebagai client.conf, Anda dapat menggunakan perintah berikut untuk memulai koneksi ke server OpenVPN:
+
+```bash
+sudo openvpn --config /path/to/client.conf
+```
+
+Pastikan untuk menggantikan /path/to/client.conf dengan jalur yang benar ke file konfigurasi klien Anda. Semoga panduan ini membantu Anda mengatur koneksi OpenVPN pada sisi klien Anda.
+
+Alternatif pengujian juga dapat dilakukan dengan check interface OpenVPN dengan perintah:
+
+```bash
+ip a
+```
+
+Jika sudah muncul interface <Kbd>tun0</Kbd> sudah dipastikan service OpenVPN tidak terjadi kendala.
+
+## Kesimpulan
+
+Sekarang Anda telah berhasil menginstal dan mengonfigurasi OpenVPN di sistem Linux Debian atau Ubuntu Anda. Dengan OpenVPN, Anda dapat membuat jaringan pribadi virtual yang aman untuk berbagai keperluan, seperti mengakses jaringan secara aman melalui internet atau mengamankan koneksi Anda saat menggunakan hotspot Wi-Fi publik.
+
+<Callout icon='👋' type='info'>
+  TERIMAKASIH
+</Callout>
