@@ -58,7 +58,7 @@
     "babel-loader": "^9.0.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "eslint-config-next": "^14.2.1",
     "gray-matter": "^4.0.3",
     "husky": "^9.0.11",
