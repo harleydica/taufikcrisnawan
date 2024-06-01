@@ -49,7 +49,7 @@ importers:
         version: 0.3.4
       motion:
         specifier: ^10.17.0
-        version: 10.17.0
+        version: 10.17.1
       next:
         specifier: ^14.2.3
         version: 14.2.3(@babel/core@7.24.6)(react-dom@18.3.1)(react@18.3.1)
@@ -1617,49 +1617,49 @@ packages:
       react: 18.3.1
     dev: false
 
-  /@motionone/animation@10.17.0:
-    resolution: {integrity: sha512-ANfIN9+iq1kGgsZxs+Nz96uiNcPLGTXwfNo2Xz/fcJXniPYpaz/Uyrfa+7I5BPLxCP82sh7quVDudf1GABqHbg==}
+  /@motionone/animation@10.17.1:
+    resolution: {integrity: sha512-Zi/DmtqDpVt4V4ybe8c2nVlU8q75AjZXx2ynDZ80UJZYZbNrRWaTqNKkzE5sPaufXF6fS9S7Q8VAhec8hiOk8w==}
     dependencies:
-      '@motionone/easing': 10.17.0
-      '@motionone/types': 10.17.0
-      '@motionone/utils': 10.17.0
+      '@motionone/easing': 10.17.1
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.17.1
       tslib: 2.6.2
     dev: false
 
-  /@motionone/dom@10.17.0:
-    resolution: {integrity: sha512-cMm33swRlCX/qOPHWGbIlCl0K9Uwi6X5RiL8Ma6OrlJ/TP7Q+Np5GE4xcZkFptysFjMTi4zcZzpnNQGQ5D6M0Q==}
+  /@motionone/dom@10.17.1:
+    resolution: {integrity: sha512-B+YlVcKG9TO8A4bKfxBxHPd7+C0gYOLBkGPkeqtQ684/Nb7256OKfBbCtc8D04cKmv1ZcoHFrtnRkinxQHnJUg==}
     dependencies:
-      '@motionone/animation': 10.17.0
-      '@motionone/generators': 10.17.0
-      '@motionone/types': 10.17.0
-      '@motionone/utils': 10.17.0
+      '@motionone/animation': 10.17.1
+      '@motionone/generators': 10.17.1
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.17.1
       hey-listen: 1.0.8
       tslib: 2.6.2
     dev: false
 
-  /@motionone/easing@10.17.0:
-    resolution: {integrity: sha512-Bxe2wSuLu/qxqW4rBFS5m9tMLOw+QBh8v5A7Z5k4Ul4sTj5jAOfZG5R0bn5ywmk+Fs92Ij1feZ5pmC4TeXA8Tg==}
+  /@motionone/easing@10.17.1:
+    resolution: {integrity: sha512-9CkCl0xi3YIzf0WyYU4sgQT6S+jIpo7+O13FdF+vE+aTFumOe+8RIC7q3/nsNU5z+VHA1VFZUWtJUVMr1fRF2A==}
     dependencies:
-      '@motionone/utils': 10.17.0
+      '@motionone/utils': 10.17.1
       tslib: 2.6.2
     dev: false
 
-  /@motionone/generators@10.17.0:
-    resolution: {integrity: sha512-T6Uo5bDHrZWhIfxG/2Aut7qyWQyJIWehk6OB4qNvr/jwA/SRmixwbd7SOrxZi1z5rH3LIeFFBKK1xHnSbGPZSQ==}
+  /@motionone/generators@10.17.1:
+    resolution: {integrity: sha512-z8W5dXcW5fB9AkD+aaF2m2cL6yFLx6UcJj1ld+DZguJ7jX56Ue9eKJJ8wWdA/dP0lzDjKwjivGoIroefxTSigg==}
     dependencies:
-      '@motionone/types': 10.17.0
-      '@motionone/utils': 10.17.0
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.17.1
       tslib: 2.6.2
     dev: false
 
-  /@motionone/types@10.17.0:
-    resolution: {integrity: sha512-EgeeqOZVdRUTEHq95Z3t8Rsirc7chN5xFAPMYFobx8TPubkEfRSm5xihmMUkbaR2ErKJTUw3347QDPTHIW12IA==}
+  /@motionone/types@10.17.1:
+    resolution: {integrity: sha512-KaC4kgiODDz8hswCrS0btrVrzyU2CSQKO7Ps90ibBVSQmjkrt2teqta6/sOG59v7+dPnKMAg13jyqtMKV2yJ7A==}
     dev: false
 
-  /@motionone/utils@10.17.0:
-    resolution: {integrity: sha512-bGwrki4896apMWIj9yp5rAS2m0xyhxblg6gTB/leWDPt+pb410W8lYWsxyurX+DH+gO1zsQsfx2su/c1/LtTpg==}
+  /@motionone/utils@10.17.1:
+    resolution: {integrity: sha512-zXZpXnIiTe4wRWlI5xMbgbTsA/55n8ELI35WdN4XwUw5Bbq8PLQF/F8to8nUt8H5eV6ybm60N37FrEl684lSFA==}
     dependencies:
-      '@motionone/types': 10.17.0
+      '@motionone/types': 10.17.1
       hey-listen: 1.0.8
       tslib: 2.6.2
     dev: false
@@ -2157,7 +2157,7 @@ packages:
       '@typescript-eslint/types': 7.11.0
       '@typescript-eslint/typescript-estree': 7.11.0(typescript@5.4.5)
       '@typescript-eslint/visitor-keys': 7.11.0
-      debug: 4.3.4
+      debug: 4.3.5
       eslint: 8.57.0
       typescript: 5.4.5
     transitivePeerDependencies:
@@ -3503,8 +3503,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /chrome-trace-event@1.0.3:
-    resolution: {integrity: sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==}
+  /chrome-trace-event@1.0.4:
+    resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
     engines: {node: '>=6.0'}
     dev: false
 
@@ -3897,6 +3897,18 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
+
+  /debug@4.3.5:
+    resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+    dev: true
 
   /decamelize@1.2.0:
     resolution: {integrity: sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==}
@@ -7134,13 +7146,13 @@ packages:
       minimist: 1.2.8
     dev: true
 
-  /motion@10.17.0:
-    resolution: {integrity: sha512-yBHYkrnJRiomuo88YQzG/v+nzFXKNlKw/Hh7uy8AV7nrYHnE07O6PEECShGbFmZvLrAOGc9qKzEDYmspDYjNWw==}
+  /motion@10.17.1:
+    resolution: {integrity: sha512-ap2uQ8+yGIkT8ad+Mvx08+yRaLO/T1bvMC0x7R1DZV2/q6yXXR/xfpl6YDFTKFXeaeQ2Hl/vW6u4KN5Sdbu+rA==}
     dependencies:
-      '@motionone/animation': 10.17.0
-      '@motionone/dom': 10.17.0
-      '@motionone/types': 10.17.0
-      '@motionone/utils': 10.17.0
+      '@motionone/animation': 10.17.1
+      '@motionone/dom': 10.17.1
+      '@motionone/types': 10.17.1
+      '@motionone/utils': 10.17.1
     dev: false
 
   /mri@1.2.0:
@@ -9765,7 +9777,7 @@ packages:
       acorn: 8.11.3
       acorn-import-assertions: 1.9.0(acorn@8.11.3)
       browserslist: 4.23.0
-      chrome-trace-event: 1.0.3
+      chrome-trace-event: 1.0.4
       enhanced-resolve: 5.16.1
       es-module-lexer: 1.5.3
       eslint-scope: 5.1.1
