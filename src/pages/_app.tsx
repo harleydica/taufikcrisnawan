@@ -4,6 +4,8 @@ import { SkipToContent } from '@/UI/buttons'
 
 import { twclsx } from '@/libs'
 import variants, { withExit } from '@/libs/animation/variants'
+import { AdblockDetector } from 'adblock-detector'
+import { Ads } from '@/components/UI/common/Ads'
 
 import { useTheme } from '@/hooks'
 import '@/styles/globals.css'
@@ -12,7 +14,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // import 'prism-themes/themes/prism-night-owl.css'
 // import 'prism-themes/themes/prism-a11y-dark.css'
 import 'prism-themes/themes/prism-dracula.css'
@@ -27,8 +29,19 @@ const onExitComplete = () => window.scrollTo(0, 0)
 const App = ({ Component, pageProps, router }: AppProps) => {
   const { theme, mounted, systemTheme } = useTheme()
 
+  const [adblock, setAdblock] = useState(false)
+
+  useEffect(() => {
+    const detector = new AdblockDetector()
+    const adblockDetected = detector.detect()
+    if (adblockDetected) {
+      setAdblock(true)
+    }
+  }, [])
+
   return (
     <ThemeProvider attribute='class' storageKey='theme' enableSystem>
+      {adblock && <Ads />}
       <SkipToContent />
       <LazyMotion features={domAnimation}>
         <Header />
