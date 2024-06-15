@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@ctrl/react-adsense": "^1.7.0",
-    "@giscus/react": "^2.4.0",
+    "@giscus/react": "^3.0.0",
     "@headlessui/react": "^1.7.19",
     "@supabase/supabase-js": "^2.43.4",
     "@tailwindcss/typography": "^0.5.13",
