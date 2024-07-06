@@ -118,6 +118,11 @@ export const SUMMARY = [
 
 export const HONOR = [
   {
+    title: `CCNAv7: Introduction to Networks (Cisco).`,
+    level: `Diterbitkan Jul 2024`,
+    href: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ITN.png`
+  },
+  {
     title: `Fortinet Networking Fundamentals (Fortinet).`,
     level: `Diterbitkan Nov 2023`,
     href: `${IMG_URL}/Course_Completion_Certificate.png`

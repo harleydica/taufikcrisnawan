@@ -3,6 +3,7 @@ type Albums = Array<{ title: string; src: string }>
 const IMG_URL = 'https://ik.imagekit.io/taufik/certificate'
 
 const ALBUMS: Albums = [
+  { title: 'CCNAv7: Introduction to Networks - Cisco', src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ITN.png` },
   { title: 'Cisco Certified Support Technician - Networking (CCST) - Cisco', src: `${IMG_URL}/CCST-Networking.png` },
   {
     title: 'Network Addressing and Basic Troubleshooting (Cisco)',
