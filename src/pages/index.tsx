@@ -69,7 +69,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
 
             <div className='[&>p:not(:last-child)]:mb-3 [&>p]:max-w-prose md:pb-6'>
               <p>
-                Hello👋, I&apos;m Taufik Crisnawan Santoso, a student at SMKN 2 Depok, majoring in SIJA (System
+                Hello👋, I&apos;m Taufik Crisnawan Santoso, a student at Universitas Terbuka, majoring in (System
                 Information Network and Aplication).
               </p>
 

@@ -9,7 +9,6 @@ import {
   EXPERIENCE,
   HEADLINE,
   KEY_SKILLS,
-  LANGUAGES,
   LINKS,
   SKILLS,
   SUMMARY,
@@ -158,7 +157,7 @@ const Resume: NextPage = () => {
 
               {ed.list && (
                 <>
-                  <p>{ed.list.title}</p>
+                  {/* <p>{ed.list.title}</p> */}
                   <ul className={listStyle}>
                     {ed.list.listItem.map((item) => (
                       <li key={item}>{item}</li>
@@ -217,7 +216,7 @@ const Resume: NextPage = () => {
           ))}
         </section>
 
-        <section>
+        {/* <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Bahasa</h3>
 
           {LANGUAGES.map((lang) => (
@@ -225,7 +224,7 @@ const Resume: NextPage = () => {
               <strong>{lang.title}:</strong> {lang.level}.
             </p>
           ))}
-        </section>
+        </section> */}
 
         <section>
           <h3 className='mb-4 pb-2.5 border-b-2 border-b-theme-700'>Kontak Saya</h3>
