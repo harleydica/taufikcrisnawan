@@ -117,7 +117,7 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
       }
     }
 
-  const baseURL = isDev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev'
+  const baseURL = isDev ? 'http://localhost:3000' : (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://taufikcrisnawan.dev')
 
   const blogs: Blog[] = []
 
