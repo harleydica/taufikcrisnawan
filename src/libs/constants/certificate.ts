@@ -4,6 +4,10 @@ const IMG_URL = 'https://ik.imagekit.io/taufik/certificate'
 
 const ALBUMS: Albums = [
   {
+    title: `CCNAv7: Enterprise Networking, Security, and Automation - Cisco`,
+    src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ENSA.png`
+  },
+  {
     title: `CCNAv7: Switching, Routing, and Wireless Essentials - Cisco`,
     src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-SRWE.png`
   },

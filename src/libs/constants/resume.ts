@@ -129,6 +129,11 @@ export const SUMMARY = [
 
 export const HONOR = [
   {
+    title: 'CCNAv7: Enterprise Networking, Security, and Automation (Cisco).',
+    level: 'Diterbitkan Okt 2024',
+    href: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ENSA.png`
+  },
+  {
     title: 'CCNAv7: Switching, Routing, and Wireless Essentials (Cisco).',
     level: 'Diterbitkan Agu 2024',
     href: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-SRWE.png`
