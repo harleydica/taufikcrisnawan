@@ -5,13 +5,13 @@ const IMG_URL = 'https://ik.imagekit.io/taufik/certificate'
 const ALBUMS: Albums = [
   {
     title: `CCNAv7: Enterprise Networking, Security, and Automation - Cisco`,
-    src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ENSA.png`
+    src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ENSA-1.png`
   },
   {
     title: `CCNAv7: Switching, Routing, and Wireless Essentials - Cisco`,
-    src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-SRWE.png`
+    src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-SRWE-1.png`
   },
-  { title: 'CCNAv7: Introduction to Networks - Cisco', src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ITN.png` },
+  { title: 'CCNAv7: Introduction to Networks - Cisco', src: `${IMG_URL}/taufik-crisnawan-santoso-CCNA-ITN-1.png` },
   { title: 'Cisco Certified Support Technician - Networking (CCST) - Cisco', src: `${IMG_URL}/CCST-Networking.png` },
   {
     title: 'Network Addressing and Basic Troubleshooting (Cisco)',
