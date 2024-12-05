@@ -39,7 +39,7 @@ export const EXPERIENCE: Experience[] = [
     role: 'Network Operating Center Staff',
     period: {
       start: 'Januari 2024',
-      end: 'Sekarang'
+      end: 'November 2024'
     },
     lists: []
   },
