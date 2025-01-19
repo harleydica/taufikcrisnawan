@@ -84,13 +84,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       </article>
 
       <GiscusComment />
-
-      <div className='flex flex-col space-y-2.5 md:space-y-0 md:flex-row md:items-center md:justify-between mt-8'>
-        <PRButton path={`/blog/${header.slug}.mdx`} />
-
-        <ToTopButton />
-      </div>
-      <br></br>
       <Adsense
         client='ca-pub-9254295768355301'
         slot='8371723731'
@@ -98,6 +91,13 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
         layout='in-article'
         format='fluid'
       />
+
+      <div className='flex flex-col space-y-2.5 md:space-y-0 md:flex-row md:items-center md:justify-between mt-8'>
+        <PRButton path={`/blog/${header.slug}.mdx`} />
+
+        <ToTopButton />
+      </div>
+      <br></br>
     </LayoutPage>
   )
 }
