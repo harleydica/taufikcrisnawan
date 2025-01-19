@@ -5,6 +5,7 @@ import { Code } from './Code'
 import { ContentImage } from './ContentImage'
 import { HeadingFour, HeadingThree, HeadingTwo } from './Headings'
 import { Pre } from './Pre'
+import Table from './Table'
 
 import { MDXRemoteProps } from 'next-mdx-remote'
 import Callout from './Callout'
@@ -19,6 +20,7 @@ const MDXComponents = {
   a: UnderlineLink,
   ContentImage,
   Callout,
+  Table,
   Tree,
   Kbd,
   h2: HeadingTwo,
