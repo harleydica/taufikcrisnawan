@@ -1,0 +1,257 @@
+---
+title: 'iRedMail Open Source Mail Server Solution'
+summary: 'In this article I am going to explain, how to setup iRedMail - Mail Server in Ubuntu 24.04. How? read this article to the end😉'
+featured: true
+author_name: 'Taufik Crisnawan Santoso'
+github_username: 'harleydica'
+published: '09/09/2025'
+topics: ['MAIL']
+keywords: ['mail-server', 'server', 'iredmail', 'email', 'linux', 'ubuntu 24.04']
+related: []
+---
+
+![Thumbnail](https://ik.imagekit.io/taufik/blog/iredmail/thumbnail-iredmail.jpg 'Thumbnail')
+
+## PENDAHULUAN
+
+Membuat mail server sendiri kita akan sedikit mendapati kerumitan karena harus melakukan konfigurasi seperti SMTP, IMAP, webmail, hingga antispam secara terpisah. iRedMail hadir sebagai solusi open source yang mempersingkat proses tersebut dengan paket instalasi. Dengan iRedMail, kita dapat dengan mudah membuat mail server yang aman, stabil, dan mendukung berbagai fitur modern hanya dalam beberapa langkah. Kali ini saya akan membahas cara menginstal iRedMail dari awal hingga siap digunakan sebagai solusi mail server.
+
+## PERSIAPAN
+
+Sebelum memulai instalasi, dipastikan server sudah memenuhi beberapa persyaratan yang dibutuhkan sebagai berikut:
+
+1. Server dengan OS Linux (Ubuntu, Debian, Rocky/AlmaLinux, RHEL).
+2. Minimal 2 vCPU, 2 GB RAM, 20 GB storage.
+3. IP publik statis dan domain aktif.
+4. DNS record (A, MX, PTR, SPF/DKIM/DMARC).
+5. Akses root/SSH ke server fresh install.
+
+### Setup Hostname, domain name (FQDN) pada server anda
+
+Ketik command <Kbd>hostname -f</Kbd> untuk mengetahui hostname server anda sekarang:
+
+```bash
+$ hostname -f
+mail.karyasija.id
+```
+
+Pada Linux terdapat nama host yang harus di set dalam 2 file: <Kbd>/etc/hostname</Kbd> dan <Kbd>/etc/hosts</Kbd>:
+
+<Kbd>/etc/hostname</Kbd> nama host atau nama server, bukan FQDN, contoh:
+
+```bash
+$ hostname
+mail
+```
+
+<Kbd>/etc/hosts</Kbd> pada file ini harap masukkan host FQDN secara lengkap:
+
+```bash
+# /etc/hosts
+127.0.0.1   mail.karyasija.id mail localhost localhost.localdomain
+```
+
+### Pastikan repository apt resmi dari Linux Ubuntu
+
+iRedMail membutuhkan repository apt dari Ubuntu, dan berikut package yang dibutuhkan oleh iRedMail:
+
+```bash
+sudo apt update && apt upgrade -y
+sudo apt-get install -y gzip dialog
+```
+
+### Unduh latest release iRedMail
+
+Kunjungi halaman [Unduh](https://www.iredmail.org/download.html) untuk mendapatkan latest release stable iRedMail.
+
+```bash
+sudo mkdir -p /root/downloads
+cd /root/downloads
+tar zxf iRedMail-1.7.4.tar.gz
+```
+
+## INSTALASI iRedMail
+
+Nah sudah semua yang dipersiapkan, saat ini kita akan mulai melakukan intsallasi iRedmail, sangat mudah sekali, ikuti cara berikut:
+
+```bash
+cd /root/iRedMail-x.y.z/
+bash iRedMail.sh
+```
+
+1. Ikuti langkah berikut <Kbd>Yes</Kbd>:
+
+![1 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/1-iredmail.jpg '1 - iRedMail')
+
+2. Tentukan direktori untuk menyimpan mailbox, saya gunakan default <Kbd>/var/vmail/</Kbd> :
+
+![2 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/2-iredmail.jpg '2 - iRedMail')
+
+3. Pilih webserver yang akan digunakan, saya hanya memiliki NGINX sebagai webservernya:
+
+![3 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/3-iredmail.jpg '3 - iRedMail') 4. Pilih backend data yang akan digunakan untuk menyimpan akun email, kalian dapat mengelola akun tersebut dengan iRedAdmin, panel admin dari iRedMail web based:
+
+<Callout icon='👋' type='info'>
+  Pada pilihan ini tidak ada perbedaan yang signifikan, namun saya sarankan untuk menggunakan backend yang familiar
+  kalian gunakan, agar mudah saat ingin melakukan maintenance setelah instalasi.
+</Callout>
+
+![4 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/4-iredmail.jpg '4 - iRedMail')
+
+Saya menggunakan OpenLDAP, maka akan diminta untuk mengkonfigurasi sufix LDAP
+
+![5 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/5-iredmail.jpg '5 - iRedMail')
+
+5. Isikan password MySQL untuk administration:
+
+![6 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/6-iredmail.jpg '6 - iRedMail')
+
+6. Isikan nama domain email pertama kalian:
+
+![7 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/7-iredmail.jpg '7 - iRedMail')
+
+7. Buat kata sandi untuk admin domain email kalian:
+
+![8 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/8-iredmail.jpg '8 - iRedMail')
+
+<Callout type='warning'>
+  Perlu diingat, akun ini merupakan akun admin dan akun email. Artinya, kalian dapat masuk kedalam webmail atau admin
+  panel dari iRedMail dengan akun ini.
+</Callout>
+
+8. Pilih komponen opsional:
+
+![9 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/9-iredmail.jpg '9 - iRedMail')
+
+Saya menghidupkan SOGo karena menawarkan webmail, kalender (CalDAV), kontak (CardDAV), dan ActiveSync. Namun akan membutuhkan lebih banyak RAM.
+
+9. Setelah menjawab semua pertanyaan di atas, maka akan diminta untuk mengkonfirmasi sebelum memulai instalasi. Package yang dibutuhkan tersebut akan secara otomatis di install dan di konfigurasi secara otomatis. Ketik <Kbd>Y</Kbd> dan tekan <Kbd>Enter</Kbd> untuk melanjutkan.
+
+![10 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/10-iredmail.jpg '10 - iRedMail')
+
+<Callout icon='👋' type='info'>
+  Maaf capture saya sedikit rusak, kurang lebih terdapat summary dari instalasi iRedMail.
+</Callout>
+
+10. Selamat instalasi iRedMail kalian sudah selesai, sangat mudah bukan? Berikut tampilannya:
+
+![11 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/11-iredmail.jpg '11 - iRedMail')
+
+## Akses WebMail dan Aplikasi lainnya
+
+Setelah instalasi berhasil, kalian dapat mengakses web jika kalian memilih untuk menginstalnya. Ganti your_server di bawah ini dengan nama host server atau alamat IP kalian:
+
+- Webmail Roundcube : https://server_Anda/mail/
+- SOGo Groupware : https://server_Anda/SOGo
+- Panel admin web (iRedAdmin) : https://server_Anda/iredadmin/
+
+## Beberapa hal yang harus kalian konfirugasi
+
+### Setup DNS record
+
+1. A Record untuk host server
+
+Berikut contoh record A yang dapat kalian tambahkan pada DNS Manager:
+
+```bash
+mail.karyasija.id.   1800    A       103.182.81.69
+```
+
+2. Record reverse PTR untuk alamt IP server kalian
+
+Kemungkinan kalian perlu menghubungi ISP atau Cloud provider dan mengajukan permintaan untuk membuat catatan PTR terbalik untuk alamat IP server email kalian. Contoh mail.karyasija.id kalian harus meminta record reverse PTR untuk IP anda 103.182.81.69 (IP Public kalian) di reverse DNS provider.
+
+<Callout type='warning'>
+  Jika kalian tidak melakukan setup pada record reverse PTR ini, kemungkinan besar software filter spam email akan
+  memblokir email dari server email Anda.
+</Callout>
+
+Berikut contoh verifikasi jika kalian sudah request untuk record reverse PTR
+
+![12 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/12-iredmail.jpg '12 - iRedMail')
+
+3. Record MX (Mail Exchanger Record)
+
+Berikut contoh record MX yang dapat kalian tambahkan pada DNS Manager:
+
+```bash
+karyasija.id.   10          mx      mail.karyasija.id.
+```
+
+Maka hasil dari record ini adalah, email yang dikirim <Kbd>[user]@karyasija.id</Kbd> akan dikirimkan ke server <Kbd>mail.karyasija.id</Kbd>
+
+4. Record SPF
+
+SPF adalah rekaman DNS tipe TXT, kalian dapat menambahkan alamat IP atau domain MX di dalamnya. Contohnya:
+
+```bash
+karyasija.id.   3600    IN  TXT "v=spf1 mx -all"
+```
+
+Artinya email yang dikirim ke semua server yang ditetapkan pada MX karyasija.id akan diizinkan untuk dikirim sebagai <Kbd>someone@karyasija.id</Kbd>
+
+<Kbd>-all</Kbd> berarti melarang email yang dikirim dari semua server lain, kalian dapat menggunakan <Kbd>~all</Kbd>
+"soft fail" jika terlalu strict.
+
+4. Record DKIM
+
+Kalian perlu melakukan sedikit perintah untuk mengatur record DKIM, jalankan perintah berikut di terminal untuk menampilkan DKIM:
+
+```bash
+amavisd-new showkeys
+```
+
+![13 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/13-iredmail.jpg '13 - iRedMail')
+
+Salin output di atas ke dalam satu baris seperti di bawah ini, hapus semua tanda kutip, tetapi tetap gunakan ;. hanya perlu string di dalam ()blok , itu adalah nilai record DKIM.
+
+```bash
+v=DKIM1; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKEvNolV7FxQJPjfpq8064eGkG...
+```
+
+Jika sudah melakukan penambahan record DKIM, varifikasi dengan <Kbd>dig</Kbd> atau <Kbd>nslookup</Kbd>:
+
+```bash
+dig -t txt dkim._domainkey.karyasija.id
+```
+
+Contoh output:
+
+![14 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/14-iredmail.jpg '14 - iRedMail')
+
+Terakhir, jalankan perintah berikut untuk verifikasi dengan Amavisd:
+
+```bash
+$ amavisd-new testkeys
+TESTING karyasija.id: dkim._domainkey.karyasija.id => pass
+```
+
+5. Record DMARC
+
+DMARC sangat bergantung pada record SPF dan DKIM, pastikan kalian memiliki record SPF dan DKIM yang benar dan terbaru yang dipublikasikan.
+
+Record DMARC adalah record DNS jenis TXT.
+
+Berikut contoh record DMARC:
+
+```bash
+v=DMARC1; p=none; rua=mailto:dmarc@karyasija.id
+```
+
+## KESIMPULAN
+
+Dengan iRedMail, proses instalasi mail server yang biasanya rumit dapat dilakukan dengan jauh lebih mudah karena semua package penting seperti Postfix, Dovecot, webmail, antispam, hingga admin panel sudah terintegrasi dalam satu paket instalasi. Selama server memenuhi persyaratan dasar (OS, resource, domain, dan konfigurasi DNS), instalasi bisa berjalan mulus hanya dengan beberapa langkah interaktif.
+
+Setelah instalasi, jangan lupa melakukan konfigurasi tambahan seperti pengaturan DNS record (A, MX, PTR, SPF, DKIM, DMARC) agar email yang dikirim tidak dianggap spam. Dengan langkah ini, iRedMail dapat menjadi solusi open source yang andal, aman, dan siap digunakan baik untuk kebutuhan personal, organisasi, maupun perusahaan.
+
+![15 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/15-iredmail.jpg '15 - iRedMail')
+
+![16 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/16-iredmail.jpg '16 - iRedMail')
+
+![17 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/17-iredmail.jpg '17 - iRedMail')
+
+![18 - iRedMail](https://ik.imagekit.io/taufik/blog/iredmail/18-iredmail.jpg '18 - iRedMail')
+
+<Callout icon='👋' type='info'>
+  TERIMA KASIH, jika terdapat kekurangan atau salah kata, jangan ragu untuk menghubungi saya jika terdapat pertanyaan 😇
+</Callout>
