@@ -19,8 +19,8 @@ const APP_ROUTE = [
 
 export const ADDT_ROUTE = [
   {
-    path: 'https://obs.tafk.me/',
-    name: 'Status'
+    path: 'https://nms.taufikcrisnawan.dev',
+    name: 'NMS'
   },
   {
     path: '/tags',
