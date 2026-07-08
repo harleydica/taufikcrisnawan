@@ -35,11 +35,20 @@ export const KEY_SKILLS = [
 
 export const EXPERIENCE: Experience[] = [
   {
-    companyName: 'PT Era Awan Digital (eranyacloud)',
+    companyName: 'PT Era Awan Digital (Eranyacloud)',
+    role: 'Cloud Support (L1)',
+    period: {
+      start: 'Juni 2026',
+      end: 'Sekarang '
+    },
+    lists: []
+  },
+  {
+    companyName: 'PT Era Awan Digital (Eranyacloud)',
     role: 'Cloud Support (L1)',
     period: {
       start: 'Desember 2024',
-      end: 'Sekarang'
+      end: 'Mei 2026'
     },
     lists: []
   },
